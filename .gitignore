@@ -11,10 +11,4 @@ lib/musl-gcc.specs
 
 .vscode
 .DS_Store
-
-Makefile
-config.h
-config.log
-config.status
-libtool
-sqlite3.pc
+build/
