@@ -1,5 +1,4 @@
 *.json
-*.c.i
 *.o
 *.lo
 *.a
@@ -12,3 +11,6 @@ lib/musl-gcc.specs
 .vscode
 .DS_Store
 build/
+
+*.log
+go.*
