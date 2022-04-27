@@ -19,3 +19,4 @@
 
 build/
 go.*
+c2go_autogen*.go
