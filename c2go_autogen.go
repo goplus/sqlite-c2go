@@ -51,6 +51,24 @@ type struct_user struct {
 type struct_vnode struct {
 }
 
+func __atomic_load_n_i32(*int32, int32) int32 {
+	panic("notimpl")
+}
+func __atomic_load_n_u16(*uint16, int32) uint16 {
+	panic("notimpl")
+}
+func __atomic_load_n_u32(*uint32, int32) uint32 {
+	panic("notimpl")
+}
+func __atomic_store_n_i32(*int32, int32, int32) {
+	panic("notimpl")
+}
+func __atomic_store_n_u16(*uint16, int32, uint16) {
+	panic("notimpl")
+}
+func __atomic_store_n_u32(*uint32, int32, uint32) {
+	panic("notimpl")
+}
 func __builtin___memcpy_chk(unsafe.Pointer, unsafe.Pointer, uint, uint) unsafe.Pointer {
 	panic("notimpl")
 }
