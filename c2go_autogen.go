@@ -147,7 +147,7 @@ func atoi(*int8) int32 {
 func close(int32) int32 {
 	panic("notimpl")
 }
-func confstr(int32, *int8, uint) uint {
+func confstr(int32, *int8, uint64) uint64 {
 	panic("notimpl")
 }
 func dlclose(__handle unsafe.Pointer) int32 {
@@ -179,7 +179,7 @@ func fprintf(*struct___sFILE, *int8, ...interface {
 }) int32 {
 	panic("notimpl")
 }
-func fsctl(*int8, uint, unsafe.Pointer, uint32) int32 {
+func fsctl(*int8, uint64, unsafe.Pointer, uint32) int32 {
 	panic("notimpl")
 }
 func fstat(int32, *struct_stat) int32 {
@@ -197,7 +197,7 @@ func ftruncate(int32, int64) int32 {
 func futimes(int32, *struct_timeval) int32 {
 	panic("notimpl")
 }
-func getcwd(*int8, uint) *int8 {
+func getcwd(*int8, uint64) *int8 {
 	panic("notimpl")
 }
 func getenv(*int8) *int8 {
@@ -215,13 +215,13 @@ func getpid() int32 {
 func gettimeofday(*struct_timeval, unsafe.Pointer) int32 {
 	panic("notimpl")
 }
-func localtime(*int) *struct_tm {
+func localtime(*int64) *struct_tm {
 	panic("notimpl")
 }
 func lstat(*int8, *struct_stat) int32 {
 	panic("notimpl")
 }
-func malloc_create_zone(start_size uint, flags uint32) *struct__malloc_zone_t {
+func malloc_create_zone(start_size uint64, flags uint32) *struct__malloc_zone_t {
 	panic("notimpl")
 }
 func malloc_default_zone() *struct__malloc_zone_t {
@@ -230,35 +230,35 @@ func malloc_default_zone() *struct__malloc_zone_t {
 func malloc_set_zone_name(zone *struct__malloc_zone_t, name *int8) {
 	panic("notimpl")
 }
-func malloc_size(ptr unsafe.Pointer) uint {
+func malloc_size(ptr unsafe.Pointer) uint64 {
 	panic("notimpl")
 }
 func malloc_zone_free(zone *struct__malloc_zone_t, ptr unsafe.Pointer) {
 	panic("notimpl")
 }
-func malloc_zone_malloc(zone *struct__malloc_zone_t, size uint) unsafe.Pointer {
+func malloc_zone_malloc(zone *struct__malloc_zone_t, size uint64) unsafe.Pointer {
 	panic("notimpl")
 }
-func malloc_zone_realloc(zone *struct__malloc_zone_t, ptr unsafe.Pointer, size uint) unsafe.Pointer {
+func malloc_zone_realloc(zone *struct__malloc_zone_t, ptr unsafe.Pointer, size uint64) unsafe.Pointer {
 	panic("notimpl")
 }
-func memcmp(__s1 unsafe.Pointer, __s2 unsafe.Pointer, __n uint) int32 {
+func memcmp(__s1 unsafe.Pointer, __s2 unsafe.Pointer, __n uint64) int32 {
 	panic("notimpl")
 }
 func mkdir(*int8, uint16) int32 {
 	panic("notimpl")
 }
-func mmap(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer {
+func mmap(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer {
 	panic("notimpl")
 }
-func munmap(unsafe.Pointer, uint) int32 {
+func munmap(unsafe.Pointer, uint64) int32 {
 	panic("notimpl")
 }
 func open(*int8, int32, ...interface {
 }) int32 {
 	panic("notimpl")
 }
-func pread(__fd int32, __buf unsafe.Pointer, __nbyte uint, __offset int64) int {
+func pread(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64 {
 	panic("notimpl")
 }
 func pthread_create(**struct__opaque_pthread_t, *struct__opaque_pthread_attr_t, func(unsafe.Pointer) unsafe.Pointer, unsafe.Pointer) int32 {
@@ -291,16 +291,16 @@ func pthread_mutexattr_init(*struct__opaque_pthread_mutexattr_t) int32 {
 func pthread_mutexattr_settype(*struct__opaque_pthread_mutexattr_t, int32) int32 {
 	panic("notimpl")
 }
-func pwrite(__fd int32, __buf unsafe.Pointer, __nbyte uint, __offset int64) int {
+func pwrite(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64 {
 	panic("notimpl")
 }
-func random() int {
+func random() int64 {
 	panic("notimpl")
 }
-func read(int32, unsafe.Pointer, uint) int {
+func read(int32, unsafe.Pointer, uint64) int64 {
 	panic("notimpl")
 }
-func readlink(*int8, *int8, uint) int {
+func readlink(*int8, *int8, uint64) int64 {
 	panic("notimpl")
 }
 func rename(__old *int8, __new *int8) int32 {
@@ -324,25 +324,25 @@ func statfs(*int8, *struct_statfs) int32 {
 func strcmp(__s1 *int8, __s2 *int8) int32 {
 	panic("notimpl")
 }
-func strcspn(__s *int8, __charset *int8) uint {
+func strcspn(__s *int8, __charset *int8) uint64 {
 	panic("notimpl")
 }
-func strlen(__s *int8) uint {
+func strlen(__s *int8) uint64 {
 	panic("notimpl")
 }
-func strncmp(__s1 *int8, __s2 *int8, __n uint) int32 {
+func strncmp(__s1 *int8, __s2 *int8, __n uint64) int32 {
 	panic("notimpl")
 }
 func strrchr(__s *int8, __c int32) *int8 {
 	panic("notimpl")
 }
-func sysconf(int32) int {
+func sysconf(int32) int64 {
 	panic("notimpl")
 }
-func sysctlbyname(*int8, unsafe.Pointer, *uint, unsafe.Pointer, uint) int32 {
+func sysctlbyname(*int8, unsafe.Pointer, *uint64, unsafe.Pointer, uint64) int32 {
 	panic("notimpl")
 }
-func time(*int) int {
+func time(*int64) int64 {
 	panic("notimpl")
 }
 func unlink(*int8) int32 {
@@ -351,6 +351,6 @@ func unlink(*int8) int32 {
 func utimes(*int8, *struct_timeval) int32 {
 	panic("notimpl")
 }
-func write(__fd int32, __buf unsafe.Pointer, __nbyte uint) int {
+func write(__fd int32, __buf unsafe.Pointer, __nbyte uint64) int64 {
 	panic("notimpl")
 }

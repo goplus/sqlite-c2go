@@ -303,22 +303,22 @@ type __int32_t = int32
 type __uint32_t = uint32
 type __int64_t = int64
 type __uint64_t = uint64
-type __darwin_intptr_t = int
+type __darwin_intptr_t = int64
 type __darwin_natural_t = uint32
 type __darwin_ct_rune_t = int32
 type _cgoa_1 struct {
 	__mbstate8 [128]int8
 }
 type __darwin_mbstate_t = _cgoa_1
-type __darwin_ptrdiff_t = int
-type __darwin_size_t = uint
+type __darwin_ptrdiff_t = int64
+type __darwin_size_t = uint64
 type __darwin_wchar_t = int32
 type __darwin_rune_t = int32
 type __darwin_wint_t = int32
-type __darwin_clock_t = uint
+type __darwin_clock_t = uint64
 type __darwin_socklen_t = uint32
-type __darwin_ssize_t = int
-type __darwin_time_t = int
+type __darwin_ssize_t = int64
+type __darwin_time_t = int64
 type __darwin_blkcnt_t = int64
 type __darwin_blksize_t = int32
 type __darwin_dev_t = int32
@@ -345,46 +345,46 @@ type struct___darwin_pthread_handler_rec struct {
 	__next    *struct___darwin_pthread_handler_rec
 }
 type struct__opaque_pthread_attr_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [56]int8
 }
 type struct__opaque_pthread_cond_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [40]int8
 }
 type struct__opaque_pthread_condattr_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [8]int8
 }
 type struct__opaque_pthread_mutex_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [56]int8
 }
 type struct__opaque_pthread_mutexattr_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [8]int8
 }
 type struct__opaque_pthread_once_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [8]int8
 }
 type struct__opaque_pthread_rwlock_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [192]int8
 }
 type struct__opaque_pthread_rwlockattr_t struct {
-	__sig    int
+	__sig    int64
 	__opaque [16]int8
 }
 type struct__opaque_pthread_t struct {
-	__sig           int
+	__sig           int64
 	__cleanup_stack *struct___darwin_pthread_handler_rec
 	__opaque        [8176]int8
 }
 type __darwin_pthread_attr_t = struct__opaque_pthread_attr_t
 type __darwin_pthread_cond_t = struct__opaque_pthread_cond_t
 type __darwin_pthread_condattr_t = struct__opaque_pthread_condattr_t
-type __darwin_pthread_key_t = uint
+type __darwin_pthread_key_t = uint64
 type __darwin_pthread_mutex_t = struct__opaque_pthread_mutex_t
 type __darwin_pthread_mutexattr_t = struct__opaque_pthread_mutexattr_t
 type __darwin_pthread_once_t = struct__opaque_pthread_once_t
@@ -403,8 +403,8 @@ type u_int16_t = uint16
 type u_int32_t = uint32
 type u_int64_t = uint64
 type register_t = int64
-type intptr_t = int
-type uintptr_t = uint
+type intptr_t = int64
+type uintptr_t = uint64
 type user_addr_t = uint64
 type user_size_t = uint64
 type user_ssize_t = int64
@@ -413,7 +413,7 @@ type user_ulong_t = uint64
 type user_time_t = int64
 type user_off_t = int64
 type syscall_arg_t = uint64
-type size_t = uint
+type size_t = uint64
 type fpos_t = int64
 type struct___sbuf struct {
 	_base *uint8
@@ -465,7 +465,7 @@ func __sputc(_c int32, _p *struct___sFILE) int32 {
 }
 
 type off_t = int64
-type ssize_t = int
+type ssize_t = int64
 
 const (
 	P_ALL  int32 = 0
@@ -989,7 +989,7 @@ type mcontext_t = *struct___darwin_mcontext64
 type pthread_attr_t = struct__opaque_pthread_attr_t
 type struct___darwin_sigaltstack struct {
 	ss_sp    unsafe.Pointer
-	ss_size  uint
+	ss_size  uint64
 	ss_flags int32
 }
 type stack_t = struct___darwin_sigaltstack
@@ -998,7 +998,7 @@ type struct___darwin_ucontext struct {
 	uc_sigmask  uint32
 	uc_stack    struct___darwin_sigaltstack
 	uc_link     *struct___darwin_ucontext
-	uc_mcsize   uint
+	uc_mcsize   uint64
 	uc_mcontext *struct___darwin_mcontext64
 }
 type ucontext_t = struct___darwin_ucontext
@@ -1023,8 +1023,8 @@ type struct___siginfo struct {
 	si_status int32
 	si_addr   unsafe.Pointer
 	si_value  union_sigval
-	si_band   int
-	__pad     [7]uint
+	si_band   int64
+	__pad     [7]uint64
 }
 type siginfo_t = struct___siginfo
 type union___sigaction_u struct {
@@ -1071,30 +1071,30 @@ type uint_fast8_t = uint8
 type uint_fast16_t = uint16
 type uint_fast32_t = uint32
 type uint_fast64_t = uint64
-type intmax_t = int
-type uintmax_t = uint
+type intmax_t = int64
+type uintmax_t = uint64
 type struct_timeval struct {
-	tv_sec  int
+	tv_sec  int64
 	tv_usec int32
 }
 type rlim_t = uint64
 type struct_rusage struct {
 	ru_utime    struct_timeval
 	ru_stime    struct_timeval
-	ru_maxrss   int
-	ru_ixrss    int
-	ru_idrss    int
-	ru_isrss    int
-	ru_minflt   int
-	ru_majflt   int
-	ru_nswap    int
-	ru_inblock  int
-	ru_oublock  int
-	ru_msgsnd   int
-	ru_msgrcv   int
-	ru_nsignals int
-	ru_nvcsw    int
-	ru_nivcsw   int
+	ru_maxrss   int64
+	ru_ixrss    int64
+	ru_idrss    int64
+	ru_isrss    int64
+	ru_minflt   int64
+	ru_majflt   int64
+	ru_nswap    int64
+	ru_inblock  int64
+	ru_oublock  int64
+	ru_msgsnd   int64
+	ru_msgrcv   int64
+	ru_nsignals int64
+	ru_nvcsw    int64
+	ru_nivcsw   int64
 }
 type rusage_info_t = unsafe.Pointer
 type struct_rusage_info_v0 struct {
@@ -1294,8 +1294,8 @@ type _cgoa_4 struct {
 	rem  int32
 }
 type _cgoa_5 struct {
-	quot int
-	rem  int
+	quot int64
+	rem  int64
 }
 type _cgoa_6 struct {
 	quot int64
@@ -1303,9 +1303,9 @@ type _cgoa_6 struct {
 }
 type dev_t = int32
 type mode_t = uint16
-type rsize_t = uint
+type rsize_t = uint64
 type errno_t = int32
-type ptrdiff_t = int
+type ptrdiff_t = int64
 type max_align_t = float64
 type i64 = int64
 type u64 = uint64
@@ -2726,11 +2726,11 @@ func sqlite3_db_status(db *struct_sqlite3, op int32, pCurrent *int32, pHighwater
 	return rc
 }
 
-type clock_t = uint
-type time_t = int
+type clock_t = uint64
+type time_t = int64
 type struct_timespec struct {
-	tv_sec  int
-	tv_nsec int
+	tv_sec  int64
+	tv_nsec int64
 }
 type struct_tm struct {
 	tm_sec    int32
@@ -2742,7 +2742,7 @@ type struct_tm struct {
 	tm_wday   int32
 	tm_yday   int32
 	tm_isdst  int32
-	tm_gmtoff int
+	tm_gmtoff int64
 	tm_zone   *int8
 }
 
@@ -3114,7 +3114,7 @@ func clearYMD_HMS_TZ(p *struct_DateTime) {
 	p.validHMS = int8(0)
 	p.validTZ = int8(0)
 }
-func osLocaltime(t *int, pTm *struct_tm) int32 {
+func osLocaltime(t *int64, pTm *struct_tm) int32 {
 	var rc int32
 	var pX *struct_tm
 	var mutex *struct_sqlite3_mutex = sqlite3MutexAlloc(2)
@@ -3143,7 +3143,7 @@ func osLocaltime(t *int, pTm *struct_tm) int32 {
 	return rc
 }
 func toLocaltime(p *struct_DateTime, pCtx *struct_sqlite3_context) int32 {
-	var t int
+	var t int64
 	var sLocal struct_tm
 	var iYearDiff int32
 	__builtin___memset_chk(unsafe.Pointer(&sLocal), 0, 56, __builtin_object_size(unsafe.Pointer(&sLocal), 0))
@@ -3155,10 +3155,10 @@ func toLocaltime(p *struct_DateTime, pCtx *struct_sqlite3_context) int32 {
 		x.Y += iYearDiff
 		x.validJD = int8(0)
 		computeJD(&x)
-		t = int(x.iJD/int64(1000) - int64(21086676)*int64(10000))
+		t = int64(x.iJD/int64(1000) - int64(21086676)*int64(10000))
 	} else {
 		iYearDiff = int32(0)
-		t = int(p.iJD/int64(1000) - int64(21086676)*int64(10000))
+		t = int64(p.iJD/int64(1000) - int64(21086676)*int64(10000))
 	}
 	if osLocaltime(&t, &sLocal) != 0 {
 		sqlite3_result_error(pCtx, (*int8)(unsafe.Pointer(&[23]int8{'l', 'o', 'c', 'a', 'l', ' ', 't', 'i', 'm', 'e', ' ', 'u', 'n', 'a', 'v', 'a', 'i', 'l', 'a', 'b', 'l', 'e', '\x00'})), -1)
@@ -3625,8 +3625,8 @@ func dateFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 }
 func strftimeFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3_value) {
 	var x struct_DateTime
-	var i uint
-	var j uint
+	var i uint64
+	var j uint64
 	var db *struct_sqlite3
 	var zFmt *int8
 	var sRes struct_sqlite3_str
@@ -3641,9 +3641,9 @@ func strftimeFunc(context *struct_sqlite3_context, argc int32, argv **struct_sql
 	sqlite3StrAccumInit(&sRes, nil, nil, 0, *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&db.aLimit)))) + uintptr(0)*4)))
 	computeJD(&x)
 	computeYMD_HMS(&x)
-	for i = func() (_cgo_ret uint) {
+	for i = func() (_cgo_ret uint64) {
 		_cgo_addr := &j
-		*_cgo_addr = uint(0)
+		*_cgo_addr = uint64(0)
 		return *_cgo_addr
 	}(); *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFmt)) + uintptr(i))) != 0; i++ {
 		if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFmt)) + uintptr(i)))) != '%' {
@@ -3653,7 +3653,7 @@ func strftimeFunc(context *struct_sqlite3_context, argc int32, argv **struct_sql
 			sqlite3_str_append(&sRes, (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFmt))+uintptr(j))), int32(i-j))
 		}
 		i++
-		j = i + uint(1)
+		j = i + uint64(1)
 		switch int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFmt)) + uintptr(i)))) {
 		case 'd':
 			{
@@ -3927,11 +3927,11 @@ func sqlite3OsDlClose(pVfs *struct_sqlite3_vfs, pHandle unsafe.Pointer) {
 }
 func sqlite3OsRandomness(pVfs *struct_sqlite3_vfs, nByte int32, zBufOut *int8) int32 {
 	if sqlite3Config.iPrngSeed != 0 {
-		__builtin___memset_chk(unsafe.Pointer(zBufOut), 0, uint(nByte), __builtin_object_size(unsafe.Pointer(zBufOut), 0))
+		__builtin___memset_chk(unsafe.Pointer(zBufOut), 0, uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(zBufOut), 0))
 		if nByte > int32(4) {
 			nByte = int32(4)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(zBufOut), unsafe.Pointer(&sqlite3Config.iPrngSeed), uint(nByte), __builtin_object_size(unsafe.Pointer(zBufOut), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zBufOut), unsafe.Pointer(&sqlite3Config.iPrngSeed), uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(zBufOut), 0))
 		return int32(0)
 	} else {
 		return pVfs.xRandomness(pVfs, nByte, zBufOut)
@@ -4104,9 +4104,9 @@ type struct_fd_set struct {
 type fd_set = struct_fd_set
 
 func __darwin_check_fd_set(_a int32, _b unsafe.Pointer) int32 {
-	if func(_cgo_fn func(int32, unsafe.Pointer, int32) int32) uint {
-		return *(*uint)(unsafe.Pointer(&_cgo_fn))
-	}(__darwin_check_fd_set_overflow) != uint(0) {
+	if func(_cgo_fn func(int32, unsafe.Pointer, int32) int32) uint64 {
+		return *(*uint64)(unsafe.Pointer(&_cgo_fn))
+	}(__darwin_check_fd_set_overflow) != uint64(0) {
 		return __darwin_check_fd_set_overflow(_a, _b, 0)
 	} else {
 		return int32(1)
@@ -4114,18 +4114,18 @@ func __darwin_check_fd_set(_a int32, _b unsafe.Pointer) int32 {
 }
 func __darwin_fd_isset(_fd int32, _p *struct_fd_set) int32 {
 	if __darwin_check_fd_set(_fd, unsafe.Pointer(_p)) != 0 {
-		return *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint(_fd)/(4*uint(8)))*4)) & int32(uint(1)<<(uint(_fd)%(4*uint(8))))
+		return *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint64(_fd)/(4*uint64(8)))*4)) & int32(uint64(1)<<(uint64(_fd)%(4*uint64(8))))
 	}
 	return int32(0)
 }
 func __darwin_fd_set(_fd int32, _p *struct_fd_set) {
 	if __darwin_check_fd_set(_fd, unsafe.Pointer(_p)) != 0 {
-		*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint(_fd)/(4*uint(8)))*4)) |= int32(uint(1) << (uint(_fd) % (4 * uint(8))))
+		*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint64(_fd)/(4*uint64(8)))*4)) |= int32(uint64(1) << (uint64(_fd) % (4 * uint64(8))))
 	}
 }
 func __darwin_fd_clr(_fd int32, _p *struct_fd_set) {
 	if __darwin_check_fd_set(_fd, unsafe.Pointer(_p)) != 0 {
-		*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint(_fd)/(4*uint(8)))*4)) &= ^int32(uint(1) << (uint(_fd) % (4 * uint(8))))
+		*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&_p.fds_bits)))) + uintptr(uint64(_fd)/(4*uint64(8)))*4)) &= ^int32(uint64(1) << (uint64(_fd) % (4 * uint64(8))))
 	}
 }
 
@@ -4152,7 +4152,7 @@ type struct_clockinfo struct {
 type u_char = uint8
 type u_short = uint16
 type u_int = uint32
-type u_long = uint
+type u_long = uint64
 type ushort = uint16
 type uint = uint32
 type u_quad_t = uint64
@@ -4182,7 +4182,7 @@ type pthread_once_t = struct__opaque_pthread_once_t
 type pthread_rwlock_t = struct__opaque_pthread_rwlock_t
 type pthread_rwlockattr_t = struct__opaque_pthread_rwlockattr_t
 type pthread_t = *struct__opaque_pthread_t
-type pthread_key_t = uint
+type pthread_key_t = uint64
 type fsblkcnt_t = uint32
 type fsfilcnt_t = uint32
 type au_id_t = uint32
@@ -4246,8 +4246,8 @@ type struct_au_session struct {
 }
 type au_session_t = struct_au_session
 type struct_au_expire_after struct {
-	age     int
-	size    uint
+	age     int64
+	size    uint64
 	op_type uint8
 }
 type au_expire_after_t = struct_au_expire_after
@@ -4290,8 +4290,8 @@ type au_evclass_map_t = struct_au_evclass_map
 type boolean_t = uint32
 type natural_t = uint32
 type integer_t = int32
-type vm_offset_t = uint
-type vm_size_t = uint
+type vm_offset_t = uint64
+type vm_size_t = uint64
 type mach_vm_address_t = uint64
 type mach_vm_offset_t = uint64
 type mach_vm_size_t = uint64
@@ -4389,11 +4389,11 @@ type struct_xucred struct {
 	cr_groups  [16]uint32
 }
 type struct_kevent struct {
-	ident  uint
+	ident  uint64
 	filter int16
 	flags  uint16
 	fflags uint32
-	data   int
+	data   int64
 	udata  unsafe.Pointer
 }
 type struct_kevent64_s struct {
@@ -4521,7 +4521,7 @@ type struct_xsw_usage struct {
 }
 type struct_loadavg struct {
 	ldavg  [3]uint32
-	fscale int
+	fscale int64
 }
 type kern_return_t = int32
 type mach_msg_timeout_t = uint32
@@ -4829,8 +4829,8 @@ type host_preferred_user_arch_data_t = struct_host_preferred_user_arch
 type host_preferred_user_arch_t = *struct_host_preferred_user_arch
 type vm_prot_t = int32
 type vm_sync_t = uint32
-type pointer_t = uint
-type vm_address_t = uint
+type pointer_t = uint64
+type vm_address_t = uint64
 type addr64_t = uint64
 type reg64_t = uint32
 type ppnum_t = uint32
@@ -5187,8 +5187,8 @@ type task_basic_info_64_data_t = struct_task_basic_info_64
 type task_basic_info_64_t = *struct_task_basic_info_64
 type struct_task_basic_info struct {
 	suspend_count int32
-	virtual_size  uint
-	resident_size uint
+	virtual_size  uint64
+	resident_size uint64
 	user_time     struct_time_value
 	system_time   struct_time_value
 	policy        int32
@@ -5652,8 +5652,8 @@ type struct_mach_vm_read_entry struct {
 	size    uint64
 }
 type struct_vm_read_entry struct {
-	address uint
-	size    uint
+	address uint64
+	size    uint64
 }
 type mach_vm_read_entry_t = [256]struct_mach_vm_read_entry
 type vm_read_entry_t = [256]struct_vm_read_entry
@@ -5685,9 +5685,9 @@ type struct_kmod_info struct {
 	version         [64]int8
 	reference_count int32
 	reference_list  *struct_kmod_reference
-	address         uint
-	size            uint
-	hdr_size        uint
+	address         uint64
+	size            uint64
+	hdr_size        uint64
 	start           func(*struct_kmod_info, unsafe.Pointer) int32
 	stop            func(*struct_kmod_info, unsafe.Pointer) int32
 }
@@ -5840,42 +5840,42 @@ type labelstr_t = *int8
 type struct__malloc_zone_t struct {
 	reserved1          unsafe.Pointer
 	reserved2          unsafe.Pointer
-	size               func(*struct__malloc_zone_t, unsafe.Pointer) uint
-	malloc             func(*struct__malloc_zone_t, uint) unsafe.Pointer
-	calloc             func(*struct__malloc_zone_t, uint, uint) unsafe.Pointer
-	valloc             func(*struct__malloc_zone_t, uint) unsafe.Pointer
+	size               func(*struct__malloc_zone_t, unsafe.Pointer) uint64
+	malloc             func(*struct__malloc_zone_t, uint64) unsafe.Pointer
+	calloc             func(*struct__malloc_zone_t, uint64, uint64) unsafe.Pointer
+	valloc             func(*struct__malloc_zone_t, uint64) unsafe.Pointer
 	free               func(*struct__malloc_zone_t, unsafe.Pointer)
-	realloc            func(*struct__malloc_zone_t, unsafe.Pointer, uint) unsafe.Pointer
+	realloc            func(*struct__malloc_zone_t, unsafe.Pointer, uint64) unsafe.Pointer
 	destroy            func(*struct__malloc_zone_t)
 	zone_name          *int8
-	batch_malloc       func(*struct__malloc_zone_t, uint, *unsafe.Pointer, uint32) uint32
+	batch_malloc       func(*struct__malloc_zone_t, uint64, *unsafe.Pointer, uint32) uint32
 	batch_free         func(*struct__malloc_zone_t, *unsafe.Pointer, uint32)
 	introspect         *struct_malloc_introspection_t
 	version            uint32
-	memalign           func(*struct__malloc_zone_t, uint, uint) unsafe.Pointer
-	free_definite_size func(*struct__malloc_zone_t, unsafe.Pointer, uint)
-	pressure_relief    func(*struct__malloc_zone_t, uint) uint
+	memalign           func(*struct__malloc_zone_t, uint64, uint64) unsafe.Pointer
+	free_definite_size func(*struct__malloc_zone_t, unsafe.Pointer, uint64)
+	pressure_relief    func(*struct__malloc_zone_t, uint64) uint64
 	claimed_address    func(*struct__malloc_zone_t, unsafe.Pointer) uint32
 }
 type malloc_zone_t = struct__malloc_zone_t
 type _cgoa_68 struct {
-	address uint
-	size    uint
+	address uint64
+	size    uint64
 }
 type struct_malloc_statistics_t struct {
 	blocks_in_use   uint32
-	size_in_use     uint
-	max_size_in_use uint
-	size_allocated  uint
+	size_in_use     uint64
+	max_size_in_use uint64
+	size_allocated  uint64
 }
 type malloc_statistics_t = struct_malloc_statistics_t
-type memory_reader_t = func(uint32, uint, uint, *unsafe.Pointer) int32
+type memory_reader_t = func(uint32, uint64, uint64, *unsafe.Pointer) int32
 type vm_range_recorder_t = func(uint32, unsafe.Pointer, uint32, *_cgoa_68, uint32)
 type print_task_printer_t = func(*int8, ...interface {
 })
 type struct_malloc_introspection_t struct {
-	enumerator                    func(uint32, unsafe.Pointer, uint32, uint, func(uint32, uint, uint, *unsafe.Pointer) int32, func(uint32, unsafe.Pointer, uint32, *_cgoa_68, uint32)) int32
-	good_size                     func(*struct__malloc_zone_t, uint) uint
+	enumerator                    func(uint32, unsafe.Pointer, uint32, uint64, func(uint32, uint64, uint64, *unsafe.Pointer) int32, func(uint32, unsafe.Pointer, uint32, *_cgoa_68, uint32)) int32
+	good_size                     func(*struct__malloc_zone_t, uint64) uint64
 	check                         func(*struct__malloc_zone_t) uint32
 	print                         func(*struct__malloc_zone_t, uint32)
 	log                           func(*struct__malloc_zone_t, unsafe.Pointer)
@@ -5888,24 +5888,24 @@ type struct_malloc_introspection_t struct {
 	discharge                     func(*struct__malloc_zone_t, unsafe.Pointer)
 	enumerate_discharged_pointers func(*struct__malloc_zone_t, func(unsafe.Pointer, unsafe.Pointer))
 	reinit_lock                   func(*struct__malloc_zone_t)
-	print_task                    func(uint32, uint32, uint, func(uint32, uint, uint, *unsafe.Pointer) int32, func(*int8, ...interface {
+	print_task                    func(uint32, uint32, uint64, func(uint32, uint64, uint64, *unsafe.Pointer) int32, func(*int8, ...interface {
 	}))
-	task_statistics func(uint32, uint, func(uint32, uint, uint, *unsafe.Pointer) int32, *struct_malloc_statistics_t)
+	task_statistics func(uint32, uint64, func(uint32, uint64, uint64, *unsafe.Pointer) int32, *struct_malloc_statistics_t)
 }
 type malloc_introspection_t = struct_malloc_introspection_t
 type struct_mstats struct {
-	bytes_total uint
-	chunks_used uint
-	bytes_used  uint
-	chunks_free uint
-	bytes_free  uint
+	bytes_total uint64
+	chunks_used uint64
+	bytes_used  uint64
+	chunks_free uint64
+	bytes_free  uint64
 }
 
 var _sqliteZone_ *struct__malloc_zone_t
 
 func sqlite3MemMalloc(nByte int32) unsafe.Pointer {
 	var p unsafe.Pointer
-	p = malloc_zone_malloc(_sqliteZone_, uint(nByte))
+	p = malloc_zone_malloc(_sqliteZone_, uint64(nByte))
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3_log(7, (*int8)(unsafe.Pointer(&[38]int8{'f', 'a', 'i', 'l', 'e', 'd', ' ', 't', 'o', ' ', 'a', 'l', 'l', 'o', 'c', 'a', 't', 'e', ' ', '%', 'u', ' ', 'b', 'y', 't', 'e', 's', ' ', 'o', 'f', ' ', 'm', 'e', 'm', 'o', 'r', 'y', '\x00'})), nByte)
 	}
@@ -5919,7 +5919,7 @@ func sqlite3MemSize(pPrior unsafe.Pointer) int32 {
 		_ = 0
 		return 0
 	}()
-	return int32(func() uint {
+	return int32(func() uint64 {
 		if _sqliteZone_ != nil {
 			return _sqliteZone_.size(_sqliteZone_, pPrior)
 		} else {
@@ -5928,9 +5928,9 @@ func sqlite3MemSize(pPrior unsafe.Pointer) int32 {
 	}())
 }
 func sqlite3MemRealloc(pPrior unsafe.Pointer, nByte int32) unsafe.Pointer {
-	var p unsafe.Pointer = malloc_zone_realloc(_sqliteZone_, pPrior, uint(nByte))
+	var p unsafe.Pointer = malloc_zone_realloc(_sqliteZone_, pPrior, uint64(nByte))
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
-		sqlite3_log(7, (*int8)(unsafe.Pointer(&[36]int8{'f', 'a', 'i', 'l', 'e', 'd', ' ', 'm', 'e', 'm', 'o', 'r', 'y', ' ', 'r', 'e', 's', 'i', 'z', 'e', ' ', '%', 'u', ' ', 't', 'o', ' ', '%', 'u', ' ', 'b', 'y', 't', 'e', 's', '\x00'})), func() uint {
+		sqlite3_log(7, (*int8)(unsafe.Pointer(&[36]int8{'f', 'a', 'i', 'l', 'e', 'd', ' ', 'm', 'e', 'm', 'o', 'r', 'y', ' ', 'r', 'e', 's', 'i', 'z', 'e', ' ', '%', 'u', ' ', 't', 'o', ' ', '%', 'u', ' ', 'b', 'y', 't', 'e', 's', '\x00'})), func() uint64 {
 			if _sqliteZone_ != nil {
 				return _sqliteZone_.size(_sqliteZone_, pPrior)
 			} else {
@@ -5945,16 +5945,16 @@ func sqlite3MemRoundup(n int32) int32 {
 }
 func sqlite3MemInit(NotUsed unsafe.Pointer) int32 {
 	var cpuCount int32
-	var len uint
+	var len uint64
 	if _sqliteZone_ != nil {
 		return int32(0)
 	}
-	len = uint(4)
-	sysctlbyname((*int8)(unsafe.Pointer(&[8]int8{'h', 'w', '.', 'n', 'c', 'p', 'u', '\x00'})), unsafe.Pointer(&cpuCount), &len, unsafe.Pointer(nil), uint(0))
+	len = uint64(4)
+	sysctlbyname((*int8)(unsafe.Pointer(&[8]int8{'h', 'w', '.', 'n', 'c', 'p', 'u', '\x00'})), unsafe.Pointer(&cpuCount), &len, unsafe.Pointer(nil), uint64(0))
 	if cpuCount > 1 {
 		_sqliteZone_ = malloc_default_zone()
 	} else {
-		_sqliteZone_ = malloc_create_zone(uint(4096), uint32(0))
+		_sqliteZone_ = malloc_create_zone(uint64(4096), uint32(0))
 		malloc_set_zone_name(_sqliteZone_, (*int8)(unsafe.Pointer(&[12]int8{'S', 'q', 'l', 'i', 't', 'e', '_', 'H', 'e', 'a', 'p', '\x00'})))
 	}
 	func() int {
@@ -6151,7 +6151,7 @@ func pthreadMutexEnd() int32 {
 	return int32(0)
 }
 func pthreadMutexAlloc(iType int32) *struct_sqlite3_mutex {
-	var staticMutexes [12]struct_sqlite3_mutex = [12]struct_sqlite3_mutex{struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int(850045863), [56]int8{int8(0)}}}}
+	var staticMutexes [12]struct_sqlite3_mutex = [12]struct_sqlite3_mutex{struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}, struct_sqlite3_mutex{struct__opaque_pthread_mutex_t{int64(850045863), [56]int8{int8(0)}}}}
 	var p *struct_sqlite3_mutex
 	switch iType {
 	case 1:
@@ -6657,7 +6657,7 @@ func sqlite3_realloc64(pOld unsafe.Pointer, n uint64) unsafe.Pointer {
 func sqlite3MallocZero(n uint64) unsafe.Pointer {
 	var p unsafe.Pointer = sqlite3Malloc(n)
 	if p != nil {
-		__builtin___memset_chk(p, 0, uint(n), __builtin_object_size(p, 0))
+		__builtin___memset_chk(p, 0, uint(uint64(n)), __builtin_object_size(p, 0))
 	}
 	return p
 }
@@ -6665,7 +6665,7 @@ func sqlite3DbMallocZero(db *struct_sqlite3, n uint64) unsafe.Pointer {
 	var p unsafe.Pointer
 	p = sqlite3DbMallocRaw(db, n)
 	if p != nil {
-		__builtin___memset_chk(p, 0, uint(n), __builtin_object_size(p, 0))
+		__builtin___memset_chk(p, 0, uint(uint64(n)), __builtin_object_size(p, 0))
 	}
 	return p
 }
@@ -6790,7 +6790,7 @@ func dbReallocFinish(db *struct_sqlite3, p unsafe.Pointer, n uint64) unsafe.Poin
 		if isLookaside(db, p) != 0 {
 			pNew = sqlite3DbMallocRawNN(db, n)
 			if pNew != nil {
-				__builtin___memcpy_chk(pNew, p, uint(lookasideMallocSize(db, p)), __builtin_object_size(pNew, 0))
+				__builtin___memcpy_chk(pNew, p, uint(uint64(lookasideMallocSize(db, p))), __builtin_object_size(pNew, 0))
 				sqlite3DbFree(db, p)
 			}
 		} else {
@@ -6820,14 +6820,14 @@ func sqlite3DbReallocOrFree(db *struct_sqlite3, p unsafe.Pointer, n uint64) unsa
 }
 func sqlite3DbStrDup(db *struct_sqlite3, z *int8) *int8 {
 	var zNew *int8
-	var n uint
+	var n uint64
 	if uintptr(unsafe.Pointer(z)) == uintptr(unsafe.Pointer(nil)) {
 		return (*int8)(nil)
 	}
-	n = strlen(z) + uint(1)
+	n = strlen(z) + uint64(1)
 	zNew = (*int8)(sqlite3DbMallocRaw(db, uint64(n)))
 	if zNew != nil {
-		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(z), n, __builtin_object_size(unsafe.Pointer(zNew), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(z), uint(n), __builtin_object_size(unsafe.Pointer(zNew), 0))
 	}
 	return zNew
 }
@@ -6853,7 +6853,7 @@ func sqlite3DbStrNDup(db *struct_sqlite3, z *int8, n uint64) *int8 {
 		}
 	}())
 	if zNew != nil {
-		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(z), uint(n), __builtin_object_size(unsafe.Pointer(zNew), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(z), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(zNew), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zNew)) + uintptr(n))) = int8(0)
 	}
 	return zNew
@@ -7377,8 +7377,8 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 						return
 					}()
 				} else {
-					v = int64(func() (_cgo_ret int) {
-						_cgo_ret = __cgo_args[0].(int)
+					v = int64(func() (_cgo_ret int64) {
+						_cgo_ret = __cgo_args[0].(int64)
 						__cgo_args = __cgo_args[1:]
 						return
 					}())
@@ -7409,8 +7409,8 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 						return
 					}()
 				} else {
-					longvalue = uint64(func() (_cgo_ret uint) {
-						_cgo_ret = __cgo_args[0].(uint)
+					longvalue = uint64(func() (_cgo_ret uint64) {
+						_cgo_ret = __cgo_args[0].(uint64)
 						__cgo_args = __cgo_args[1:]
 						return
 					}())
@@ -7640,7 +7640,7 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 					} else {
 						return 0
 					}
-				}()))), unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'I', 'n', 'f', '\x00'}))), uint(4), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&buf))))+func() uintptr {
+				}()))), unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'I', 'n', 'f', '\x00'}))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&buf))))+func() uintptr {
 					if int32(prefix) != 0 {
 						return 1
 					} else {
@@ -8411,7 +8411,7 @@ func sqlite3StrAccumEnlarge(p *struct_sqlite3_str, N int32) int32 {
 				return 0
 			}()
 			if !(int32(p.printfFlags)&4 != 0) && p.nChar > uint32(0) {
-				__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(p.zText), uint(p.nChar), __builtin_object_size(unsafe.Pointer(zNew), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(p.zText), uint(uint64(p.nChar)), __builtin_object_size(unsafe.Pointer(zNew), 0))
 			}
 			p.zText = zNew
 			p.nAlloc = uint32(sqlite3DbMallocSize(p.db, unsafe.Pointer(zNew)))
@@ -8449,7 +8449,7 @@ func sqlite3_str_appendchar(p *struct_sqlite3_str, N int32, c int8) {
 func enlargeAndAppend(p *struct_sqlite3_str, z *int8, N int32) {
 	N = sqlite3StrAccumEnlarge(p, N)
 	if N > 0 {
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar)))), unsafe.Pointer(z), uint(N), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar)))), unsafe.Pointer(z), uint(uint64(N)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar)))), 0))
 		p.nChar += uint32(N)
 	}
 }
@@ -8478,7 +8478,7 @@ func sqlite3_str_append(p *struct_sqlite3_str, z *int8, N int32) {
 			return 0
 		}()
 		p.nChar += uint32(N)
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar-uint32(N))))), unsafe.Pointer(z), uint(N), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar-uint32(N))))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar-uint32(N))))), unsafe.Pointer(z), uint(uint64(N)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zText)) + uintptr(p.nChar-uint32(N))))), 0))
 	}
 }
 func sqlite3_str_appendall(p *struct_sqlite3_str, z *int8) {
@@ -8492,7 +8492,7 @@ func strAccumFinishRealloc(p *struct_sqlite3_str) *int8 {
 	}()
 	zText = (*int8)(sqlite3DbMallocRaw(p.db, uint64(p.nChar+uint32(1))))
 	if zText != nil {
-		__builtin___memcpy_chk(unsafe.Pointer(zText), unsafe.Pointer(p.zText), uint(p.nChar+uint32(1)), __builtin_object_size(unsafe.Pointer(zText), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zText), unsafe.Pointer(p.zText), uint(uint64(p.nChar+uint32(1))), __builtin_object_size(unsafe.Pointer(zText), 0))
 		p.printfFlags |= uint8(4)
 	} else {
 		sqlite3StrAccumSetError(p, uint8(7))
@@ -9301,7 +9301,7 @@ func sqlite3VdbeMemHandleBom(pMem *struct_sqlite3_value) int32 {
 		rc = sqlite3VdbeMemMakeWriteable(pMem)
 		if rc == 0 {
 			pMem.n -= int32(2)
-			__builtin___memmove_chk(unsafe.Pointer(pMem.z), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(2)))), uint(pMem.n), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
+			__builtin___memmove_chk(unsafe.Pointer(pMem.z), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(2)))), uint(uint64(pMem.n)), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n))) = int8('\x00')
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n+1))) = int8('\x00')
 			pMem.flags |= uint16(512)
@@ -10099,8 +10099,8 @@ func sqlite3Int64ToText(v int64, zOut *int8) {
 	} else {
 		x = uint64(v)
 	}
-	i = int32(22 - uint(2))
-	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zTemp)))) + uintptr(22-uint(1)))) = int8(0)
+	i = int32(22 - uint64(2))
+	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zTemp)))) + uintptr(22-uint64(1)))) = int8(0)
 	for {
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zTemp)))) + uintptr(func() (_cgo_ret int32) {
 			_cgo_addr := &i
@@ -10121,7 +10121,7 @@ func sqlite3Int64ToText(v int64, zOut *int8) {
 			return
 		}()))) = int8('-')
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zTemp)))) + uintptr(i+1)))), 22-uint(1)-uint(i), __builtin_object_size(unsafe.Pointer(zOut), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zTemp)))) + uintptr(i+1)))), uint(22-uint64(1)-uint64(i)), __builtin_object_size(unsafe.Pointer(zOut), 0))
 }
 func compare2pow63(zNum *int8, incr int32) int32 {
 	var c int32 = 0
@@ -10279,7 +10279,7 @@ func sqlite3DecOrHexToI64(z *int8, pOut *int64) int32 {
 		for k = i; int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(k))))))))&8 != 0; k++ {
 			u = u*uint64(16) + uint64(sqlite3HexToInt(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(k))))))
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(pOut), unsafe.Pointer(&u), uint(8), __builtin_object_size(unsafe.Pointer(pOut), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pOut), unsafe.Pointer(&u), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(pOut), 0))
 		return func() int32 {
 			if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(k)))) == 0 && k-i <= 16 {
 				return 0
@@ -10311,7 +10311,7 @@ func sqlite3GetInt32(zNum *int8, pValue *int32) int32 {
 			u = u*uint32(16) + uint32(sqlite3HexToInt(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zNum)) + uintptr(i))))))
 		}
 		if u&2147483648 == uint32(0) && int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zNum)) + uintptr(i))))))))&8 == 0 {
-			__builtin___memcpy_chk(unsafe.Pointer(pValue), unsafe.Pointer(&u), uint(4), __builtin_object_size(unsafe.Pointer(pValue), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pValue), unsafe.Pointer(&u), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(pValue), 0))
 			return int32(1)
 		} else {
 			return int32(0)
@@ -10762,7 +10762,7 @@ func sqlite3LogEstFromDouble(x float64) int16 {
 	if x <= float64(2000000000) {
 		return sqlite3LogEst(uint64(x))
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(&a), unsafe.Pointer(&x), uint(8), __builtin_object_size(unsafe.Pointer(&a), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&a), unsafe.Pointer(&x), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(&a), 0))
 	e = int16(a>>52 - uint64(1022))
 	return int16(int32(e) * 10)
 }
@@ -10822,7 +10822,7 @@ func sqlite3VListAdd(db *struct_sqlite3, pIn *int32, zName *int8, nName int32, i
 		_ = 0
 		return 0
 	}()
-	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(zName), uint(nName), __builtin_object_size(unsafe.Pointer(z), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(zName), uint(uint64(nName)), __builtin_object_size(unsafe.Pointer(z), 0))
 	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(nName))) = int8(0)
 	return pIn
 }
@@ -10855,7 +10855,7 @@ func sqlite3VListNameToNum(pIn *int32, zName *int8, nName int32) int32 {
 	i = int32(2)
 	for {
 		var z *int8 = (*int8)(unsafe.Pointer(&*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn)) + uintptr(i+2)*4))))
-		if strncmp(z, zName, uint(nName)) == 0 && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(nName)))) == 0 {
+		if strncmp(z, zName, uint64(nName)) == 0 && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(nName)))) == 0 {
 			return *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn)) + uintptr(i)*4))
 		}
 		i += *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn)) + uintptr(i+1)*4))
@@ -10948,14 +10948,14 @@ func rehash(pH *struct_Hash, new_size uint32) int32 {
 	var new_ht *struct__ht
 	var elem *struct_HashElem
 	var next_elem *struct_HashElem
-	if uint(new_size)*16 > uint(1024) {
-		new_size = uint32(uint(1024) / 16)
+	if uint64(new_size)*16 > uint64(1024) {
+		new_size = uint32(uint64(1024) / 16)
 	}
 	if new_size == pH.htsize {
 		return int32(0)
 	}
 	sqlite3BeginBenignMalloc()
-	new_ht = (*struct__ht)(sqlite3Malloc(uint64(uint(new_size) * 16)))
+	new_ht = (*struct__ht)(sqlite3Malloc(uint64(uint64(new_size) * 16)))
 	sqlite3EndBenignMalloc()
 	if uintptr(unsafe.Pointer(new_ht)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(0)
@@ -10964,10 +10964,10 @@ func rehash(pH *struct_Hash, new_size uint32) int32 {
 	pH.ht = new_ht
 	pH.htsize = func() (_cgo_ret uint32) {
 		_cgo_addr := &new_size
-		*_cgo_addr = uint32(uint(sqlite3MallocSize(unsafe.Pointer(new_ht))) / 16)
+		*_cgo_addr = uint32(uint64(sqlite3MallocSize(unsafe.Pointer(new_ht))) / 16)
 		return *_cgo_addr
 	}()
-	__builtin___memset_chk(unsafe.Pointer(new_ht), 0, uint(new_size)*16, __builtin_object_size(unsafe.Pointer(new_ht), 0))
+	__builtin___memset_chk(unsafe.Pointer(new_ht), 0, uint(uint64(new_size)*16), __builtin_object_size(unsafe.Pointer(new_ht), 0))
 	for func() *struct_HashElem {
 		elem = pH.first
 		return func() (_cgo_ret *struct_HashElem) {
@@ -11196,8 +11196,8 @@ type struct_radvisory struct {
 type struct_fsignatures struct {
 	fs_file_start       int64
 	fs_blob_start       unsafe.Pointer
-	fs_blob_size        uint
-	fs_fsignatures_size uint
+	fs_blob_size        uint64
+	fs_fsignatures_size uint64
 	fs_cdhash           [20]int8
 	fs_hash_type        int32
 }
@@ -11205,13 +11205,13 @@ type fsignatures_t = struct_fsignatures
 type struct_fsupplement struct {
 	fs_file_start int64
 	fs_blob_start int64
-	fs_blob_size  uint
+	fs_blob_size  uint64
 	fs_orig_fd    int32
 }
 type fsupplement_t = struct_fsupplement
 type struct_fchecklv struct {
 	lv_file_start         int64
-	lv_error_message_size uint
+	lv_error_message_size uint64
 	lv_error_message      unsafe.Pointer
 }
 type fchecklv_t = struct_fchecklv
@@ -11250,7 +11250,7 @@ type struct_fspecread struct {
 type fspecread_t = struct_fspecread
 type struct_fbootstraptransfer struct {
 	fbt_offset int64
-	fbt_length uint
+	fbt_length uint64
 	fbt_buffer unsafe.Pointer
 }
 type fbootstraptransfer_t = struct_fbootstraptransfer
@@ -11336,13 +11336,13 @@ type vol_attributes_attr_t = struct_vol_attributes_attr
 type struct_fssearchblock struct {
 	returnattrs         *struct_attrlist
 	returnbuffer        unsafe.Pointer
-	returnbuffersize    uint
-	maxmatches          uint
+	returnbuffersize    uint64
+	maxmatches          uint64
 	timelimit           struct_timeval
 	searchparams1       unsafe.Pointer
-	sizeofsearchparams1 uint
+	sizeofsearchparams1 uint64
 	searchparams2       unsafe.Pointer
-	sizeofsearchparams2 uint
+	sizeofsearchparams2 uint64
 	searchattrs         struct_attrlist
 }
 type struct_searchstate struct {
@@ -11392,7 +11392,7 @@ type struct_statfs struct {
 }
 type struct_vfsstatfs struct {
 	f_bsize       uint32
-	f_iosize      uint
+	f_iosize      uint64
 	f_blocks      uint64
 	f_bfree       uint64
 	f_bavail      uint64
@@ -11423,7 +11423,7 @@ type struct_vfsidctl struct {
 	vc_vers  int32
 	vc_fsid  struct_fsid
 	vc_ptr   unsafe.Pointer
-	vc_len   uint
+	vc_len   uint64
 	vc_spare [12]uint32
 }
 type struct_vfsquery struct {
@@ -11498,7 +11498,7 @@ var aSyscall [29]struct_unix_syscall = [29]struct_unix_syscall{struct_unix_sysca
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(close), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'a', 'c', 'c', 'e', 's', 's', '\x00'})), func(_cgo_fn func(*int8, int32) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(access), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'g', 'e', 't', 'c', 'w', 'd', '\x00'})), func(_cgo_fn func(*int8, uint) *int8) func() {
+}(access), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'g', 'e', 't', 'c', 'w', 'd', '\x00'})), func(_cgo_fn func(*int8, uint64) *int8) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(getcwd), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'s', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
@@ -11509,13 +11509,13 @@ var aSyscall [29]struct_unix_syscall = [29]struct_unix_syscall{struct_unix_sysca
 }(ftruncate), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'f', 'c', 'n', 't', 'l', '\x00'})), func(_cgo_fn func(int32, int32, ...interface {
 }) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(fcntl), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(int32, unsafe.Pointer, uint) int) func() {
+}(fcntl), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(int32, unsafe.Pointer, uint64) int64) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(read), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'p', 'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint, __offset int64) int) func() {
+}(read), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'p', 'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(pread), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'p', 'r', 'e', 'a', 'd', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint) int) func() {
+}(pread), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'p', 'r', 'e', 'a', 'd', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64) int64) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(write), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'p', 'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint, __offset int64) int) func() {
+}(write), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'p', 'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(pwrite), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'p', 'w', 'r', 'i', 't', 'e', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'f', 'c', 'h', 'm', 'o', 'd', '\x00'})), func(_cgo_fn func(int32, uint16) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
@@ -11531,13 +11531,13 @@ var aSyscall [29]struct_unix_syscall = [29]struct_unix_syscall{struct_unix_sysca
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(fchown), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'g', 'e', 't', 'e', 'u', 'i', 'd', '\x00'})), func(_cgo_fn func() uint32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(geteuid), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'m', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer) func() {
+}(geteuid), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'m', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(mmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'u', 'n', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint) int32) func() {
+}(mmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'u', 'n', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(munmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'r', 'e', 'm', 'a', 'p', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[12]int8{'g', 'e', 't', 'p', 'a', 'g', 'e', 's', 'i', 'z', 'e', '\x00'})), func(_cgo_fn func() int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(unixGetpagesize), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'r', 'e', 'a', 'd', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8, *int8, uint) int) func() {
+}(unixGetpagesize), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'r', 'e', 'a', 'd', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8, *int8, uint64) int64) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
 }(readlink), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'l', 's', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
 	return *(*func())(unsafe.Pointer(&_cgo_fn))
@@ -11565,13 +11565,13 @@ func unixSetSystemCall(pNotUsed *struct_sqlite3_vfs, zName *int8, pNewFunc func(
 	}()
 	if uintptr(unsafe.Pointer(zName)) == uintptr(unsafe.Pointer(nil)) {
 		rc = int32(0)
-		for i = uint32(0); uint(i) < 696/24; i++ {
+		for i = uint32(0); uint64(i) < 696/24; i++ {
 			if (*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).pDefault != nil {
 				(*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).pCurrent = (*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).pDefault
 			}
 		}
 	} else {
-		for i = uint32(0); uint(i) < 696/24; i++ {
+		for i = uint32(0); uint64(i) < 696/24; i++ {
 			if strcmp(zName, (*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).zName) == 0 {
 				if func(_cgo_fn func()) uintptr {
 					return *(*uintptr)(unsafe.Pointer(&_cgo_fn))
@@ -11597,7 +11597,7 @@ func unixGetSystemCall(pNotUsed *struct_sqlite3_vfs, zName *int8) func() {
 		_ = pNotUsed
 		return 0
 	}()
-	for i = uint32(0); uint(i) < 696/24; i++ {
+	for i = uint32(0); uint64(i) < 696/24; i++ {
 		if strcmp(zName, (*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).zName) == 0 {
 			return (*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(i)*24))).pCurrent
 		}
@@ -11860,9 +11860,9 @@ func findInodeInfo(pFile *struct_unixFile, ppInode **struct_unixInodeInfo) int32
 	}
 	if statbuf.st_size == int64(0) && pFile.fsFlags&uint32(1) != uint32(0) {
 		for {
-			rc = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint) int {
-				return *(*func(int32, unsafe.Pointer, uint) int)(unsafe.Pointer(&_cgo_fn))
-			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(11)*24))).pCurrent)(fd, unsafe.Pointer((*int8)(unsafe.Pointer(&[2]int8{'S', '\x00'}))), uint(1)))
+			rc = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64) int64 {
+				return *(*func(int32, unsafe.Pointer, uint64) int64)(unsafe.Pointer(&_cgo_fn))
+			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(11)*24))).pCurrent)(fd, unsafe.Pointer((*int8)(unsafe.Pointer(&[2]int8{'S', '\x00'}))), uint64(1)))
 			if !(rc < 0 && *__error() == 4) {
 				break
 			}
@@ -12632,7 +12632,7 @@ func afpSetLock(path *int8, pFile *struct_unixFile, offset uint64, length uint64
 	pb.offset = offset
 	pb.length = length
 	pb.fd = pFile.h
-	err = fsctl(path, uint(uint32(2147483648)|uint32(1073741824))|32&uint(8191)<<16|uint('z'<<8)|uint(23), unsafe.Pointer(&pb), uint32(0))
+	err = fsctl(path, uint64(uint32(2147483648)|uint32(1073741824))|32&uint64(8191)<<16|uint64('z'<<8)|uint64(23), unsafe.Pointer(&pb), uint32(0))
 	if err == -1 {
 		var rc int32
 		var tErrno int32 = *__error()
@@ -12744,8 +12744,8 @@ func afpLock(id *struct_sqlite3_file, eFileLock int32) int32 {
 		var lrc1 int32
 		var lrc2 int32
 		var lrc1Errno int32 = 0
-		var lk int
-		var mask int
+		var lk int64
+		var mask int64
 		func() int {
 			_ = 0
 			return 0
@@ -12754,15 +12754,15 @@ func afpLock(id *struct_sqlite3_file, eFileLock int32) int32 {
 			_ = 0
 			return 0
 		}()
-		mask = int(func() int64 {
-			if 8 == uint(8) {
+		mask = int64(func() int64 {
+			if 8 == uint64(8) {
 				return int64(4294967295) | int64(2147483647)<<32
 			} else {
 				return int64(2147483647)
 			}
 		}())
 		lk = random()
-		pInode.sharedByte = uint64(lk & mask % int(510-1))
+		pInode.sharedByte = uint64(lk & mask % int64(510-1))
 		lrc1 = afpSetLock(context.dbPath, pFile, uint64(sqlite3PendingByte+2)+pInode.sharedByte, uint64(1), 1)
 		if lrc1 != 0 && lrc1 != 5 {
 			lrc1Errno = pFile.lastErrno
@@ -12958,9 +12958,9 @@ func seekAndRead(id *struct_unixFile, offset int64, pBuf unsafe.Pointer, cnt int
 		return 0
 	}()
 	for {
-		got = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint, int64) int {
-			return *(*func(int32, unsafe.Pointer, uint, int64) int)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(id.h, pBuf, uint(cnt), offset))
+		got = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64, int64) int64 {
+			return *(*func(int32, unsafe.Pointer, uint64, int64) int64)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(id.h, pBuf, uint64(cnt), offset))
 		if got == cnt {
 			break
 		}
@@ -13001,11 +13001,11 @@ func unixRead(id *struct_sqlite3_file, pBuf unsafe.Pointer, amt int32, offset in
 	}()
 	if offset < pFile.mmapSize {
 		if offset+int64(amt) <= pFile.mmapSize {
-			__builtin___memcpy_chk(pBuf, unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pFile.pMapRegion))) + uintptr(offset)))), uint(amt), __builtin_object_size(pBuf, 0))
+			__builtin___memcpy_chk(pBuf, unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pFile.pMapRegion))) + uintptr(offset)))), uint(uint64(amt)), __builtin_object_size(pBuf, 0))
 			return int32(0)
 		} else {
 			var nCopy int32 = int32(pFile.mmapSize - offset)
-			__builtin___memcpy_chk(pBuf, unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pFile.pMapRegion))) + uintptr(offset)))), uint(nCopy), __builtin_object_size(pBuf, 0))
+			__builtin___memcpy_chk(pBuf, unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pFile.pMapRegion))) + uintptr(offset)))), uint(uint64(nCopy)), __builtin_object_size(pBuf, 0))
 			pBuf = unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pBuf))) + uintptr(nCopy))))
 			amt -= nCopy
 			offset += int64(nCopy)
@@ -13028,7 +13028,7 @@ func unixRead(id *struct_sqlite3_file, pBuf unsafe.Pointer, amt int32, offset in
 		return int32(10 | 1<<8)
 	} else {
 		storeLastErrno(pFile, 0)
-		__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(pBuf))) + uintptr(got)))), 0, uint(amt-got), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(pBuf))) + uintptr(got)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(pBuf))) + uintptr(got)))), 0, uint(uint64(amt-got)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(pBuf))) + uintptr(got)))), 0))
 		return int32(10 | 2<<8)
 	}
 }
@@ -13048,9 +13048,9 @@ func seekAndWriteFd(fd int32, iOff int64, pBuf unsafe.Pointer, nBuf int32, piErr
 	}()
 	nBuf &= int32(131071)
 	for {
-		rc = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint, int64) int {
-			return *(*func(int32, unsafe.Pointer, uint, int64) int)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(12)*24))).pCurrent)(fd, pBuf, uint(nBuf), iOff))
+		rc = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64, int64) int64 {
+			return *(*func(int32, unsafe.Pointer, uint64, int64) int64)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(12)*24))).pCurrent)(fd, pBuf, uint64(nBuf), iOff))
 		if !(rc < 0 && *__error() == 4) {
 			break
 		}
@@ -13520,9 +13520,9 @@ func unixShmPurge(pFd *struct_unixFile) {
 		sqlite3_mutex_free(p.pShmMutex)
 		for i = int32(0); i < int32(p.nRegion); i += nShmPerMap {
 			if p.hShm >= 0 {
-				func(_cgo_fn func()) func(unsafe.Pointer, uint) int32 {
-					return *(*func(unsafe.Pointer, uint) int32)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apRegion)) + uintptr(i)*8))), uint(p.szRegion))
+				func(_cgo_fn func()) func(unsafe.Pointer, uint64) int32 {
+					return *(*func(unsafe.Pointer, uint64) int32)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apRegion)) + uintptr(i)*8))), uint64(p.szRegion))
 			} else {
 				sqlite3_free(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apRegion)) + uintptr(i)*8))))
 			}
@@ -13604,12 +13604,12 @@ func unixOpenSharedMemory(pDbFd *struct_unixFile) int32 {
 			goto shm_open_err
 		}
 		nShmFilename = 6 + int32(strlen(zBasePath))
-		pShmNode = (*struct_unixShmNode)(sqlite3_malloc64(uint64(96 + uint(nShmFilename))))
+		pShmNode = (*struct_unixShmNode)(sqlite3_malloc64(uint64(96 + uint64(nShmFilename))))
 		if uintptr(unsafe.Pointer(pShmNode)) == uintptr(unsafe.Pointer(nil)) {
 			rc = int32(7)
 			goto shm_open_err
 		}
-		__builtin___memset_chk(unsafe.Pointer(pShmNode), 0, 96+uint(nShmFilename), __builtin_object_size(unsafe.Pointer(pShmNode), 0))
+		__builtin___memset_chk(unsafe.Pointer(pShmNode), 0, uint(96+uint64(nShmFilename)), __builtin_object_size(unsafe.Pointer(pShmNode), 0))
 		zShm = func() (_cgo_ret *int8) {
 			_cgo_addr := &pShmNode.zFilename
 			*_cgo_addr = (*int8)(unsafe.Pointer(&*(*struct_unixShmNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pShmNode)) + uintptr(1)*96))))
@@ -13733,7 +13733,7 @@ func unixShmMap(fd *struct_sqlite3_file, iRegion int32, szRegion int32, bExtend 
 				}
 			}
 		}
-		apNew = (**int8)(sqlite3_realloc(unsafe.Pointer(pShmNode.apRegion), int32(uint(nReqRegion)*8)))
+		apNew = (**int8)(sqlite3_realloc(unsafe.Pointer(pShmNode.apRegion), int32(uint64(nReqRegion)*8)))
 		if !(apNew != nil) {
 			rc = int32(10 | 12<<8)
 			goto shmpage_out
@@ -13744,9 +13744,9 @@ func unixShmMap(fd *struct_sqlite3_file, iRegion int32, szRegion int32, bExtend 
 			var i int32
 			var pMem unsafe.Pointer
 			if pShmNode.hShm >= 0 {
-				pMem = func(_cgo_fn func()) func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer {
-					return *(*func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(nil, uint(nMap), func() int32 {
+				pMem = func(_cgo_fn func()) func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer {
+					return *(*func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(nil, uint64(nMap), func() int32 {
 					if int32(pShmNode.isReadonly) != 0 {
 						return 1
 					} else {
@@ -13763,7 +13763,7 @@ func unixShmMap(fd *struct_sqlite3_file, iRegion int32, szRegion int32, bExtend 
 					rc = int32(7)
 					goto shmpage_out
 				}
-				__builtin___memset_chk(pMem, 0, uint(nMap), __builtin_object_size(pMem, 0))
+				__builtin___memset_chk(pMem, 0, uint(uint64(nMap)), __builtin_object_size(pMem, 0))
 			}
 			for i = int32(0); i < nShmPerMap; i++ {
 				*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pShmNode.apRegion)) + uintptr(int32(pShmNode.nRegion)+i)*8)) = &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(pMem))) + uintptr(szRegion*i)))
@@ -13859,7 +13859,7 @@ func unixShmLock(fd *struct_sqlite3_file, ofst int32, n int32, flags int32) int3
 			if bUnlock != 0 {
 				rc = unixShmSystemLock(pDbFd, 2, ofst+(22+8)*4, n)
 				if rc == 0 {
-					__builtin___memset_chk(unsafe.Pointer(&*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLock)) + uintptr(ofst)*4))), 0, 4*uint(n), __builtin_object_size(unsafe.Pointer(&*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLock)) + uintptr(ofst)*4))), 0))
+					__builtin___memset_chk(unsafe.Pointer(&*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLock)) + uintptr(ofst)*4))), 0, uint(4*uint64(n)), __builtin_object_size(unsafe.Pointer(&*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLock)) + uintptr(ofst)*4))), 0))
 				}
 			} else if int32(p.sharedMask)&int32(1<<ofst) != 0 {
 				func() int {
@@ -13992,9 +13992,9 @@ func unixUnmapfile(pFd *struct_unixFile) {
 		return 0
 	}()
 	if pFd.pMapRegion != nil {
-		func(_cgo_fn func()) func(unsafe.Pointer, uint) int32 {
-			return *(*func(unsafe.Pointer, uint) int32)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(pFd.pMapRegion, uint(pFd.mmapSizeActual))
+		func(_cgo_fn func()) func(unsafe.Pointer, uint64) int32 {
+			return *(*func(unsafe.Pointer, uint64) int32)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(pFd.pMapRegion, uint64(pFd.mmapSizeActual))
 		pFd.pMapRegion = unsafe.Pointer(nil)
 		pFd.mmapSize = int64(0)
 		pFd.mmapSizeActual = int64(0)
@@ -14038,33 +14038,33 @@ func unixRemapfile(pFd *struct_unixFile, nNew int64) {
 		var nReuse int64 = pFd.mmapSize & int64(^(szSyspage - 1))
 		var pReq *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOrig)) + uintptr(nReuse)))
 		if nReuse != nOrig {
-			func(_cgo_fn func()) func(unsafe.Pointer, uint) int32 {
-				return *(*func(unsafe.Pointer, uint) int32)(unsafe.Pointer(&_cgo_fn))
-			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pReq), uint(nOrig-nReuse))
+			func(_cgo_fn func()) func(unsafe.Pointer, uint64) int32 {
+				return *(*func(unsafe.Pointer, uint64) int32)(unsafe.Pointer(&_cgo_fn))
+			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pReq), uint64(nOrig-nReuse))
 		}
-		pNew = (*uint8)(func(_cgo_fn func()) func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer {
-			return *(*func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(unsafe.Pointer(pReq), uint(nNew-nReuse), flags, 1, h, nReuse))
+		pNew = (*uint8)(func(_cgo_fn func()) func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer {
+			return *(*func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(unsafe.Pointer(pReq), uint64(nNew-nReuse), flags, 1, h, nReuse))
 		if uintptr(unsafe.Pointer(pNew)) != uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(18446744073709551615))))) {
 			if uintptr(unsafe.Pointer(pNew)) != uintptr(unsafe.Pointer(pReq)) {
-				func(_cgo_fn func()) func(unsafe.Pointer, uint) int32 {
-					return *(*func(unsafe.Pointer, uint) int32)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pNew), uint(nNew-nReuse))
+				func(_cgo_fn func()) func(unsafe.Pointer, uint64) int32 {
+					return *(*func(unsafe.Pointer, uint64) int32)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pNew), uint64(nNew-nReuse))
 				pNew = (*uint8)(nil)
 			} else {
 				pNew = pOrig
 			}
 		}
 		if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(18446744073709551615))))) || uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
-			func(_cgo_fn func()) func(unsafe.Pointer, uint) int32 {
-				return *(*func(unsafe.Pointer, uint) int32)(unsafe.Pointer(&_cgo_fn))
-			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pOrig), uint(nReuse))
+			func(_cgo_fn func()) func(unsafe.Pointer, uint64) int32 {
+				return *(*func(unsafe.Pointer, uint64) int32)(unsafe.Pointer(&_cgo_fn))
+			}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(23)*24))).pCurrent)(unsafe.Pointer(pOrig), uint64(nReuse))
 		}
 	}
 	if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
-		pNew = (*uint8)(func(_cgo_fn func()) func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer {
-			return *(*func(unsafe.Pointer, uint, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(nil, uint(nNew), flags, 1, h, int64(0)))
+		pNew = (*uint8)(func(_cgo_fn func()) func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer {
+			return *(*func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(22)*24))).pCurrent)(nil, uint64(nNew), flags, 1, h, int64(0)))
 	}
 	if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(18446744073709551615))))) {
 		pNew = (*uint8)(nil)
@@ -14417,7 +14417,7 @@ func unixTempFileDir() *int8 {
 		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(2)*24))).pCurrent)(zDir, 3) == 0 {
 			return zDir
 		}
-		if uint(i) >= 48/8 {
+		if uint64(i) >= 48/8 {
 			break
 		}
 		zDir = *(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer((**int8)(unsafe.Pointer(&azTempDirs)))) + uintptr(func() (_cgo_ret uint32) {
@@ -14523,7 +14523,7 @@ func findCreateFileMode(zPath *int8, flags int32, pMode *uint16, pUid *uint32, p
 			}
 			nDb--
 		}
-		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&zDb))), unsafe.Pointer(zPath), uint(nDb), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&zDb))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&zDb))), unsafe.Pointer(zPath), uint(uint64(nDb)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&zDb))), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&zDb)))) + uintptr(nDb))) = int8('\x00')
 		rc = getFileMode((*int8)(unsafe.Pointer(&zDb)), pMode, pUid, pGid)
 	} else if flags&8 != 0 {
@@ -14714,10 +14714,10 @@ func unixOpen(pVfs *struct_sqlite3_vfs, zPath *int8, pFile *struct_sqlite3_file,
 		robust_close(p, fd, 41062)
 		return int32(10 | 13<<8)
 	}
-	if 0 == strncmp((*int8)(unsafe.Pointer(&[6]int8{'m', 's', 'd', 'o', 's', '\x00'})), (*int8)(unsafe.Pointer(&fsInfo.f_fstypename)), uint(5)) {
+	if 0 == strncmp((*int8)(unsafe.Pointer(&[6]int8{'m', 's', 'd', 'o', 's', '\x00'})), (*int8)(unsafe.Pointer(&fsInfo.f_fstypename)), uint64(5)) {
 		(*struct_unixFile)(unsafe.Pointer(pFile)).fsFlags |= uint32(1)
 	}
-	if 0 == strncmp((*int8)(unsafe.Pointer(&[6]int8{'e', 'x', 'f', 'a', 't', '\x00'})), (*int8)(unsafe.Pointer(&fsInfo.f_fstypename)), uint(5)) {
+	if 0 == strncmp((*int8)(unsafe.Pointer(&[6]int8{'e', 'x', 'f', 'a', 't', '\x00'})), (*int8)(unsafe.Pointer(&fsInfo.f_fstypename)), uint64(5)) {
 		(*struct_unixFile)(unsafe.Pointer(pFile)).fsFlags |= uint32(1)
 	}
 	if isDelete != 0 {
@@ -14881,9 +14881,9 @@ func mkFullPathname(zPath *int8, zOut *int8, nOut int32) int32 {
 	var i int32
 	var j int32
 	if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zPath)) + uintptr(0)))) != '/' {
-		if uintptr(unsafe.Pointer(func(_cgo_fn func()) func(*int8, uint) *int8 {
-			return *(*func(*int8, uint) *int8)(unsafe.Pointer(&_cgo_fn))
-		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(3)*24))).pCurrent)(zOut, uint(nOut-2)))) == uintptr(unsafe.Pointer(nil)) {
+		if uintptr(unsafe.Pointer(func(_cgo_fn func()) func(*int8, uint64) *int8 {
+			return *(*func(*int8, uint64) *int8)(unsafe.Pointer(&_cgo_fn))
+		}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(3)*24))).pCurrent)(zOut, uint64(nOut-2)))) == uintptr(unsafe.Pointer(nil)) {
 			return unixLogErrorAtLine(sqlite3CantopenError(41236), (*int8)(unsafe.Pointer(&[7]int8{'g', 'e', 't', 'c', 'w', 'd', '\x00'})), zPath, 41236)
 		}
 		iOff = sqlite3Strlen30(zOut)
@@ -14993,9 +14993,9 @@ func unixFullPathname(pVfs *struct_sqlite3_vfs, zPath *int8, nOut int32, zOut *i
 				rc = sqlite3CantopenError(41340)
 			}
 			if rc == 0 {
-				nByte = int32(func(_cgo_fn func()) func(*int8, *int8, uint) int {
-					return *(*func(*int8, *int8, uint) int)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(26)*24))).pCurrent)(zIn, zDel, uint(nOut-1)))
+				nByte = int32(func(_cgo_fn func()) func(*int8, *int8, uint64) int64 {
+					return *(*func(*int8, *int8, uint64) int64)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(26)*24))).pCurrent)(zIn, zDel, uint64(nOut-1)))
 				if nByte < 0 {
 					rc = unixLogErrorAtLine(sqlite3CantopenError(41346), (*int8)(unsafe.Pointer(&[9]int8{'r', 'e', 'a', 'd', 'l', 'i', 'n', 'k', '\x00'})), zIn, 41346)
 				} else {
@@ -15006,8 +15006,8 @@ func unixFullPathname(pVfs *struct_sqlite3_vfs, zPath *int8, nOut int32, zOut *i
 						if nByte+n+1 > nOut {
 							rc = sqlite3CantopenError(41352)
 						} else {
-							__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zDel)) + uintptr(n)))), unsafe.Pointer(zDel), uint(nByte+1), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zDel)) + uintptr(n)))), 0))
-							__builtin___memcpy_chk(unsafe.Pointer(zDel), unsafe.Pointer(zIn), uint(n), __builtin_object_size(unsafe.Pointer(zDel), 0))
+							__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zDel)) + uintptr(n)))), unsafe.Pointer(zDel), uint(uint64(nByte+1)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zDel)) + uintptr(n)))), 0))
+							__builtin___memcpy_chk(unsafe.Pointer(zDel), unsafe.Pointer(zIn), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(zDel), 0))
 							nByte += n
 						}
 					}
@@ -15093,14 +15093,14 @@ func unixRandomness(NotUsed *struct_sqlite3_vfs, nBuf int32, zBuf *int8) int32 {
 		_ = 0
 		return 0
 	}()
-	__builtin___memset_chk(unsafe.Pointer(zBuf), 0, uint(nBuf), __builtin_object_size(unsafe.Pointer(zBuf), 0))
+	__builtin___memset_chk(unsafe.Pointer(zBuf), 0, uint(uint64(nBuf)), __builtin_object_size(unsafe.Pointer(zBuf), 0))
 	randomnessPid = int32(getpid())
 	{
 		var fd int32
 		var got int32
 		fd = robust_open((*int8)(unsafe.Pointer(&[13]int8{'/', 'd', 'e', 'v', '/', 'u', 'r', 'a', 'n', 'd', 'o', 'm', '\x00'})), 0, uint16(0))
 		if fd < 0 {
-			var t int
+			var t int64
 			time(&t)
 			__builtin___memcpy_chk(unsafe.Pointer(zBuf), unsafe.Pointer(&t), 8, __builtin_object_size(unsafe.Pointer(zBuf), 0))
 			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zBuf)) + uintptr(8)))), unsafe.Pointer(&randomnessPid), 4, __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zBuf)) + uintptr(8)))), 0))
@@ -15111,9 +15111,9 @@ func unixRandomness(NotUsed *struct_sqlite3_vfs, nBuf int32, zBuf *int8) int32 {
 			nBuf = int32(8 + 4)
 		} else {
 			for {
-				got = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint) int {
-					return *(*func(int32, unsafe.Pointer, uint) int)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(8)*24))).pCurrent)(fd, unsafe.Pointer(zBuf), uint(nBuf)))
+				got = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64) int64 {
+					return *(*func(int32, unsafe.Pointer, uint64) int64)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(8)*24))).pCurrent)(fd, unsafe.Pointer(zBuf), uint64(nBuf)))
 				if !(got < 0 && *__error() == 4) {
 					break
 				}
@@ -15187,7 +15187,7 @@ type struct_proxyLockingContext struct {
 	pOldMethod        *struct_sqlite3_io_methods
 }
 
-func proxyGetLockPath(dbPath *int8, lPath *int8, maxLen uint) int32 {
+func proxyGetLockPath(dbPath *int8, lPath *int8, maxLen uint64) int32 {
 	var len int32
 	var dbLen int32
 	var i int32
@@ -15195,7 +15195,7 @@ func proxyGetLockPath(dbPath *int8, lPath *int8, maxLen uint) int32 {
 		if !(confstr(65537, lPath, maxLen) != 0) {
 			return int32(10 | 15<<8)
 		}
-		len = int32(__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[13]int8{'s', 'q', 'l', 'i', 't', 'e', 'p', 'l', 'o', 'c', 'k', 's', '\x00'})), maxLen, __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
+		len = int32(__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[13]int8{'s', 'q', 'l', 'i', 't', 'e', 'p', 'l', 'o', 'c', 'k', 's', '\x00'})), uint(maxLen), __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
 			if true {
 				return 1
 			} else {
@@ -15204,7 +15204,7 @@ func proxyGetLockPath(dbPath *int8, lPath *int8, maxLen uint) int32 {
 		}())))
 	}
 	if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(lPath)) + uintptr(len-1)))) != '/' {
-		len = int32(__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[2]int8{'/', '\x00'})), maxLen, __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
+		len = int32(__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[2]int8{'/', '\x00'})), uint(maxLen), __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
 			if true {
 				return 1
 			} else {
@@ -15224,7 +15224,7 @@ func proxyGetLockPath(dbPath *int8, lPath *int8, maxLen uint) int32 {
 		}())
 	}
 	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(lPath)) + uintptr(i+len))) = int8('\x00')
-	__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'})), maxLen, __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
+	__builtin___strlcat_chk(lPath, (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'})), uint(maxLen), __builtin_object_size(unsafe.Pointer(lPath), func() int32 {
 		if true {
 			return 1
 		} else {
@@ -15336,9 +15336,9 @@ func proxyGetHostID(pHostID *uint8, pError *int32) int32 {
 		_ = 0
 		return 0
 	}()
-	__builtin___memset_chk(unsafe.Pointer(pHostID), 0, uint(16), __builtin_object_size(unsafe.Pointer(pHostID), 0))
+	__builtin___memset_chk(unsafe.Pointer(pHostID), 0, uint(uint64(16)), __builtin_object_size(unsafe.Pointer(pHostID), 0))
 	{
-		var timeout struct_timespec = struct_timespec{int(1), int(0)}
+		var timeout struct_timespec = struct_timespec{int64(1), int64(0)}
 		if gethostuuid(pHostID, &timeout) != 0 {
 			var err int32 = *__error()
 			if pError != nil {
@@ -15355,8 +15355,8 @@ func proxyBreakConchLock(pFile *struct_unixFile, myHostID *uint8) int32 {
 	var tPath [1024]int8
 	var buf [1041]int8
 	var cPath *int8 = pCtx.conchFilePath
-	var readLen uint = uint(0)
-	var pathLen uint = uint(0)
+	var readLen uint64 = uint64(0)
+	var pathLen uint64 = uint64(0)
 	var errmsg [64]int8 = [64]int8{'\x00'}
 	var fd int32 = -1
 	var rc int32 = -1
@@ -15364,27 +15364,27 @@ func proxyBreakConchLock(pFile *struct_unixFile, myHostID *uint8) int32 {
 		_ = myHostID
 		return 0
 	}()
-	pathLen = __builtin___strlcpy_chk((*int8)(unsafe.Pointer(&tPath)), cPath, uint(1024), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath))), func() int32 {
+	pathLen = uint64(__builtin___strlcpy_chk((*int8)(unsafe.Pointer(&tPath)), cPath, uint(uint64(1024)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath))), func() int32 {
 		if true {
 			return 1
 		} else {
 			return 0
 		}
-	}()))
-	if pathLen > uint(1024) || pathLen < uint(6) || __builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath)))) + uintptr(pathLen-uint(5)))), (*int8)(unsafe.Pointer(&[6]int8{'b', 'r', 'e', 'a', 'k', '\x00'})), uint(6), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath)))) + uintptr(pathLen-uint(5))))), func() int32 {
+	}())))
+	if pathLen > uint64(1024) || pathLen < uint64(6) || uint64(__builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath)))) + uintptr(pathLen-uint64(5)))), (*int8)(unsafe.Pointer(&[6]int8{'b', 'r', 'e', 'a', 'k', '\x00'})), uint(uint64(6)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tPath)))) + uintptr(pathLen-uint64(5))))), func() int32 {
 		if true {
 			return 1
 		} else {
 			return 0
 		}
-	}())) != uint(5) {
+	}()))) != uint64(5) {
 		sqlite3_snprintf(int32(64), (*int8)(unsafe.Pointer(&errmsg)), (*int8)(unsafe.Pointer(&[20]int8{'p', 'a', 't', 'h', ' ', 'e', 'r', 'r', 'o', 'r', ' ', '(', 'l', 'e', 'n', ' ', '%', 'd', ')', '\x00'})), int32(pathLen))
 		goto end_breaklock
 	}
-	readLen = uint(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint, int64) int {
-		return *(*func(int32, unsafe.Pointer, uint, int64) int)(unsafe.Pointer(&_cgo_fn))
-	}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(conchFile.h, unsafe.Pointer((*int8)(unsafe.Pointer(&buf))), uint(1+16+1024), int64(0)))
-	if readLen < uint(1+16) {
+	readLen = uint64(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64, int64) int64 {
+		return *(*func(int32, unsafe.Pointer, uint64, int64) int64)(unsafe.Pointer(&_cgo_fn))
+	}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(conchFile.h, unsafe.Pointer((*int8)(unsafe.Pointer(&buf))), uint64(1+16+1024), int64(0)))
+	if readLen < uint64(1+16) {
 		sqlite3_snprintf(int32(64), (*int8)(unsafe.Pointer(&errmsg)), (*int8)(unsafe.Pointer(&[20]int8{'r', 'e', 'a', 'd', ' ', 'e', 'r', 'r', 'o', 'r', ' ', '(', 'l', 'e', 'n', ' ', '%', 'd', ')', '\x00'})), int32(readLen))
 		goto end_breaklock
 	}
@@ -15393,9 +15393,9 @@ func proxyBreakConchLock(pFile *struct_unixFile, myHostID *uint8) int32 {
 		sqlite3_snprintf(int32(64), (*int8)(unsafe.Pointer(&errmsg)), (*int8)(unsafe.Pointer(&[19]int8{'c', 'r', 'e', 'a', 't', 'e', ' ', 'f', 'a', 'i', 'l', 'e', 'd', ' ', '(', '%', 'd', ')', '\x00'})), *__error())
 		goto end_breaklock
 	}
-	if func(_cgo_fn func()) func(int32, unsafe.Pointer, uint, int64) int {
-		return *(*func(int32, unsafe.Pointer, uint, int64) int)(unsafe.Pointer(&_cgo_fn))
-	}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(12)*24))).pCurrent)(fd, unsafe.Pointer((*int8)(unsafe.Pointer(&buf))), readLen, int64(0)) != int(readLen) {
+	if func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64, int64) int64 {
+		return *(*func(int32, unsafe.Pointer, uint64, int64) int64)(unsafe.Pointer(&_cgo_fn))
+	}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(12)*24))).pCurrent)(fd, unsafe.Pointer((*int8)(unsafe.Pointer(&buf))), readLen, int64(0)) != int64(readLen) {
 		sqlite3_snprintf(int32(64), (*int8)(unsafe.Pointer(&errmsg)), (*int8)(unsafe.Pointer(&[18]int8{'w', 'r', 'i', 't', 'e', ' ', 'f', 'a', 'i', 'l', 'e', 'd', ' ', '(', '%', 'd', ')', '\x00'})), *__error())
 		goto end_breaklock
 	}
@@ -15452,15 +15452,15 @@ func proxyConchLock(pFile *struct_unixFile, myHostID *uint8, lockType int32) int
 			}
 			if nTries == 2 {
 				var tBuf [1041]int8
-				var len int32 = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint, int64) int {
-					return *(*func(int32, unsafe.Pointer, uint, int64) int)(unsafe.Pointer(&_cgo_fn))
-				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(conchFile.h, unsafe.Pointer((*int8)(unsafe.Pointer(&tBuf))), uint(1+16+1024), int64(0)))
+				var len int32 = int32(func(_cgo_fn func()) func(int32, unsafe.Pointer, uint64, int64) int64 {
+					return *(*func(int32, unsafe.Pointer, uint64, int64) int64)(unsafe.Pointer(&_cgo_fn))
+				}((*(*struct_unix_syscall)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_unix_syscall)(unsafe.Pointer(&aSyscall)))) + uintptr(9)*24))).pCurrent)(conchFile.h, unsafe.Pointer((*int8)(unsafe.Pointer(&tBuf))), uint64(1+16+1024), int64(0)))
 				if len < 0 {
 					storeLastErrno(pFile, *__error())
 					return int32(10 | 15<<8)
 				}
 				if len > 1+16 && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tBuf)))) + uintptr(0)))) == int32(int8(2)) {
-					if 0 != memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tBuf)))) + uintptr(1)))), unsafe.Pointer(myHostID), uint(16)) {
+					if 0 != memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&tBuf)))) + uintptr(1)))), unsafe.Pointer(myHostID), uint64(16)) {
 						return int32(5)
 					}
 				} else {
@@ -15490,7 +15490,7 @@ func proxyConchLock(pFile *struct_unixFile, myHostID *uint8, lockType int32) int
 	return rc
 }
 func proxyTakeConch(pFile *struct_unixFile) int32 {
-	var pathLen_cgo10 uint
+	var pathLen_cgo10 uint64
 	var pCtx *struct_proxyLockingContext = (*struct_proxyLockingContext)(pFile.lockingContext)
 	if pCtx.conchHeld != 0 {
 		return int32(0)
@@ -15539,7 +15539,7 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 			goto _cgol_6
 		}
 		hostIdMatch = func() int32 {
-			if !(memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint(16)) != 0) {
+			if !(memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint64(16)) != 0) {
 				return 1
 			} else {
 				return 0
@@ -15551,11 +15551,11 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 		if !(hostIdMatch != 0) {
 			goto _cgol_9
 		}
-		pathLen_cgo10 = uint(readLen - (1 + 16))
-		if pathLen_cgo10 >= uint(1024) {
-			pathLen_cgo10 = uint(1024 - 1)
+		pathLen_cgo10 = uint64(readLen - (1 + 16))
+		if pathLen_cgo10 >= uint64(1024) {
+			pathLen_cgo10 = uint64(1024 - 1)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16)))), pathLen_cgo10, __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16)))), uint(pathLen_cgo10), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath)))) + uintptr(pathLen_cgo10))) = int8(0)
 		tempLockPath = (*int8)(unsafe.Pointer(&lockPath))
 		tryOldLockPath = int32(1)
@@ -15563,7 +15563,7 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 	_cgol_9:
 		goto _cgol_7
 	_cgol_8:
-		if !(hostIdMatch != 0 && !(strncmp(pCtx.lockProxyPath, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16))), uint(readLen-(1+16))) != 0)) {
+		if !(hostIdMatch != 0 && !(strncmp(pCtx.lockProxyPath, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16))), uint64(readLen-(1+16))) != 0)) {
 			goto _cgol_11
 		}
 		goto end_takeconch
@@ -15579,7 +15579,7 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 		goto end_takeconch
 	_cgol_12:
 		if !(pCtx.lockProxyPath != nil) {
-			proxyGetLockPath(pCtx.dbPath, (*int8)(unsafe.Pointer(&lockPath)), uint(1024))
+			proxyGetLockPath(pCtx.dbPath, (*int8)(unsafe.Pointer(&lockPath)), uint64(1024))
 			tempLockPath = (*int8)(unsafe.Pointer(&lockPath))
 		}
 		futimes(conchFile.h, nil)
@@ -15596,9 +15596,9 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 			var writeBuffer [1041]int8
 			var writeSize int32 = 0
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(0))) = int8(2)
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint(16), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint(uint64(16)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1)))), 0))
 			if uintptr(unsafe.Pointer(pCtx.lockProxyPath)) != uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(nil)))) {
-				__builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16))), pCtx.lockProxyPath, uint(1024), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))), func() int32 {
+				__builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16))), pCtx.lockProxyPath, uint(uint64(1024)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))), func() int32 {
 					if true {
 						return 1
 					} else {
@@ -15606,7 +15606,7 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 					}
 				}()))
 			} else {
-				__builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16))), tempLockPath, uint(1024), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))), func() int32 {
+				__builtin___strlcpy_chk(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16))), tempLockPath, uint(uint64(1024)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))), func() int32 {
 					if true {
 						return 1
 					} else {
@@ -15614,7 +15614,7 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 					}
 				}()))
 			}
-			writeSize = int32(uint(1+16) + strlen(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))))
+			writeSize = int32(uint64(1+16) + strlen(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer)))) + uintptr(1+16)))))
 			robust_ftruncate(conchFile.h, int64(writeSize))
 			rc = unixWrite((*struct_sqlite3_file)(unsafe.Pointer(conchFile)), unsafe.Pointer((*int8)(unsafe.Pointer(&writeBuffer))), writeSize, int64(0))
 			full_fsync(conchFile.h, 0, 0)
@@ -15709,7 +15709,7 @@ func proxyCreateConchPathname(dbPath *int8, pConchPath **int8) int32 {
 	if uintptr(unsafe.Pointer(conchPath)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(conchPath), unsafe.Pointer(dbPath), uint(len+1), __builtin_object_size(unsafe.Pointer(conchPath), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(conchPath), unsafe.Pointer(dbPath), uint(uint64(len+1)), __builtin_object_size(unsafe.Pointer(conchPath), 0))
 	for i = len - 1; i >= 0; i-- {
 		if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i)))) == '/' {
 			i++
@@ -15721,7 +15721,7 @@ func proxyCreateConchPathname(dbPath *int8, pConchPath **int8) int32 {
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i+1))) = *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(dbPath)) + uintptr(i)))
 		i++
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i+1)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[7]int8{'-', 'c', 'o', 'n', 'c', 'h', '\x00'}))), uint(7), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i+1)))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i+1)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[7]int8{'-', 'c', 'o', 'n', 'c', 'h', '\x00'}))), uint(uint64(7)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(conchPath)) + uintptr(i+1)))), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -15735,7 +15735,7 @@ func switchLockProxyPath(pFile *struct_unixFile, path *int8) int32 {
 	if int32(pFile.eFileLock) != 0 {
 		return int32(5)
 	}
-	if !(path != nil) || int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(path)) + uintptr(0)))) == '\x00' || !(strcmp(path, (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'}))) != 0) || oldPath != nil && !(strncmp(oldPath, path, uint(1024)) != 0) {
+	if !(path != nil) || int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(path)) + uintptr(0)))) == '\x00' || !(strcmp(path, (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'}))) != 0) || oldPath != nil && !(strncmp(oldPath, path, uint64(1024)) != 0) {
 		return int32(0)
 	} else {
 		var lockProxy *struct_unixFile = pCtx.lockProxy
@@ -15759,7 +15759,7 @@ func proxyGetDbPathForUnixFile(pFile *struct_unixFile, dbPath *int8) int32 {
 			_ = 0
 			return 0
 		}()
-		__builtin___strlcpy_chk(dbPath, (*struct_afpLockingContext)(pFile.lockingContext).dbPath, uint(1024), __builtin_object_size(unsafe.Pointer(dbPath), func() int32 {
+		__builtin___strlcpy_chk(dbPath, (*struct_afpLockingContext)(pFile.lockingContext).dbPath, uint(uint64(1024)), __builtin_object_size(unsafe.Pointer(dbPath), func() int32 {
 			if true {
 				return 1
 			} else {
@@ -15768,13 +15768,13 @@ func proxyGetDbPathForUnixFile(pFile *struct_unixFile, dbPath *int8) int32 {
 		}()))
 	} else if uintptr(unsafe.Pointer(pFile.pMethod)) == uintptr(unsafe.Pointer(&dotlockIoMethods)) {
 		var len int32 = int32(strlen((*int8)(pFile.lockingContext)) - strlen((*int8)(unsafe.Pointer(&[6]int8{'.', 'l', 'o', 'c', 'k', '\x00'}))))
-		__builtin___memcpy_chk(unsafe.Pointer(dbPath), unsafe.Pointer((*int8)(pFile.lockingContext)), uint(len+1), __builtin_object_size(unsafe.Pointer(dbPath), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(dbPath), unsafe.Pointer((*int8)(pFile.lockingContext)), uint(uint64(len+1)), __builtin_object_size(unsafe.Pointer(dbPath), 0))
 	} else {
 		func() int {
 			_ = 0
 			return 0
 		}()
-		__builtin___strlcpy_chk(dbPath, (*int8)(pFile.lockingContext), uint(1024), __builtin_object_size(unsafe.Pointer(dbPath), func() int32 {
+		__builtin___strlcpy_chk(dbPath, (*int8)(pFile.lockingContext), uint(uint64(1024)), __builtin_object_size(unsafe.Pointer(dbPath), func() int32 {
 			if true {
 				return 1
 			} else {
@@ -15894,7 +15894,7 @@ func proxyFileControl(id *struct_sqlite3_file, op int32, pArg unsafe.Pointer) in
 				var proxyPath *int8 = (*int8)(pArg)
 				if isProxyStyle != 0 {
 					var pCtx *struct_proxyLockingContext = (*struct_proxyLockingContext)(pFile.lockingContext)
-					if !(strcmp((*int8)(pArg), (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'}))) != 0) || pCtx.lockProxyPath != nil && !(strncmp(pCtx.lockProxyPath, proxyPath, uint(1024)) != 0) {
+					if !(strcmp((*int8)(pArg), (*int8)(unsafe.Pointer(&[7]int8{':', 'a', 'u', 't', 'o', ':', '\x00'}))) != 0) || pCtx.lockProxyPath != nil && !(strncmp(pCtx.lockProxyPath, proxyPath, uint64(1024)) != 0) {
 						rc = int32(0)
 					} else {
 						rc = switchLockProxyPath(pFile, proxyPath)
@@ -16010,7 +16010,7 @@ func sqlite3_os_init() int32 {
 		_ = 0
 		return 0
 	}()
-	for i = uint32(0); uint(i) < 1512/168; i++ {
+	for i = uint32(0); uint64(i) < 1512/168; i++ {
 		sqlite3_vfs_register(&*(*struct_sqlite3_vfs)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_sqlite3_vfs)(unsafe.Pointer(&aVfs)))) + uintptr(i)*168)), func() int32 {
 			if i == uint32(0) {
 				return 1
@@ -16120,14 +16120,14 @@ func memdbRead(pFile *struct_sqlite3_file, zBuf unsafe.Pointer, iAmt int32, iOfs
 	var p *struct_MemStore = (*struct_MemFile)(unsafe.Pointer(pFile)).pStore
 	memdbEnter(p)
 	if iOfst+int64(iAmt) > p.sz {
-		__builtin___memset_chk(zBuf, 0, uint(iAmt), __builtin_object_size(zBuf, 0))
+		__builtin___memset_chk(zBuf, 0, uint(uint64(iAmt)), __builtin_object_size(zBuf, 0))
 		if iOfst < p.sz {
-			__builtin___memcpy_chk(zBuf, unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), uint(p.sz-iOfst), __builtin_object_size(zBuf, 0))
+			__builtin___memcpy_chk(zBuf, unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), uint(uint64(p.sz-iOfst)), __builtin_object_size(zBuf, 0))
 		}
 		memdbLeave(p)
 		return int32(10 | 2<<8)
 	}
-	__builtin___memcpy_chk(zBuf, unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), uint(iAmt), __builtin_object_size(zBuf, 0))
+	__builtin___memcpy_chk(zBuf, unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), uint(uint64(iAmt)), __builtin_object_size(zBuf, 0))
 	memdbLeave(p)
 	return int32(0)
 }
@@ -16169,11 +16169,11 @@ func memdbWrite(pFile *struct_sqlite3_file, z unsafe.Pointer, iAmt int32, iOfst 
 			return rc
 		}
 		if iOfst > p.sz {
-			__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(p.sz)))), 0, uint(iOfst-p.sz), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(p.sz)))), 0))
+			__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(p.sz)))), 0, uint(uint64(iOfst-p.sz)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(p.sz)))), 0))
 		}
 		p.sz = iOfst + int64(iAmt)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), z, uint(iAmt), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), z, uint(uint64(iAmt)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aData))+uintptr(iOfst)))), 0))
 	memdbLeave(p)
 	return int32(0)
 }
@@ -16341,12 +16341,12 @@ func memdbOpen(pVfs *struct_sqlite3_vfs, zName *int8, pFd *struct_sqlite3_file, 
 		}
 		if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 			var apNew **struct_MemStore
-			p = (*struct_MemStore)(sqlite3Malloc(uint64(72 + uint(szName) + uint(3))))
+			p = (*struct_MemStore)(sqlite3Malloc(uint64(72 + uint64(szName) + uint64(3))))
 			if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 				sqlite3_mutex_leave(pVfsMutex)
 				return int32(7)
 			}
-			apNew = (**struct_MemStore)(sqlite3Realloc(unsafe.Pointer(memdb_g.apMemStore), uint64(8*uint(memdb_g.nMemStore+1))))
+			apNew = (**struct_MemStore)(sqlite3Realloc(unsafe.Pointer(memdb_g.apMemStore), uint64(8*uint64(memdb_g.nMemStore+1))))
 			if uintptr(unsafe.Pointer(apNew)) == uintptr(unsafe.Pointer(nil)) {
 				sqlite3_free(unsafe.Pointer(p))
 				sqlite3_mutex_leave(pVfsMutex)
@@ -16363,7 +16363,7 @@ func memdbOpen(pVfs *struct_sqlite3_vfs, zName *int8, pFd *struct_sqlite3_file, 
 			p.mFlags = uint32(2 | 1)
 			p.szMax = sqlite3Config.mxMemdbSize
 			p.zFName = (*int8)(unsafe.Pointer(&*(*struct_MemStore)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*72))))
-			__builtin___memcpy_chk(unsafe.Pointer(p.zFName), unsafe.Pointer(zName), uint(szName+1), __builtin_object_size(unsafe.Pointer(p.zFName), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(p.zFName), unsafe.Pointer(zName), uint(uint64(szName+1)), __builtin_object_size(unsafe.Pointer(p.zFName), 0))
 			p.pMutex = sqlite3_mutex_alloc(0)
 			if uintptr(unsafe.Pointer(p.pMutex)) == uintptr(unsafe.Pointer(nil)) {
 				memdb_g.nMemStore--
@@ -16496,7 +16496,7 @@ func sqlite3_serialize(db *struct_sqlite3, zSchema *int8, piSize *int64, mFlags 
 		} else {
 			pOut = (*uint8)(sqlite3_malloc64(uint64(pStore.sz)))
 			if pOut != nil {
-				__builtin___memcpy_chk(unsafe.Pointer(pOut), unsafe.Pointer(pStore.aData), uint(pStore.sz), __builtin_object_size(unsafe.Pointer(pOut), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(pOut), unsafe.Pointer(pStore.aData), uint(uint64(pStore.sz)), __builtin_object_size(unsafe.Pointer(pOut), 0))
 			}
 		}
 		return pOut
@@ -16539,9 +16539,9 @@ func sqlite3_serialize(db *struct_sqlite3, zSchema *int8, piSize *int64, mFlags 
 					var pTo *uint8 = (*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOut)) + uintptr(int64(szPage)*int64(pgno-1))))
 					rc = sqlite3PagerGet(pPager, uint32(pgno), (**struct_PgHdr)(unsafe.Pointer(&pPage)), 0)
 					if rc == 0 {
-						__builtin___memcpy_chk(unsafe.Pointer(pTo), sqlite3PagerGetData(pPage), uint(szPage), __builtin_object_size(unsafe.Pointer(pTo), 0))
+						__builtin___memcpy_chk(unsafe.Pointer(pTo), sqlite3PagerGetData(pPage), uint(uint64(szPage)), __builtin_object_size(unsafe.Pointer(pTo), 0))
 					} else {
-						__builtin___memset_chk(unsafe.Pointer(pTo), 0, uint(szPage), __builtin_object_size(unsafe.Pointer(pTo), 0))
+						__builtin___memset_chk(unsafe.Pointer(pTo), 0, uint(uint64(szPage)), __builtin_object_size(unsafe.Pointer(pTo), 0))
 					}
 					sqlite3PagerUnref(pPage)
 				}
@@ -16622,7 +16622,7 @@ func sqlite3MemdbInit() int32 {
 	}
 	sz = uint32(pLower.szOsFile)
 	memdb_vfs.pAppData = unsafe.Pointer(pLower)
-	if uint(sz) < 20 {
+	if uint64(sz) < 20 {
 		sz = uint32(20)
 	}
 	memdb_vfs.szOsFile = int32(sz)
@@ -16668,7 +16668,7 @@ func sqlite3BitvecTestNotNull(p *struct_Bitvec, i uint32) int32 {
 			return int32(0)
 		}
 	}
-	if uint(p.iSize) <= (uint(512)-uint(3)*4)/8*8/1*uint(8) {
+	if uint64(p.iSize) <= (uint64(512)-uint64(3)*4)/8*8/1*uint64(8) {
 		return func() int32 {
 			if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.u.aBitmap)))) + uintptr(i/uint32(8)))))&int32(1<<(i&uint32(8-1))) != 0 {
 				return 1
@@ -16677,17 +16677,17 @@ func sqlite3BitvecTestNotNull(p *struct_Bitvec, i uint32) int32 {
 			}
 		}()
 	} else {
-		var h uint32 = uint32(uint(func() (_cgo_ret uint32) {
+		var h uint32 = uint32(uint64(func() (_cgo_ret uint32) {
 			_cgo_addr := &i
 			_cgo_ret = *_cgo_addr
 			*_cgo_addr++
 			return
-		}()*uint32(1)) % ((uint(512) - uint(3)*4) / 8 * 8 / 4))
+		}()*uint32(1)) % ((uint64(512) - uint64(3)*4) / 8 * 8 / 4))
 		for *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u)))))) + uintptr(h)*4)) != 0 {
 			if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u)))))) + uintptr(h)*4)) == i {
 				return int32(1)
 			}
-			h = uint32(uint(h+uint32(1)) % ((uint(512) - uint(3)*4) / 8 * 8 / 4))
+			h = uint32(uint64(h+uint32(1)) % ((uint64(512) - uint64(3)*4) / 8 * 8 / 4))
 		}
 		return int32(0)
 	}
@@ -16715,7 +16715,7 @@ func sqlite3BitvecSet(p *struct_Bitvec, i uint32) int32 {
 		return 0
 	}()
 	i--
-	for uint(p.iSize) > (uint(512)-uint(3)*4)/8*8/1*uint(8) && p.iDivisor != 0 {
+	for uint64(p.iSize) > (uint64(512)-uint64(3)*4)/8*8/1*uint64(8) && p.iDivisor != 0 {
 		var bin uint32 = i / p.iDivisor
 		i = i % p.iDivisor
 		if uintptr(unsafe.Pointer(*(**struct_Bitvec)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_Bitvec)(unsafe.Pointer(&*(*[62]*struct_Bitvec)(unsafe.Pointer(&p.u)))))) + uintptr(bin)*8)))) == uintptr(unsafe.Pointer(nil)) {
@@ -16726,18 +16726,18 @@ func sqlite3BitvecSet(p *struct_Bitvec, i uint32) int32 {
 		}
 		p = *(**struct_Bitvec)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_Bitvec)(unsafe.Pointer(&*(*[62]*struct_Bitvec)(unsafe.Pointer(&p.u)))))) + uintptr(bin)*8))
 	}
-	if uint(p.iSize) <= (uint(512)-uint(3)*4)/8*8/1*uint(8) {
+	if uint64(p.iSize) <= (uint64(512)-uint64(3)*4)/8*8/1*uint64(8) {
 		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.u.aBitmap)))) + uintptr(i/uint32(8)))) |= uint8(1 << (i & uint32(8-1)))
 		return int32(0)
 	}
-	h = uint32(uint(func() (_cgo_ret uint32) {
+	h = uint32(uint64(func() (_cgo_ret uint32) {
 		_cgo_addr := &i
 		_cgo_ret = *_cgo_addr
 		*_cgo_addr++
 		return
-	}()*uint32(1)) % ((uint(512) - uint(3)*4) / 8 * 8 / 4))
+	}()*uint32(1)) % ((uint64(512) - uint64(3)*4) / 8 * 8 / 4))
 	if !(*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u)))))) + uintptr(h)*4)) != 0) {
-		if uint(p.nSet) < (uint(512)-uint(3)*4)/8*8/4-uint(1) {
+		if uint64(p.nSet) < (uint64(512)-uint64(3)*4)/8*8/4-uint64(1) {
 			goto bitvec_set_end
 		} else {
 			goto bitvec_set_rehash
@@ -16748,7 +16748,7 @@ func sqlite3BitvecSet(p *struct_Bitvec, i uint32) int32 {
 			return int32(0)
 		}
 		h++
-		if uint(h) >= (uint(512)-uint(3)*4)/8*8/4 {
+		if uint64(h) >= (uint64(512)-uint64(3)*4)/8*8/4 {
 			h = uint32(0)
 		}
 		if !(*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u)))))) + uintptr(h)*4)) != 0) {
@@ -16756,7 +16756,7 @@ func sqlite3BitvecSet(p *struct_Bitvec, i uint32) int32 {
 		}
 	}
 bitvec_set_rehash:
-	if uint(p.nSet) >= (uint(512)-uint(3)*4)/8*8/4/uint(2) {
+	if uint64(p.nSet) >= (uint64(512)-uint64(3)*4)/8*8/4/uint64(2) {
 		var j uint32
 		var rc int32
 		var aiValues *uint32 = (*uint32)(sqlite3DbMallocRaw(nil, uint64(496)))
@@ -16765,9 +16765,9 @@ bitvec_set_rehash:
 		} else {
 			__builtin___memcpy_chk(unsafe.Pointer(aiValues), unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u))))), 496, __builtin_object_size(unsafe.Pointer(aiValues), 0))
 			__builtin___memset_chk(unsafe.Pointer((**struct_Bitvec)(unsafe.Pointer(&*(*[62]*struct_Bitvec)(unsafe.Pointer(&p.u))))), 0, 496, __builtin_object_size(unsafe.Pointer((**struct_Bitvec)(unsafe.Pointer(&*(*[62]*struct_Bitvec)(unsafe.Pointer(&p.u))))), 0))
-			p.iDivisor = uint32((uint(p.iSize) + (uint(512)-uint(3)*4)/8*8/8 - uint(1)) / ((uint(512) - uint(3)*4) / 8 * 8 / 8))
+			p.iDivisor = uint32((uint64(p.iSize) + (uint64(512)-uint64(3)*4)/8*8/8 - uint64(1)) / ((uint64(512) - uint64(3)*4) / 8 * 8 / 8))
 			rc = sqlite3BitvecSet(p, i)
-			for j = uint32(0); uint(j) < (uint(512)-uint(3)*4)/8*8/4; j++ {
+			for j = uint32(0); uint64(j) < (uint64(512)-uint64(3)*4)/8*8/4; j++ {
 				if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4)) != 0 {
 					rc |= sqlite3BitvecSet(p, *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4)))
 				}
@@ -16798,7 +16798,7 @@ func sqlite3BitvecClear(p *struct_Bitvec, i uint32, pBuf unsafe.Pointer) {
 			return
 		}
 	}
-	if uint(p.iSize) <= (uint(512)-uint(3)*4)/8*8/1*uint(8) {
+	if uint64(p.iSize) <= (uint64(512)-uint64(3)*4)/8*8/1*uint64(8) {
 		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.u.aBitmap)))) + uintptr(i/uint32(8)))) &= uint8(^(1 << (i & uint32(8-1))))
 	} else {
 		var j uint32
@@ -16806,13 +16806,13 @@ func sqlite3BitvecClear(p *struct_Bitvec, i uint32, pBuf unsafe.Pointer) {
 		__builtin___memcpy_chk(unsafe.Pointer(aiValues), unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u))))), 496, __builtin_object_size(unsafe.Pointer(aiValues), 0))
 		__builtin___memset_chk(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u))))), 0, 496, __builtin_object_size(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u))))), 0))
 		p.nSet = uint32(0)
-		for j = uint32(0); uint(j) < (uint(512)-uint(3)*4)/8*8/4; j++ {
+		for j = uint32(0); uint64(j) < (uint64(512)-uint64(3)*4)/8*8/4; j++ {
 			if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4)) != 0 && *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4)) != i+uint32(1) {
-				var h uint32 = uint32(uint((*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4))-uint32(1))*uint32(1)) % ((uint(512) - uint(3)*4) / 8 * 8 / 4))
+				var h uint32 = uint32(uint64((*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aiValues)) + uintptr(j)*4))-uint32(1))*uint32(1)) % ((uint64(512) - uint64(3)*4) / 8 * 8 / 4))
 				p.nSet++
 				for *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&*(*[124]uint32)(unsafe.Pointer(&p.u)))))) + uintptr(h)*4)) != 0 {
 					h++
-					if uint(h) >= (uint(512)-uint(3)*4)/8*8/4 {
+					if uint64(h) >= (uint64(512)-uint64(3)*4)/8*8/4 {
 						h = uint32(0)
 					}
 				}
@@ -16827,7 +16827,7 @@ func sqlite3BitvecDestroy(p *struct_Bitvec) {
 	}
 	if p.iDivisor != 0 {
 		var i uint32
-		for i = uint32(0); uint(i) < (uint(512)-uint(3)*4)/8*8/8; i++ {
+		for i = uint32(0); uint64(i) < (uint64(512)-uint64(3)*4)/8*8/8; i++ {
 			sqlite3BitvecDestroy(*(**struct_Bitvec)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_Bitvec)(unsafe.Pointer(&*(*[62]*struct_Bitvec)(unsafe.Pointer(&p.u)))))) + uintptr(i)*8)))
 		}
 	}
@@ -17072,7 +17072,7 @@ func sqlite3PcacheSetPageSize(pCache *struct_PCache, szPage int32) int32 {
 	}()
 	if pCache.szPage != 0 {
 		var pNew *struct_sqlite3_pcache
-		pNew = sqlite3Config.pcache2.xCreate(szPage, int32(uint(pCache.szExtra)+(72+uint(7))&uint(18446744073709551608)), int32(pCache.bPurgeable))
+		pNew = sqlite3Config.pcache2.xCreate(szPage, int32(uint64(pCache.szExtra)+(72+uint64(7))&uint64(18446744073709551608)), int32(pCache.bPurgeable))
 		if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
 			return int32(7)
 		}
@@ -17165,7 +17165,7 @@ func pcacheFetchFinishWithInit(pCache *struct_PCache, pgno uint32, pPage *struct
 	pPgHdr.pPage = pPage
 	pPgHdr.pData = pPage.pBuf
 	pPgHdr.pExtra = unsafe.Pointer(&*(*struct_PgHdr)(unsafe.Pointer(uintptr(unsafe.Pointer(pPgHdr)) + uintptr(1)*72)))
-	__builtin___memset_chk(pPgHdr.pExtra, 0, uint(8), __builtin_object_size(pPgHdr.pExtra, 0))
+	__builtin___memset_chk(pPgHdr.pExtra, 0, uint(uint64(8)), __builtin_object_size(pPgHdr.pExtra, 0))
 	pPgHdr.pCache = pCache
 	pPgHdr.pgno = pgno
 	pPgHdr.flags = uint16(1)
@@ -17349,7 +17349,7 @@ func sqlite3PcacheTruncate(pCache *struct_PCache, pgno uint32) {
 			var pPage1 *struct_sqlite3_pcache_page
 			pPage1 = sqlite3Config.pcache2.xFetch(pCache.pCache, uint32(1), 0)
 			if pPage1 != nil {
-				__builtin___memset_chk(pPage1.pBuf, 0, uint(pCache.szPage), __builtin_object_size(pPage1.pBuf, 0))
+				__builtin___memset_chk(pPage1.pBuf, 0, uint(uint64(pCache.szPage)), __builtin_object_size(pPage1.pBuf, 0))
 				pgno = uint32(1)
 			}
 		}
@@ -17486,7 +17486,7 @@ func sqlite3PcacheShrink(pCache *struct_PCache) {
 	sqlite3Config.pcache2.xShrink(pCache.pCache)
 }
 func sqlite3HeaderSizePcache() int32 {
-	return int32((72 + uint(7)) & uint(18446744073709551608))
+	return int32((72 + uint64(7)) & uint64(18446744073709551608))
 }
 func sqlite3PCachePercentDirty(pCache *struct_PCache) int32 {
 	var pDirty *struct_PgHdr
@@ -17833,7 +17833,7 @@ func pcache1ResizeHash(p *struct_PCache1) {
 	if p.nHash != 0 {
 		sqlite3BeginBenignMalloc()
 	}
-	apNew = (**struct_PgHdr1)(sqlite3MallocZero(uint64(8 * uint(nNew))))
+	apNew = (**struct_PgHdr1)(sqlite3MallocZero(uint64(8 * uint64(nNew))))
 	if p.nHash != 0 {
 		sqlite3EndBenignMalloc()
 	}
@@ -18054,7 +18054,7 @@ func pcache1Create(szPage int32, szExtra int32, bPurgeable int32) *struct_sqlite
 		_ = 0
 		return 0
 	}()
-	sz = int32(88 + 80*uint(pcache1_g.separateCache))
+	sz = int32(88 + 80*uint64(pcache1_g.separateCache))
 	pCache = (*struct_PCache1)(sqlite3MallocZero(uint64(sz)))
 	if pCache != nil {
 		if pcache1_g.separateCache != 0 {
@@ -18078,7 +18078,7 @@ func pcache1Create(szPage int32, szExtra int32, bPurgeable int32) *struct_sqlite
 		pCache.pGroup = pGroup
 		pCache.szPage = szPage
 		pCache.szExtra = szExtra
-		pCache.szAlloc = int32(uint(szPage+szExtra) + (56+uint(7))&uint(18446744073709551608))
+		pCache.szAlloc = int32(uint64(szPage+szExtra) + (56+uint64(7))&uint64(18446744073709551608))
 		pCache.bPurgeable = func() int32 {
 			if bPurgeable != 0 {
 				return 1
@@ -18410,7 +18410,7 @@ func sqlite3PCacheSetDefault() {
 	sqlite3_config(18, &defaultMethods)
 }
 func sqlite3HeaderSizePcache1() int32 {
-	return int32((56 + uint(7)) & uint(18446744073709551608))
+	return int32((56 + uint64(7)) & uint64(18446744073709551608))
 }
 func sqlite3Pcache1Mutex() *struct_sqlite3_mutex {
 	return pcache1_g.mutex
@@ -18446,8 +18446,8 @@ func sqlite3RowSetInit(db *struct_sqlite3) *struct_RowSet {
 		p.pEntry = (*struct_RowSetEntry)(nil)
 		p.pLast = (*struct_RowSetEntry)(nil)
 		p.pForest = (*struct_RowSetEntry)(nil)
-		p.pFresh = (*struct_RowSetEntry)(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((56+uint(7))&uint(18446744073709551608))))))
-		p.nFresh = uint16((uint(N) - (56+uint(7))&uint(18446744073709551608)) / 24)
+		p.pFresh = (*struct_RowSetEntry)(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((56+uint64(7))&uint64(18446744073709551608))))))
+		p.nFresh = uint16((uint64(N) - (56+uint64(7))&uint64(18446744073709551608)) / 24)
 		p.rsFlags = uint16(1)
 		p.iBatch = int32(0)
 	}
@@ -18486,7 +18486,7 @@ func rowSetEntryAlloc(p *struct_RowSet) *struct_RowSetEntry {
 		pNew.pNextChunk = p.pChunk
 		p.pChunk = pNew
 		p.pFresh = (*struct_RowSetEntry)(unsafe.Pointer(&pNew.aEntry))
-		p.nFresh = uint16(uint(1024-8) / 24)
+		p.nFresh = uint16(uint64(1024-8) / 24)
 	}
 	p.nFresh--
 	return func() (_cgo_ret *struct_RowSetEntry) {
@@ -18581,7 +18581,7 @@ func rowSetEntrySort(pIn *struct_RowSetEntry) *struct_RowSetEntry {
 		pIn = pNext
 	}
 	pIn = *(**struct_RowSetEntry)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_RowSetEntry)(unsafe.Pointer(&aBucket)))) + uintptr(0)*8))
-	for i = uint32(1); uint(i) < 320/8; i++ {
+	for i = uint32(1); uint64(i) < 320/8; i++ {
 		if uintptr(unsafe.Pointer(*(**struct_RowSetEntry)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_RowSetEntry)(unsafe.Pointer(&aBucket)))) + uintptr(i)*8)))) == uintptr(unsafe.Pointer(nil)) {
 			continue
 		}
@@ -18957,7 +18957,7 @@ func readSuperJournal(pJrnl *struct_sqlite3_file, zSuper *int8, nSuper uint32) i
 		_cgo_addr := &rc
 		*_cgo_addr = sqlite3OsRead(pJrnl, unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), 8, szJ-int64(8))
 		return *_cgo_addr
-	}() || memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), unsafe.Pointer((*uint8)(unsafe.Pointer(&aJournalMagic))), uint(8)) != 0 || 0 != func() (_cgo_ret int32) {
+	}() || memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), unsafe.Pointer((*uint8)(unsafe.Pointer(&aJournalMagic))), uint64(8)) != 0 || 0 != func() (_cgo_ret int32) {
 		_cgo_addr := &rc
 		*_cgo_addr = sqlite3OsRead(pJrnl, unsafe.Pointer(zSuper), int32(len), szJ-int64(16)-int64(len))
 		return *_cgo_addr
@@ -19056,14 +19056,14 @@ func writeJournalHdr(pPager *struct_Pager) int32 {
 		__builtin___memcpy_chk(unsafe.Pointer(zHeader), unsafe.Pointer((*uint8)(unsafe.Pointer(&aJournalMagic))), 8, __builtin_object_size(unsafe.Pointer(zHeader), 0))
 		sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8))))), 4294967295)
 	} else {
-		__builtin___memset_chk(unsafe.Pointer(zHeader), 0, 8+uint(4), __builtin_object_size(unsafe.Pointer(zHeader), 0))
+		__builtin___memset_chk(unsafe.Pointer(zHeader), 0, uint(8+uint64(4)), __builtin_object_size(unsafe.Pointer(zHeader), 0))
 	}
 	sqlite3_randomness(int32(4), unsafe.Pointer(&pPager.cksumInit))
-	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(4)))))), pPager.cksumInit)
-	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(8)))))), pPager.dbOrigSize)
-	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(12)))))), pPager.sectorSize)
-	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(16)))))), uint32(pPager.pageSize))
-	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(20))))), 0, uint(nHeader)-(8+uint(20)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint(20))))), 0))
+	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(4)))))), pPager.cksumInit)
+	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(8)))))), pPager.dbOrigSize)
+	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(12)))))), pPager.sectorSize)
+	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(16)))))), uint32(pPager.pageSize))
+	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(20))))), 0, uint(uint64(nHeader)-(8+uint64(20))), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHeader)) + uintptr(8+uint64(20))))), 0))
 	for nWrite = uint32(0); rc == 0 && nWrite < pPager.sectorSize; nWrite += nHeader {
 		rc = sqlite3OsWrite(pPager.jfd, unsafe.Pointer(zHeader), int32(nHeader), pPager.journalOff)
 		func() int {
@@ -19651,7 +19651,7 @@ func pager_playback_one_page(pPager *struct_Pager, pOffset *int64, pDone *struct
 	if pPg != nil {
 		var pData unsafe.Pointer
 		pData = pPg.pData
-		__builtin___memcpy_chk(pData, unsafe.Pointer((*uint8)(unsafe.Pointer(aData))), uint(pPager.pageSize), __builtin_object_size(pData, 0))
+		__builtin___memcpy_chk(pData, unsafe.Pointer((*uint8)(unsafe.Pointer(aData))), uint(uint64(pPager.pageSize)), __builtin_object_size(pData, 0))
 		pPager.xReiniter(pPg)
 		if pgno == uint32(1) {
 			__builtin___memcpy_chk(unsafe.Pointer(&pPager.dbFileVers), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pData))) + uintptr(24)))), 16, __builtin_object_size(unsafe.Pointer(&pPager.dbFileVers), 0))
@@ -19785,7 +19785,7 @@ func pager_truncate(pPager *struct_Pager, nPage uint32) int32 {
 				rc = sqlite3OsTruncate(pPager.fd, newSize)
 			} else if currentSize+int64(szPage) <= newSize {
 				var pTmp *int8 = pPager.pTmpSpace
-				__builtin___memset_chk(unsafe.Pointer(pTmp), 0, uint(szPage), __builtin_object_size(unsafe.Pointer(pTmp), 0))
+				__builtin___memset_chk(unsafe.Pointer(pTmp), 0, uint(uint64(szPage)), __builtin_object_size(unsafe.Pointer(pTmp), 0))
 				rc = sqlite3OsWrite(pPager.fd, unsafe.Pointer(pTmp), szPage, newSize-int64(szPage))
 			}
 			if rc == 0 {
@@ -19927,7 +19927,7 @@ end_playback:
 			_ = 0
 			return 0
 		}()
-		__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zSuper)) - uintptr(- -4)))), 0, uint(4), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zSuper)) - uintptr(- -4)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zSuper)) - uintptr(- -4)))), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zSuper)) - uintptr(- -4)))), 0))
 		rc = pager_delsuper(pPager, zSuper)
 	}
 	if isHot != 0 && nPlayback != 0 {
@@ -20376,7 +20376,7 @@ func sqlite3PagerSetPagesize(pPager *struct_Pager, pPageSize *uint32, nReserve i
 			if !(pNew != nil) {
 				rc = int32(7)
 			} else {
-				__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew))+uintptr(pageSize)))), 0, uint(8), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew))+uintptr(pageSize)))), 0))
+				__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew))+uintptr(pageSize)))), 0, uint(uint64(8)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew))+uintptr(pageSize)))), 0))
 			}
 		}
 		if rc == 0 {
@@ -20421,7 +20421,7 @@ func sqlite3PagerMaxPageCount(pPager *struct_Pager, mxPage uint32) uint32 {
 }
 func sqlite3PagerReadFileheader(pPager *struct_Pager, N int32, pDest *uint8) int32 {
 	var rc int32 = 0
-	__builtin___memset_chk(unsafe.Pointer(pDest), 0, uint(N), __builtin_object_size(unsafe.Pointer(pDest), 0))
+	__builtin___memset_chk(unsafe.Pointer(pDest), 0, uint(uint64(N)), __builtin_object_size(unsafe.Pointer(pDest), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -20498,11 +20498,11 @@ func pagerAcquireMapPage(pPager *struct_Pager, pgno uint32, pData unsafe.Pointer
 			_ = 0
 			return 0
 		}()
-		__builtin___memset_chk(p.pExtra, 0, uint(8), __builtin_object_size(p.pExtra, 0))
+		__builtin___memset_chk(p.pExtra, 0, uint(uint64(8)), __builtin_object_size(p.pExtra, 0))
 	} else {
 		*ppPage = func() (_cgo_ret *struct_PgHdr) {
 			_cgo_addr := &p
-			*_cgo_addr = (*struct_PgHdr)(sqlite3MallocZero(uint64(72 + uint(pPager.nExtra))))
+			*_cgo_addr = (*struct_PgHdr)(sqlite3MallocZero(uint64(72 + uint64(pPager.nExtra))))
 			return *_cgo_addr
 		}()
 		if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
@@ -20669,7 +20669,7 @@ func syncJournal(pPager *struct_Pager, newHdr int32) int32 {
 				sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&zHeader)))) + uintptr(8))))), uint32(pPager.nRec))
 				iNextHdrOffset = journalHdrOffset(pPager)
 				rc = sqlite3OsRead(pPager.jfd, unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), 8, iNextHdrOffset)
-				if rc == 0 && 0 == memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), unsafe.Pointer((*uint8)(unsafe.Pointer(&aJournalMagic))), uint(8)) {
+				if rc == 0 && 0 == memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(&aMagic))), unsafe.Pointer((*uint8)(unsafe.Pointer(&aJournalMagic))), uint64(8)) {
 					var zerobyte uint8 = uint8(0)
 					rc = sqlite3OsWrite(pPager.jfd, unsafe.Pointer(&zerobyte), 1, iNextHdrOffset)
 				}
@@ -20966,8 +20966,8 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 			return *_cgo_addr
 		}()
 		for *z != 0 {
-			*(*uintptr)(unsafe.Pointer(&z)) += uintptr(strlen(z) + uint(1))
-			*(*uintptr)(unsafe.Pointer(&z)) += uintptr(strlen(z) + uint(1))
+			*(*uintptr)(unsafe.Pointer(&z)) += uintptr(strlen(z) + uint64(1))
+			*(*uintptr)(unsafe.Pointer(&z)) += uintptr(strlen(z) + uint64(1))
 			nUri++
 		}
 		nUriByte = int32(uintptr(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(1))))) - uintptr(unsafe.Pointer(zUri)))
@@ -20983,7 +20983,7 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 			return rc
 		}
 	}
-	pPtr = (*uint8)(sqlite3MallocZero(uint64((304+uint(7))&uint(18446744073709551608) + uint((pcacheSize+7) & ^7) + uint((pVfs.szOsFile+7) & ^7) + uint(journalFileSize*2) + 8 + uint(4) + uint(nPathname) + uint(1) + uint(nUriByte) + uint(nPathname) + uint(8) + uint(1) + uint(nPathname) + uint(4) + uint(1) + uint(3))))
+	pPtr = (*uint8)(sqlite3MallocZero(uint64((304+uint64(7))&uint64(18446744073709551608) + uint64((pcacheSize+7) & ^7) + uint64((pVfs.szOsFile+7) & ^7) + uint64(journalFileSize*2) + 8 + uint64(4) + uint64(nPathname) + uint64(1) + uint64(nUriByte) + uint64(nPathname) + uint64(8) + uint64(1) + uint64(nPathname) + uint64(4) + uint64(1) + uint64(3))))
 	func() int {
 		_ = 0
 		return 0
@@ -20993,7 +20993,7 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 		return int32(7)
 	}
 	pPager = (*struct_Pager)(unsafe.Pointer(pPtr))
-	*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr((304 + uint(7)) & uint(18446744073709551608))
+	*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr((304 + uint64(7)) & uint64(18446744073709551608))
 	pPager.pPCache = (*struct_PCache)(unsafe.Pointer(pPtr))
 	*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr((pcacheSize + 7) & ^7)
 	pPager.fd = (*struct_sqlite3_file)(unsafe.Pointer(pPtr))
@@ -21011,10 +21011,10 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 	*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(4)
 	pPager.zFilename = (*int8)(unsafe.Pointer(pPtr))
 	if nPathname > 0 {
-		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(nPathname), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(uint64(nPathname)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 		*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(nPathname + 1)
 		if zUri != nil {
-			__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zUri), uint(nUriByte), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zUri), uint(uint64(nUriByte)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 			*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(nUriByte)
 		} else {
 			*(*uintptr)(unsafe.Pointer(&pPtr))++
@@ -21022,18 +21022,18 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 	}
 	if nPathname > 0 {
 		pPager.zJournal = (*int8)(unsafe.Pointer(pPtr))
-		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(nPathname), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(uint64(nPathname)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 		*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(nPathname)
-		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer((*int8)(unsafe.Pointer(&[9]int8{'-', 'j', 'o', 'u', 'r', 'n', 'a', 'l', '\x00'}))), uint(8), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer((*int8)(unsafe.Pointer(&[9]int8{'-', 'j', 'o', 'u', 'r', 'n', 'a', 'l', '\x00'}))), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 		*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(8 + 1)
 	} else {
 		pPager.zJournal = (*int8)(nil)
 	}
 	if nPathname > 0 {
 		pPager.zWal = (*int8)(unsafe.Pointer(pPtr))
-		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(nPathname), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer(zPathname), uint(uint64(nPathname)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 		*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(nPathname)
-		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer((*int8)(unsafe.Pointer(&[5]int8{'-', 'w', 'a', 'l', '\x00'}))), uint(4), __builtin_object_size(unsafe.Pointer(pPtr), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPtr), unsafe.Pointer((*int8)(unsafe.Pointer(&[5]int8{'-', 'w', 'a', 'l', '\x00'}))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(pPtr), 0))
 		*(*uintptr)(unsafe.Pointer(&pPtr)) += uintptr(4 + 1)
 	} else {
 		pPager.zWal = (*int8)(nil)
@@ -21547,7 +21547,7 @@ func getPageNormal(pPager *struct_Pager, pgno uint32, ppPage **struct_PgHdr, fla
 				addToSavepointBitvecs(pPager, pgno)
 				sqlite3EndBenignMalloc()
 			}
-			__builtin___memset_chk(pPg.pData, 0, uint(pPager.pageSize), __builtin_object_size(pPg.pData, 0))
+			__builtin___memset_chk(pPg.pData, 0, uint(uint64(pPager.pageSize)), __builtin_object_size(pPg.pData, 0))
 		} else {
 			func() int {
 				_ = 0
@@ -22352,7 +22352,7 @@ func sqlite3PagerIsreadonly(pPager *struct_Pager) uint8 {
 	return pPager.readOnly
 }
 func sqlite3PagerMemUsed(pPager *struct_Pager) int32 {
-	var perPageSize int32 = int32(pPager.pageSize + int64(pPager.nExtra) + int64(int32(72+uint(5)*8)))
+	var perPageSize int32 = int32(pPager.pageSize + int64(pPager.nExtra) + int64(int32(72+uint64(5)*8)))
 	return int32(int64(perPageSize*sqlite3PcachePagecount(pPager.pPCache)+sqlite3MallocSize(unsafe.Pointer(pPager))) + pPager.pageSize)
 }
 func sqlite3PagerPageRefcount(pPage *struct_PgHdr) int32 {
@@ -22407,11 +22407,11 @@ func pagerOpenSavepoint(pPager *struct_Pager, nSavepoint int32) int32 {
 		_ = 0
 		return 0
 	}()
-	aNew = (*struct_PagerSavepoint)(sqlite3Realloc(unsafe.Pointer(pPager.aSavepoint), uint64(52*uint(nSavepoint))))
+	aNew = (*struct_PagerSavepoint)(sqlite3Realloc(unsafe.Pointer(pPager.aSavepoint), uint64(52*uint64(nSavepoint))))
 	if !(aNew != nil) {
 		return int32(7)
 	}
-	__builtin___memset_chk(unsafe.Pointer(&*(*struct_PagerSavepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(aNew)) + uintptr(nCurrent)*52))), 0, uint(nSavepoint-nCurrent)*52, __builtin_object_size(unsafe.Pointer(&*(*struct_PagerSavepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(aNew)) + uintptr(nCurrent)*52))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*struct_PagerSavepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(aNew)) + uintptr(nCurrent)*52))), 0, uint(uint64(nSavepoint-nCurrent)*52), __builtin_object_size(unsafe.Pointer(&*(*struct_PagerSavepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(aNew)) + uintptr(nCurrent)*52))), 0))
 	pPager.aSavepoint = aNew
 	for ii = nCurrent; ii < nSavepoint; ii++ {
 		(*(*struct_PagerSavepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(aNew)) + uintptr(ii)*52))).nOrig = pPager.dbSize
@@ -22987,14 +22987,14 @@ type struct_WalIterator struct {
 func walIndexPageRealloc(pWal *struct_Wal, iPage int32, ppPage **uint32) int32 {
 	var rc int32 = 0
 	if pWal.nWiData <= iPage {
-		var nByte int64 = int64(8 * uint(iPage+1))
+		var nByte int64 = int64(8 * uint64(iPage+1))
 		var apNew **uint32
 		apNew = (**uint32)(sqlite3Realloc(unsafe.Pointer(pWal.apWiData), uint64(nByte)))
 		if !(apNew != nil) {
 			*ppPage = (*uint32)(nil)
 			return int32(7)
 		}
-		__builtin___memset_chk(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(apNew)) + uintptr(pWal.nWiData)*8))), 0, 8*uint(iPage+1-pWal.nWiData), __builtin_object_size(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(apNew)) + uintptr(pWal.nWiData)*8))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(apNew)) + uintptr(pWal.nWiData)*8))), 0, uint(8*uint64(iPage+1-pWal.nWiData)), __builtin_object_size(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(apNew)) + uintptr(pWal.nWiData)*8))), 0))
 		pWal.apWiData = apNew
 		pWal.nWiData = iPage + 1
 	}
@@ -23003,12 +23003,12 @@ func walIndexPageRealloc(pWal *struct_Wal, iPage int32, ppPage **uint32) int32 {
 		return 0
 	}()
 	if int32(pWal.exclusiveMode) == 2 {
-		*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPage)*8)) = (*uint32)(sqlite3MallocZero(uint64(2*uint(4096*2) + uint(4096)*4)))
+		*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPage)*8)) = (*uint32)(sqlite3MallocZero(uint64(2*uint64(4096*2) + uint64(4096)*4)))
 		if !(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPage)*8)) != nil) {
 			rc = int32(7)
 		}
 	} else {
-		rc = sqlite3OsShmMap(pWal.pDbFd, iPage, int32(2*uint(4096*2)+uint(4096)*4), int32(pWal.writeLock), (*unsafe.Pointer)(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPage)*8)))))
+		rc = sqlite3OsShmMap(pWal.pDbFd, iPage, int32(2*uint64(4096*2)+uint64(4096)*4), int32(pWal.writeLock), (*unsafe.Pointer)(unsafe.Pointer(&*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPage)*8)))))
 		func() int {
 			_ = 0
 			return 0
@@ -23046,7 +23046,7 @@ func walCkptInfo(pWal *struct_Wal) *struct_WalCkptInfo {
 		_ = 0
 		return 0
 	}()
-	return (*struct_WalCkptInfo)(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(0)*8)))) + uintptr(48/uint(2))*4))))
+	return (*struct_WalCkptInfo)(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(0)*8)))) + uintptr(48/uint64(2))*4))))
 }
 func walIndexHdr(pWal *struct_Wal) *struct_WalIndexHdr {
 	func() int {
@@ -23142,7 +23142,7 @@ func walEncodeFrame(pWal *struct_Wal, iPage uint32, nTruncate uint32, aData *uin
 	sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(0))), iPage)
 	sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(4))), nTruncate)
 	if pWal.iReCksum == uint32(0) {
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt))), uint(8), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt))), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0))
 		nativeCksum = func() int32 {
 			if int32(pWal.hdr.bigEndCksum) == 0 {
 				return 1
@@ -23155,7 +23155,7 @@ func walEncodeFrame(pWal *struct_Wal, iPage uint32, nTruncate uint32, aData *uin
 		sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(16))), *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aCksum)) + uintptr(0)*4)))
 		sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(20))), *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aCksum)) + uintptr(1)*4)))
 	} else {
-		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0, uint(16), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0, uint(uint64(16)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), 0))
 	}
 }
 func walDecodeFrame(pWal *struct_Wal, piPage *uint32, pnTruncate *uint32, aData *uint8, aFrame *uint8) int32 {
@@ -23166,7 +23166,7 @@ func walDecodeFrame(pWal *struct_Wal, piPage *uint32, pnTruncate *uint32, aData 
 		_ = 0
 		return 0
 	}()
-	if memcmp(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), uint(8)) != 0 {
+	if memcmp(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(8)))), uint64(8)) != 0 {
 		return int32(0)
 	}
 	pgno = sqlite3Get4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrame)) + uintptr(0))))
@@ -23255,10 +23255,10 @@ func walHashGet(pWal *struct_Wal, iHash int32, pLoc *struct_WalHashLoc) int32 {
 	if pLoc.aPgno != nil {
 		pLoc.aHash = (*uint16)(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pLoc.aPgno)) + uintptr(4096)*4))))
 		if iHash == 0 {
-			pLoc.aPgno = &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pLoc.aPgno)) + uintptr((48*uint(2)+40)/4)*4))
+			pLoc.aPgno = &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pLoc.aPgno)) + uintptr((48*uint64(2)+40)/4)*4))
 			pLoc.iZero = uint32(0)
 		} else {
-			pLoc.iZero = uint32(uint(4096) - (48*uint(2)+40)/4 + uint((iHash-1)*4096))
+			pLoc.iZero = uint32(uint64(4096) - (48*uint64(2)+40)/4 + uint64((iHash-1)*4096))
 		}
 	} else if rc == 0 {
 		rc = int32(1)
@@ -23266,7 +23266,7 @@ func walHashGet(pWal *struct_Wal, iHash int32, pLoc *struct_WalHashLoc) int32 {
 	return rc
 }
 func walFramePage(iFrame uint32) int32 {
-	var iHash int32 = int32((uint(iFrame+uint32(4096)) - (uint(4096) - (48*uint(2)+40)/4) - uint(1)) / uint(4096))
+	var iHash int32 = int32((uint64(iFrame+uint32(4096)) - (uint64(4096) - (48*uint64(2)+40)/4) - uint64(1)) / uint64(4096))
 	func() int {
 		_ = 0
 		return 0
@@ -23280,9 +23280,9 @@ func walFramePage(iFrame uint32) int32 {
 func walFramePgno(pWal *struct_Wal, iFrame uint32) uint32 {
 	var iHash int32 = walFramePage(iFrame)
 	if iHash == 0 {
-		return *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(0)*8)))) + uintptr((48*uint(2)+40)/4+uint(iFrame)-uint(1))*4))
+		return *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(0)*8)))) + uintptr((48*uint64(2)+40)/4+uint64(iFrame)-uint64(1))*4))
 	}
-	return *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iHash)*8)))) + uintptr((uint(iFrame-uint32(1))-(uint(4096)-(48*uint(2)+40)/4))%uint(4096))*4))
+	return *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iHash)*8)))) + uintptr((uint64(iFrame-uint32(1))-(uint64(4096)-(48*uint64(2)+40)/4))%uint64(4096))*4))
 }
 func walCleanupHash(pWal *struct_Wal) {
 	var sLoc struct_WalHashLoc
@@ -23323,7 +23323,7 @@ func walCleanupHash(pWal *struct_Wal) {
 		_ = 0
 		return 0
 	}()
-	__builtin___memset_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(sLoc.aPgno)) + uintptr(iLimit)*4))), 0, uint(nByte), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(sLoc.aPgno)) + uintptr(iLimit)*4))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(sLoc.aPgno)) + uintptr(iLimit)*4))), 0, uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(sLoc.aPgno)) + uintptr(iLimit)*4))), 0))
 }
 func walIndexAppend(pWal *struct_Wal, iFrame uint32, iPage uint32) int32 {
 	var rc int32
@@ -23344,7 +23344,7 @@ func walIndexAppend(pWal *struct_Wal, iFrame uint32, iPage uint32) int32 {
 				_ = 0
 				return 0
 			}()
-			__builtin___memset_chk(unsafe.Pointer(sLoc.aPgno), 0, uint(nByte), __builtin_object_size(unsafe.Pointer(sLoc.aPgno), 0))
+			__builtin___memset_chk(unsafe.Pointer(sLoc.aPgno), 0, uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(sLoc.aPgno), 0))
 		}
 		if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(sLoc.aPgno)) + uintptr(idx-1)*4)) != 0 {
 			walCleanupHash(pWal)
@@ -23424,7 +23424,7 @@ func walIndexRecover(pWal *struct_Wal) int32 {
 		pWal.hdr.bigEndCksum = uint8(magic & uint32(1))
 		pWal.szPage = uint32(szPage)
 		pWal.nCkpt = sqlite3Get4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aBuf)))) + uintptr(12))))
-		__builtin___memcpy_chk(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aBuf)))) + uintptr(16)))), uint(8), __builtin_object_size(unsafe.Pointer(&pWal.hdr.aSalt), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aBuf)))) + uintptr(16)))), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(&pWal.hdr.aSalt), 0))
 		walChecksumBytes(func() int32 {
 			if int32(pWal.hdr.bigEndCksum) == 0 {
 				return 1
@@ -23441,7 +23441,7 @@ func walIndexRecover(pWal *struct_Wal) int32 {
 			goto finished
 		}
 		szFrame = szPage + 24
-		aFrame = (*uint8)(sqlite3_malloc64(uint64(uint(szFrame) + (2*uint(4096*2) + uint(4096)*4))))
+		aFrame = (*uint8)(sqlite3_malloc64(uint64(uint64(szFrame) + (2*uint64(4096*2) + uint64(4096)*4))))
 		if !(aFrame != nil) {
 			rc = int32(7)
 			goto recovery_error
@@ -23452,18 +23452,18 @@ func walIndexRecover(pWal *struct_Wal) int32 {
 		for iPg = uint32(0); iPg <= uint32(walFramePage(iLastFrame)); iPg++ {
 			var aShare *uint32
 			var iFrame uint32
-			var iLast uint32 = uint32(func() uint {
-				if uint(iLastFrame) < uint(4096)-(48*uint(2)+40)/4+uint(iPg*uint32(4096)) {
-					return uint(iLastFrame)
+			var iLast uint32 = uint32(func() uint64 {
+				if uint64(iLastFrame) < uint64(4096)-(48*uint64(2)+40)/4+uint64(iPg*uint32(4096)) {
+					return uint64(iLastFrame)
 				} else {
-					return uint(4096) - (48*uint(2)+40)/4 + uint(iPg*uint32(4096))
+					return uint64(4096) - (48*uint64(2)+40)/4 + uint64(iPg*uint32(4096))
 				}
 			}())
-			var iFirst uint32 = uint32(uint(1) + func() uint {
+			var iFirst uint32 = uint32(uint64(1) + func() uint64 {
 				if iPg == uint32(0) {
-					return uint(0)
+					return uint64(0)
 				} else {
-					return uint(4096) - (48*uint(2)+40)/4 + uint((iPg-uint32(1))*uint32(4096))
+					return uint64(4096) - (48*uint64(2)+40)/4 + uint64((iPg-uint32(1))*uint32(4096))
 				}
 			}())
 			var nHdr uint32
@@ -23502,15 +23502,15 @@ func walIndexRecover(pWal *struct_Wal) int32 {
 				}
 			}
 			*(**uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pWal.apWiData)) + uintptr(iPg)*8)) = aShare
-			nHdr = uint32(func() uint {
+			nHdr = uint32(func() uint64 {
 				if iPg == uint32(0) {
-					return 48*uint(2) + 40
+					return 48*uint64(2) + 40
 				} else {
-					return uint(0)
+					return uint64(0)
 				}
 			}())
-			nHdr32 = uint32(uint(nHdr) / 4)
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aShare)) + uintptr(nHdr32)*4))), unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aPrivate)) + uintptr(nHdr32)*4))), 2*uint(4096*2)+uint(4096)*4-uint(nHdr), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aShare)) + uintptr(nHdr32)*4))), 0))
+			nHdr32 = uint32(uint64(nHdr) / 4)
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aShare)) + uintptr(nHdr32)*4))), unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aPrivate)) + uintptr(nHdr32)*4))), uint(2*uint64(4096*2)+uint64(4096)*4-uint64(nHdr)), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aShare)) + uintptr(nHdr32)*4))), 0))
 			if iFrame <= iLast {
 				break
 			}
@@ -23662,7 +23662,7 @@ func sqlite3WalOpen(pVfs *struct_sqlite3_vfs, pDbFd *struct_sqlite3_file, zWalNa
 		return 0
 	}()
 	*ppWal = (*struct_Wal)(nil)
-	pRet = (*struct_Wal)(sqlite3MallocZero(uint64(140 + uint(pVfs.szOsFile))))
+	pRet = (*struct_Wal)(sqlite3MallocZero(uint64(140 + uint64(pVfs.szOsFile))))
 	if !(pRet != nil) {
 		return int32(7)
 	}
@@ -23792,7 +23792,7 @@ func walMerge(aContent *uint32, aLeft *uint16, nLeft int32, paRight **uint16, pn
 	}
 	*paRight = aLeft
 	*pnRight = iOut
-	__builtin___memcpy_chk(unsafe.Pointer(aLeft), unsafe.Pointer(aTmp), 2*uint(iOut), __builtin_object_size(unsafe.Pointer(aLeft), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(aLeft), unsafe.Pointer(aTmp), uint(2*uint64(iOut)), __builtin_object_size(unsafe.Pointer(aLeft), 0))
 }
 func walMergesort(aContent *uint32, aBuffer *uint16, aList *uint16, pnList *int32) {
 	type struct_Sublist struct {
@@ -23879,14 +23879,14 @@ func walIteratorInit(pWal *struct_Wal, nBackfill uint32, pp **struct_WalIterator
 	}()
 	iLast = pWal.hdr.mxFrame
 	nSegment = walFramePage(iLast) + 1
-	nByte = int64(40 + uint(nSegment-1)*32 + uint(iLast)*2)
+	nByte = int64(40 + uint64(nSegment-1)*32 + uint64(iLast)*2)
 	p = (*struct_WalIterator)(sqlite3_malloc64(uint64(nByte)))
 	if !(p != nil) {
 		return int32(7)
 	}
-	__builtin___memset_chk(unsafe.Pointer(p), 0, uint(nByte), __builtin_object_size(unsafe.Pointer(p), 0))
+	__builtin___memset_chk(unsafe.Pointer(p), 0, uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(p), 0))
 	p.nSegment = nSegment
-	aTmp = (*uint16)(sqlite3_malloc64(uint64(2 * uint(func() uint32 {
+	aTmp = (*uint16)(sqlite3_malloc64(uint64(2 * uint64(func() uint32 {
 		if iLast > uint32(4096) {
 			return uint32(4096)
 		} else {
@@ -23948,7 +23948,7 @@ func walRestartHdr(pWal *struct_Wal, salt1 uint32) {
 	pWal.nCkpt++
 	pWal.hdr.mxFrame = uint32(0)
 	sqlite3Put4byte((*uint8)(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aSalt)) + uintptr(0)*4)))), uint32(1)+sqlite3Get4byte((*uint8)(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aSalt)) + uintptr(0)*4))))))
-	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt)))) + uintptr(1)*4))), unsafe.Pointer(&salt1), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt)))) + uintptr(1)*4))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt)))) + uintptr(1)*4))), unsafe.Pointer(&salt1), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt)))) + uintptr(1)*4))), 0))
 	walIndexWriteHdr(pWal)
 	__atomic_store_n_u32(&pInfo.nBackfill, 0, uint32(0))
 	pInfo.nBackfillAttempted = uint32(0)
@@ -24320,7 +24320,7 @@ func walBeginShmUnreliable(pWal *struct_Wal, pChanged *int32) int32 {
 		goto begin_unreliable_shm_out
 	}
 	pWal.readLock = int16(0)
-	rc = sqlite3OsShmMap(pWal.pDbFd, 0, int32(2*uint(4096*2)+uint(4096)*4), 0, &pDummy)
+	rc = sqlite3OsShmMap(pWal.pDbFd, 0, int32(2*uint64(4096*2)+uint64(4096)*4), 0, &pDummy)
 	func() int {
 		_ = 0
 		return 0
@@ -24355,7 +24355,7 @@ func walBeginShmUnreliable(pWal *struct_Wal, pChanged *int32) int32 {
 	if rc != 0 {
 		goto begin_unreliable_shm_out
 	}
-	if memcmp(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aBuf)))) + uintptr(16)))), uint(8)) != 0 {
+	if memcmp(unsafe.Pointer(&pWal.hdr.aSalt), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aBuf)))) + uintptr(16)))), uint64(8)) != 0 {
 		rc = int32(-1)
 		goto begin_unreliable_shm_out
 	}
@@ -24842,7 +24842,7 @@ func walRewriteChecksums(pWal *struct_Wal, iLast uint32) int32 {
 	} else {
 		iCksumOff = int64(32) + int64(pWal.iReCksum-uint32(1)-uint32(1))*int64(szPage+24) + int64(16)
 	}
-	rc = sqlite3OsRead(pWal.pWalFd, unsafe.Pointer(aBuf), int32(4*uint(2)), iCksumOff)
+	rc = sqlite3OsRead(pWal.pWalFd, unsafe.Pointer(aBuf), int32(4*uint64(2)), iCksumOff)
 	*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aFrameCksum)))) + uintptr(0)*4)) = sqlite3Get4byte(aBuf)
 	*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aFrameCksum)))) + uintptr(1)*4)) = sqlite3Get4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aBuf)) + uintptr(4))))
 	iRead = pWal.iReCksum
@@ -24907,7 +24907,7 @@ func sqlite3WalFrames(pWal *struct_Wal, szPage int32, pList *struct_PgHdr, nTrun
 		if pWal.nCkpt == uint32(0) {
 			sqlite3_randomness(8, unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt))))
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(16)))), unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt))), uint(8), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(16)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(16)))), unsafe.Pointer((*uint32)(unsafe.Pointer(&pWal.hdr.aSalt))), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(16)))), 0))
 		walChecksumBytes(1, (*uint8)(unsafe.Pointer(&aWalHdr)), 32-2*4, nil, (*uint32)(unsafe.Pointer(&aCksum)))
 		sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(24))), *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&aCksum)))) + uintptr(0)*4)))
 		sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&aWalHdr)))) + uintptr(28))), *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&aCksum)))) + uintptr(1)*4)))
@@ -25797,7 +25797,7 @@ func saveCursorKey(pCur *struct_BtCursor) int32 {
 		if pKey != nil {
 			rc = sqlite3BtreePayload(pCur, uint32(0), uint32(int32(pCur.nKey)), pKey)
 			if rc == 0 {
-				__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pKey)))+uintptr(pCur.nKey)))), 0, uint(9+8), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pKey)))+uintptr(pCur.nKey)))), 0))
+				__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pKey)))+uintptr(pCur.nKey)))), 0, uint(uint64(9+8)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pKey)))+uintptr(pCur.nKey)))), 0))
 				pCur.pKey = pKey
 			} else {
 				sqlite3_free(pKey)
@@ -26548,7 +26548,7 @@ func defragmentPage(pPage *struct_MemPage, nMaxFrag int32) int32 {
 					if iFree2+sz2 > usableSize {
 						return sqlite3CorruptError(67657)
 					}
-					__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz+sz2)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz)))), uint(iFree2-(iFree+sz)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz+sz2)))), 0))
+					__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz+sz2)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz)))), uint(uint64(iFree2-(iFree+sz))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iFree+sz+sz2)))), 0))
 					sz += sz2
 				} else if iFree+sz > usableSize {
 					return sqlite3CorruptError(67661)
@@ -26558,7 +26558,7 @@ func defragmentPage(pPage *struct_MemPage, nMaxFrag int32) int32 {
 					_ = 0
 					return 0
 				}()
-				__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(top)))), uint(iFree-top), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), 0))
+				__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(top)))), uint(uint64(iFree-top)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), 0))
 				for pAddr = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cellOffset))); uintptr(unsafe.Pointer(pAddr)) < uintptr(unsafe.Pointer(pEnd)); *(*uintptr)(unsafe.Pointer(&pAddr)) += uintptr(2) {
 					pc = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pAddr)) + uintptr(0))))<<8 | int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pAddr)) + uintptr(1))))
 					if pc < iFree {
@@ -26621,10 +26621,10 @@ func defragmentPage(pPage *struct_MemPage, nMaxFrag int32) int32 {
 				continue
 			}
 			temp = (*uint8)(sqlite3PagerTempSpace(pPage.pBt.pPager))
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(temp)) + uintptr(iCellStart)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellStart)))), uint(usableSize-iCellStart), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(temp)) + uintptr(iCellStart)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(temp)) + uintptr(iCellStart)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellStart)))), uint(uint64(usableSize-iCellStart)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(temp)) + uintptr(iCellStart)))), 0))
 			src = temp
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(src)) + uintptr(pc)))), uint(size), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(src)) + uintptr(pc)))), uint(uint64(size)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(cbrk)))), 0))
 	}
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+7))) = uint8(0)
 defragment_out:
@@ -26649,7 +26649,7 @@ defragment_out:
 	}()
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+1))) = uint8(0)
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+2))) = uint8(0)
-	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellFirst)))), 0, uint(cbrk-iCellFirst), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellFirst)))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellFirst)))), 0, uint(uint64(cbrk-iCellFirst)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iCellFirst)))), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -26679,7 +26679,7 @@ func pageFindSlot(pPg *struct_MemPage, nByte int32, pRc *int32) *uint8 {
 				if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(hdr+7)))) > 57 {
 					return (*uint8)(nil)
 				}
-				__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(iAddr)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(pc)))), uint(2), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(iAddr)))), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(iAddr)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(pc)))), uint(uint64(2)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(iAddr)))), 0))
 				*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(hdr+7))) += uint8(int32(uint8(x)))
 			} else if x+pc > maxPC {
 				*pRc = sqlite3CorruptError(67769)
@@ -26953,7 +26953,7 @@ func freeSpace(pPage *struct_MemPage, iStart uint16, iSize uint16) int32 {
 		}()
 	}
 	if int32(pPage.pBt.btsFlags)&12 != 0 {
-		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iStart)))), 0, uint(iSize), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iStart)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iStart)))), 0, uint(uint64(iSize)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iStart)))), 0))
 	}
 	func() uint8 {
 		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(iStart))))) + uintptr(0))) = uint8(int32(iFreeBlk) >> 8)
@@ -27229,7 +27229,7 @@ func zeroPage(pPage *struct_MemPage, flags int32) {
 		return 0
 	}()
 	if int32(pBt.btsFlags)&12 != 0 {
-		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr)))), 0, uint(pBt.usableSize-uint32(hdr)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr)))), 0, uint(uint64(pBt.usableSize-uint32(hdr))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr)))), 0))
 	}
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr))) = uint8(int8(flags))
 	first = uint16(int32(hdr) + func() int32 {
@@ -27239,7 +27239,7 @@ func zeroPage(pPage *struct_MemPage, flags int32) {
 			return 8
 		}
 	}())
-	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+1)))), 0, uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+1)))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+1)))), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+1)))), 0))
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+7))) = uint8(0)
 	func() uint8 {
 		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(int32(hdr)+5))))) + uintptr(0))) = uint8(pBt.usableSize >> 8)
@@ -27570,7 +27570,7 @@ func sqlite3BtreeOpen(pVfs *struct_sqlite3_vfs, zFilename *int8, db *struct_sqli
 				return int32(7)
 			}
 			if isMemdb != 0 {
-				__builtin___memcpy_chk(unsafe.Pointer(zFullPathname), unsafe.Pointer(zFilename), uint(nFilename), __builtin_object_size(unsafe.Pointer(zFullPathname), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(zFullPathname), unsafe.Pointer(zFilename), uint(uint64(nFilename)), __builtin_object_size(unsafe.Pointer(zFullPathname), 0))
 			} else {
 				rc = sqlite3OsFullPathname(pVfs, zFilename, nFullPathname, zFullPathname)
 				if rc != 0 {
@@ -27834,7 +27834,7 @@ func allocateTempSpace(pBt *struct_BtShared) int32 {
 		__builtin___memset_chk(unsafe.Pointer(pCur), 0, 296, __builtin_object_size(unsafe.Pointer(pCur), 0))
 		return int32(7)
 	}
-	__builtin___memset_chk(unsafe.Pointer(pBt.pTmpSpace), 0, uint(8), __builtin_object_size(unsafe.Pointer(pBt.pTmpSpace), 0))
+	__builtin___memset_chk(unsafe.Pointer(pBt.pTmpSpace), 0, uint(uint64(8)), __builtin_object_size(unsafe.Pointer(pBt.pTmpSpace), 0))
 	*(*uintptr)(unsafe.Pointer(&pBt.pTmpSpace)) += uintptr(4)
 	return int32(0)
 }
@@ -28108,7 +28108,7 @@ func lockBtree(pBt *struct_BtShared) int32 {
 	}
 	nPage = sqlite3Get4byte((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pPage1.aData)))) + uintptr(28))))
 	sqlite3PagerPagecount(pBt.pPager, (*int32)(unsafe.Pointer(&nPageFile)))
-	if nPage == uint32(0) || memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pPage1.aData))))+uintptr(24)))), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pPage1.aData))))+uintptr(92)))), uint(4)) != 0 {
+	if nPage == uint32(0) || memcmp(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pPage1.aData))))+uintptr(24)))), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pPage1.aData))))+uintptr(92)))), uint64(4)) != 0 {
 		nPage = nPageFile
 	}
 	if pBt.db.flags&uint64(33554432) != uint64(0) {
@@ -28119,7 +28119,7 @@ func lockBtree(pBt *struct_BtShared) int32 {
 		var usableSize uint32
 		var page1 *uint8 = pPage1.aData
 		rc = int32(26)
-		if memcmp(unsafe.Pointer(page1), unsafe.Pointer((*int8)(unsafe.Pointer(&zMagicHeader))), uint(16)) != 0 {
+		if memcmp(unsafe.Pointer(page1), unsafe.Pointer((*int8)(unsafe.Pointer(&zMagicHeader))), uint64(16)) != 0 {
 			goto page1_init_failed
 		}
 		if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(page1)) + uintptr(18)))) > 2 {
@@ -28140,7 +28140,7 @@ func lockBtree(pBt *struct_BtShared) int32 {
 			rc = int32(26)
 		} else {
 		}
-		if memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(page1)) + uintptr(21)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'@', ' ', ' ', '\x00'}))), uint(3)) != 0 {
+		if memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(page1)) + uintptr(21)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'@', ' ', ' ', '\x00'}))), uint64(3)) != 0 {
 			goto page1_init_failed
 		}
 		pageSize = uint32(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(page1)) + uintptr(16))))<<8 | int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(page1)) + uintptr(17))))<<16)
@@ -28271,7 +28271,7 @@ func newDatabase(pBt *struct_BtShared) int32 {
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(21))) = uint8(64)
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(22))) = uint8(32)
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(23))) = uint8(32)
-	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(24)))), 0, uint(100-24), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(24)))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(24)))), 0, uint(uint64(100-24)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(24)))), 0))
 	zeroPage(pP1, 1|8|4)
 	pBt.btsFlags |= uint16(2)
 	func() int {
@@ -29170,7 +29170,7 @@ func sqlite3BtreeCursor(p *struct_Btree, iTable uint32, wrFlag int32, pKeyInfo *
 	}
 }
 func sqlite3BtreeCursorSize() int32 {
-	return int32((296 + uint(7)) & uint(18446744073709551608))
+	return int32((296 + uint64(7)) & uint64(18446744073709551608))
 }
 func sqlite3BtreeCursorZero(p *struct_BtCursor) {
 	__builtin___memset_chk(unsafe.Pointer(p), 0, 32, __builtin_object_size(unsafe.Pointer(p), 0))
@@ -29356,9 +29356,9 @@ func copyPayload(pPayload unsafe.Pointer, pBuf unsafe.Pointer, nByte int32, eOp 
 		if rc != 0 {
 			return rc
 		}
-		__builtin___memcpy_chk(pPayload, pBuf, uint(nByte), __builtin_object_size(pPayload, 0))
+		__builtin___memcpy_chk(pPayload, pBuf, uint(uint64(nByte)), __builtin_object_size(pPayload, 0))
 	} else {
-		__builtin___memcpy_chk(pBuf, pPayload, uint(nByte), __builtin_object_size(pBuf, 0))
+		__builtin___memcpy_chk(pBuf, pPayload, uint(uint64(nByte)), __builtin_object_size(pBuf, 0))
 	}
 	return int32(0)
 }
@@ -29419,14 +29419,14 @@ func accessPayload(pCur *struct_BtCursor, offset uint32, amt uint32, pBuf *uint8
 		if int32(pCur.curFlags)&4 == 0 {
 			var nOvfl int32 = int32((pCur.info.nPayload - uint32(pCur.info.nLocal) + ovflSize - uint32(1)) / ovflSize)
 			if uintptr(unsafe.Pointer(pCur.aOverflow)) == uintptr(unsafe.Pointer(nil)) || nOvfl*int32(4) > sqlite3MallocSize(unsafe.Pointer(pCur.aOverflow)) {
-				var aNew *uint32 = (*uint32)(sqlite3Realloc(unsafe.Pointer(pCur.aOverflow), uint64(uint(nOvfl*2)*4)))
+				var aNew *uint32 = (*uint32)(sqlite3Realloc(unsafe.Pointer(pCur.aOverflow), uint64(uint64(nOvfl*2)*4)))
 				if uintptr(unsafe.Pointer(aNew)) == uintptr(unsafe.Pointer(nil)) {
 					return int32(7)
 				} else {
 					pCur.aOverflow = aNew
 				}
 			}
-			__builtin___memset_chk(unsafe.Pointer(pCur.aOverflow), 0, uint(nOvfl)*4, __builtin_object_size(unsafe.Pointer(pCur.aOverflow), 0))
+			__builtin___memset_chk(unsafe.Pointer(pCur.aOverflow), 0, uint(uint64(nOvfl)*4), __builtin_object_size(unsafe.Pointer(pCur.aOverflow), 0))
 			pCur.curFlags |= uint8(4)
 		} else if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(pCur.aOverflow)) + uintptr(offset/ovflSize)*4)) != 0 {
 			iIdx = int32(offset / ovflSize)
@@ -30193,7 +30193,7 @@ func sqlite3BtreeIndexMoveto(pCur *struct_BtCursor, pIdxKey *struct_UnpackedReco
 				}
 				pCur.ix = uint16(idx)
 				rc = accessPayload(pCur, uint32(0), uint32(nCell), (*uint8)(pCellKey), 0)
-				__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pCellKey)))+uintptr(nCell)))), 0, uint(nOverrun), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pCellKey)))+uintptr(nCell)))), 0))
+				__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pCellKey)))+uintptr(nCell)))), 0, uint(uint64(nOverrun)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pCellKey)))+uintptr(nCell)))), 0))
 				pCur.curFlags &= uint8(251)
 				if rc != 0 {
 					sqlite3_free(pCellKey)
@@ -30596,7 +30596,7 @@ func allocateBtreePage(pBt *struct_BtShared, ppPage **struct_MemPage, pPgno *uin
 					goto end_allocate_page
 				}
 				*pPgno = iTrunk
-				__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), 0))
 				*ppPage = pTrunk
 				pTrunk = (*struct_MemPage)(nil)
 			} else if k > uint32(pBt.usableSize/uint32(4)-uint32(2)) {
@@ -30612,13 +30612,13 @@ func allocateBtreePage(pBt *struct_BtShared, ppPage **struct_MemPage, pPgno *uin
 				}
 				if k == uint32(0) {
 					if !(pPrevTrunk != nil) {
-						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), 0))
+						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage1.aData)) + uintptr(32)))), 0))
 					} else {
 						rc = sqlite3PagerWrite(pPrevTrunk.pDbPage)
 						if rc != 0 {
 							goto end_allocate_page
 						}
-						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPrevTrunk.aData)) + uintptr(0)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPrevTrunk.aData)) + uintptr(0)))), 0))
+						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPrevTrunk.aData)) + uintptr(0)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPrevTrunk.aData)) + uintptr(0)))), 0))
 					}
 				} else {
 					var pNewTrunk *struct_MemPage
@@ -30636,9 +30636,9 @@ func allocateBtreePage(pBt *struct_BtShared, ppPage **struct_MemPage, pPgno *uin
 						releasePage(pNewTrunk)
 						goto end_allocate_page
 					}
-					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(0)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(0)))), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(0)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(0)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(0)))), 0))
 					sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(4))), k-uint32(1))
-					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(8)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(12)))), uint((k-uint32(1))*uint32(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(8)))), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(8)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTrunk.aData)) + uintptr(12)))), uint(uint64((k-uint32(1))*uint32(4))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNewTrunk.aData)) + uintptr(8)))), 0))
 					releasePage(pNewTrunk)
 					if !(pPrevTrunk != nil) {
 						func() int {
@@ -30697,7 +30697,7 @@ func allocateBtreePage(pBt *struct_BtShared, ppPage **struct_MemPage, pPgno *uin
 						goto end_allocate_page
 					}
 					if closest < k-uint32(1) {
-						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(8)+closest*uint32(4))))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(4)+k*uint32(4))))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(8)+closest*uint32(4))))), 0))
+						__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(8)+closest*uint32(4))))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(4)+k*uint32(4))))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(uint32(8)+closest*uint32(4))))), 0))
 					}
 					sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(4))), k-uint32(1))
 					noContent = func() int32 {
@@ -30838,7 +30838,7 @@ func freePage2(pBt *struct_BtShared, pMemPage *struct_MemPage, iPage uint32) int
 		}() != 0 {
 			goto freepage_out
 		}
-		__builtin___memset_chk(unsafe.Pointer(pPage.aData), 0, uint(pPage.pBt.pageSize), __builtin_object_size(unsafe.Pointer(pPage.aData), 0))
+		__builtin___memset_chk(unsafe.Pointer(pPage.aData), 0, uint(uint64(pPage.pBt.pageSize)), __builtin_object_size(unsafe.Pointer(pPage.aData), 0))
 	}
 	if pBt.autoVacuum != 0 {
 		ptrmapPut(pBt, iPage, uint8(2), uint32(0), &rc)
@@ -31046,8 +31046,8 @@ func fillInCell(pPage *struct_MemPage, pCell *uint8, pX *struct_BtreePayload, pn
 			_ = 0
 			return 0
 		}()
-		__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(nSrc), __builtin_object_size(unsafe.Pointer(pPayload), 0))
-		__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPayload))+uintptr(nSrc)))), 0, uint(nPayload-nSrc), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPayload))+uintptr(nSrc)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(uint64(nSrc)), __builtin_object_size(unsafe.Pointer(pPayload), 0))
+		__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPayload))+uintptr(nSrc)))), 0, uint(uint64(nPayload-nSrc)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPayload))+uintptr(nSrc)))), 0))
 		return int32(0)
 	}
 	mn = int32(pPage.minLocal)
@@ -31075,12 +31075,12 @@ func fillInCell(pPage *struct_MemPage, pCell *uint8, pX *struct_BtreePayload, pn
 			return 0
 		}()
 		if nSrc >= n {
-			__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(n), __builtin_object_size(unsafe.Pointer(pPayload), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(pPayload), 0))
 		} else if nSrc > 0 {
 			n = nSrc
-			__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(n), __builtin_object_size(unsafe.Pointer(pPayload), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pPayload), unsafe.Pointer(pSrc), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(pPayload), 0))
 		} else {
-			__builtin___memset_chk(unsafe.Pointer(pPayload), 0, uint(n), __builtin_object_size(unsafe.Pointer(pPayload), 0))
+			__builtin___memset_chk(unsafe.Pointer(pPayload), 0, uint(uint64(n)), __builtin_object_size(unsafe.Pointer(pPayload), 0))
 		}
 		nPayload -= n
 		if nPayload <= 0 {
@@ -31191,7 +31191,7 @@ func dropCell(pPage *struct_MemPage, idx int32, sz int32, pRC *int32) {
 	}
 	pPage.nCell--
 	if int32(pPage.nCell) == 0 {
-		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+1)))), 0, uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+1)))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+1)))), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+1)))), 0))
 		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+7))) = uint8(0)
 		func() uint8 {
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+5))))) + uintptr(0))) = uint8(pPage.pBt.usableSize >> 8)
@@ -31203,7 +31203,7 @@ func dropCell(pPage *struct_MemPage, idx int32, sz int32, pRC *int32) {
 		}()
 		pPage.nFree = int32(pPage.pBt.usableSize - uint32(pPage.hdrOffset) - uint32(pPage.childPtrSize) - uint32(8))
 	} else {
-		__builtin___memmove_chk(unsafe.Pointer(ptr), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(ptr))+uintptr(2)))), uint(2*(int32(pPage.nCell)-idx)), __builtin_object_size(unsafe.Pointer(ptr), 0))
+		__builtin___memmove_chk(unsafe.Pointer(ptr), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(ptr))+uintptr(2)))), uint(uint64(2*(int32(pPage.nCell)-idx))), __builtin_object_size(unsafe.Pointer(ptr), 0))
 		func() uint8 {
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(hdr+3))))) + uintptr(0))) = uint8(int32(pPage.nCell) >> 8)
 			return func() (_cgo_ret uint8) {
@@ -31258,7 +31258,7 @@ func insertCell(pPage *struct_MemPage, i int32, pCell *uint8, sz int32, pTemp *u
 	}()
 	if int32(pPage.nOverflow) != 0 || sz+2 > pPage.nFree {
 		if pTemp != nil {
-			__builtin___memcpy_chk(unsafe.Pointer(pTemp), unsafe.Pointer(pCell), uint(sz), __builtin_object_size(unsafe.Pointer(pTemp), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pTemp), unsafe.Pointer(pCell), uint(uint64(sz)), __builtin_object_size(unsafe.Pointer(pTemp), 0))
 			pCell = pTemp
 		}
 		if iChild != 0 {
@@ -31318,13 +31318,13 @@ func insertCell(pPage *struct_MemPage, i int32, pCell *uint8, sz int32, pTemp *u
 		}()
 		pPage.nFree -= int32(uint16(2 + sz))
 		if iChild != 0 {
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx+4)))), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCell))+uintptr(4)))), uint(sz-4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx+4)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx+4)))), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCell))+uintptr(4)))), uint(uint64(sz-4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx+4)))), 0))
 			sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx))), iChild)
 		} else {
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx)))), unsafe.Pointer(pCell), uint(sz), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx)))), unsafe.Pointer(pCell), uint(uint64(sz)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(data)) + uintptr(idx)))), 0))
 		}
 		pIns = (*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage.aCellIdx)) + uintptr(i*2)))
-		__builtin___memmove_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIns))+uintptr(2)))), unsafe.Pointer(pIns), uint(2*(int32(pPage.nCell)-i)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIns))+uintptr(2)))), 0))
+		__builtin___memmove_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIns))+uintptr(2)))), unsafe.Pointer(pIns), uint(uint64(2*(int32(pPage.nCell)-i))), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIns))+uintptr(2)))), 0))
 		func() uint8 {
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIns)) + uintptr(0))) = uint8(idx >> 8)
 			return func() (_cgo_ret uint8) {
@@ -31426,7 +31426,7 @@ func rebuildPage(pCArray *struct_CellArray, iFirst int32, nCell int32, pPg *stru
 	if j > uint32(usableSize) {
 		j = uint32(0)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTmp)) + uintptr(j)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(j)))), uint(uint32(usableSize)-j), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTmp)) + uintptr(j)))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTmp)) + uintptr(j)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aData)) + uintptr(j)))), uint(uint64(uint32(usableSize)-j)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTmp)) + uintptr(j)))), 0))
 	for k = int32(0); *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&pCArray.ixNx)))) + uintptr(k)*4)) <= i && k < 3*2; k++ {
 	}
 	pSrcEnd = *(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&pCArray.apEnd)))) + uintptr(k)*8))
@@ -31459,7 +31459,7 @@ func rebuildPage(pCArray *struct_CellArray, iFirst int32, nCell int32, pPg *stru
 		if uintptr(unsafe.Pointer(pData)) < uintptr(unsafe.Pointer(pCellptr)) {
 			return sqlite3CorruptError(73325)
 		}
-		__builtin___memmove_chk(unsafe.Pointer(pData), unsafe.Pointer(pCell), uint(sz), __builtin_object_size(unsafe.Pointer(pData), 0))
+		__builtin___memmove_chk(unsafe.Pointer(pData), unsafe.Pointer(pCell), uint(uint64(sz)), __builtin_object_size(unsafe.Pointer(pData), 0))
 		func() int {
 			_ = 0
 			return 0
@@ -31533,7 +31533,7 @@ func pageInsertArray(pPg *struct_MemPage, pBegin *uint8, ppData **uint8, pCellpt
 			*_cgo_addr = pageFindSlot(pPg, sz, &rc)
 			return *_cgo_addr
 		}())) == uintptr(unsafe.Pointer(nil)) {
-			if uintptr(unsafe.Pointer(pData))-uintptr(unsafe.Pointer(pBegin)) < uintptr(int(sz)) {
+			if uintptr(unsafe.Pointer(pData))-uintptr(unsafe.Pointer(pBegin)) < uintptr(int64(sz)) {
 				return int32(1)
 			}
 			*(*uintptr)(unsafe.Pointer(&pData)) -= uintptr(sz)
@@ -31554,7 +31554,7 @@ func pageInsertArray(pPg *struct_MemPage, pBegin *uint8, ppData **uint8, pCellpt
 			}()
 			return int32(1)
 		}
-		__builtin___memmove_chk(unsafe.Pointer(pSlot), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCArray.apCell)) + uintptr(i)*8))), uint(sz), __builtin_object_size(unsafe.Pointer(pSlot), 0))
+		__builtin___memmove_chk(unsafe.Pointer(pSlot), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCArray.apCell)) + uintptr(i)*8))), uint(uint64(sz)), __builtin_object_size(unsafe.Pointer(pSlot), 0))
 		func() uint8 {
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(0))) = uint8((uintptr(unsafe.Pointer(pSlot)) - uintptr(unsafe.Pointer(aData))) >> 8)
 			return func() (_cgo_ret uint8) {
@@ -31642,7 +31642,7 @@ func editPage(pPg *struct_MemPage, iOld int32, iNew int32, nNew int32, pCArray *
 		if nShift > nCell {
 			return sqlite3CorruptError(73521)
 		}
-		__builtin___memmove_chk(unsafe.Pointer(pPg.aCellIdx), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPg.aCellIdx)) + uintptr(nShift*2)))), uint(nCell*2), __builtin_object_size(unsafe.Pointer(pPg.aCellIdx), 0))
+		__builtin___memmove_chk(unsafe.Pointer(pPg.aCellIdx), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPg.aCellIdx)) + uintptr(nShift*2)))), uint(uint64(nCell*2)), __builtin_object_size(unsafe.Pointer(pPg.aCellIdx), 0))
 		nCell -= nShift
 	}
 	if iNewEnd < iOldEnd {
@@ -31677,7 +31677,7 @@ func editPage(pPg *struct_MemPage, iOld int32, iNew int32, nNew int32, pCArray *
 			return 0
 		}()
 		pCellptr = pPg.aCellIdx
-		__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(nAdd*2)))), unsafe.Pointer(pCellptr), uint(nCell*2), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(nAdd*2)))), 0))
+		__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(nAdd*2)))), unsafe.Pointer(pCellptr), uint(uint64(nCell*2)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(nAdd*2)))), 0))
 		if pageInsertArray(pPg, pBegin, &pData, pCellptr, iNew, nAdd, pCArray) != 0 {
 			goto editpage_fail
 		}
@@ -31688,7 +31688,7 @@ func editPage(pPg *struct_MemPage, iOld int32, iNew int32, nNew int32, pCArray *
 		if iCell >= 0 && iCell < nNew {
 			pCellptr = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPg.aCellIdx)) + uintptr(iCell*2)))
 			if nCell > iCell {
-				__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(2)))), unsafe.Pointer(pCellptr), uint((nCell-iCell)*2), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(2)))), 0))
+				__builtin___memmove_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(2)))), unsafe.Pointer(pCellptr), uint(uint64((nCell-iCell)*2)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCellptr)) + uintptr(2)))), 0))
 			}
 			nCell++
 			cachedCellSize(pCArray, iCell+iNew)
@@ -31852,8 +31852,8 @@ func copyNodeContent(pFrom *struct_MemPage, pTo *struct_MemPage, pRC *int32) {
 			return 0
 		}()
 		iData = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iFromHdr+5))))) + uintptr(0))))<<8 | int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iFromHdr+5))))) + uintptr(1))))
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iData)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iData)))), uint(pBt.usableSize-uint32(iData)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iData)))), 0))
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iToHdr)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iFromHdr)))), uint(int32(pFrom.cellOffset)+2*int32(pFrom.nCell)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iToHdr)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iData)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iData)))), uint(uint64(pBt.usableSize-uint32(iData))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iData)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iToHdr)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aFrom)) + uintptr(iFromHdr)))), uint(uint64(int32(pFrom.cellOffset)+2*int32(pFrom.nCell))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aTo)) + uintptr(iToHdr)))), 0))
 		pTo.isInit = uint8(0)
 		rc = btreeInitPage(pTo)
 		if rc == 0 {
@@ -31954,13 +31954,13 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 			rc = getAndInitPage(pBt, pgno, &*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld)))) + uintptr(i)*8)), nil, 0)
 		}
 		if rc != 0 {
-			__builtin___memset_chk(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0, uint(i+1)*8, __builtin_object_size(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0))
+			__builtin___memset_chk(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0, uint(uint64(i+1)*8), __builtin_object_size(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0))
 			goto balance_cleanup
 		}
 		if (*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld)))) + uintptr(i)*8))).nFree < 0 {
 			rc = btreeComputeFreeSpace(*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld)))) + uintptr(i)*8)))
 			if rc != 0 {
-				__builtin___memset_chk(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0, uint(i)*8, __builtin_object_size(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0))
+				__builtin___memset_chk(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0, uint(uint64(i)*8), __builtin_object_size(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apOld))), 0))
 				goto balance_cleanup
 			}
 		}
@@ -31984,9 +31984,9 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 			*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&szNew)))) + uintptr(i)*4)) = int32(pParent.xCellSize(pParent, *(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8))))
 			if int32(pBt.btsFlags)&12 != 0 {
 				var iOff int32
-				iOff = int32(int(uintptr(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8)))))) - int32(int(uintptr(unsafe.Pointer(pParent.aData))))
+				iOff = int32(int64(uintptr(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8)))))) - int32(int64(uintptr(unsafe.Pointer(pParent.aData))))
 				if iOff+*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&szNew)))) + uintptr(i)*4)) <= int32(pBt.usableSize) {
-					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + uintptr(iOff)))), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8))), uint(*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&szNew)))) + uintptr(i)*4))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + uintptr(iOff)))), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + uintptr(iOff)))), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8))), uint(uint64(*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&szNew)))) + uintptr(i)*4)))), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + uintptr(iOff)))), 0))
 					*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8)) = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + (uintptr(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8)))) - uintptr(unsafe.Pointer(pParent.aData)))))
 				}
 			}
@@ -31994,7 +31994,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 		}
 	}
 	nMaxCells = (nMaxCells + 3) & ^3
-	szScratch = int32(uint(nMaxCells)*8 + uint(nMaxCells)*2 + uint(pBt.pageSize))
+	szScratch = int32(uint64(nMaxCells)*8 + uint64(nMaxCells)*2 + uint64(pBt.pageSize))
 	func() int {
 		_ = 0
 		return 0
@@ -32024,7 +32024,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 			rc = sqlite3CorruptError(74057)
 			goto balance_cleanup
 		}
-		__builtin___memset_chk(unsafe.Pointer(&*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(b.szCell)) + uintptr(b.nCell)*2))), 0, 2*uint(limit+int32(pOld.nOverflow)), __builtin_object_size(unsafe.Pointer(&*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(b.szCell)) + uintptr(b.nCell)*2))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(b.szCell)) + uintptr(b.nCell)*2))), 0, uint(2*uint64(limit+int32(pOld.nOverflow))), __builtin_object_size(unsafe.Pointer(&*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(b.szCell)) + uintptr(b.nCell)*2))), 0))
 		if int32(pOld.nOverflow) > 0 {
 			if limit < int32(*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint16)(unsafe.Pointer(&pOld.aiOvfl)))) + uintptr(0)*2))) {
 				rc = sqlite3CorruptError(74081)
@@ -32078,7 +32078,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 				_ = 0
 				return 0
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer(pTemp), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8))), uint(sz), __builtin_object_size(unsafe.Pointer(pTemp), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(pTemp), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((**uint8)(unsafe.Pointer(&apDiv)))) + uintptr(i)*8))), uint(uint64(sz)), __builtin_object_size(unsafe.Pointer(pTemp), 0))
 			*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(b.apCell)) + uintptr(b.nCell)*8)) = (*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pTemp)) + uintptr(int32(leafCorrection))))
 			func() int {
 				_ = 0
@@ -32094,7 +32094,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 					_ = 0
 					return 0
 				}()
-				__builtin___memcpy_chk(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(b.apCell)) + uintptr(b.nCell)*8))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOld.aData)) + uintptr(8)))), uint(4), __builtin_object_size(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(b.apCell)) + uintptr(b.nCell)*8))), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(b.apCell)) + uintptr(b.nCell)*8))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOld.aData)) + uintptr(8)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(b.apCell)) + uintptr(b.nCell)*8))), 0))
 			} else {
 				func() int {
 					_ = 0
@@ -32376,7 +32376,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 				return (**struct_MemPage)(unsafe.Pointer(&apOld))
 			}
 		}())) + uintptr(nOld-1)*8))
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apNew)))) + uintptr(nNew-1)*8))).aData)) + uintptr(8)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOld.aData)) + uintptr(8)))), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apNew)))) + uintptr(nNew-1)*8))).aData)) + uintptr(8)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apNew)))) + uintptr(nNew-1)*8))).aData)) + uintptr(8)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOld.aData)) + uintptr(8)))), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(**struct_MemPage)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_MemPage)(unsafe.Pointer(&apNew)))) + uintptr(nNew-1)*8))).aData)) + uintptr(8)))), 0))
 	}
 	if pBt.autoVacuum != 0 {
 		var pOld *struct_MemPage
@@ -32457,7 +32457,7 @@ func balance_nonroot(pParent *struct_MemPage, iParentIdx int32, aOvflSpace *uint
 		sz = int32(*(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer(b.szCell)) + uintptr(j)*2))) + int32(leafCorrection)
 		pTemp = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOvflSpace)) + uintptr(iOvflSpace)))
 		if !(pNew.leaf != 0) {
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.aData)) + uintptr(8)))), unsafe.Pointer(pCell), uint(4), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.aData)) + uintptr(8)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.aData)) + uintptr(8)))), unsafe.Pointer(pCell), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.aData)) + uintptr(8)))), 0))
 		} else if leafData != 0 {
 			var info struct_CellInfo
 			j--
@@ -32658,8 +32658,8 @@ func balance_deeper(pRoot *struct_MemPage, ppChild **struct_MemPage) int32 {
 		_ = 0
 		return 0
 	}()
-	__builtin___memcpy_chk(unsafe.Pointer((*uint16)(unsafe.Pointer(&pChild.aiOvfl))), unsafe.Pointer((*uint16)(unsafe.Pointer(&pRoot.aiOvfl))), uint(pRoot.nOverflow)*2, __builtin_object_size(unsafe.Pointer((*uint16)(unsafe.Pointer(&pChild.aiOvfl))), 0))
-	__builtin___memcpy_chk(unsafe.Pointer((**uint8)(unsafe.Pointer(&pChild.apOvfl))), unsafe.Pointer((**uint8)(unsafe.Pointer(&pRoot.apOvfl))), uint(pRoot.nOverflow)*8, __builtin_object_size(unsafe.Pointer((**uint8)(unsafe.Pointer(&pChild.apOvfl))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*uint16)(unsafe.Pointer(&pChild.aiOvfl))), unsafe.Pointer((*uint16)(unsafe.Pointer(&pRoot.aiOvfl))), uint(uint64(pRoot.nOverflow)*2), __builtin_object_size(unsafe.Pointer((*uint16)(unsafe.Pointer(&pChild.aiOvfl))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((**uint8)(unsafe.Pointer(&pChild.apOvfl))), unsafe.Pointer((**uint8)(unsafe.Pointer(&pRoot.apOvfl))), uint(uint64(pRoot.nOverflow)*8), __builtin_object_size(unsafe.Pointer((**uint8)(unsafe.Pointer(&pChild.apOvfl))), 0))
 	pChild.nOverflow = pRoot.nOverflow
 	zeroPage(pRoot, int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pChild.aData)) + uintptr(0)))) & ^8)
 	sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pRoot.aData)) + uintptr(int32(pRoot.hdrOffset)+8))), pgnoChild)
@@ -32775,7 +32775,7 @@ func btreeOverwriteContent(pPage *struct_MemPage, pDest *uint8, pX *struct_Btree
 			if rc != 0 {
 				return rc
 			}
-			__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest))+uintptr(i)))), 0, uint(iAmt-i), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest))+uintptr(i)))), 0))
+			__builtin___memset_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest))+uintptr(i)))), 0, uint(uint64(iAmt-i)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest))+uintptr(i)))), 0))
 		}
 	} else {
 		if nData < iAmt {
@@ -32785,12 +32785,12 @@ func btreeOverwriteContent(pPage *struct_MemPage, pDest *uint8, pX *struct_Btree
 			}
 			iAmt = nData
 		}
-		if memcmp(unsafe.Pointer(pDest), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pX.pData)))+uintptr(iOffset)))), uint(iAmt)) != 0 {
+		if memcmp(unsafe.Pointer(pDest), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pX.pData)))+uintptr(iOffset)))), uint64(iAmt)) != 0 {
 			var rc int32 = sqlite3PagerWrite(pPage.pDbPage)
 			if rc != 0 {
 				return rc
 			}
-			__builtin___memmove_chk(unsafe.Pointer(pDest), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pX.pData)))+uintptr(iOffset)))), uint(iAmt), __builtin_object_size(unsafe.Pointer(pDest), 0))
+			__builtin___memmove_chk(unsafe.Pointer(pDest), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(pX.pData)))+uintptr(iOffset)))), uint(uint64(iAmt)), __builtin_object_size(unsafe.Pointer(pDest), 0))
 		}
 	}
 	return int32(0)
@@ -33046,7 +33046,7 @@ func sqlite3BtreeInsert(pCur *struct_BtCursor, pX *struct_BtreePayload, flags in
 		}
 		oldCell = (*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage.aData)) + uintptr(int32(pPage.maskPage)&(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage.aCellIdx)) + uintptr(2*idx))))) + uintptr(0))))<<8|int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pPage.aCellIdx)) + uintptr(2*idx))))) + uintptr(1))))))))
 		if !(pPage.leaf != 0) {
-			__builtin___memcpy_chk(unsafe.Pointer(newCell), unsafe.Pointer(oldCell), uint(4), __builtin_object_size(unsafe.Pointer(newCell), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(newCell), unsafe.Pointer(oldCell), uint(uint64(4)), __builtin_object_size(unsafe.Pointer(newCell), 0))
 		}
 		pPage.xParseCell(pPage, oldCell, &info)
 		if uint32(info.nLocal) != info.nPayload {
@@ -33066,7 +33066,7 @@ func sqlite3BtreeInsert(pCur *struct_BtCursor, pX *struct_BtreePayload, flags in
 			if uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(oldCell))+uintptr(szNew))))) > uintptr(unsafe.Pointer(pPage.aDataEnd)) {
 				return sqlite3CorruptError(75209)
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(oldCell), unsafe.Pointer(newCell), uint(szNew), __builtin_object_size(unsafe.Pointer(oldCell), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(oldCell), unsafe.Pointer(newCell), uint(uint64(szNew)), __builtin_object_size(unsafe.Pointer(oldCell), 0))
 			return int32(0)
 		}
 		dropCell(pPage, idx, int32(info.nSize), &rc)
@@ -33120,7 +33120,7 @@ func sqlite3BtreeInsert(pCur *struct_BtCursor, pX *struct_BtreePayload, flags in
 				if uintptr(unsafe.Pointer(pCur.pKey)) == uintptr(unsafe.Pointer(nil)) {
 					rc = int32(7)
 				} else {
-					__builtin___memcpy_chk(pCur.pKey, pX.pKey, uint(pX.nKey), __builtin_object_size(pCur.pKey, 0))
+					__builtin___memcpy_chk(pCur.pKey, pX.pKey, uint(uint64(pX.nKey)), __builtin_object_size(pCur.pKey, 0))
 				}
 			}
 			pCur.eState = uint8(3)
@@ -33162,8 +33162,8 @@ func sqlite3BtreeTransferRow(pDest *struct_BtCursor, pSrc *struct_BtCursor, iKey
 	}
 	nRem = pSrc.info.nPayload
 	if nIn == nRem && nIn < uint32(pDest.pPage.maxLocal) {
-		__builtin___memcpy_chk(unsafe.Pointer(aOut), unsafe.Pointer(aIn), uint(nIn), __builtin_object_size(unsafe.Pointer(aOut), 0))
-		pBt.nPreformatSize = int32(int(nIn) + int(uintptr(unsafe.Pointer(aOut))-uintptr(unsafe.Pointer(pBt.pTmpSpace))))
+		__builtin___memcpy_chk(unsafe.Pointer(aOut), unsafe.Pointer(aIn), uint(uint64(nIn)), __builtin_object_size(unsafe.Pointer(aOut), 0))
+		pBt.nPreformatSize = int32(int64(nIn) + int64(uintptr(unsafe.Pointer(aOut))-uintptr(unsafe.Pointer(pBt.pTmpSpace))))
 	} else {
 		var pSrcPager *struct_Pager = pSrc.pBt.pPager
 		var pPgnoOut *uint8 = nil
@@ -33172,7 +33172,7 @@ func sqlite3BtreeTransferRow(pDest *struct_BtCursor, pSrc *struct_BtCursor, iKey
 		var pPageOut *struct_MemPage = nil
 		var nOut uint32
 		nOut = uint32(btreePayloadToLocal(pDest.pPage, int64(pSrc.info.nPayload)))
-		pBt.nPreformatSize = int32(int(nOut) + int(uintptr(unsafe.Pointer(aOut))-uintptr(unsafe.Pointer(pBt.pTmpSpace))))
+		pBt.nPreformatSize = int32(int64(nOut) + int64(uintptr(unsafe.Pointer(aOut))-uintptr(unsafe.Pointer(pBt.pTmpSpace))))
 		if nOut < pSrc.info.nPayload {
 			pPgnoOut = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aOut)) + uintptr(nOut)))
 			pBt.nPreformatSize += int32(4)
@@ -33198,7 +33198,7 @@ func sqlite3BtreeTransferRow(pDest *struct_BtCursor, pSrc *struct_BtCursor, iKey
 							return nIn
 						}
 					}())
-					__builtin___memcpy_chk(unsafe.Pointer(aOut), unsafe.Pointer(aIn), uint(nCopy), __builtin_object_size(unsafe.Pointer(aOut), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(aOut), unsafe.Pointer(aIn), uint(uint64(nCopy)), __builtin_object_size(unsafe.Pointer(aOut), 0))
 					nOut -= uint32(nCopy)
 					nIn -= uint32(nCopy)
 					*(*uintptr)(unsafe.Pointer(&aOut)) += uintptr(nCopy)
@@ -34608,7 +34608,7 @@ func sqlite3BtreeIsReadonly(p *struct_Btree) int32 {
 	}()
 }
 func sqlite3HeaderSizeBtree() int32 {
-	return int32((136 + uint(7)) & uint(18446744073709551608))
+	return int32((136 + uint64(7)) & uint64(18446744073709551608))
 }
 func sqlite3BtreeSharable(p *struct_Btree) int32 {
 	return int32(p.sharable)
@@ -34762,7 +34762,7 @@ func backupOnePage(p *struct_sqlite3_backup, iSrcPg uint32, zSrcData *uint8, bUp
 			var zIn *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zSrcData)) + uintptr(iOff%int64(nSrcPgsz))))
 			var zDestData *uint8 = (*uint8)(sqlite3PagerGetData(pDestPg))
 			var zOut *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zDestData)) + uintptr(iOff%int64(nDestPgsz))))
-			__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(zIn), uint(nCopy), __builtin_object_size(unsafe.Pointer(zOut), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(zIn), uint(uint64(nCopy)), __builtin_object_size(unsafe.Pointer(zOut), 0))
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(sqlite3PagerGetExtra(pDestPg)))) + uintptr(0))) = uint8(0)
 			if iOff == int64(0) && bUpdate == 0 {
 				sqlite3Put4byte(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(28))), sqlite3BtreeLastPage(p.pSrc))
@@ -35251,7 +35251,7 @@ func sqlite3VdbeMemGrow(pMem *struct_sqlite3_value, n int32, bPreserve int32) in
 			_ = 0
 			return 0
 		}()
-		__builtin___memcpy_chk(unsafe.Pointer(pMem.zMalloc), unsafe.Pointer(pMem.z), uint(pMem.n), __builtin_object_size(unsafe.Pointer(pMem.zMalloc), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pMem.zMalloc), unsafe.Pointer(pMem.z), uint(uint64(pMem.n)), __builtin_object_size(unsafe.Pointer(pMem.zMalloc), 0))
 	}
 	if int32(pMem.flags)&1024 != 0 {
 		func() int {
@@ -35367,7 +35367,7 @@ func sqlite3VdbeMemExpandBlob(pMem *struct_sqlite3_value) int32 {
 		_ = 0
 		return 0
 	}()
-	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n)))), 0, uint(*(*int32)(unsafe.Pointer(&pMem.u))), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n)))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n)))), 0, uint(uint64(*(*int32)(unsafe.Pointer(&pMem.u)))), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr(pMem.n)))), 0))
 	pMem.n += *(*int32)(unsafe.Pointer(&pMem.u))
 	pMem.flags &= uint16(48639)
 	return int32(0)
@@ -35426,7 +35426,7 @@ func sqlite3VdbeMemStringify(pMem *struct_sqlite3_value, enc uint8, bForce uint8
 		_ = 0
 		return 0
 	}()
-	pMem.n = int32(strlen(pMem.z) & uint(1073741823))
+	pMem.n = int32(strlen(pMem.z) & uint64(1073741823))
 	pMem.enc = uint8(1)
 	pMem.flags |= uint16(2 | 512)
 	if bForce != 0 {
@@ -36068,7 +36068,7 @@ func sqlite3VdbeMemSetStr(pMem *struct_sqlite3_value, z *int8, n int64, enc uint
 		}())) != 0 {
 			return int32(7)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(pMem.z), unsafe.Pointer(z), uint(nAlloc), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pMem.z), unsafe.Pointer(z), uint(uint64(nAlloc)), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
 	} else {
 		sqlite3VdbeMemRelease(pMem)
 		pMem.z = (*int8)(unsafe.Pointer(z))
@@ -36200,7 +36200,7 @@ func valueToText(pVal *struct_sqlite3_value, enc uint8) unsafe.Pointer {
 		if int32(pVal.enc) != int32(enc) & ^8 {
 			sqlite3VdbeChangeEncoding(pVal, int32(enc) & ^8)
 		}
-		if int32(enc)&8 != 0 && 1 == 1&int32(int(uintptr(unsafe.Pointer(pVal.z)))) {
+		if int32(enc)&8 != 0 && 1 == 1&int32(int64(uintptr(unsafe.Pointer(pVal.z)))) {
 			func() int {
 				_ = 0
 				return 0
@@ -36579,7 +36579,7 @@ func growOpArray(v *struct_Vdbe, nOp int32) int32 {
 		if v.nOpAlloc != 0 {
 			return int64(2) * int64(v.nOpAlloc)
 		} else {
-			return int64(uint(1024) / 24)
+			return int64(uint64(1024) / 24)
 		}
 	}()
 	func() int {
@@ -36601,7 +36601,7 @@ func growOpArray(v *struct_Vdbe, nOp int32) int32 {
 	pNew = (*struct_VdbeOp)(sqlite3DbRealloc(p.db, unsafe.Pointer(v.aOp), uint64(nNew)*uint64(24)))
 	if pNew != nil {
 		p.szOpAlloc = sqlite3DbMallocSize(p.db, unsafe.Pointer(pNew))
-		v.nOpAlloc = int32(uint(p.szOpAlloc) / 24)
+		v.nOpAlloc = int32(uint64(p.szOpAlloc) / 24)
 		v.aOp = pNew
 	}
 	return func() int32 {
@@ -36724,7 +36724,7 @@ func sqlite3VdbeAddFunctionCall(pParse *struct_Parse, p1 int32, p2 int32, p3 int
 		_ = 0
 		return 0
 	}()
-	nByte = int32(56 + uint(nArg-1)*8)
+	nByte = int32(56 + uint64(nArg-1)*8)
 	pCtx = (*struct_sqlite3_context)(sqlite3DbMallocRawNN(pParse.db, uint64(nByte)))
 	if uintptr(unsafe.Pointer(pCtx)) == uintptr(unsafe.Pointer(nil)) {
 		func() int {
@@ -36753,7 +36753,7 @@ func sqlite3VdbeAddFunctionCall(pParse *struct_Parse, p1 int32, p2 int32, p3 int
 func sqlite3VdbeAddOp4Dup8(p *struct_Vdbe, op int32, p1 int32, p2 int32, p3 int32, zP4 *uint8, p4type int32) int32 {
 	var p4copy *int8 = (*int8)(sqlite3DbMallocRawNN(sqlite3VdbeDb(p), uint64(8)))
 	if p4copy != nil {
-		__builtin___memcpy_chk(unsafe.Pointer(p4copy), unsafe.Pointer(zP4), uint(8), __builtin_object_size(unsafe.Pointer(p4copy), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(p4copy), unsafe.Pointer(zP4), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(p4copy), 0))
 	}
 	return sqlite3VdbeAddOp4(p, op, p1, p2, p3, p4copy, p4type)
 }
@@ -36815,7 +36815,7 @@ func sqlite3VdbeMakeLabel(pParse *struct_Parse) int32 {
 }
 func resizeResolveLabel(p *struct_Parse, v *struct_Vdbe, j int32) {
 	var nNewSize int32 = 10 - p.nLabel
-	p.aLabel = (*int32)(sqlite3DbReallocOrFree(p.db, unsafe.Pointer(p.aLabel), uint64(uint(nNewSize)*4)))
+	p.aLabel = (*int32)(sqlite3DbReallocOrFree(p.db, unsafe.Pointer(p.aLabel), uint64(uint64(nNewSize)*4)))
 	if uintptr(unsafe.Pointer(p.aLabel)) == uintptr(unsafe.Pointer(nil)) {
 		p.nLabelAlloc = int32(0)
 	} else {
@@ -37283,7 +37283,7 @@ func sqlite3VdbeChangeP4(p *struct_Vdbe, addr int32, zP4 *int8, n int32) {
 		return
 	}
 	if n == -3 {
-		*(*int32)(unsafe.Pointer(&pOp.p4)) = int32(int(uintptr(unsafe.Pointer(zP4))))
+		*(*int32)(unsafe.Pointer(&pOp.p4)) = int32(int64(uintptr(unsafe.Pointer(zP4))))
 		pOp.p4type = int8(-3)
 	} else if uintptr(unsafe.Pointer(zP4)) != uintptr(unsafe.Pointer(nil)) {
 		func() int {
@@ -37644,7 +37644,7 @@ func sqlite3VdbeNextOpcode(p *struct_Vdbe, pSub *struct_sqlite3_value, eMode int
 	nRow = p.nOp
 	if uintptr(unsafe.Pointer(pSub)) != uintptr(unsafe.Pointer(nil)) {
 		if int32(pSub.flags)&16 != 0 {
-			nSub = int32(uint(pSub.n) / 8)
+			nSub = int32(uint64(pSub.n) / 8)
 			apSub = (**struct_SubProgram)(unsafe.Pointer(pSub.z))
 		}
 		for i = int32(0); i < nSub; i++ {
@@ -37687,7 +37687,7 @@ func sqlite3VdbeNextOpcode(p *struct_Vdbe, pSub *struct_sqlite3_value, eMode int
 			aOp = (*(**struct_SubProgram)(unsafe.Pointer(uintptr(unsafe.Pointer(apSub)) + uintptr(j)*8))).aOp
 		}
 		if uintptr(unsafe.Pointer(pSub)) != uintptr(unsafe.Pointer(nil)) && int32((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) + uintptr(i)*24))).p4type) == -4 {
-			var nByte int32 = int32(uint(nSub+1) * 8)
+			var nByte int32 = int32(uint64(nSub+1) * 8)
 			var j int32
 			for j = int32(0); j < nSub; j++ {
 				if uintptr(unsafe.Pointer(*(**struct_SubProgram)(unsafe.Pointer(uintptr(unsafe.Pointer(apSub)) + uintptr(j)*8)))) == uintptr(unsafe.Pointer(*(**struct_SubProgram)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) + uintptr(i)*24))).p4)))) {
@@ -37714,7 +37714,7 @@ func sqlite3VdbeNextOpcode(p *struct_Vdbe, pSub *struct_sqlite3_value, eMode int
 					return
 				}())*8)) = *(**struct_SubProgram)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) + uintptr(i)*24))).p4))
 				pSub.flags = uint16(int32(pSub.flags) & ^(49599|16384) | 16)
-				pSub.n = int32(uint(nSub) * 8)
+				pSub.n = int32(uint64(nSub) * 8)
 				nRow += (*(**struct_SubProgram)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) + uintptr(i)*24))).p4))).nOp
 			}
 		}
@@ -37741,7 +37741,7 @@ func sqlite3VdbeNextOpcode(p *struct_Vdbe, pSub *struct_sqlite3_value, eMode int
 }
 func sqlite3VdbeFrameDelete(p *struct_VdbeFrame) {
 	var i int32
-	var aMem *struct_sqlite3_value = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(p)))) + uintptr((120+uint(7))&uint(18446744073709551608))))))
+	var aMem *struct_sqlite3_value = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(p)))) + uintptr((120+uint64(7))&uint64(18446744073709551608))))))
 	var apCsr **struct_VdbeCursor = (**struct_VdbeCursor)(unsafe.Pointer(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(p.nChildMem)*56))))
 	func() int {
 		_ = 0
@@ -37933,7 +37933,7 @@ func sqlite3VdbeMakeReady(p *struct_Vdbe, pParse *struct_Parse) {
 	if nCursor == 0 && nMem > 0 {
 		nMem++
 	}
-	n = int32((24*uint(p.nOp) + uint(7)) & uint(18446744073709551608))
+	n = int32((24*uint64(p.nOp) + uint64(7)) & uint64(18446744073709551608))
 	x.pSpace = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(p.aOp)))) + uintptr(n)))
 	func() int {
 		_ = 0
@@ -37989,10 +37989,10 @@ func sqlite3VdbeMakeReady(p *struct_Vdbe, pParse *struct_Parse) {
 		*_autoGo_13 = *_autoGo_13&^3 | uint32(0)&3
 	}
 	x.nNeeded = int64(0)
-	p.aMem = (*struct_sqlite3_value)(allocSpace(&x, nil, int64(uint(nMem)*56)))
-	p.aVar = (*struct_sqlite3_value)(allocSpace(&x, nil, int64(uint(nVar)*56)))
-	p.apArg = (**struct_sqlite3_value)(allocSpace(&x, nil, int64(uint(nArg)*8)))
-	p.apCsr = (**struct_VdbeCursor)(allocSpace(&x, nil, int64(uint(nCursor)*8)))
+	p.aMem = (*struct_sqlite3_value)(allocSpace(&x, nil, int64(uint64(nMem)*56)))
+	p.aVar = (*struct_sqlite3_value)(allocSpace(&x, nil, int64(uint64(nVar)*56)))
+	p.apArg = (**struct_sqlite3_value)(allocSpace(&x, nil, int64(uint64(nArg)*8)))
+	p.apCsr = (**struct_VdbeCursor)(allocSpace(&x, nil, int64(uint64(nCursor)*8)))
 	if x.nNeeded != 0 {
 		x.pSpace = (*uint8)(func() (_cgo_ret unsafe.Pointer) {
 			_cgo_addr := &p.pFree
@@ -38001,10 +38001,10 @@ func sqlite3VdbeMakeReady(p *struct_Vdbe, pParse *struct_Parse) {
 		}())
 		x.nFree = x.nNeeded
 		if !(db.mallocFailed != 0) {
-			p.aMem = (*struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.aMem), int64(uint(nMem)*56)))
-			p.aVar = (*struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.aVar), int64(uint(nVar)*56)))
-			p.apArg = (**struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.apArg), int64(uint(nArg)*8)))
-			p.apCsr = (**struct_VdbeCursor)(allocSpace(&x, unsafe.Pointer(p.apCsr), int64(uint(nCursor)*8)))
+			p.aMem = (*struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.aMem), int64(uint64(nMem)*56)))
+			p.aVar = (*struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.aVar), int64(uint64(nVar)*56)))
+			p.apArg = (**struct_sqlite3_value)(allocSpace(&x, unsafe.Pointer(p.apArg), int64(uint64(nArg)*8)))
+			p.apCsr = (**struct_VdbeCursor)(allocSpace(&x, unsafe.Pointer(p.apCsr), int64(uint64(nCursor)*8)))
 		}
 	}
 	if db.mallocFailed != 0 {
@@ -38017,7 +38017,7 @@ func sqlite3VdbeMakeReady(p *struct_Vdbe, pParse *struct_Parse) {
 		initMemArray(p.aVar, nVar, db, uint16(1))
 		p.nMem = nMem
 		initMemArray(p.aMem, nMem, db, uint16(128))
-		__builtin___memset_chk(unsafe.Pointer(p.apCsr), 0, uint(nCursor)*8, __builtin_object_size(unsafe.Pointer(p.apCsr), 0))
+		__builtin___memset_chk(unsafe.Pointer(p.apCsr), 0, uint(uint64(nCursor)*8), __builtin_object_size(unsafe.Pointer(p.apCsr), 0))
 	}
 	sqlite3VdbeRewind(p)
 }
@@ -38122,7 +38122,7 @@ func sqlite3VdbeSetNumCols(p *struct_Vdbe, nResColumn int32) {
 	}
 	n = nResColumn * 2
 	p.nResColumn = uint16(nResColumn)
-	p.aColName = (*struct_sqlite3_value)(sqlite3DbMallocRawNN(db, uint64(56*uint(n))))
+	p.aColName = (*struct_sqlite3_value)(sqlite3DbMallocRawNN(db, uint64(56*uint64(n))))
 	if uintptr(unsafe.Pointer(p.aColName)) == uintptr(unsafe.Pointer(nil)) {
 		return
 	}
@@ -38824,7 +38824,7 @@ func sqlite3VdbeSerialPut(buf *uint8, pMem *struct_sqlite3_value, serial_type ui
 		}()
 		len = uint32(pMem.n)
 		if len > uint32(0) {
-			__builtin___memcpy_chk(unsafe.Pointer(buf), unsafe.Pointer(pMem.z), uint(len), __builtin_object_size(unsafe.Pointer(buf), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(buf), unsafe.Pointer(pMem.z), uint(uint64(len)), __builtin_object_size(unsafe.Pointer(buf), 0))
 		}
 		return len
 	}
@@ -38927,12 +38927,12 @@ func sqlite3VdbeSerialGet(buf *uint8, serial_type uint32, pMem *struct_sqlite3_v
 func sqlite3VdbeAllocUnpackedRecord(pKeyInfo *struct_KeyInfo) *struct_UnpackedRecord {
 	var p *struct_UnpackedRecord
 	var nByte int32
-	nByte = int32((23+uint(7))&uint(18446744073709551608) + 56*uint(int32(pKeyInfo.nKeyField)+1))
+	nByte = int32((23+uint64(7))&uint64(18446744073709551608) + 56*uint64(int32(pKeyInfo.nKeyField)+1))
 	p = (*struct_UnpackedRecord)(sqlite3DbMallocRaw(pKeyInfo.db, uint64(nByte)))
 	if !(p != nil) {
 		return (*struct_UnpackedRecord)(nil)
 	}
-	p.aMem = (*struct_sqlite3_value)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((23+uint(7))&uint(18446744073709551608))))))
+	p.aMem = (*struct_sqlite3_value)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((23+uint64(7))&uint64(18446744073709551608))))))
 	func() int {
 		_ = 0
 		return 0
@@ -39069,7 +39069,7 @@ func sqlite3BlobCompare(pB1 *struct_sqlite3_value, pB2 *struct_sqlite3_value) in
 			return n1 - *(*int32)(unsafe.Pointer(&pB2.u))
 		}
 	}
-	c = memcmp(unsafe.Pointer(pB1.z), unsafe.Pointer(pB2.z), uint(func() int32 {
+	c = memcmp(unsafe.Pointer(pB1.z), unsafe.Pointer(pB2.z), uint64(func() int32 {
 		if n1 > n2 {
 			return n2
 		} else {
@@ -39362,7 +39362,7 @@ func sqlite3VdbeRecordCompareWithSkip(nKey1 int32, pKey1 unsafe.Pointer, pPKey2 
 							return pRhs.n
 						}
 					}()
-					rc = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(d1)))), unsafe.Pointer(pRhs.z), uint(nCmp))
+					rc = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(d1)))), unsafe.Pointer(pRhs.z), uint64(nCmp))
 					if rc == 0 {
 						rc = mem1.n - pRhs.n
 					}
@@ -39398,7 +39398,7 @@ func sqlite3VdbeRecordCompareWithSkip(nKey1 int32, pKey1 unsafe.Pointer, pPKey2 
 							return pRhs.n
 						}
 					}()
-					rc = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(d1)))), unsafe.Pointer(pRhs.z), uint(nCmp))
+					rc = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(d1)))), unsafe.Pointer(pRhs.z), uint64(nCmp))
 					if rc == 0 {
 						rc = nStr - pRhs.n
 					}
@@ -39570,7 +39570,7 @@ func vdbeRecordCompareString(nKey1 int32, pKey1 unsafe.Pointer, pPKey2 *struct_U
 				return nStr
 			}
 		}()
-		res = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(szHdr)))), unsafe.Pointer((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pPKey2.aMem)) + uintptr(0)*56))).z), uint(nCmp))
+		res = memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aKey1)) + uintptr(szHdr)))), unsafe.Pointer((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pPKey2.aMem)) + uintptr(0)*56))).z), uint64(nCmp))
 		if res > 0 {
 			res = int32(pPKey2.r2)
 		} else if res < 0 {
@@ -40554,7 +40554,7 @@ func createAggContext(p *struct_sqlite3_context, nByte int32) unsafe.Pointer {
 		pMem.flags = uint16(8192)
 		*(**struct_FuncDef)(unsafe.Pointer(&pMem.u)) = p.pFunc
 		if pMem.z != nil {
-			__builtin___memset_chk(unsafe.Pointer(pMem.z), 0, uint(nByte), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
+			__builtin___memset_chk(unsafe.Pointer(pMem.z), 0, uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(pMem.z), 0))
 		}
 	}
 	return unsafe.Pointer(pMem.z)
@@ -41331,7 +41331,7 @@ func allocateCursor(p *struct_Vdbe, iCur int32, nField int32, eCurType uint8) *s
 	}()
 	var nByte int32
 	var pCx *struct_VdbeCursor = nil
-	nByte = int32((116+uint(7))&uint(18446744073709551608) + uint(2)*4*uint(nField) + uint(func() int32 {
+	nByte = int32((116+uint64(7))&uint64(18446744073709551608) + uint64(2)*4*uint64(nField) + uint64(func() int32 {
 		if int32(eCurType) == 0 {
 			return sqlite3BtreeCursorSize()
 		} else {
@@ -41383,7 +41383,7 @@ func allocateCursor(p *struct_Vdbe, iCur int32, nField int32, eCurType uint8) *s
 	pCx.nField = int16(nField)
 	pCx.aOffset = &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pCx.aType)))) + uintptr(nField)*4))
 	if int32(eCurType) == 0 {
-		pCx.uc.pCursor = (*struct_BtCursor)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr((116+uint(7))&uint(18446744073709551608)+uint(2)*4*uint(nField))))))
+		pCx.uc.pCursor = (*struct_BtCursor)(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pMem.z)) + uintptr((116+uint64(7))&uint64(18446744073709551608)+uint64(2)*4*uint64(nField))))))
 		sqlite3BtreeCursorZero(pCx.uc.pCursor)
 	}
 	return pCx
@@ -41586,75 +41586,75 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 		flags3_cgo160        uint16
 		newType_cgo161       uint16
 		c_cgo163             int32
-		pC_cgo171            *struct_VdbeCursor
-		res_cgo172           int32
-		nStep_cgo173         int32
-		r_cgo174             struct_UnpackedRecord
-		alreadyExists_cgo189 int32
-		takeJump_cgo190      int32
-		ii_cgo191            int32
-		pC_cgo192            *struct_VdbeCursor
-		res_cgo193           int32
-		pFree_cgo194         *struct_UnpackedRecord
-		pIdxKey_cgo195       *struct_UnpackedRecord
-		r_cgo196             struct_UnpackedRecord
-		pC_cgo202            *struct_VdbeCursor
-		pCrsr_cgo203         *struct_BtCursor
-		res_cgo204           int32
-		iKey_cgo205          uint64
-		x_cgo207             struct_sqlite3_value
-		pC_cgo220            *struct_VdbeCursor
-		res_cgo221           int32
-		nKeyCol_cgo222       int32
-		pC_cgo230            *struct_VdbeCursor
-		pCrsr_cgo231         *struct_BtCursor
-		res_cgo232           int32
-		pC_cgo236            *struct_VdbeCursor
-		pCrsr_cgo237         *struct_BtCursor
-		res_cgo238           int32
-		sz_cgo239            int64
-		pC_cgo244            *struct_VdbeCursor
-		pCrsr_cgo245         *struct_BtCursor
-		res_cgo246           int32
-		pC_cgo249            *struct_VdbeCursor
-		pC_cgo263            *struct_VdbeCursor
-		res_cgo264           int32
-		r_cgo265             struct_UnpackedRecord
-		nRoot_cgo278         int32
-		aRoot_cgo279         *uint32
-		nErr_cgo280          int32
-		z_cgo281             *int8
-		pnErr_cgo282         *struct_sqlite3_value
-		val_cgo285           int64
-		iSet_cgo289          int32
-		exists_cgo290        int32
-		nMem_cgo294          int32
-		nByte_cgo295         int32
-		pRt_cgo296           *struct_sqlite3_value
-		pMem_cgo297          *struct_sqlite3_value
-		pEnd_cgo298          *struct_sqlite3_value
-		pFrame_cgo299        *struct_VdbeFrame
-		pProgram_cgo300      *struct_SubProgram
-		t_cgo301             unsafe.Pointer
-		pBt_cgo326           *struct_Btree
-		nArg_cgo338          int32
-		iQuery_cgo339        int32
-		pModule_cgo340       *struct_sqlite3_module
-		pQuery_cgo341        *struct_sqlite3_value
-		pArgc_cgo342         *struct_sqlite3_value
-		pVCur_cgo343         *struct_sqlite3_vtab_cursor
-		pVtab_cgo344         *struct_sqlite3_vtab
-		pCur_cgo345          *struct_VdbeCursor
-		res_cgo346           int32
-		i_cgo347             int32
-		apArg_cgo348         **struct_sqlite3_value
-		pVtab_cgo352         *struct_sqlite3_vtab
-		pModule_cgo353       *struct_sqlite3_module
-		res_cgo354           int32
-		pCur_cgo355          *struct_VdbeCursor
-		h_cgo365             uint64
-		i_cgo370             int32
-		zTrace_cgo371        *int8
+		pC_cgo170            *struct_VdbeCursor
+		res_cgo171           int32
+		nStep_cgo172         int32
+		r_cgo173             struct_UnpackedRecord
+		alreadyExists_cgo188 int32
+		takeJump_cgo189      int32
+		ii_cgo190            int32
+		pC_cgo191            *struct_VdbeCursor
+		res_cgo192           int32
+		pFree_cgo193         *struct_UnpackedRecord
+		pIdxKey_cgo194       *struct_UnpackedRecord
+		r_cgo195             struct_UnpackedRecord
+		pC_cgo201            *struct_VdbeCursor
+		pCrsr_cgo202         *struct_BtCursor
+		res_cgo203           int32
+		iKey_cgo204          uint64
+		x_cgo206             struct_sqlite3_value
+		pC_cgo219            *struct_VdbeCursor
+		res_cgo220           int32
+		nKeyCol_cgo221       int32
+		pC_cgo229            *struct_VdbeCursor
+		pCrsr_cgo230         *struct_BtCursor
+		res_cgo231           int32
+		pC_cgo235            *struct_VdbeCursor
+		pCrsr_cgo236         *struct_BtCursor
+		res_cgo237           int32
+		sz_cgo238            int64
+		pC_cgo243            *struct_VdbeCursor
+		pCrsr_cgo244         *struct_BtCursor
+		res_cgo245           int32
+		pC_cgo248            *struct_VdbeCursor
+		pC_cgo262            *struct_VdbeCursor
+		res_cgo263           int32
+		r_cgo264             struct_UnpackedRecord
+		nRoot_cgo277         int32
+		aRoot_cgo278         *uint32
+		nErr_cgo279          int32
+		z_cgo280             *int8
+		pnErr_cgo281         *struct_sqlite3_value
+		val_cgo284           int64
+		iSet_cgo288          int32
+		exists_cgo289        int32
+		nMem_cgo293          int32
+		nByte_cgo294         int32
+		pRt_cgo295           *struct_sqlite3_value
+		pMem_cgo296          *struct_sqlite3_value
+		pEnd_cgo297          *struct_sqlite3_value
+		pFrame_cgo298        *struct_VdbeFrame
+		pProgram_cgo299      *struct_SubProgram
+		t_cgo300             unsafe.Pointer
+		pBt_cgo325           *struct_Btree
+		nArg_cgo337          int32
+		iQuery_cgo338        int32
+		pModule_cgo339       *struct_sqlite3_module
+		pQuery_cgo340        *struct_sqlite3_value
+		pArgc_cgo341         *struct_sqlite3_value
+		pVCur_cgo342         *struct_sqlite3_vtab_cursor
+		pVtab_cgo343         *struct_sqlite3_vtab
+		pCur_cgo344          *struct_VdbeCursor
+		res_cgo345           int32
+		i_cgo346             int32
+		apArg_cgo347         **struct_sqlite3_value
+		pVtab_cgo351         *struct_sqlite3_vtab
+		pModule_cgo352       *struct_sqlite3_module
+		res_cgo353           int32
+		pCur_cgo354          *struct_VdbeCursor
+		h_cgo364             uint64
+		i_cgo369             int32
+		zTrace_cgo370        *int8
 	)
 	var aOp *struct_VdbeOp = p.aOp
 	var pOp *struct_VdbeOp = aOp
@@ -42389,14 +42389,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			pOut.flags = uint16(int32(pOut.flags) & ^(49599|16384) | 2)
 			if uintptr(unsafe.Pointer(pOut)) != uintptr(unsafe.Pointer(pIn2)) {
-				__builtin___memcpy_chk(unsafe.Pointer(pOut.z), unsafe.Pointer(pIn2.z), uint(pIn2.n), __builtin_object_size(unsafe.Pointer(pOut.z), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(pOut.z), unsafe.Pointer(pIn2.z), uint(uint64(pIn2.n)), __builtin_object_size(unsafe.Pointer(pOut.z), 0))
 				func() int {
 					_ = 0
 					return 0
 				}()
 				pIn2.flags = flags2
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOut.z)) + uintptr(pIn2.n)))), unsafe.Pointer(pIn1.z), uint(pIn1.n), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOut.z)) + uintptr(pIn2.n)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOut.z)) + uintptr(pIn2.n)))), unsafe.Pointer(pIn1.z), uint(uint64(pIn1.n)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pOut.z)) + uintptr(pIn2.n)))), 0))
 			func() int {
 				_ = 0
 				return 0
@@ -43580,7 +43580,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 					} else {
 						pDest.z = pDest.zMalloc
 					}
-					__builtin___memcpy_chk(unsafe.Pointer(pDest.z), unsafe.Pointer(zData), uint(len), __builtin_object_size(unsafe.Pointer(pDest.z), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(pDest.z), unsafe.Pointer(zData), uint(uint64(len)), __builtin_object_size(unsafe.Pointer(pDest.z), 0))
 					*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest.z)) + uintptr(len))) = int8(0)
 					*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pDest.z)) + uintptr(len+1))) = int8(0)
 					pDest.flags = *(*uint16)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint16)(unsafe.Pointer(&aFlag)))) + uintptr(t&uint32(1))*2))
@@ -44078,10 +44078,10 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 					if rc != 0 {
 						goto abort_due_to_error
 					}
-					pNew = (*struct_Savepoint)(sqlite3DbMallocRawNN(db, uint64(32+uint(nName)+uint(1))))
+					pNew = (*struct_Savepoint)(sqlite3DbMallocRawNN(db, uint64(32+uint64(nName)+uint64(1))))
 					if pNew != nil {
 						pNew.zName = (*int8)(unsafe.Pointer(&*(*struct_Savepoint)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*32))))
-						__builtin___memcpy_chk(unsafe.Pointer(pNew.zName), unsafe.Pointer(zName), uint(nName+1), __builtin_object_size(unsafe.Pointer(pNew.zName), 0))
+						__builtin___memcpy_chk(unsafe.Pointer(pNew.zName), unsafe.Pointer(zName), uint(uint64(nName+1)), __builtin_object_size(unsafe.Pointer(pNew.zName), 0))
 						if db.autoCommit != 0 {
 							db.autoCommit = uint8(0)
 							db.isTransactionSavepoint = uint8(1)
@@ -45174,16 +45174,13 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(eqOnly_cgo157 != 0 && int32(r_cgo154.eqSeen) == 0) {
-			goto _cgol_167
+		if eqOnly_cgo157 != 0 && int32(r_cgo154.eqSeen) == 0 {
+			func() int {
+				_ = 0
+				return 0
+			}()
+			goto seek_not_found
 		}
-		func() int {
-			_ = 0
-			return 0
-		}()
-		goto seek_not_found
-	_cgol_167:
-		;
 	_cgol_158:
 		if oc_cgo152 >= 25 {
 			func() int {
@@ -45230,11 +45227,11 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !(res_cgo151 != 0) {
-			goto _cgol_169
+			goto _cgol_168
 		}
 		goto jump_to_p2
-		goto _cgol_168
-	_cgol_169:
+		goto _cgol_167
+	_cgol_168:
 		if eqOnly_cgo157 != 0 {
 			func() int {
 				_ = 0
@@ -45242,17 +45239,17 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			*(*uintptr)(unsafe.Pointer(&pOp)) += 24
 		}
-	_cgol_168:
+	_cgol_167:
 		goto _cgol_2
 	_cgol_150:
 		if _cgo_nm && _cgo_tag != 123 {
-			goto _cgol_170
+			goto _cgol_169
 		}
 		_cgo_nm = false
-		pC_cgo171 = nil
-		res_cgo172 = 0
-		nStep_cgo173 = 0
-		r_cgo174 = struct {
+		pC_cgo170 = nil
+		res_cgo171 = 0
+		nStep_cgo172 = 0
+		r_cgo173 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -45290,7 +45287,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo171 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p1)*8))
+		pC_cgo170 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45303,65 +45300,65 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if !(sqlite3BtreeCursorIsValidNN(pC_cgo171.uc.pCursor) != 0) {
+		if !(sqlite3BtreeCursorIsValidNN(pC_cgo170.uc.pCursor) != 0) {
 			goto _cgol_2
 		}
-		nStep_cgo173 = pOp.p1
+		nStep_cgo172 = pOp.p1
 		func() int {
 			_ = 0
 			return 0
 		}()
-		r_cgo174.pKeyInfo = pC_cgo171.pKeyInfo
-		r_cgo174.nField = uint16(*(*int32)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p4)))
-		r_cgo174.default_rc = int8(0)
-		r_cgo174.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p3)*56))
-		res_cgo172 = int32(0)
-	_cgol_175:
+		r_cgo173.pKeyInfo = pC_cgo170.pKeyInfo
+		r_cgo173.nField = uint16(*(*int32)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p4)))
+		r_cgo173.default_rc = int8(0)
+		r_cgo173.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p3)*56))
+		res_cgo171 = int32(0)
+	_cgol_174:
 		if false {
-			goto _cgol_176
+			goto _cgol_175
 		}
-		rc = sqlite3VdbeIdxKeyCompare(db, pC_cgo171, &r_cgo174, &res_cgo172)
+		rc = sqlite3VdbeIdxKeyCompare(db, pC_cgo170, &r_cgo173, &res_cgo171)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(res_cgo172 > 0) {
-			goto _cgol_177
+		if !(res_cgo171 > 0) {
+			goto _cgol_176
 		}
 	seekscan_search_fail:
 		*(*uintptr)(unsafe.Pointer(&pOp)) += 24
 		goto jump_to_p2
-	_cgol_177:
-		if !(res_cgo172 == 0) {
-			goto _cgol_178
+	_cgol_176:
+		if !(res_cgo171 == 0) {
+			goto _cgol_177
 		}
 		goto jump_to_p2
-		goto _cgol_178
-	_cgol_178:
-		if nStep_cgo173 <= 0 {
-			goto _cgol_176
+		goto _cgol_177
+	_cgol_177:
+		if nStep_cgo172 <= 0 {
+			goto _cgol_175
 		}
-		nStep_cgo173--
-		rc = sqlite3BtreeNext(pC_cgo171.uc.pCursor, 0)
+		nStep_cgo172--
+		rc = sqlite3BtreeNext(pC_cgo170.uc.pCursor, 0)
 		if !(rc != 0) {
-			goto _cgol_179
+			goto _cgol_178
 		}
 		if !(rc == 101) {
-			goto _cgol_181
+			goto _cgol_180
 		}
 		rc = int32(0)
 		goto seekscan_search_fail
-		goto _cgol_180
-	_cgol_181:
-		goto abort_due_to_error
+		goto _cgol_179
 	_cgol_180:
-		;
+		goto abort_due_to_error
 	_cgol_179:
-		goto _cgol_175
-	_cgol_176:
+		;
+	_cgol_178:
+		goto _cgol_174
+	_cgol_175:
 		goto _cgol_2
-	_cgol_170:
+	_cgol_169:
 		if _cgo_nm && _cgo_tag != 124 {
-			goto _cgol_182
+			goto _cgol_181
 		}
 		_cgo_nm = false
 		{
@@ -45386,9 +45383,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_182:
+	_cgol_181:
 		if _cgo_nm && _cgo_tag != 27 {
-			goto _cgol_183
+			goto _cgol_182
 		}
 		_cgo_nm = false
 		func() int {
@@ -45396,14 +45393,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !!(*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8)) != nil) {
-			goto _cgol_184
+			goto _cgol_183
 		}
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_184:
-		goto _cgol_2
 	_cgol_183:
+		goto _cgol_2
+	_cgol_182:
 		if _cgo_nm && _cgo_tag != 28 {
-			goto _cgol_185
+			goto _cgol_184
 		}
 		_cgo_nm = false
 		{
@@ -45421,29 +45418,29 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				goto _cgol_2
 			}
 		}
-	_cgol_185:
+	_cgol_184:
 		if _cgo_nm && _cgo_tag != 29 {
+			goto _cgol_185
+		}
+		_cgo_nm = false
+	_cgol_185:
+		if _cgo_nm && _cgo_tag != 30 {
 			goto _cgol_186
 		}
 		_cgo_nm = false
 	_cgol_186:
-		if _cgo_nm && _cgo_tag != 30 {
+		if _cgo_nm && _cgo_tag != 31 {
 			goto _cgol_187
 		}
 		_cgo_nm = false
-	_cgol_187:
-		if _cgo_nm && _cgo_tag != 31 {
-			goto _cgol_188
-		}
-		_cgo_nm = false
-		alreadyExists_cgo189 = 0
-		takeJump_cgo190 = 0
-		ii_cgo191 = 0
-		pC_cgo192 = nil
-		res_cgo193 = 0
-		pFree_cgo194 = nil
-		pIdxKey_cgo195 = nil
-		r_cgo196 = struct {
+		alreadyExists_cgo188 = 0
+		takeJump_cgo189 = 0
+		ii_cgo190 = 0
+		pC_cgo191 = nil
+		res_cgo192 = 0
+		pFree_cgo193 = nil
+		pIdxKey_cgo194 = nil
+		r_cgo195 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -45461,7 +45458,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo192 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo191 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45480,11 +45477,11 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if *(*int32)(unsafe.Pointer(&pOp.p4)) > 0 {
-			r_cgo196.pKeyInfo = pC_cgo192.pKeyInfo
-			r_cgo196.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
-			r_cgo196.aMem = pIn3
-			pIdxKey_cgo195 = &r_cgo196
-			pFree_cgo194 = (*struct_UnpackedRecord)(nil)
+			r_cgo195.pKeyInfo = pC_cgo191.pKeyInfo
+			r_cgo195.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+			r_cgo195.aMem = pIn3
+			pIdxKey_cgo194 = &r_cgo195
+			pFree_cgo193 = (*struct_UnpackedRecord)(nil)
 		} else {
 			func() int {
 				_ = 0
@@ -45504,91 +45501,91 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if rc != 0 {
 				goto no_mem
 			}
-			pFree_cgo194 = func() (_cgo_ret *struct_UnpackedRecord) {
-				_cgo_addr := &pIdxKey_cgo195
-				*_cgo_addr = sqlite3VdbeAllocUnpackedRecord(pC_cgo192.pKeyInfo)
+			pFree_cgo193 = func() (_cgo_ret *struct_UnpackedRecord) {
+				_cgo_addr := &pIdxKey_cgo194
+				*_cgo_addr = sqlite3VdbeAllocUnpackedRecord(pC_cgo191.pKeyInfo)
 				return *_cgo_addr
 			}()
-			if uintptr(unsafe.Pointer(pIdxKey_cgo195)) == uintptr(unsafe.Pointer(nil)) {
+			if uintptr(unsafe.Pointer(pIdxKey_cgo194)) == uintptr(unsafe.Pointer(nil)) {
 				goto no_mem
 			}
-			sqlite3VdbeRecordUnpack(pC_cgo192.pKeyInfo, pIn3.n, unsafe.Pointer(pIn3.z), pIdxKey_cgo195)
+			sqlite3VdbeRecordUnpack(pC_cgo191.pKeyInfo, pIn3.n, unsafe.Pointer(pIn3.z), pIdxKey_cgo194)
 		}
-		pIdxKey_cgo195.default_rc = int8(0)
-		takeJump_cgo190 = int32(0)
+		pIdxKey_cgo194.default_rc = int8(0)
+		takeJump_cgo189 = int32(0)
 		if int32(pOp.opcode) == 29 {
-			for ii_cgo191 = int32(0); ii_cgo191 < int32(pIdxKey_cgo195.nField); ii_cgo191++ {
-				if int32((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdxKey_cgo195.aMem)) + uintptr(ii_cgo191)*56))).flags)&1 != 0 {
-					takeJump_cgo190 = int32(1)
+			for ii_cgo190 = int32(0); ii_cgo190 < int32(pIdxKey_cgo194.nField); ii_cgo190++ {
+				if int32((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdxKey_cgo194.aMem)) + uintptr(ii_cgo190)*56))).flags)&1 != 0 {
+					takeJump_cgo189 = int32(1)
 					break
 				}
 			}
 		}
-		rc = sqlite3BtreeIndexMoveto(pC_cgo192.uc.pCursor, pIdxKey_cgo195, &res_cgo193)
-		if pFree_cgo194 != nil {
-			sqlite3DbFreeNN(db, unsafe.Pointer(pFree_cgo194))
+		rc = sqlite3BtreeIndexMoveto(pC_cgo191.uc.pCursor, pIdxKey_cgo194, &res_cgo192)
+		if pFree_cgo193 != nil {
+			sqlite3DbFreeNN(db, unsafe.Pointer(pFree_cgo193))
 		}
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		pC_cgo192.seekResult = res_cgo193
-		alreadyExists_cgo189 = func() int32 {
-			if res_cgo193 == 0 {
+		pC_cgo191.seekResult = res_cgo192
+		alreadyExists_cgo188 = func() int32 {
+			if res_cgo192 == 0 {
 				return 1
 			} else {
 				return 0
 			}
 		}()
-		pC_cgo192.nullRow = uint8(1 - alreadyExists_cgo189)
-		pC_cgo192.deferredMoveto = uint8(0)
-		pC_cgo192.cacheStatus = uint32(0)
+		pC_cgo191.nullRow = uint8(1 - alreadyExists_cgo188)
+		pC_cgo191.deferredMoveto = uint8(0)
+		pC_cgo191.cacheStatus = uint32(0)
 		if !(int32(pOp.opcode) == 31) {
+			goto _cgol_197
+		}
+		if !(alreadyExists_cgo188 != 0) {
 			goto _cgol_198
 		}
-		if !(alreadyExists_cgo189 != 0) {
+		goto jump_to_p2
+	_cgol_198:
+		goto _cgol_196
+	_cgol_197:
+		if !(takeJump_cgo189 != 0 || !(alreadyExists_cgo188 != 0)) {
 			goto _cgol_199
 		}
 		goto jump_to_p2
 	_cgol_199:
-		goto _cgol_197
-	_cgol_198:
-		if !(takeJump_cgo190 != 0 || !(alreadyExists_cgo189 != 0)) {
+		if int32(pOp.opcode) == 28 {
+			pC_cgo191.seekHit = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+		}
+	_cgol_196:
+		goto _cgol_2
+	_cgol_187:
+		if _cgo_nm && _cgo_tag != 32 {
 			goto _cgol_200
 		}
-		goto jump_to_p2
-	_cgol_200:
-		if int32(pOp.opcode) == 28 {
-			pC_cgo192.seekHit = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
-		}
-	_cgol_197:
-		goto _cgol_2
-	_cgol_188:
-		if _cgo_nm && _cgo_tag != 32 {
-			goto _cgol_201
-		}
 		_cgo_nm = false
-		pC_cgo202 = nil
-		pCrsr_cgo203 = nil
-		res_cgo204 = 0
-		iKey_cgo205 = 0
+		pC_cgo201 = nil
+		pCrsr_cgo202 = nil
+		res_cgo203 = 0
+		iKey_cgo204 = 0
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		if !(int32(pIn3.flags)&(4|32) == 0) {
-			goto _cgol_206
+			goto _cgol_205
 		}
-		x_cgo207 = *(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn3)) + uintptr(0)*56))
-		applyAffinity(&x_cgo207, int8(67), encoding)
-		if !(int32(x_cgo207.flags)&4 == 0) {
-			goto _cgol_208
+		x_cgo206 = *(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn3)) + uintptr(0)*56))
+		applyAffinity(&x_cgo206, int8(67), encoding)
+		if !(int32(x_cgo206.flags)&4 == 0) {
+			goto _cgol_207
 		}
 		goto jump_to_p2
-	_cgol_208:
-		iKey_cgo205 = uint64(*(*int64)(unsafe.Pointer(&x_cgo207.u)))
+	_cgol_207:
+		iKey_cgo204 = uint64(*(*int64)(unsafe.Pointer(&x_cgo206.u)))
 		goto notExistsWithKey
-	_cgol_206:
+	_cgol_205:
 		;
-	_cgol_201:
+	_cgol_200:
 		if _cgo_nm && _cgo_tag != 33 {
-			goto _cgol_209
+			goto _cgol_208
 		}
 		_cgo_nm = false
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
@@ -45600,9 +45597,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		iKey_cgo205 = uint64(*(*int64)(unsafe.Pointer(&pIn3.u)))
+		iKey_cgo204 = uint64(*(*int64)(unsafe.Pointer(&pIn3.u)))
 	notExistsWithKey:
-		pC_cgo202 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo201 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45615,46 +45612,46 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo203 = pC_cgo202.uc.pCursor
+		pCrsr_cgo202 = pC_cgo201.uc.pCursor
 		func() int {
 			_ = 0
 			return 0
 		}()
-		res_cgo204 = int32(0)
-		rc = sqlite3BtreeTableMoveto(pCrsr_cgo203, int64(iKey_cgo205), 0, &res_cgo204)
+		res_cgo203 = int32(0)
+		rc = sqlite3BtreeTableMoveto(pCrsr_cgo202, int64(iKey_cgo204), 0, &res_cgo203)
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo202.movetoTarget = int64(iKey_cgo205)
-		pC_cgo202.nullRow = uint8(0)
-		pC_cgo202.cacheStatus = uint32(0)
-		pC_cgo202.deferredMoveto = uint8(0)
-		pC_cgo202.seekResult = res_cgo204
-		if !(res_cgo204 != 0) {
-			goto _cgol_210
+		pC_cgo201.movetoTarget = int64(iKey_cgo204)
+		pC_cgo201.nullRow = uint8(0)
+		pC_cgo201.cacheStatus = uint32(0)
+		pC_cgo201.deferredMoveto = uint8(0)
+		pC_cgo201.seekResult = res_cgo203
+		if !(res_cgo203 != 0) {
+			goto _cgol_209
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if !(pOp.p2 == 0) {
-			goto _cgol_212
+			goto _cgol_211
 		}
 		rc = sqlite3CorruptError(92470)
-		goto _cgol_211
-	_cgol_212:
-		goto jump_to_p2
+		goto _cgol_210
 	_cgol_211:
-		;
+		goto jump_to_p2
 	_cgol_210:
+		;
+	_cgol_209:
 		if rc != 0 {
 			goto abort_due_to_error
 		}
 		goto _cgol_2
-	_cgol_209:
+	_cgol_208:
 		if _cgo_nm && _cgo_tag != 125 {
-			goto _cgol_213
+			goto _cgol_212
 		}
 		_cgo_nm = false
 		{
@@ -45679,9 +45676,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_213:
+	_cgol_212:
 		if _cgo_nm && _cgo_tag != 126 {
-			goto _cgol_214
+			goto _cgol_213
 		}
 		_cgo_nm = false
 		{
@@ -45821,9 +45818,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = v
 			goto _cgol_2
 		}
-	_cgol_214:
+	_cgol_213:
 		if _cgo_nm && _cgo_tag != 127 {
-			goto _cgol_215
+			goto _cgol_214
 		}
 		_cgo_nm = false
 		{
@@ -45943,9 +45940,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_215:
+	_cgol_214:
 		if _cgo_nm && _cgo_tag != 128 {
-			goto _cgol_216
+			goto _cgol_215
 		}
 		_cgo_nm = false
 		{
@@ -45983,9 +45980,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_216:
+	_cgol_215:
 		if _cgo_nm && _cgo_tag != 129 {
-			goto _cgol_217
+			goto _cgol_216
 		}
 		_cgo_nm = false
 		{
@@ -46063,9 +46060,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_217:
+	_cgol_216:
 		if _cgo_nm && _cgo_tag != 130 {
-			goto _cgol_218
+			goto _cgol_217
 		}
 		_cgo_nm = false
 		{
@@ -46073,15 +46070,15 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			p.nChange = int64(0)
 			goto _cgol_2
 		}
-	_cgol_218:
+	_cgol_217:
 		if _cgo_nm && _cgo_tag != 131 {
-			goto _cgol_219
+			goto _cgol_218
 		}
 		_cgo_nm = false
-		pC_cgo220 = nil
-		res_cgo221 = 0
-		nKeyCol_cgo222 = 0
-		pC_cgo220 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo219 = nil
+		res_cgo220 = 0
+		nKeyCol_cgo221 = 0
+		pC_cgo219 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46091,21 +46088,21 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		nKeyCol_cgo222 = *(*int32)(unsafe.Pointer(&pOp.p4))
-		res_cgo221 = int32(0)
-		rc = sqlite3VdbeSorterCompare(pC_cgo220, pIn3, nKeyCol_cgo222, &res_cgo221)
+		nKeyCol_cgo221 = *(*int32)(unsafe.Pointer(&pOp.p4))
+		res_cgo220 = int32(0)
+		rc = sqlite3VdbeSorterCompare(pC_cgo219, pIn3, nKeyCol_cgo221, &res_cgo220)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(res_cgo221 != 0) {
-			goto _cgol_223
+		if !(res_cgo220 != 0) {
+			goto _cgol_222
 		}
 		goto jump_to_p2
-	_cgol_223:
+	_cgol_222:
 		goto _cgol_2
-	_cgol_219:
+	_cgol_218:
 		if _cgo_nm && _cgo_tag != 132 {
-			goto _cgol_224
+			goto _cgol_223
 		}
 		_cgo_nm = false
 		{
@@ -46131,9 +46128,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			(*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p3)*8))).cacheStatus = uint32(0)
 			goto _cgol_2
 		}
-	_cgol_224:
+	_cgol_223:
 		if _cgo_nm && _cgo_tag != 133 {
-			goto _cgol_225
+			goto _cgol_224
 		}
 		_cgo_nm = false
 		{
@@ -46190,9 +46187,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_225:
+	_cgol_224:
 		if _cgo_nm && _cgo_tag != 134 {
-			goto _cgol_226
+			goto _cgol_225
 		}
 		_cgo_nm = false
 		{
@@ -46257,9 +46254,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = v
 			goto _cgol_2
 		}
-	_cgol_226:
+	_cgol_225:
 		if _cgo_nm && _cgo_tag != 135 {
-			goto _cgol_227
+			goto _cgol_226
 		}
 		_cgo_nm = false
 		{
@@ -46284,24 +46281,24 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_227:
+	_cgol_226:
 		if _cgo_nm && _cgo_tag != 136 {
+			goto _cgol_227
+		}
+		_cgo_nm = false
+	_cgol_227:
+		if _cgo_nm && _cgo_tag != 34 {
 			goto _cgol_228
 		}
 		_cgo_nm = false
-	_cgol_228:
-		if _cgo_nm && _cgo_tag != 34 {
-			goto _cgol_229
-		}
-		_cgo_nm = false
-		pC_cgo230 = nil
-		pCrsr_cgo231 = nil
-		res_cgo232 = 0
+		pC_cgo229 = nil
+		pCrsr_cgo230 = nil
+		res_cgo231 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo230 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo229 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46310,8 +46307,8 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo231 = pC_cgo230.uc.pCursor
-		res_cgo232 = int32(0)
+		pCrsr_cgo230 = pC_cgo229.uc.pCursor
+		res_cgo231 = int32(0)
 		func() int {
 			_ = 0
 			return 0
@@ -46321,89 +46318,89 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			pC_cgo230.seekResult = int32(-1)
-			if sqlite3BtreeCursorIsValidNN(pCrsr_cgo231) != 0 {
+			pC_cgo229.seekResult = int32(-1)
+			if sqlite3BtreeCursorIsValidNN(pCrsr_cgo230) != 0 {
 				goto _cgol_2
 			}
 		}
-		rc = sqlite3BtreeLast(pCrsr_cgo231, &res_cgo232)
-		pC_cgo230.nullRow = uint8(res_cgo232)
-		pC_cgo230.deferredMoveto = uint8(0)
-		pC_cgo230.cacheStatus = uint32(0)
+		rc = sqlite3BtreeLast(pCrsr_cgo230, &res_cgo231)
+		pC_cgo229.nullRow = uint8(res_cgo231)
+		pC_cgo229.deferredMoveto = uint8(0)
+		pC_cgo229.cacheStatus = uint32(0)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
 		if !(pOp.p2 > 0) {
+			goto _cgol_232
+		}
+		if !(res_cgo231 != 0) {
 			goto _cgol_233
 		}
-		if !(res_cgo232 != 0) {
+		goto jump_to_p2
+	_cgol_233:
+		;
+	_cgol_232:
+		goto _cgol_2
+	_cgol_228:
+		if _cgo_nm && _cgo_tag != 35 {
 			goto _cgol_234
 		}
-		goto jump_to_p2
-	_cgol_234:
-		;
-	_cgol_233:
-		goto _cgol_2
-	_cgol_229:
-		if _cgo_nm && _cgo_tag != 35 {
-			goto _cgol_235
-		}
 		_cgo_nm = false
-		pC_cgo236 = nil
-		pCrsr_cgo237 = nil
-		res_cgo238 = 0
-		sz_cgo239 = 0
+		pC_cgo235 = nil
+		pCrsr_cgo236 = nil
+		res_cgo237 = 0
+		sz_cgo238 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo236 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo235 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo237 = pC_cgo236.uc.pCursor
+		pCrsr_cgo236 = pC_cgo235.uc.pCursor
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = sqlite3BtreeFirst(pCrsr_cgo237, &res_cgo238)
+		rc = sqlite3BtreeFirst(pCrsr_cgo236, &res_cgo237)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if res_cgo238 == 0 {
-			sz_cgo239 = sqlite3BtreeRowCountEst(pCrsr_cgo237)
-			if sz_cgo239 >= int64(0) && int32(sqlite3LogEst(uint64(sz_cgo239))) < pOp.p3 {
-				res_cgo238 = int32(1)
+		if res_cgo237 == 0 {
+			sz_cgo238 = sqlite3BtreeRowCountEst(pCrsr_cgo236)
+			if sz_cgo238 >= int64(0) && int32(sqlite3LogEst(uint64(sz_cgo238))) < pOp.p3 {
+				res_cgo237 = int32(1)
 			}
 		}
-		if !(res_cgo238 != 0) {
-			goto _cgol_240
+		if !(res_cgo237 != 0) {
+			goto _cgol_239
 		}
 		goto jump_to_p2
-	_cgol_240:
+	_cgol_239:
 		goto _cgol_2
-	_cgol_235:
+	_cgol_234:
 		if _cgo_nm && _cgo_tag != 36 {
-			goto _cgol_241
+			goto _cgol_240
 		}
 		_cgo_nm = false
-	_cgol_241:
+	_cgol_240:
 		if _cgo_nm && _cgo_tag != 37 {
-			goto _cgol_242
+			goto _cgol_241
 		}
 		_cgo_nm = false
 		{
 			*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(2)*4))++
 		}
-	_cgol_242:
+	_cgol_241:
 		if _cgo_nm && _cgo_tag != 38 {
-			goto _cgol_243
+			goto _cgol_242
 		}
 		_cgo_nm = false
-		pC_cgo244 = nil
-		pCrsr_cgo245 = nil
-		res_cgo246 = 0
+		pC_cgo243 = nil
+		pCrsr_cgo244 = nil
+		res_cgo245 = 0
 		func() int {
 			_ = 0
 			return 0
@@ -46412,7 +46409,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo244 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo243 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46421,116 +46418,116 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		res_cgo246 = int32(1)
-		if int32(pC_cgo244.eCurType) == 1 {
-			rc = sqlite3VdbeSorterRewind(pC_cgo244, &res_cgo246)
+		res_cgo245 = int32(1)
+		if int32(pC_cgo243.eCurType) == 1 {
+			rc = sqlite3VdbeSorterRewind(pC_cgo243, &res_cgo245)
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			pCrsr_cgo245 = pC_cgo244.uc.pCursor
+			pCrsr_cgo244 = pC_cgo243.uc.pCursor
 			func() int {
 				_ = 0
 				return 0
 			}()
-			rc = sqlite3BtreeFirst(pCrsr_cgo245, &res_cgo246)
-			pC_cgo244.deferredMoveto = uint8(0)
-			pC_cgo244.cacheStatus = uint32(0)
+			rc = sqlite3BtreeFirst(pCrsr_cgo244, &res_cgo245)
+			pC_cgo243.deferredMoveto = uint8(0)
+			pC_cgo243.cacheStatus = uint32(0)
 		}
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		pC_cgo244.nullRow = uint8(res_cgo246)
+		pC_cgo243.nullRow = uint8(res_cgo245)
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(res_cgo246 != 0) {
-			goto _cgol_247
+		if !(res_cgo245 != 0) {
+			goto _cgol_246
 		}
 		goto jump_to_p2
-	_cgol_247:
+	_cgol_246:
 		goto _cgol_2
-	_cgol_243:
+	_cgol_242:
 		if _cgo_nm && _cgo_tag != 3 {
-			goto _cgol_248
+			goto _cgol_247
 		}
 		_cgo_nm = false
-		pC_cgo249 = nil
-		pC_cgo249 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo248 = nil
+		pC_cgo248 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = sqlite3VdbeSorterNext(db, pC_cgo249)
+		rc = sqlite3VdbeSorterNext(db, pC_cgo248)
 		goto next_tail
-	_cgol_248:
+	_cgol_247:
 		if _cgo_nm && _cgo_tag != 4 {
+			goto _cgol_249
+		}
+		_cgo_nm = false
+	_cgol_249:
+		if _cgo_nm && _cgo_tag != 5 {
 			goto _cgol_250
 		}
 		_cgo_nm = false
-	_cgol_250:
-		if _cgo_nm && _cgo_tag != 5 {
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		pC_cgo248 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		rc = (*(*func(*struct_BtCursor, int32) int32)(unsafe.Pointer(&pOp.p4)))(pC_cgo248.uc.pCursor, pOp.p3)
+	next_tail:
+		pC_cgo248.cacheStatus = uint32(0)
+		if !(rc == 0) {
 			goto _cgol_251
 		}
-		_cgo_nm = false
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		pC_cgo249 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		rc = (*(*func(*struct_BtCursor, int32) int32)(unsafe.Pointer(&pOp.p4)))(pC_cgo249.uc.pCursor, pOp.p3)
-	next_tail:
-		pC_cgo249.cacheStatus = uint32(0)
-		if !(rc == 0) {
-			goto _cgol_252
-		}
-		pC_cgo249.nullRow = uint8(0)
+		pC_cgo248.nullRow = uint8(0)
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(pOp.p5)*4))++
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_252:
+	_cgol_251:
 		if rc != 101 {
 			goto abort_due_to_error
 		}
 		rc = int32(0)
-		pC_cgo249.nullRow = uint8(1)
+		pC_cgo248.nullRow = uint8(1)
 		goto check_for_interrupt
-	_cgol_251:
+	_cgol_250:
 		if _cgo_nm && _cgo_tag != 137 {
-			goto _cgol_253
+			goto _cgol_252
 		}
 		_cgo_nm = false
 		{
@@ -46596,9 +46593,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_253:
+	_cgol_252:
 		if _cgo_nm && _cgo_tag != 138 {
-			goto _cgol_254
+			goto _cgol_253
 		}
 		_cgo_nm = false
 		{
@@ -46641,9 +46638,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_254:
+	_cgol_253:
 		if _cgo_nm && _cgo_tag != 139 {
-			goto _cgol_255
+			goto _cgol_254
 		}
 		_cgo_nm = false
 		{
@@ -46702,14 +46699,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			pC.seekResult = int32(0)
 			goto _cgol_2
 		}
-	_cgol_255:
+	_cgol_254:
 		if _cgo_nm && _cgo_tag != 140 {
-			goto _cgol_256
+			goto _cgol_255
 		}
 		_cgo_nm = false
-	_cgol_256:
+	_cgol_255:
 		if _cgo_nm && _cgo_tag != 141 {
-			goto _cgol_257
+			goto _cgol_256
 		}
 		_cgo_nm = false
 		{
@@ -46807,9 +46804,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_257:
+	_cgol_256:
 		if _cgo_nm && _cgo_tag != 142 {
-			goto _cgol_258
+			goto _cgol_257
 		}
 		_cgo_nm = false
 		{
@@ -46827,29 +46824,29 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_258:
+	_cgol_257:
 		if _cgo_nm && _cgo_tag != 39 {
+			goto _cgol_258
+		}
+		_cgo_nm = false
+	_cgol_258:
+		if _cgo_nm && _cgo_tag != 40 {
 			goto _cgol_259
 		}
 		_cgo_nm = false
 	_cgol_259:
-		if _cgo_nm && _cgo_tag != 40 {
+		if _cgo_nm && _cgo_tag != 41 {
 			goto _cgol_260
 		}
 		_cgo_nm = false
 	_cgol_260:
-		if _cgo_nm && _cgo_tag != 41 {
+		if _cgo_nm && _cgo_tag != 42 {
 			goto _cgol_261
 		}
 		_cgo_nm = false
-	_cgol_261:
-		if _cgo_nm && _cgo_tag != 42 {
-			goto _cgol_262
-		}
-		_cgo_nm = false
-		pC_cgo263 = nil
-		res_cgo264 = 0
-		r_cgo265 = struct {
+		pC_cgo262 = nil
+		res_cgo263 = 0
+		r_cgo264 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -46863,7 +46860,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo263 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo262 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46888,22 +46885,22 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		r_cgo265.pKeyInfo = pC_cgo263.pKeyInfo
-		r_cgo265.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+		r_cgo264.pKeyInfo = pC_cgo262.pKeyInfo
+		r_cgo264.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
 		if int32(pOp.opcode) < 41 {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			r_cgo265.default_rc = int8(-1)
+			r_cgo264.default_rc = int8(-1)
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			r_cgo265.default_rc = int8(0)
+			r_cgo264.default_rc = int8(0)
 		}
-		r_cgo265.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		r_cgo264.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		{
 			var nCellKey int64 = int64(0)
 			var pCur *struct_BtCursor
@@ -46912,7 +46909,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			pCur = pC_cgo263.uc.pCursor
+			pCur = pC_cgo262.uc.pCursor
 			func() int {
 				_ = 0
 				return 0
@@ -46927,7 +46924,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if rc != 0 {
 				goto abort_due_to_error
 			}
-			res_cgo264 = sqlite3VdbeRecordCompareWithSkip(m.n, unsafe.Pointer(m.z), &r_cgo265, 0)
+			res_cgo263 = sqlite3VdbeRecordCompareWithSkip(m.n, unsafe.Pointer(m.z), &r_cgo264, 0)
 			sqlite3VdbeMemRelease(&m)
 		}
 		func() int {
@@ -46939,27 +46936,27 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			res_cgo264 = -res_cgo264
+			res_cgo263 = -res_cgo263
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			res_cgo264++
+			res_cgo263++
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(res_cgo264 > 0) {
-			goto _cgol_266
+		if !(res_cgo263 > 0) {
+			goto _cgol_265
 		}
 		goto jump_to_p2
-	_cgol_266:
+	_cgol_265:
 		goto _cgol_2
-	_cgol_262:
+	_cgol_261:
 		if _cgo_nm && _cgo_tag != 143 {
-			goto _cgol_267
+			goto _cgol_266
 		}
 		_cgo_nm = false
 		{
@@ -47003,9 +47000,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_267:
+	_cgol_266:
 		if _cgo_nm && _cgo_tag != 144 {
-			goto _cgol_268
+			goto _cgol_267
 		}
 		_cgo_nm = false
 		{
@@ -47035,9 +47032,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_268:
+	_cgol_267:
 		if _cgo_nm && _cgo_tag != 145 {
-			goto _cgol_269
+			goto _cgol_268
 		}
 		_cgo_nm = false
 		{
@@ -47069,9 +47066,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_269:
+	_cgol_268:
 		if _cgo_nm && _cgo_tag != 146 {
-			goto _cgol_270
+			goto _cgol_269
 		}
 		_cgo_nm = false
 		{
@@ -47107,9 +47104,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(pgno)
 			goto _cgol_2
 		}
-	_cgol_270:
+	_cgol_269:
 		if _cgo_nm && _cgo_tag != 147 {
-			goto _cgol_271
+			goto _cgol_270
 		}
 		_cgo_nm = false
 		{
@@ -47121,9 +47118,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_271:
+	_cgol_270:
 		if _cgo_nm && _cgo_tag != 148 {
-			goto _cgol_272
+			goto _cgol_271
 		}
 		_cgo_nm = false
 		{
@@ -47191,9 +47188,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_272:
+	_cgol_271:
 		if _cgo_nm && _cgo_tag != 149 {
-			goto _cgol_273
+			goto _cgol_272
 		}
 		_cgo_nm = false
 		{
@@ -47207,49 +47204,49 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_273:
+	_cgol_272:
 		if _cgo_nm && _cgo_tag != 150 {
-			goto _cgol_274
+			goto _cgol_273
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteTable(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_274:
+	_cgol_273:
 		if _cgo_nm && _cgo_tag != 151 {
-			goto _cgol_275
+			goto _cgol_274
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteIndex(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_275:
+	_cgol_274:
 		if _cgo_nm && _cgo_tag != 152 {
-			goto _cgol_276
+			goto _cgol_275
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteTrigger(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_276:
+	_cgol_275:
 		if _cgo_nm && _cgo_tag != 154 {
-			goto _cgol_277
+			goto _cgol_276
 		}
 		_cgo_nm = false
-		nRoot_cgo278 = 0
-		aRoot_cgo279 = nil
-		nErr_cgo280 = 0
-		z_cgo281 = nil
-		pnErr_cgo282 = nil
+		nRoot_cgo277 = 0
+		aRoot_cgo278 = nil
+		nErr_cgo279 = 0
+		z_cgo280 = nil
+		pnErr_cgo281 = nil
 		func() int {
 			_ = 0
 			return 0
 		}()
-		nRoot_cgo278 = pOp.p2
-		aRoot_cgo279 = *(**uint32)(unsafe.Pointer(&pOp.p4))
+		nRoot_cgo277 = pOp.p2
+		aRoot_cgo278 = *(**uint32)(unsafe.Pointer(&pOp.p4))
 		func() int {
 			_ = 0
 			return 0
@@ -47262,7 +47259,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pnErr_cgo282 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		pnErr_cgo281 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		func() int {
 			_ = 0
 			return 0
@@ -47280,24 +47277,24 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		z_cgo281 = sqlite3BtreeIntegrityCheck(db, (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p5)*32))).pBt, &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aRoot_cgo279)) + uintptr(1)*4)), nRoot_cgo278, int32(*(*int64)(unsafe.Pointer(&pnErr_cgo282.u)))+1, &nErr_cgo280)
+		z_cgo280 = sqlite3BtreeIntegrityCheck(db, (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p5)*32))).pBt, &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aRoot_cgo278)) + uintptr(1)*4)), nRoot_cgo277, int32(*(*int64)(unsafe.Pointer(&pnErr_cgo281.u)))+1, &nErr_cgo279)
 		sqlite3VdbeMemSetNull(pIn1)
-		if nErr_cgo280 == 0 {
+		if nErr_cgo279 == 0 {
 			func() int {
 				_ = 0
 				return 0
 			}()
-		} else if uintptr(unsafe.Pointer(z_cgo281)) == uintptr(unsafe.Pointer(nil)) {
+		} else if uintptr(unsafe.Pointer(z_cgo280)) == uintptr(unsafe.Pointer(nil)) {
 			goto no_mem
 		} else {
-			*(*int64)(unsafe.Pointer(&pnErr_cgo282.u)) -= int64(nErr_cgo280 - 1)
-			sqlite3VdbeMemSetStr(pIn1, z_cgo281, int64(-1), uint8(1), sqlite3_free)
+			*(*int64)(unsafe.Pointer(&pnErr_cgo281.u)) -= int64(nErr_cgo279 - 1)
+			sqlite3VdbeMemSetStr(pIn1, z_cgo280, int64(-1), uint8(1), sqlite3_free)
 		}
 		sqlite3VdbeChangeEncoding(pIn1, int32(encoding))
 		goto check_for_interrupt
-	_cgol_277:
+	_cgol_276:
 		if _cgo_nm && _cgo_tag != 155 {
-			goto _cgol_283
+			goto _cgol_282
 		}
 		_cgo_nm = false
 		{
@@ -47319,37 +47316,37 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3RowSetInsert((*struct_RowSet)(unsafe.Pointer(pIn1.z)), *(*int64)(unsafe.Pointer(&pIn2.u)))
 			goto _cgol_2
 		}
-	_cgol_283:
+	_cgol_282:
 		if _cgo_nm && _cgo_tag != 45 {
-			goto _cgol_284
+			goto _cgol_283
 		}
 		_cgo_nm = false
-		val_cgo285 = 0
+		val_cgo284 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(int32(pIn1.flags)&16 == 0 || sqlite3RowSetNext((*struct_RowSet)(unsafe.Pointer(pIn1.z)), &val_cgo285) == 0) {
-			goto _cgol_287
+		if !(int32(pIn1.flags)&16 == 0 || sqlite3RowSetNext((*struct_RowSet)(unsafe.Pointer(pIn1.z)), &val_cgo284) == 0) {
+			goto _cgol_286
 		}
 		sqlite3VdbeMemSetNull(pIn1)
 		goto jump_to_p2_and_check_for_interrupt
-		goto _cgol_286
-	_cgol_287:
-		sqlite3VdbeMemSetInt64(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56)), val_cgo285)
+		goto _cgol_285
 	_cgol_286:
+		sqlite3VdbeMemSetInt64(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56)), val_cgo284)
+	_cgol_285:
 		goto check_for_interrupt
-	_cgol_284:
+	_cgol_283:
 		if _cgo_nm && _cgo_tag != 46 {
-			goto _cgol_288
+			goto _cgol_287
 		}
 		_cgo_nm = false
-		iSet_cgo289 = 0
-		exists_cgo290 = 0
+		iSet_cgo288 = 0
+		exists_cgo289 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		iSet_cgo289 = *(*int32)(unsafe.Pointer(&pOp.p4))
+		iSet_cgo288 = *(*int32)(unsafe.Pointer(&pOp.p4))
 		func() int {
 			_ = 0
 			return 0
@@ -47371,45 +47368,45 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if !(iSet_cgo289 != 0) {
+		if !(iSet_cgo288 != 0) {
+			goto _cgol_290
+		}
+		exists_cgo289 = sqlite3RowSetTest((*struct_RowSet)(unsafe.Pointer(pIn1.z)), iSet_cgo288, *(*int64)(unsafe.Pointer(&pIn3.u)))
+		if !(exists_cgo289 != 0) {
 			goto _cgol_291
 		}
-		exists_cgo290 = sqlite3RowSetTest((*struct_RowSet)(unsafe.Pointer(pIn1.z)), iSet_cgo289, *(*int64)(unsafe.Pointer(&pIn3.u)))
-		if !(exists_cgo290 != 0) {
-			goto _cgol_292
-		}
 		goto jump_to_p2
-	_cgol_292:
-		;
 	_cgol_291:
-		if iSet_cgo289 >= 0 {
+		;
+	_cgol_290:
+		if iSet_cgo288 >= 0 {
 			sqlite3RowSetInsert((*struct_RowSet)(unsafe.Pointer(pIn1.z)), *(*int64)(unsafe.Pointer(&pIn3.u)))
 		}
 		goto _cgol_2
-	_cgol_288:
+	_cgol_287:
 		if _cgo_nm && _cgo_tag != 47 {
-			goto _cgol_293
+			goto _cgol_292
 		}
 		_cgo_nm = false
-		nMem_cgo294 = 0
-		nByte_cgo295 = 0
-		pRt_cgo296 = nil
-		pMem_cgo297 = nil
-		pEnd_cgo298 = nil
-		pFrame_cgo299 = nil
-		pProgram_cgo300 = nil
-		t_cgo301 = nil
-		pProgram_cgo300 = *(**struct_SubProgram)(unsafe.Pointer(&pOp.p4))
-		pRt_cgo296 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		nMem_cgo293 = 0
+		nByte_cgo294 = 0
+		pRt_cgo295 = nil
+		pMem_cgo296 = nil
+		pEnd_cgo297 = nil
+		pFrame_cgo298 = nil
+		pProgram_cgo299 = nil
+		t_cgo300 = nil
+		pProgram_cgo299 = *(**struct_SubProgram)(unsafe.Pointer(&pOp.p4))
+		pRt_cgo295 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if pOp.p5 != 0 {
-			t_cgo301 = pProgram_cgo300.token
-			for pFrame_cgo299 = p.pFrame; pFrame_cgo299 != nil && uintptr(unsafe.Pointer(pFrame_cgo299.token)) != uintptr(unsafe.Pointer(t_cgo301)); pFrame_cgo299 = pFrame_cgo299.pParent {
+			t_cgo300 = pProgram_cgo299.token
+			for pFrame_cgo298 = p.pFrame; pFrame_cgo298 != nil && uintptr(unsafe.Pointer(pFrame_cgo298.token)) != uintptr(unsafe.Pointer(t_cgo300)); pFrame_cgo298 = pFrame_cgo298.pParent {
 			}
-			if pFrame_cgo299 != nil {
+			if pFrame_cgo298 != nil {
 				goto _cgol_2
 			}
 		}
@@ -47418,43 +47415,43 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeError(p, (*int8)(unsafe.Pointer(&[37]int8{'t', 'o', 'o', ' ', 'm', 'a', 'n', 'y', ' ', 'l', 'e', 'v', 'e', 'l', 's', ' ', 'o', 'f', ' ', 't', 'r', 'i', 'g', 'g', 'e', 'r', ' ', 'r', 'e', 'c', 'u', 'r', 's', 'i', 'o', 'n', '\x00'})))
 			goto abort_due_to_error
 		}
-		if int32(pRt_cgo296.flags)&16 == 0 {
-			nMem_cgo294 = pProgram_cgo300.nMem + pProgram_cgo300.nCsr
+		if int32(pRt_cgo295.flags)&16 == 0 {
+			nMem_cgo293 = pProgram_cgo299.nMem + pProgram_cgo299.nCsr
 			func() int {
 				_ = 0
 				return 0
 			}()
-			if pProgram_cgo300.nCsr == 0 {
-				nMem_cgo294++
+			if pProgram_cgo299.nCsr == 0 {
+				nMem_cgo293++
 			}
-			nByte_cgo295 = int32((120+uint(7))&uint(18446744073709551608) + uint(nMem_cgo294)*56 + uint(pProgram_cgo300.nCsr)*8 + uint((pProgram_cgo300.nOp+7)/8))
-			pFrame_cgo299 = (*struct_VdbeFrame)(sqlite3DbMallocZero(db, uint64(nByte_cgo295)))
-			if !(pFrame_cgo299 != nil) {
+			nByte_cgo294 = int32((120+uint64(7))&uint64(18446744073709551608) + uint64(nMem_cgo293)*56 + uint64(pProgram_cgo299.nCsr)*8 + uint64((pProgram_cgo299.nOp+7)/8))
+			pFrame_cgo298 = (*struct_VdbeFrame)(sqlite3DbMallocZero(db, uint64(nByte_cgo294)))
+			if !(pFrame_cgo298 != nil) {
 				goto no_mem
 			}
-			sqlite3VdbeMemRelease(pRt_cgo296)
-			pRt_cgo296.flags = uint16(16 | 1024)
-			pRt_cgo296.z = (*int8)(unsafe.Pointer(pFrame_cgo299))
-			pRt_cgo296.n = nByte_cgo295
-			pRt_cgo296.xDel = sqlite3VdbeFrameMemDel
-			pFrame_cgo299.v = p
-			pFrame_cgo299.nChildMem = nMem_cgo294
-			pFrame_cgo299.nChildCsr = pProgram_cgo300.nCsr
-			pFrame_cgo299.pc = int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(aOp))) * 24)
-			pFrame_cgo299.aMem = p.aMem
-			pFrame_cgo299.nMem = p.nMem
-			pFrame_cgo299.apCsr = p.apCsr
-			pFrame_cgo299.nCursor = p.nCursor
-			pFrame_cgo299.aOp = p.aOp
-			pFrame_cgo299.nOp = p.nOp
-			pFrame_cgo299.token = pProgram_cgo300.token
-			pEnd_cgo298 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint(7))&uint(18446744073709551608)))))))) + uintptr(pFrame_cgo299.nChildMem)*56))
-			for pMem_cgo297 = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint(7))&uint(18446744073709551608)))))); uintptr(unsafe.Pointer(pMem_cgo297)) != uintptr(unsafe.Pointer(pEnd_cgo298)); *(*uintptr)(unsafe.Pointer(&pMem_cgo297)) += 56 {
-				pMem_cgo297.flags = uint16(128)
-				pMem_cgo297.db = db
+			sqlite3VdbeMemRelease(pRt_cgo295)
+			pRt_cgo295.flags = uint16(16 | 1024)
+			pRt_cgo295.z = (*int8)(unsafe.Pointer(pFrame_cgo298))
+			pRt_cgo295.n = nByte_cgo294
+			pRt_cgo295.xDel = sqlite3VdbeFrameMemDel
+			pFrame_cgo298.v = p
+			pFrame_cgo298.nChildMem = nMem_cgo293
+			pFrame_cgo298.nChildCsr = pProgram_cgo299.nCsr
+			pFrame_cgo298.pc = int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(aOp))) * 24)
+			pFrame_cgo298.aMem = p.aMem
+			pFrame_cgo298.nMem = p.nMem
+			pFrame_cgo298.apCsr = p.apCsr
+			pFrame_cgo298.nCursor = p.nCursor
+			pFrame_cgo298.aOp = p.aOp
+			pFrame_cgo298.nOp = p.nOp
+			pFrame_cgo298.token = pProgram_cgo299.token
+			pEnd_cgo297 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo298)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))))) + uintptr(pFrame_cgo298.nChildMem)*56))
+			for pMem_cgo296 = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo298)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))); uintptr(unsafe.Pointer(pMem_cgo296)) != uintptr(unsafe.Pointer(pEnd_cgo297)); *(*uintptr)(unsafe.Pointer(&pMem_cgo296)) += 56 {
+				pMem_cgo296.flags = uint16(128)
+				pMem_cgo296.db = db
 			}
 		} else {
-			pFrame_cgo299 = (*struct_VdbeFrame)(unsafe.Pointer(pRt_cgo296.z))
+			pFrame_cgo298 = (*struct_VdbeFrame)(unsafe.Pointer(pRt_cgo295.z))
 			func() int {
 				_ = 0
 				return 0
@@ -47473,39 +47470,39 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 		}
 		p.nFrame++
-		pFrame_cgo299.pParent = p.pFrame
-		pFrame_cgo299.lastRowid = db.lastRowid
-		pFrame_cgo299.nChange = p.nChange
-		pFrame_cgo299.nDbChange = p.db.nChange
+		pFrame_cgo298.pParent = p.pFrame
+		pFrame_cgo298.lastRowid = db.lastRowid
+		pFrame_cgo298.nChange = p.nChange
+		pFrame_cgo298.nDbChange = p.db.nChange
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pFrame_cgo299.pAuxData = p.pAuxData
+		pFrame_cgo298.pAuxData = p.pAuxData
 		p.pAuxData = (*struct_AuxData)(nil)
 		p.nChange = int64(0)
-		p.pFrame = pFrame_cgo299
+		p.pFrame = pFrame_cgo298
 		p.aMem = func() (_cgo_ret *struct_sqlite3_value) {
 			_cgo_addr := &aMem
-			*_cgo_addr = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint(7))&uint(18446744073709551608))))))
+			*_cgo_addr = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo298)))) + uintptr((120+uint64(7))&uint64(18446744073709551608))))))
 			return *_cgo_addr
 		}()
-		p.nMem = pFrame_cgo299.nChildMem
-		p.nCursor = int32(uint16(pFrame_cgo299.nChildCsr))
+		p.nMem = pFrame_cgo298.nChildMem
+		p.nCursor = int32(uint16(pFrame_cgo298.nChildCsr))
 		p.apCsr = (**struct_VdbeCursor)(unsafe.Pointer(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(p.nMem)*56))))
-		pFrame_cgo299.aOnce = (*uint8)(unsafe.Pointer(&*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pProgram_cgo300.nCsr)*8))))
-		__builtin___memset_chk(unsafe.Pointer(pFrame_cgo299.aOnce), 0, uint((pProgram_cgo300.nOp+7)/8), __builtin_object_size(unsafe.Pointer(pFrame_cgo299.aOnce), 0))
+		pFrame_cgo298.aOnce = (*uint8)(unsafe.Pointer(&*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pProgram_cgo299.nCsr)*8))))
+		__builtin___memset_chk(unsafe.Pointer(pFrame_cgo298.aOnce), 0, uint(uint64((pProgram_cgo299.nOp+7)/8)), __builtin_object_size(unsafe.Pointer(pFrame_cgo298.aOnce), 0))
 		p.aOp = func() (_cgo_ret *struct_VdbeOp) {
 			_cgo_addr := &aOp
-			*_cgo_addr = pProgram_cgo300.aOp
+			*_cgo_addr = pProgram_cgo299.aOp
 			return *_cgo_addr
 		}()
-		p.nOp = pProgram_cgo300.nOp
+		p.nOp = pProgram_cgo299.nOp
 		pOp = &*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) - uintptr(- -1)*24))
 		goto check_for_interrupt
-	_cgol_293:
+	_cgol_292:
 		if _cgo_nm && _cgo_tag != 156 {
-			goto _cgol_302
+			goto _cgol_301
 		}
 		_cgo_nm = false
 		{
@@ -47517,9 +47514,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeMemShallowCopy(pOut, pIn, 4096)
 			goto _cgol_2
 		}
-	_cgol_302:
+	_cgol_301:
 		if _cgo_nm && _cgo_tag != 157 {
-			goto _cgol_303
+			goto _cgol_302
 		}
 		_cgo_nm = false
 		{
@@ -47532,32 +47529,32 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_303:
+	_cgol_302:
 		if _cgo_nm && _cgo_tag != 48 {
-			goto _cgol_304
+			goto _cgol_303
 		}
 		_cgo_nm = false
 		if !(pOp.p1 != 0) {
-			goto _cgol_306
+			goto _cgol_305
 		}
 		if !(db.nDeferredCons == int64(0) && db.nDeferredImmCons == int64(0)) {
+			goto _cgol_306
+		}
+		goto jump_to_p2
+	_cgol_306:
+		goto _cgol_304
+	_cgol_305:
+		if !(p.nFkConstraint == int64(0) && db.nDeferredImmCons == int64(0)) {
 			goto _cgol_307
 		}
 		goto jump_to_p2
 	_cgol_307:
-		goto _cgol_305
-	_cgol_306:
-		if !(p.nFkConstraint == int64(0) && db.nDeferredImmCons == int64(0)) {
-			goto _cgol_308
-		}
-		goto jump_to_p2
-	_cgol_308:
 		;
-	_cgol_305:
-		goto _cgol_2
 	_cgol_304:
+		goto _cgol_2
+	_cgol_303:
 		if _cgo_nm && _cgo_tag != 158 {
-			goto _cgol_309
+			goto _cgol_308
 		}
 		_cgo_nm = false
 		{
@@ -47581,9 +47578,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_309:
+	_cgol_308:
 		if _cgo_nm && _cgo_tag != 49 {
-			goto _cgol_310
+			goto _cgol_309
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47592,15 +47589,15 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) > int64(0)) {
-			goto _cgol_311
+			goto _cgol_310
 		}
 		*(*int64)(unsafe.Pointer(&pIn1.u)) -= int64(pOp.p3)
 		goto jump_to_p2
-	_cgol_311:
-		goto _cgol_2
 	_cgol_310:
+		goto _cgol_2
+	_cgol_309:
 		if _cgo_nm && _cgo_tag != 159 {
-			goto _cgol_312
+			goto _cgol_311
 		}
 		_cgo_nm = false
 		{
@@ -47630,9 +47627,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_312:
+	_cgol_311:
 		if _cgo_nm && _cgo_tag != 59 {
-			goto _cgol_313
+			goto _cgol_312
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47641,17 +47638,17 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) != 0) {
-			goto _cgol_314
+			goto _cgol_313
 		}
 		if *(*int64)(unsafe.Pointer(&pIn1.u)) > int64(0) {
 			*(*int64)(unsafe.Pointer(&pIn1.u))--
 		}
 		goto jump_to_p2
-	_cgol_314:
-		goto _cgol_2
 	_cgol_313:
+		goto _cgol_2
+	_cgol_312:
 		if _cgo_nm && _cgo_tag != 60 {
-			goto _cgol_315
+			goto _cgol_314
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47663,19 +47660,19 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pIn1.u))--
 		}
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) == int64(0)) {
-			goto _cgol_316
+			goto _cgol_315
 		}
 		goto jump_to_p2
-	_cgol_316:
-		goto _cgol_2
 	_cgol_315:
+		goto _cgol_2
+	_cgol_314:
 		if _cgo_nm && _cgo_tag != 160 {
-			goto _cgol_317
+			goto _cgol_316
 		}
 		_cgo_nm = false
-	_cgol_317:
+	_cgol_316:
 		if _cgo_nm && _cgo_tag != 161 {
-			goto _cgol_318
+			goto _cgol_317
 		}
 		_cgo_nm = false
 		{
@@ -47698,7 +47695,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			pCtx = (*struct_sqlite3_context)(sqlite3DbMallocRawNN(db, uint64(uint(n)*8+(56+56-8))))
+			pCtx = (*struct_sqlite3_context)(sqlite3DbMallocRawNN(db, uint64(uint64(n)*8+(56+56-8))))
 			if uintptr(unsafe.Pointer(pCtx)) == uintptr(unsafe.Pointer(nil)) {
 				goto no_mem
 			}
@@ -47719,9 +47716,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			pOp.opcode = uint8(162)
 		}
-	_cgol_318:
+	_cgol_317:
 		if _cgo_nm && _cgo_tag != 162 {
-			goto _cgol_319
+			goto _cgol_318
 		}
 		_cgo_nm = false
 		{
@@ -47791,14 +47788,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_319:
+	_cgol_318:
 		if _cgo_nm && _cgo_tag != 163 {
-			goto _cgol_320
+			goto _cgol_319
 		}
 		_cgo_nm = false
-	_cgol_320:
+	_cgol_319:
 		if _cgo_nm && _cgo_tag != 164 {
-			goto _cgol_321
+			goto _cgol_320
 		}
 		_cgo_nm = false
 		{
@@ -47832,9 +47829,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_321:
+	_cgol_320:
 		if _cgo_nm && _cgo_tag != 6 {
-			goto _cgol_322
+			goto _cgol_321
 		}
 		_cgo_nm = false
 		{
@@ -47883,9 +47880,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_322:
+	_cgol_321:
 		if _cgo_nm && _cgo_tag != 7 {
-			goto _cgol_323
+			goto _cgol_322
 		}
 		_cgo_nm = false
 		{
@@ -47974,9 +47971,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_323:
+	_cgol_322:
 		if _cgo_nm && _cgo_tag != 8 {
-			goto _cgol_324
+			goto _cgol_323
 		}
 		_cgo_nm = false
 		{
@@ -47996,12 +47993,12 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_324:
+	_cgol_323:
 		if _cgo_nm && _cgo_tag != 61 {
-			goto _cgol_325
+			goto _cgol_324
 		}
 		_cgo_nm = false
-		pBt_cgo326 = nil
+		pBt_cgo325 = nil
 		func() int {
 			_ = 0
 			return 0
@@ -48014,21 +48011,21 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pBt_cgo326 = (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt
-		rc = sqlite3BtreeIncrVacuum(pBt_cgo326)
+		pBt_cgo325 = (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt
+		rc = sqlite3BtreeIncrVacuum(pBt_cgo325)
 		if !(rc != 0) {
-			goto _cgol_327
+			goto _cgol_326
 		}
 		if rc != 101 {
 			goto abort_due_to_error
 		}
 		rc = int32(0)
 		goto jump_to_p2
-	_cgol_327:
+	_cgol_326:
 		goto _cgol_2
-	_cgol_325:
+	_cgol_324:
 		if _cgo_nm && _cgo_tag != 165 {
-			goto _cgol_328
+			goto _cgol_327
 		}
 		_cgo_nm = false
 		{
@@ -48046,9 +48043,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_328:
+	_cgol_327:
 		if _cgo_nm && _cgo_tag != 166 {
-			goto _cgol_329
+			goto _cgol_328
 		}
 		_cgo_nm = false
 		{
@@ -48069,9 +48066,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3BtreeCursorPin(pC.uc.pCursor)
 			goto _cgol_2
 		}
-	_cgol_329:
+	_cgol_328:
 		if _cgo_nm && _cgo_tag != 167 {
-			goto _cgol_330
+			goto _cgol_329
 		}
 		_cgo_nm = false
 		{
@@ -48092,9 +48089,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3BtreeCursorUnpin(pC.uc.pCursor)
 			goto _cgol_2
 		}
-	_cgol_330:
+	_cgol_329:
 		if _cgo_nm && _cgo_tag != 168 {
-			goto _cgol_331
+			goto _cgol_330
 		}
 		_cgo_nm = false
 		{
@@ -48124,9 +48121,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_331:
+	_cgol_330:
 		if _cgo_nm && _cgo_tag != 169 {
-			goto _cgol_332
+			goto _cgol_331
 		}
 		_cgo_nm = false
 		{
@@ -48141,9 +48138,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_332:
+	_cgol_331:
 		if _cgo_nm && _cgo_tag != 170 {
-			goto _cgol_333
+			goto _cgol_332
 		}
 		_cgo_nm = false
 		{
@@ -48178,9 +48175,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_333:
+	_cgol_332:
 		if _cgo_nm && _cgo_tag != 171 {
-			goto _cgol_334
+			goto _cgol_333
 		}
 		_cgo_nm = false
 		{
@@ -48196,9 +48193,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_334:
+	_cgol_333:
 		if _cgo_nm && _cgo_tag != 172 {
-			goto _cgol_335
+			goto _cgol_334
 		}
 		_cgo_nm = false
 		{
@@ -48238,9 +48235,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_335:
+	_cgol_334:
 		if _cgo_nm && _cgo_tag != 173 {
-			goto _cgol_336
+			goto _cgol_335
 		}
 		_cgo_nm = false
 		{
@@ -48258,25 +48255,25 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeMemSetPointer(pOut, unsafe.Pointer(pRhs), (*int8)(unsafe.Pointer(&[10]int8{'V', 'a', 'l', 'u', 'e', 'L', 'i', 's', 't', '\x00'})), sqlite3_free)
 			goto _cgol_2
 		}
-	_cgol_336:
+	_cgol_335:
 		if _cgo_nm && _cgo_tag != 9 {
-			goto _cgol_337
+			goto _cgol_336
 		}
 		_cgo_nm = false
-		nArg_cgo338 = 0
-		iQuery_cgo339 = 0
-		pModule_cgo340 = nil
-		pQuery_cgo341 = nil
-		pArgc_cgo342 = nil
-		pVCur_cgo343 = nil
-		pVtab_cgo344 = nil
-		pCur_cgo345 = nil
-		res_cgo346 = 0
-		i_cgo347 = 0
-		apArg_cgo348 = nil
-		pQuery_cgo341 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		pArgc_cgo342 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pQuery_cgo341)) + uintptr(1)*56))
-		pCur_cgo345 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		nArg_cgo337 = 0
+		iQuery_cgo338 = 0
+		pModule_cgo339 = nil
+		pQuery_cgo340 = nil
+		pArgc_cgo341 = nil
+		pVCur_cgo342 = nil
+		pVtab_cgo343 = nil
+		pCur_cgo344 = nil
+		res_cgo345 = 0
+		i_cgo346 = 0
+		apArg_cgo347 = nil
+		pQuery_cgo340 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		pArgc_cgo341 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pQuery_cgo340)) + uintptr(1)*56))
+		pCur_cgo344 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -48289,35 +48286,35 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pVCur_cgo343 = *(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo345.uc))
-		pVtab_cgo344 = pVCur_cgo343.pVtab
-		pModule_cgo340 = pVtab_cgo344.pModule
+		pVCur_cgo342 = *(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo344.uc))
+		pVtab_cgo343 = pVCur_cgo342.pVtab
+		pModule_cgo339 = pVtab_cgo343.pModule
 		func() int {
 			_ = 0
 			return 0
 		}()
-		nArg_cgo338 = int32(*(*int64)(unsafe.Pointer(&pArgc_cgo342.u)))
-		iQuery_cgo339 = int32(*(*int64)(unsafe.Pointer(&pQuery_cgo341.u)))
-		apArg_cgo348 = p.apArg
-		for i_cgo347 = int32(0); i_cgo347 < nArg_cgo338; i_cgo347++ {
-			*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(apArg_cgo348)) + uintptr(i_cgo347)*8)) = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pArgc_cgo342)) + uintptr(i_cgo347+1)*56))
+		nArg_cgo337 = int32(*(*int64)(unsafe.Pointer(&pArgc_cgo341.u)))
+		iQuery_cgo338 = int32(*(*int64)(unsafe.Pointer(&pQuery_cgo340.u)))
+		apArg_cgo347 = p.apArg
+		for i_cgo346 = int32(0); i_cgo346 < nArg_cgo337; i_cgo346++ {
+			*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(apArg_cgo347)) + uintptr(i_cgo346)*8)) = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pArgc_cgo341)) + uintptr(i_cgo346+1)*56))
 		}
-		rc = pModule_cgo340.xFilter(pVCur_cgo343, iQuery_cgo339, *(**int8)(unsafe.Pointer(&pOp.p4)), nArg_cgo338, apArg_cgo348)
-		sqlite3VtabImportErrmsg(p, pVtab_cgo344)
+		rc = pModule_cgo339.xFilter(pVCur_cgo342, iQuery_cgo338, *(**int8)(unsafe.Pointer(&pOp.p4)), nArg_cgo337, apArg_cgo347)
+		sqlite3VtabImportErrmsg(p, pVtab_cgo343)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		res_cgo346 = pModule_cgo340.xEof(pVCur_cgo343)
-		pCur_cgo345.nullRow = uint8(0)
-		if !(res_cgo346 != 0) {
-			goto _cgol_349
+		res_cgo345 = pModule_cgo339.xEof(pVCur_cgo342)
+		pCur_cgo344.nullRow = uint8(0)
+		if !(res_cgo345 != 0) {
+			goto _cgol_348
 		}
 		goto jump_to_p2
-	_cgol_349:
+	_cgol_348:
 		goto _cgol_2
-	_cgol_337:
+	_cgol_336:
 		if _cgo_nm && _cgo_tag != 174 {
-			goto _cgol_350
+			goto _cgol_349
 		}
 		_cgo_nm = false
 		{
@@ -48377,16 +48374,16 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_350:
+	_cgol_349:
 		if _cgo_nm && _cgo_tag != 62 {
-			goto _cgol_351
+			goto _cgol_350
 		}
 		_cgo_nm = false
-		pVtab_cgo352 = nil
-		pModule_cgo353 = nil
-		res_cgo354 = 0
-		pCur_cgo355 = nil
-		pCur_cgo355 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pVtab_cgo351 = nil
+		pModule_cgo352 = nil
+		res_cgo353 = 0
+		pCur_cgo354 = nil
+		pCur_cgo354 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -48395,30 +48392,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if pCur_cgo355.nullRow != 0 {
+		if pCur_cgo354.nullRow != 0 {
 			goto _cgol_2
 		}
-		pVtab_cgo352 = (*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc))).pVtab
-		pModule_cgo353 = pVtab_cgo352.pModule
+		pVtab_cgo351 = (*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo354.uc))).pVtab
+		pModule_cgo352 = pVtab_cgo351.pModule
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = pModule_cgo353.xNext(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc)))
-		sqlite3VtabImportErrmsg(p, pVtab_cgo352)
+		rc = pModule_cgo352.xNext(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo354.uc)))
+		sqlite3VtabImportErrmsg(p, pVtab_cgo351)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		res_cgo354 = pModule_cgo353.xEof(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc)))
-		if !!(res_cgo354 != 0) {
-			goto _cgol_356
+		res_cgo353 = pModule_cgo352.xEof(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo354.uc)))
+		if !!(res_cgo353 != 0) {
+			goto _cgol_355
 		}
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_356:
+	_cgol_355:
 		goto check_for_interrupt
-	_cgol_351:
+	_cgol_350:
 		if _cgo_nm && _cgo_tag != 175 {
-			goto _cgol_357
+			goto _cgol_356
 		}
 		_cgo_nm = false
 		{
@@ -48463,9 +48460,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_357:
+	_cgol_356:
 		if _cgo_nm && _cgo_tag != 10 {
-			goto _cgol_358
+			goto _cgol_357
 		}
 		_cgo_nm = false
 		{
@@ -48542,9 +48539,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_358:
+	_cgol_357:
 		if _cgo_nm && _cgo_tag != 176 {
-			goto _cgol_359
+			goto _cgol_358
 		}
 		_cgo_nm = false
 		{
@@ -48552,9 +48549,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(sqlite3BtreeLastPage((*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt))
 			goto _cgol_2
 		}
-	_cgol_359:
+	_cgol_358:
 		if _cgo_nm && _cgo_tag != 177 {
-			goto _cgol_360
+			goto _cgol_359
 		}
 		_cgo_nm = false
 		{
@@ -48572,14 +48569,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(sqlite3BtreeMaxPageCount(pBt, newMax))
 			goto _cgol_2
 		}
-	_cgol_360:
+	_cgol_359:
 		if _cgo_nm && _cgo_tag != 65 {
-			goto _cgol_361
+			goto _cgol_360
 		}
 		_cgo_nm = false
-	_cgol_361:
+	_cgol_360:
 		if _cgo_nm && _cgo_tag != 66 {
-			goto _cgol_362
+			goto _cgol_361
 		}
 		_cgo_nm = false
 		{
@@ -48627,9 +48624,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_362:
+	_cgol_361:
 		if _cgo_nm && _cgo_tag != 178 {
-			goto _cgol_363
+			goto _cgol_362
 		}
 		_cgo_nm = false
 		{
@@ -48652,12 +48649,12 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h/uint64(8)))) |= int8(1 << (h & uint64(7)))
 			goto _cgol_2
 		}
-	_cgol_363:
+	_cgol_362:
 		if _cgo_nm && _cgo_tag != 63 {
-			goto _cgol_364
+			goto _cgol_363
 		}
 		_cgo_nm = false
-		h_cgo365 = 0
+		h_cgo364 = 0
 		func() int {
 			_ = 0
 			return 0
@@ -48671,30 +48668,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		h_cgo365 = filterHash(aMem, pOp)
-		h_cgo365 %= uint64(pIn1.n)
-		if !(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h_cgo365/uint64(8)))))&int32(1<<(h_cgo365&uint64(7))) == 0) {
-			goto _cgol_367
+		h_cgo364 = filterHash(aMem, pOp)
+		h_cgo364 %= uint64(pIn1.n)
+		if !(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h_cgo364/uint64(8)))))&int32(1<<(h_cgo364&uint64(7))) == 0) {
+			goto _cgol_366
 		}
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(8)*4))++
 		goto jump_to_p2
-		goto _cgol_366
-	_cgol_367:
-		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(7)*4))++
+		goto _cgol_365
 	_cgol_366:
+		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(7)*4))++
+	_cgol_365:
 		goto _cgol_2
-	_cgol_364:
+	_cgol_363:
 		if _cgo_nm && _cgo_tag != 179 {
+			goto _cgol_367
+		}
+		_cgo_nm = false
+	_cgol_367:
+		if _cgo_nm && _cgo_tag != 64 {
 			goto _cgol_368
 		}
 		_cgo_nm = false
-	_cgol_368:
-		if _cgo_nm && _cgo_tag != 64 {
-			goto _cgol_369
-		}
-		_cgo_nm = false
-		i_cgo370 = 0
-		zTrace_cgo371 = nil
+		i_cgo369 = 0
+		zTrace_cgo370 = nil
 		func() int {
 			_ = 0
 			return 0
@@ -48704,7 +48701,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if int32(db.mTrace)&(1|64) != 0 && !(p.doingRerun != 0) && uintptr(unsafe.Pointer(func() (_cgo_ret *int8) {
-			_cgo_addr := &zTrace_cgo371
+			_cgo_addr := &zTrace_cgo370
 			*_cgo_addr = func() *int8 {
 				if *(**int8)(unsafe.Pointer(&pOp.p4)) != nil {
 					return *(**int8)(unsafe.Pointer(&pOp.p4))
@@ -48715,11 +48712,11 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return *_cgo_addr
 		}())) != uintptr(unsafe.Pointer(nil)) {
 			if int32(db.mTrace)&64 != 0 {
-				var z *int8 = sqlite3VdbeExpandSql(p, zTrace_cgo371)
+				var z *int8 = sqlite3VdbeExpandSql(p, zTrace_cgo370)
 				db.trace.xLegacy(db.pTraceArg, z)
 				sqlite3_free(unsafe.Pointer(z))
 			} else if db.nVdbeExec > 1 {
-				var z *int8 = sqlite3MPrintf(db, (*int8)(unsafe.Pointer(&[6]int8{'-', '-', ' ', '%', 's', '\x00'})), zTrace_cgo371)
+				var z *int8 = sqlite3MPrintf(db, (*int8)(unsafe.Pointer(&[6]int8{'-', '-', ' ', '%', 's', '\x00'})), zTrace_cgo370)
 				func() int {
 					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(z))
 					return 0
@@ -48727,7 +48724,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				sqlite3DbFree(db, unsafe.Pointer(z))
 			} else {
 				func() int {
-					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(zTrace_cgo371))
+					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(zTrace_cgo370))
 					return 0
 				}()
 			}
@@ -48740,9 +48737,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if int32(pOp.opcode) == 179 {
 				goto _cgol_2
 			}
-			for i_cgo370 = int32(1); i_cgo370 < p.nOp; i_cgo370++ {
-				if int32((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo370)*24))).opcode) == 17 {
-					(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo370)*24))).p1 = int32(0)
+			for i_cgo369 = int32(1); i_cgo369 < p.nOp; i_cgo369++ {
+				if int32((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo369)*24))).opcode) == 17 {
+					(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo369)*24))).p1 = int32(0)
 				}
 			}
 			pOp.p1 = int32(0)
@@ -48750,7 +48747,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 		pOp.p1++
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(6)*4))++
 		goto jump_to_p2
-	_cgol_372:
+	_cgol_371:
 		_cgo_nm = false
 		{
 			func() int {
@@ -48760,8 +48757,8 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			goto _cgol_2
 		}
 		goto _cgol_2
-	_cgol_369:
-		goto _cgol_372
+	_cgol_368:
+		goto _cgol_371
 	_cgol_2:
 	}
 abort_due_to_error:
@@ -49367,7 +49364,7 @@ func vdbePmaReadBlob(p *struct_PmaReader, nByte int32, ppOut **uint8) int32 {
 			p.nAlloc = int32(nNew)
 			p.aAlloc = aNew
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(p.aAlloc), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(iBuf)))), uint(nAvail), __builtin_object_size(unsafe.Pointer(p.aAlloc), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(p.aAlloc), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(iBuf)))), uint(uint64(nAvail)), __builtin_object_size(unsafe.Pointer(p.aAlloc), 0))
 		p.iReadOff += int64(nAvail)
 		nRem = nByte - nAvail
 		for nRem > 0 {
@@ -49386,7 +49383,7 @@ func vdbePmaReadBlob(p *struct_PmaReader, nByte int32, ppOut **uint8) int32 {
 				_ = 0
 				return 0
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aAlloc)) + uintptr(nByte-nRem)))), unsafe.Pointer(aNext), uint(nCopy), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aAlloc)) + uintptr(nByte-nRem)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aAlloc)) + uintptr(nByte-nRem)))), unsafe.Pointer(aNext), uint(uint64(nCopy)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aAlloc)) + uintptr(nByte-nRem)))), 0))
 			nRem -= nCopy
 		}
 		*ppOut = p.aAlloc
@@ -49562,7 +49559,7 @@ func vdbeSorterCompareText(pTask *struct_SortSubtask, pbKey2Cached *int32, pKey1
 	if n2 >= 128 {
 		sqlite3GetVarint32(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p2)) + uintptr(1))), (*uint32)(unsafe.Pointer(&n2)))
 	}
-	res = memcmp(unsafe.Pointer(v1), unsafe.Pointer(v2), uint((func() int32 {
+	res = memcmp(unsafe.Pointer(v1), unsafe.Pointer(v2), uint64((func() int32 {
 		if n1 < n2 {
 			return n1
 		} else {
@@ -49687,8 +49684,8 @@ func sqlite3VdbeSorterInit(db *struct_sqlite3, nField int32, pCsr *struct_VdbeCu
 		_ = 0
 		return 0
 	}()
-	szKeyInfo = int32(40 + uint(int32(pCsr.pKeyInfo.nKeyField)-1)*8)
-	sz = int32(192 + uint(nWorker)*96)
+	szKeyInfo = int32(40 + uint64(int32(pCsr.pKeyInfo.nKeyField)-1)*8)
+	sz = int32(192 + uint64(nWorker)*96)
 	pSorter = (*struct_VdbeSorter)(sqlite3DbMallocZero(db, uint64(sz+szKeyInfo)))
 	*(**struct_VdbeSorter)(unsafe.Pointer(&pCsr.uc)) = pSorter
 	if uintptr(unsafe.Pointer(pSorter)) == uintptr(unsafe.Pointer(nil)) {
@@ -49700,7 +49697,7 @@ func sqlite3VdbeSorterInit(db *struct_sqlite3, nField int32, pCsr *struct_VdbeCu
 			*_cgo_addr = (*struct_KeyInfo)(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pSorter)))) + uintptr(sz)))))
 			return *_cgo_addr
 		}()
-		__builtin___memcpy_chk(unsafe.Pointer(pKeyInfo), unsafe.Pointer(pCsr.pKeyInfo), uint(szKeyInfo), __builtin_object_size(unsafe.Pointer(pKeyInfo), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pKeyInfo), unsafe.Pointer(pCsr.pKeyInfo), uint(uint64(szKeyInfo)), __builtin_object_size(unsafe.Pointer(pKeyInfo), 0))
 		pKeyInfo.db = (*struct_sqlite3)(nil)
 		if nField != 0 && nWorker == 0 {
 			pKeyInfo.nKeyField = uint16(nField)
@@ -49798,12 +49795,12 @@ func vdbeSortSubtaskCleanup(db *struct_sqlite3, pTask *struct_SortSubtask) {
 func vdbeSorterJoinThread(pTask *struct_SortSubtask) int32 {
 	var rc int32 = 0
 	if pTask.pThread != nil {
-		var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int(1)))
+		var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int64(1)))
 		func() int {
 			_ = sqlite3ThreadJoin(pTask.pThread, &pRet)
 			return 0
 		}()
-		rc = int32(int(uintptr(pRet)))
+		rc = int32(int64(uintptr(pRet)))
 		func() int {
 			_ = 0
 			return 0
@@ -49843,7 +49840,7 @@ func vdbeMergeEngineNew(nReader int32) *struct_MergeEngine {
 	for N < nReader {
 		N += N
 	}
-	nByte = int32(32 + uint(N)*(4+80))
+	nByte = int32(32 + uint64(N)*(4+80))
 	pNew = func() *struct_MergeEngine {
 		if sqlite3FaultSim(100) != 0 {
 			return nil
@@ -50086,7 +50083,7 @@ func vdbePmaWriteBlob(p *struct_PmaWriter, pData *uint8, nData int32) {
 		if nCopy > p.nBuffer-p.iBufEnd {
 			nCopy = p.nBuffer - p.iBufEnd
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(p.iBufEnd)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pData)) + uintptr(nData-nRem)))), uint(nCopy), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(p.iBufEnd)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(p.iBufEnd)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(pData)) + uintptr(nData-nRem)))), uint(uint64(nCopy)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(p.iBufEnd)))), 0))
 		p.iBufEnd += nCopy
 		if p.iBufEnd == p.nBuffer {
 			p.eFWErr = sqlite3OsWrite(p.pFd, unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aBuffer)) + uintptr(p.iBufStart)))), p.iBufEnd-p.iBufStart, p.iWriteOff+int64(p.iBufStart))
@@ -50236,7 +50233,7 @@ func vdbeSorterFlushThread(pCtx unsafe.Pointer) unsafe.Pointer {
 	}()
 	rc = vdbeSorterListToPMA(pTask, &pTask.list)
 	pTask.bDone = int32(1)
-	return unsafe.Pointer(uintptr(int(rc)))
+	return unsafe.Pointer(uintptr(int64(rc)))
 }
 func vdbeSorterFlushPMA(pSorter *struct_VdbeSorter) int32 {
 	var rc int32 = 0
@@ -50324,7 +50321,7 @@ func sqlite3VdbeSorterWrite(pCsr *struct_VdbeCursor, pVal *struct_sqlite3_value)
 		_ = 0
 		return 0
 	}()
-	nReq = int32(uint(pVal.n) + 16)
+	nReq = int32(uint64(pVal.n) + 16)
 	nPMA = pVal.n + sqlite3VarintLen(uint64(pVal.n))
 	if pSorter.mxPmaSize != 0 {
 		if pSorter.list.aMemory != nil {
@@ -50398,7 +50395,7 @@ func sqlite3VdbeSorterWrite(pCsr *struct_VdbeCursor, pVal *struct_sqlite3_value)
 		}
 		pNew.u.pNext = pSorter.list.pList
 	}
-	__builtin___memcpy_chk(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(pNew))))+uintptr(1)*16))), unsafe.Pointer(pVal.z), uint(pVal.n), __builtin_object_size(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(pNew))))+uintptr(1)*16))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(pNew))))+uintptr(1)*16))), unsafe.Pointer(pVal.z), uint(uint64(pVal.n)), __builtin_object_size(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SorterRecord)(unsafe.Pointer(pNew))))+uintptr(1)*16))), 0))
 	pNew.nVal = pVal.n
 	pSorter.list.pList = pNew
 	return rc
@@ -50443,7 +50440,7 @@ func vdbeIncrPopulate(pIncr *struct_IncrMerger) int32 {
 }
 func vdbeIncrPopulateThread(pCtx unsafe.Pointer) unsafe.Pointer {
 	var pIncr *struct_IncrMerger = (*struct_IncrMerger)(pCtx)
-	var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int(vdbeIncrPopulate(pIncr))))
+	var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int64(vdbeIncrPopulate(pIncr))))
 	pIncr.pTask.bDone = int32(1)
 	return pRet
 }
@@ -50638,7 +50635,7 @@ func vdbePmaReaderIncrMergeInit(pReadr *struct_PmaReader, eMode int32) int32 {
 }
 func vdbePmaReaderBgIncrInit(pCtx unsafe.Pointer) unsafe.Pointer {
 	var pReader *struct_PmaReader = (*struct_PmaReader)(pCtx)
-	var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int(vdbePmaReaderIncrMergeInit(pReader, 1))))
+	var pRet unsafe.Pointer = unsafe.Pointer(uintptr(int64(vdbePmaReaderIncrMergeInit(pReader, 1))))
 	pReader.pIncr.pTask.bDone = int32(1)
 	return pRet
 }
@@ -51005,7 +51002,7 @@ func sqlite3VdbeSorterRowkey(pCsr *struct_VdbeCursor, pOut *struct_sqlite3_value
 	}
 	pOut.n = nKey
 	pOut.flags = uint16(int32(pOut.flags) & ^(49599|16384) | 16)
-	__builtin___memcpy_chk(unsafe.Pointer(pOut.z), pKey, uint(nKey), __builtin_object_size(unsafe.Pointer(pOut.z), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(pOut.z), pKey, uint(uint64(nKey)), __builtin_object_size(unsafe.Pointer(pOut.z), 0))
 	return int32(0)
 }
 func sqlite3VdbeSorterCompare(pCsr *struct_VdbeCursor, pVal *struct_sqlite3_value, nKeyCol int32, pRes *int32) int32 {
@@ -51107,7 +51104,7 @@ func memjrnlRead(pJfd *struct_sqlite3_file, zBuf unsafe.Pointer, iAmt int32, iOf
 				return p.nChunkSize - iChunkOffset
 			}
 		}()
-		__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), uint(nCopy), __builtin_object_size(unsafe.Pointer(zOut), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), uint(uint64(nCopy)), __builtin_object_size(unsafe.Pointer(zOut), 0))
 		*(*uintptr)(unsafe.Pointer(&zOut)) += uintptr(nCopy)
 		nRead -= iSpace
 		iChunkOffset = int32(0)
@@ -51190,7 +51187,7 @@ func memjrnlWrite(pJfd *struct_sqlite3_file, zBuf unsafe.Pointer, iAmt int32, iO
 				_ = 0
 				return 0
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.pFirst.zChunk))))), zBuf, uint(iAmt), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.pFirst.zChunk))))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.pFirst.zChunk))))), zBuf, uint(uint64(iAmt)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&p.pFirst.zChunk))))), 0))
 		} else {
 			for nWrite > 0 {
 				var pChunk *struct_FileChunk = p.endpoint.pChunk
@@ -51207,7 +51204,7 @@ func memjrnlWrite(pJfd *struct_sqlite3_file, zBuf unsafe.Pointer, iAmt int32, iO
 					return 0
 				}()
 				if iChunkOffset == 0 {
-					var pNew *struct_FileChunk = (*struct_FileChunk)(sqlite3_malloc(int32(16 + uint(p.nChunkSize-8))))
+					var pNew *struct_FileChunk = (*struct_FileChunk)(sqlite3_malloc(int32(16 + uint64(p.nChunkSize-8))))
 					if !(pNew != nil) {
 						return int32(10 | 12<<8)
 					}
@@ -51235,7 +51232,7 @@ func memjrnlWrite(pJfd *struct_sqlite3_file, zBuf unsafe.Pointer, iAmt int32, iO
 					_ = 0
 					return 0
 				}()
-				__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), unsafe.Pointer(zWrite), uint(iSpace), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), 0))
+				__builtin___memcpy_chk(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), unsafe.Pointer(zWrite), uint(uint64(iSpace)), __builtin_object_size(unsafe.Pointer((*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer((*uint8)(unsafe.Pointer(&pChunk.zChunk))))))+uintptr(iChunkOffset)))), 0))
 				*(*uintptr)(unsafe.Pointer(&zWrite)) += uintptr(iSpace)
 				nWrite -= iSpace
 				p.endpoint.iOffset += int64(iSpace)
@@ -51307,7 +51304,7 @@ func sqlite3JournalOpen(pVfs *struct_sqlite3_vfs, zName *int8, pJfd *struct_sqli
 	if nSpill > 0 {
 		p.nChunkSize = nSpill
 	} else {
-		p.nChunkSize = int32(uint(8+1024) - 16)
+		p.nChunkSize = int32(uint64(8+1024) - 16)
 		func() int {
 			_ = 0
 			return 0
@@ -51741,15 +51738,15 @@ func sqlite3ExprColUsed(pExpr *struct_Expr) uint64 {
 	}()
 	if pExTab.tabFlags&uint32(96) != uint32(0) && int32((*(*struct_Column)(unsafe.Pointer(uintptr(unsafe.Pointer(pExTab.aCol)) + uintptr(n)*20))).colFlags)&96 != 0 {
 		return func() uint64 {
-			if int32(pExTab.nCol) >= int32(8*uint(8)) {
+			if int32(pExTab.nCol) >= int32(8*uint64(8)) {
 				return uint64(18446744073709551615)
 			} else {
 				return uint64(1)<<int32(pExTab.nCol) - uint64(1)
 			}
 		}()
 	} else {
-		if n >= int32(8*uint(8)) {
-			n = int32(8*uint(8)) - 1
+		if n >= int32(8*uint64(8)) {
+			n = int32(8*uint64(8)) - 1
 		}
 		return uint64(1) << n
 	}
@@ -52223,8 +52220,8 @@ func sqlite3CreateColumnExpr(db *struct_sqlite3, pSrc *struct_SrcList, iSrc int3
 				}()
 			} else {
 				pItem.colUsed |= uint64(1) << func() int32 {
-					if iCol >= int32(8*uint(8)) {
-						return int32(8*uint(8)) - 1
+					if iCol >= int32(8*uint64(8)) {
+						return int32(8*uint64(8)) - 1
 					} else {
 						return iCol
 					}
@@ -54083,7 +54080,7 @@ func sqlite3ExprAlloc(db *struct_sqlite3, op int32, pToken *struct_Token, dequot
 			}()
 		}
 	}
-	pNew = (*struct_Expr)(sqlite3DbMallocRawNN(db, uint64(72+uint(nExtra))))
+	pNew = (*struct_Expr)(sqlite3DbMallocRawNN(db, uint64(72+uint64(nExtra))))
 	if pNew != nil {
 		__builtin___memset_chk(unsafe.Pointer(pNew), 0, 72, __builtin_object_size(unsafe.Pointer(pNew), 0))
 		pNew.op = uint8(op)
@@ -54105,7 +54102,7 @@ func sqlite3ExprAlloc(db *struct_sqlite3, op int32, pToken *struct_Token, dequot
 					return 0
 				}()
 				if pToken.n != 0 {
-					__builtin___memcpy_chk(unsafe.Pointer(pNew.u.zToken), unsafe.Pointer(pToken.z), uint(pToken.n), __builtin_object_size(unsafe.Pointer(pNew.u.zToken), 0))
+					__builtin___memcpy_chk(unsafe.Pointer(pNew.u.zToken), unsafe.Pointer(pToken.z), uint(uint64(pToken.n)), __builtin_object_size(unsafe.Pointer(pNew.u.zToken), 0))
 				}
 				*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.u.zToken)) + uintptr(pToken.n))) = int8(0)
 				if dequote != 0 && int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.u.zToken)) + uintptr(0))))))))&128 != 0 {
@@ -54480,13 +54477,13 @@ func dupedExprStructSize(p *struct_Expr, flags int32) int32 {
 			return 0
 		}()
 		if p.pLeft != nil || p.x.pList != nil {
-			nSize = int32(44 | uint(8192))
+			nSize = int32(44 | uint64(8192))
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			nSize = int32(16 | uint(16384))
+			nSize = int32(16 | uint64(16384))
 		}
 	}
 	return nSize
@@ -54494,7 +54491,7 @@ func dupedExprStructSize(p *struct_Expr, flags int32) int32 {
 func dupedExprNodeSize(p *struct_Expr, flags int32) int32 {
 	var nByte int32 = dupedExprStructSize(p, flags) & 4095
 	if !(p.flags&uint32(1024) != uint32(0)) && p.u.zToken != nil {
-		nByte += int32(strlen(p.u.zToken)&uint(1073741823) + uint(1))
+		nByte += int32(strlen(p.u.zToken)&uint64(1073741823) + uint64(1))
 	}
 	return (nByte + 7) & ^7
 }
@@ -54554,12 +54551,12 @@ func exprDup(db *struct_sqlite3, p *struct_Expr, dupFlags int32, pzBuffer **uint
 				_ = 0
 				return 0
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer(zAlloc), unsafe.Pointer(p), uint(nNewSize), __builtin_object_size(unsafe.Pointer(zAlloc), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zAlloc), unsafe.Pointer(p), uint(uint64(nNewSize)), __builtin_object_size(unsafe.Pointer(zAlloc), 0))
 		} else {
 			var nSize uint32 = uint32(exprStructSize(p))
-			__builtin___memcpy_chk(unsafe.Pointer(zAlloc), unsafe.Pointer(p), uint(nSize), __builtin_object_size(unsafe.Pointer(zAlloc), 0))
-			if uint(nSize) < 72 {
-				__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAlloc)) + uintptr(nSize)))), 0, 72-uint(nSize), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAlloc)) + uintptr(nSize)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zAlloc), unsafe.Pointer(p), uint(uint64(nSize)), __builtin_object_size(unsafe.Pointer(zAlloc), 0))
+			if uint64(nSize) < 72 {
+				__builtin___memset_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAlloc)) + uintptr(nSize)))), 0, uint(72-uint64(nSize)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAlloc)) + uintptr(nSize)))), 0))
 			}
 		}
 		pNew.flags &= uint32(4160659455)
@@ -54573,7 +54570,7 @@ func exprDup(db *struct_sqlite3, p *struct_Expr, dupFlags int32, pzBuffer **uint
 				*_cgo_addr = (*int8)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAlloc)) + uintptr(nNewSize)))))
 				return *_cgo_addr
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer(zToken), unsafe.Pointer(p.u.zToken), uint(nToken), __builtin_object_size(unsafe.Pointer(zToken), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zToken), unsafe.Pointer(p.u.zToken), uint(uint64(nToken)), __builtin_object_size(unsafe.Pointer(zToken), 0))
 		}
 		if uint32(0) == (p.flags|pNew.flags)&uint32(16384|8388608) {
 			if p.flags&uint32(2048) != uint32(0) {
@@ -54628,7 +54625,7 @@ func exprDup(db *struct_sqlite3, p *struct_Expr, dupFlags int32, pzBuffer **uint
 func sqlite3WithDup(db *struct_sqlite3, p *struct_With) *struct_With {
 	var pRet *struct_With = nil
 	if p != nil {
-		var nByte int64 = int64(57 + 41*uint(p.nCte-1))
+		var nByte int64 = int64(57 + 41*uint64(p.nCte-1))
 		pRet = (*struct_With)(sqlite3DbMallocZero(db, uint64(nByte)))
 		if pRet != nil {
 			var i int32
@@ -54786,11 +54783,11 @@ func sqlite3SrcListDup(db *struct_sqlite3, p *struct_SrcList, flags int32) *stru
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 		return (*struct_SrcList)(nil)
 	}
-	nByte = int32(120 + func() uint {
+	nByte = int32(120 + func() uint64 {
 		if p.nSrc > 0 {
-			return 112 * uint(p.nSrc-1)
+			return 112 * uint64(p.nSrc-1)
 		} else {
-			return uint(0)
+			return uint64(0)
 		}
 	}())
 	pNew = (*struct_SrcList)(sqlite3DbMallocRawNN(db, uint64(nByte)))
@@ -54854,7 +54851,7 @@ func sqlite3IdListDup(db *struct_sqlite3, p *struct_IdList) *struct_IdList {
 		return (*struct_IdList)(nil)
 	}
 	pNew.nId = p.nId
-	pNew.a = (*struct_IdList_item)(sqlite3DbMallocRawNN(db, uint64(uint(p.nId)*12)))
+	pNew.a = (*struct_IdList_item)(sqlite3DbMallocRawNN(db, uint64(uint64(p.nId)*12)))
 	if uintptr(unsafe.Pointer(pNew.a)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3DbFreeNN(db, unsafe.Pointer(pNew))
 		return (*struct_IdList)(nil)
@@ -54921,7 +54918,7 @@ var zeroItem struct_ExprList_item = struct_ExprList_item{nil, nil, 0, 0, _cgoa_1
 func sqlite3ExprListAppendNew(db *struct_sqlite3, pExpr *struct_Expr) *struct_ExprList {
 	var pItem *struct_ExprList_item
 	var pList *struct_ExprList
-	pList = (*struct_ExprList)(sqlite3DbMallocRawNN(db, uint64(36+28*uint(4))))
+	pList = (*struct_ExprList)(sqlite3DbMallocRawNN(db, uint64(36+28*uint64(4))))
 	if uintptr(unsafe.Pointer(pList)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3ExprDelete(db, pExpr)
 		return (*struct_ExprList)(nil)
@@ -54937,7 +54934,7 @@ func sqlite3ExprListAppendGrow(db *struct_sqlite3, pList *struct_ExprList, pExpr
 	var pItem *struct_ExprList_item
 	var pNew *struct_ExprList
 	pList.nAlloc *= int32(2)
-	pNew = (*struct_ExprList)(sqlite3DbRealloc(db, unsafe.Pointer(pList), uint64(36+uint(pList.nAlloc-1)*28)))
+	pNew = (*struct_ExprList)(sqlite3DbRealloc(db, unsafe.Pointer(pList), uint64(36+uint64(pList.nAlloc-1)*28)))
 	if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3ExprListDelete(db, pList)
 		sqlite3ExprDelete(db, pExpr)
@@ -55735,7 +55732,7 @@ func sqlite3FindInIndex(pParse *struct_Parse, pX *struct_Expr, inFlags uint32, p
 					if uintptr(unsafe.Pointer(pIdx.pPartIdxWhere)) != uintptr(unsafe.Pointer(nil)) {
 						continue
 					}
-					if int32(pIdx.nColumn) >= int32(8*uint(8))-1 {
+					if int32(pIdx.nColumn) >= int32(8*uint64(8))-1 {
 						continue
 					}
 					if mustBeUnique != 0 {
@@ -56214,7 +56211,7 @@ func sqlite3ExprCodeIN(pParse *struct_Parse, pExpr *struct_Expr, destIfFalse int
 	}
 	zAff = exprINAffinity(pParse, pExpr)
 	nVector = sqlite3ExprVectorSize(pExpr.pLeft)
-	aiMap = (*int32)(sqlite3DbMallocZero(pParse.db, uint64(uint(nVector)*(4+1)+uint(1))))
+	aiMap = (*int32)(sqlite3DbMallocZero(pParse.db, uint64(uint64(nVector)*(4+1)+uint64(1))))
 	if pParse.db.mallocFailed != 0 {
 		goto sqlite3ExprCodeIN_oom_error
 	}
@@ -57239,7 +57236,7 @@ expr_code_doover:
 					_ = 0
 					return 0
 				}()
-				return exprCodeInlineFunction(pParse, pFarg, int32(int(uintptr(pDef.pUserData))), target)
+				return exprCodeInlineFunction(pParse, pFarg, int32(int64(uintptr(pDef.pUserData))), target)
 			} else if pDef.funcFlags&uint32(524288|2097152) != 0 {
 				sqlite3ExprFunctionUsable(pParse, pExpr, pDef)
 			}
@@ -59496,7 +59493,7 @@ func sqlite3AlterBeginAddColumn(pParse *struct_Parse, pSrc *struct_SrcList) {
 		_ = 0
 		return 0
 	}()
-	pNew.aCol = (*struct_Column)(sqlite3DbMallocZero(db, uint64(20*uint(nAlloc))))
+	pNew.aCol = (*struct_Column)(sqlite3DbMallocZero(db, uint64(20*uint64(nAlloc))))
 	pNew.zName = sqlite3MPrintf(db, (*int8)(unsafe.Pointer(&[19]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'a', 'l', 't', 'e', 'r', 't', 'a', 'b', '_', '%', 's', '\x00'})), pTab.zName)
 	if !(pNew.aCol != nil) || !(pNew.zName != nil) {
 		func() int {
@@ -59505,7 +59502,7 @@ func sqlite3AlterBeginAddColumn(pParse *struct_Parse, pSrc *struct_SrcList) {
 		}()
 		goto exit_begin_add_column
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(pNew.aCol), unsafe.Pointer(pTab.aCol), 20*uint(pNew.nCol), __builtin_object_size(unsafe.Pointer(pNew.aCol), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(pNew.aCol), unsafe.Pointer(pTab.aCol), uint(20*uint64(pNew.nCol)), __builtin_object_size(unsafe.Pointer(pNew.aCol), 0))
 	for i = int32(0); i < int32(pNew.nCol); i++ {
 		var pCol *struct_Column = &*(*struct_Column)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew.aCol)) + uintptr(i)*20))
 		pCol.zCnName = sqlite3DbStrDup(db, pCol.zCnName)
@@ -59921,7 +59918,7 @@ func renameEditSql(pCtx *struct_sqlite3_context, pRename *struct_RenameCtx, zSql
 	}
 	if zOut != nil {
 		var nOut int32 = int32(nSql)
-		__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(zSql), uint(nSql), __builtin_object_size(unsafe.Pointer(zOut), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zOut), unsafe.Pointer(zSql), uint(uint64(nSql)), __builtin_object_size(unsafe.Pointer(zOut), 0))
 		for pRename.pList != nil {
 			var iOff int32
 			var nReplace uint32
@@ -59939,7 +59936,7 @@ func renameEditSql(pCtx *struct_sqlite3_context, pRename *struct_RenameCtx, zSql
 					}
 				}
 			} else {
-				__builtin___memcpy_chk(unsafe.Pointer(zBuf1), unsafe.Pointer(pBest.t.z), uint(pBest.t.n), __builtin_object_size(unsafe.Pointer(zBuf1), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(zBuf1), unsafe.Pointer(pBest.t.z), uint(uint64(pBest.t.n)), __builtin_object_size(unsafe.Pointer(zBuf1), 0))
 				*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zBuf1)) + uintptr(pBest.t.n))) = int8(0)
 				sqlite3Dequote(zBuf1)
 				sqlite3_snprintf(int32(nSql*int64(2)), zBuf2, (*int8)(unsafe.Pointer(&[5]int8{'%', 'Q', '%', 's', '\x00'})), zBuf1, func() *int8 {
@@ -59954,11 +59951,11 @@ func renameEditSql(pCtx *struct_sqlite3_context, pRename *struct_RenameCtx, zSql
 			}
 			iOff = int32(uintptr(unsafe.Pointer(pBest.t.z)) - uintptr(unsafe.Pointer(zSql)))
 			if pBest.t.n != nReplace {
-				__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+nReplace)))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+pBest.t.n)))), uint(uint32(nOut)-(uint32(iOff)+pBest.t.n)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+nReplace)))), 0))
+				__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+nReplace)))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+pBest.t.n)))), uint(uint64(uint32(nOut)-(uint32(iOff)+pBest.t.n))), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(uint32(iOff)+nReplace)))), 0))
 				nOut += int32(nReplace - pBest.t.n)
 				*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(nOut))) = int8('\x00')
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(iOff)))), unsafe.Pointer(zReplace), uint(nReplace), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(iOff)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(iOff)))), unsafe.Pointer(zReplace), uint(uint64(nReplace)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(iOff)))), 0))
 			sqlite3DbFree(db, unsafe.Pointer(pBest))
 		}
 		sqlite3_result_text(pCtx, zOut, -1, func(_cgo_fn uintptr) func(unsafe.Pointer) {
@@ -60901,7 +60898,7 @@ func statInit(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 		_ = 0
 		return 0
 	}()
-	n = int32(48 + 4*uint(nColUp) + 4*uint(nColUp))
+	n = int32(48 + 4*uint64(nColUp) + 4*uint64(nColUp))
 	p = (*struct_StatAccum)(sqlite3DbMallocZero(db, uint64(n)))
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3_result_error_nomem(context)
@@ -61198,7 +61195,7 @@ func analyzeOneTable(pParse *struct_Parse, pTab *struct_Table, pOnlyIdx *struct_
 		if nColTest > 0 {
 			var endDistinctTest int32 = sqlite3VdbeMakeLabel(pParse)
 			var aGotoChng *int32
-			aGotoChng = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint(nColTest))))
+			aGotoChng = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint64(nColTest))))
 			if uintptr(unsafe.Pointer(aGotoChng)) == uintptr(unsafe.Pointer(nil)) {
 				continue
 			}
@@ -61679,13 +61676,13 @@ func attachFunc(context *struct_sqlite3_context, NotUsed int32, argv **struct_sq
 			}
 		}
 		if uintptr(unsafe.Pointer(db.aDb)) == uintptr(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic)))) {
-			aNew = (*struct_Db)(sqlite3DbMallocRawNN(db, uint64(32*uint(3))))
+			aNew = (*struct_Db)(sqlite3DbMallocRawNN(db, uint64(32*uint64(3))))
 			if uintptr(unsafe.Pointer(aNew)) == uintptr(unsafe.Pointer(nil)) {
 				return
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(aNew), unsafe.Pointer(db.aDb), 32*uint(2), __builtin_object_size(unsafe.Pointer(aNew), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(aNew), unsafe.Pointer(db.aDb), uint(32*uint64(2)), __builtin_object_size(unsafe.Pointer(aNew), 0))
 		} else {
-			aNew = (*struct_Db)(sqlite3DbRealloc(db, unsafe.Pointer(db.aDb), uint64(32*uint(db.nDb+1))))
+			aNew = (*struct_Db)(sqlite3DbRealloc(db, unsafe.Pointer(db.aDb), uint64(32*uint64(db.nDb+1))))
 			if uintptr(unsafe.Pointer(aNew)) == uintptr(unsafe.Pointer(nil)) {
 				return
 			}
@@ -62204,7 +62201,7 @@ func lockTable(pParse *struct_Parse, iDb int32, iTab uint32, isWriteLock uint8, 
 			return
 		}
 	}
-	nBytes = int32(24 * uint(pToplevel.nTableLock+1))
+	nBytes = int32(24 * uint64(pToplevel.nTableLock+1))
 	pToplevel.aTableLock = (*struct_TableLock)(sqlite3DbReallocOrFree(pToplevel.db, unsafe.Pointer(pToplevel.aTableLock), uint64(nBytes)))
 	if pToplevel.aTableLock != nil {
 		p = &*(*struct_TableLock)(unsafe.Pointer(uintptr(unsafe.Pointer(pToplevel.aTableLock)) + uintptr(func() (_cgo_ret int32) {
@@ -62643,7 +62640,7 @@ func sqlite3CollapseDatabaseArray(db *struct_sqlite3) {
 	}
 	db.nDb = j
 	if db.nDb <= 2 && uintptr(unsafe.Pointer(db.aDb)) != uintptr(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic)))) {
-		__builtin___memcpy_chk(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic))), unsafe.Pointer(db.aDb), uint(2)*32, __builtin_object_size(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic))), unsafe.Pointer(db.aDb), uint(uint64(2)*32), __builtin_object_size(unsafe.Pointer((*struct_Db)(unsafe.Pointer(&db.aDbStatic))), 0))
 		sqlite3DbFree(db, unsafe.Pointer(db.aDb))
 		db.aDb = (*struct_Db)(unsafe.Pointer(&db.aDbStatic))
 	}
@@ -62746,7 +62743,7 @@ func sqlite3ColumnSetColl(db *struct_sqlite3, pCol *struct_Column, zColl *int8) 
 	zNew = (*int8)(sqlite3DbRealloc(db, unsafe.Pointer(pCol.zCnName), uint64(nColl+n)))
 	if zNew != nil {
 		pCol.zCnName = zNew
-		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName))+uintptr(n)))), unsafe.Pointer(zColl), uint(nColl), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName))+uintptr(n)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName))+uintptr(n)))), unsafe.Pointer(zColl), uint(uint64(nColl)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName))+uintptr(n)))), 0))
 		pCol.colFlags |= uint16(512)
 	}
 }
@@ -63384,7 +63381,7 @@ func sqlite3AddColumn(pParse *struct_Parse, sName struct_Token, sType struct_Tok
 	if int32(pParse.eParseMode) >= 2 {
 		sqlite3RenameTokenMap(pParse, unsafe.Pointer(z), &sName)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(sName.z), uint(sName.n), __builtin_object_size(unsafe.Pointer(z), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(sName.z), uint(uint64(sName.n)), __builtin_object_size(unsafe.Pointer(z), 0))
 	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(sName.n))) = int8(0)
 	sqlite3Dequote(z)
 	hName = sqlite3StrIHash(z)
@@ -63414,7 +63411,7 @@ func sqlite3AddColumn(pParse *struct_Parse, sName struct_Token, sType struct_Tok
 		pCol.szEst = szEst
 	} else {
 		zType = (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(sqlite3Strlen30(z)))))) + uintptr(1)))
-		__builtin___memcpy_chk(unsafe.Pointer(zType), unsafe.Pointer(sType.z), uint(sType.n), __builtin_object_size(unsafe.Pointer(zType), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zType), unsafe.Pointer(sType.z), uint(uint64(sType.n)), __builtin_object_size(unsafe.Pointer(zType), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zType)) + uintptr(sType.n))) = int8(0)
 		sqlite3Dequote(zType)
 		pCol.affinity = sqlite3AffinityType(zType, pCol)
@@ -63904,7 +63901,7 @@ func createTableStmt(db *struct_sqlite3, p *struct_Table) *int8 {
 			_ = 0
 			return 0
 		}()
-		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStmt)) + uintptr(k)))), unsafe.Pointer(zType), uint(len), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStmt)) + uintptr(k)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStmt)) + uintptr(k)))), unsafe.Pointer(zType), uint(uint64(len)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStmt)) + uintptr(k)))), 0))
 		k += len
 		func() int {
 			_ = 0
@@ -63924,21 +63921,21 @@ func resizeIndexObject(db *struct_sqlite3, pIdx *struct_Index, N int32) int32 {
 		_ = 0
 		return 0
 	}()
-	nByte = int32((8 + 2 + 2 + uint(1)) * uint(N))
+	nByte = int32((8 + 2 + 2 + uint64(1)) * uint64(N))
 	zExtra = (*int8)(sqlite3DbMallocZero(db, uint64(nByte)))
 	if uintptr(unsafe.Pointer(zExtra)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.azColl), 8*uint(pIdx.nColumn), __builtin_object_size(unsafe.Pointer(zExtra), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.azColl), uint(8*uint64(pIdx.nColumn)), __builtin_object_size(unsafe.Pointer(zExtra), 0))
 	pIdx.azColl = (**int8)(unsafe.Pointer(zExtra))
-	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(8 * uint(N))
-	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aiRowLogEst), 2*uint(int32(pIdx.nKeyCol)+1), __builtin_object_size(unsafe.Pointer(zExtra), 0))
+	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(8 * uint64(N))
+	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aiRowLogEst), uint(2*uint64(int32(pIdx.nKeyCol)+1)), __builtin_object_size(unsafe.Pointer(zExtra), 0))
 	pIdx.aiRowLogEst = (*int16)(unsafe.Pointer(zExtra))
-	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(2 * uint(N))
-	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aiColumn), 2*uint(pIdx.nColumn), __builtin_object_size(unsafe.Pointer(zExtra), 0))
+	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(2 * uint64(N))
+	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aiColumn), uint(2*uint64(pIdx.nColumn)), __builtin_object_size(unsafe.Pointer(zExtra), 0))
 	pIdx.aiColumn = (*int16)(unsafe.Pointer(zExtra))
-	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(2 * uint(N))
-	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aSortOrder), uint(pIdx.nColumn), __builtin_object_size(unsafe.Pointer(zExtra), 0))
+	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(2 * uint64(N))
+	__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(pIdx.aSortOrder), uint(uint64(pIdx.nColumn)), __builtin_object_size(unsafe.Pointer(zExtra), 0))
 	pIdx.aSortOrder = (*uint8)(unsafe.Pointer(zExtra))
 	pIdx.nColumn = uint16(N)
 	{
@@ -64058,7 +64055,7 @@ func recomputeColumnsNotIndexed(pIdx *struct_Index) {
 	for j = int32(pIdx.nColumn) - 1; j >= 0; j-- {
 		var x int32 = int32(*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdx.aiColumn)) + uintptr(j)*2)))
 		if x >= 0 && int32((*(*struct_Column)(unsafe.Pointer(uintptr(unsafe.Pointer(pTab.aCol)) + uintptr(x)*20))).colFlags)&32 == 0 {
-			if x < int32(8*uint(8))-1 {
+			if x < int32(8*uint64(8))-1 {
 				m |= uint64(1) << x
 			}
 		}
@@ -65085,7 +65082,7 @@ func sqlite3CreateForeignKey(pParse *struct_Parse, pFromCol *struct_ExprList, pT
 	} else {
 		nCol = pFromCol.nExpr
 	}
-	nByte = int64(80 + uint(nCol-1)*16 + uint(pTo.n) + uint(1))
+	nByte = int64(80 + uint64(nCol-1)*16 + uint64(pTo.n) + uint64(1))
 	if pToCol != nil {
 		for i = int32(0); i < pToCol.nExpr; i++ {
 			nByte += int64(sqlite3Strlen30((*(*struct_ExprList_item)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_ExprList_item)(unsafe.Pointer(&pToCol.a)))) + uintptr(i)*28))).zEName) + 1)
@@ -65106,7 +65103,7 @@ func sqlite3CreateForeignKey(pParse *struct_Parse, pFromCol *struct_ExprList, pT
 	if int32(pParse.eParseMode) >= 2 {
 		sqlite3RenameTokenMap(pParse, unsafe.Pointer(z), pTo)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(pTo.z), uint(pTo.n), __builtin_object_size(unsafe.Pointer(z), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(pTo.z), uint(uint64(pTo.n)), __builtin_object_size(unsafe.Pointer(z), 0))
 	*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(pTo.n))) = int8(0)
 	sqlite3Dequote(z)
 	*(*uintptr)(unsafe.Pointer(&z)) += uintptr(pTo.n + uint32(1))
@@ -65138,7 +65135,7 @@ func sqlite3CreateForeignKey(pParse *struct_Parse, pFromCol *struct_ExprList, pT
 			if int32(pParse.eParseMode) >= 2 {
 				sqlite3RenameTokenRemap(pParse, unsafe.Pointer(z), unsafe.Pointer((*(*struct_ExprList_item)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_ExprList_item)(unsafe.Pointer(&pToCol.a)))) + uintptr(i)*28))).zEName))
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer((*(*struct_ExprList_item)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_ExprList_item)(unsafe.Pointer(&pToCol.a)))) + uintptr(i)*28))).zEName), uint(n), __builtin_object_size(unsafe.Pointer(z), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer((*(*struct_ExprList_item)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_ExprList_item)(unsafe.Pointer(&pToCol.a)))) + uintptr(i)*28))).zEName), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(z), 0))
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(n))) = int8(0)
 			*(*uintptr)(unsafe.Pointer(&z)) += uintptr(n + 1)
 		}
@@ -65296,16 +65293,16 @@ func sqlite3RefillIndex(pParse *struct_Parse, pIndex *struct_Index, memRootPage 
 func sqlite3AllocateIndexObject(db *struct_sqlite3, nCol int16, nExtra int32, ppExtra **int8) *struct_Index {
 	var p *struct_Index
 	var nByte int32
-	nByte = int32((112+uint(7))&uint(18446744073709551608) + (8*uint(nCol)+uint(7))&uint(18446744073709551608) + (2*uint(int32(nCol)+1)+2*uint(nCol)+1*uint(nCol)+uint(7))&uint(18446744073709551608))
+	nByte = int32((112+uint64(7))&uint64(18446744073709551608) + (8*uint64(nCol)+uint64(7))&uint64(18446744073709551608) + (2*uint64(int32(nCol)+1)+2*uint64(nCol)+1*uint64(nCol)+uint64(7))&uint64(18446744073709551608))
 	p = (*struct_Index)(sqlite3DbMallocZero(db, uint64(nByte+nExtra)))
 	if p != nil {
-		var pExtra *int8 = (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((112+uint(7))&uint(18446744073709551608))))
+		var pExtra *int8 = (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(p)))) + uintptr((112+uint64(7))&uint64(18446744073709551608))))
 		p.azColl = (**int8)(unsafe.Pointer(pExtra))
-		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr((8*uint(nCol) + uint(7)) & uint(18446744073709551608))
+		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr((8*uint64(nCol) + uint64(7)) & uint64(18446744073709551608))
 		p.aiRowLogEst = (*int16)(unsafe.Pointer(pExtra))
-		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr(2 * uint(int32(nCol)+1))
+		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr(2 * uint64(int32(nCol)+1))
 		p.aiColumn = (*int16)(unsafe.Pointer(pExtra))
-		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr(2 * uint(nCol))
+		*(*uintptr)(unsafe.Pointer(&pExtra)) += uintptr(2 * uint64(nCol))
 		p.aSortOrder = (*uint8)(unsafe.Pointer(pExtra))
 		p.nColumn = uint16(nCol)
 		p.nKeyCol = uint16(int32(nCol) - 1)
@@ -65583,7 +65580,7 @@ func sqlite3CreateIndex(pParse *struct_Parse, pName1 *struct_Token, pName2 *stru
 	}()
 	pIndex.zName = zExtra
 	*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(nName + 1)
-	__builtin___memcpy_chk(unsafe.Pointer(pIndex.zName), unsafe.Pointer(zName), uint(nName+1), __builtin_object_size(unsafe.Pointer(pIndex.zName), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(pIndex.zName), unsafe.Pointer(zName), uint(uint64(nName+1)), __builtin_object_size(unsafe.Pointer(pIndex.zName), 0))
 	pIndex.pTable = pTab
 	pIndex.onError = uint8(onError)
 	{
@@ -65691,7 +65688,7 @@ func sqlite3CreateIndex(pParse *struct_Parse, pName1 *struct_Token, pName2 *stru
 				_ = 0
 				return 0
 			}()
-			__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(zColl), uint(nColl), __builtin_object_size(unsafe.Pointer(zExtra), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zExtra), unsafe.Pointer(zColl), uint(uint64(nColl)), __builtin_object_size(unsafe.Pointer(zExtra), 0))
 			zColl = zExtra
 			*(*uintptr)(unsafe.Pointer(&zExtra)) += uintptr(nColl)
 			nExtra -= nColl
@@ -65979,7 +65976,7 @@ func sqlite3DefaultRowEst(pIdx *struct_Index) {
 		}()
 	}
 	*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(0)*2)) = x
-	__builtin___memcpy_chk(unsafe.Pointer(&*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(1)*2))), unsafe.Pointer((*int16)(unsafe.Pointer(&aVal))), uint(nCopy)*2, __builtin_object_size(unsafe.Pointer(&*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(1)*2))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(1)*2))), unsafe.Pointer((*int16)(unsafe.Pointer(&aVal))), uint(uint64(nCopy)*2), __builtin_object_size(unsafe.Pointer(&*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(1)*2))), 0))
 	for i = nCopy + 1; i <= int32(pIdx.nKeyCol); i++ {
 		*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(a)) + uintptr(i)*2)) = int16(23)
 		func() int {
@@ -66086,7 +66083,7 @@ func sqlite3ArrayAllocate(db *struct_sqlite3, pArray unsafe.Pointer, szEntry int
 		pArray = pNew
 	}
 	z = (*int8)(pArray)
-	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(n*int64(szEntry))))), 0, uint(szEntry), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(n*int64(szEntry))))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(n*int64(szEntry))))), 0, uint(uint64(szEntry)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(n*int64(szEntry))))), 0))
 	*pnEntry++
 	return pArray
 }
@@ -66177,7 +66174,7 @@ func sqlite3SrcListEnlarge(pParse *struct_Parse, pSrc *struct_SrcList, nExtra in
 		*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(i+nExtra)*112)) = *(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(i)*112))
 	}
 	pSrc.nSrc += nExtra
-	__builtin___memset_chk(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(iStart)*112))), 0, 112*uint(nExtra), __builtin_object_size(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(iStart)*112))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(iStart)*112))), 0, uint(112*uint64(nExtra)), __builtin_object_size(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(iStart)*112))), 0))
 	for i = iStart; i < iStart+nExtra; i++ {
 		(*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pSrc.a)))) + uintptr(i)*112))).iCursor = int32(-1)
 	}
@@ -66431,7 +66428,7 @@ func sqlite3SrcListAppendList(pParse *struct_Parse, p1 *struct_SrcList, p2 *stru
 			sqlite3SrcListDelete(pParse.db, p2)
 		} else {
 			p1 = pNew
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p1.a)))) + uintptr(1)*112))), unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p2.a))), uint(p2.nSrc)*112, __builtin_object_size(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p1.a)))) + uintptr(1)*112))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p1.a)))) + uintptr(1)*112))), unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p2.a))), uint(uint64(p2.nSrc)*112), __builtin_object_size(unsafe.Pointer(&*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&p1.a)))) + uintptr(1)*112))), 0))
 			sqlite3DbFree(pParse.db, unsafe.Pointer(p2))
 		}
 	}
@@ -66953,7 +66950,7 @@ func sqlite3WithAdd(pParse *struct_Parse, pWith *struct_With, pCte *struct_Cte) 
 		}
 	}
 	if pWith != nil {
-		var nByte int64 = int64(57 + 41*uint(pWith.nCte))
+		var nByte int64 = int64(57 + 41*uint64(pWith.nCte))
 		pNew = (*struct_With)(sqlite3DbRealloc(db, unsafe.Pointer(pWith), uint64(nByte)))
 	} else {
 		pNew = (*struct_With)(sqlite3DbMallocZero(db, uint64(57)))
@@ -67048,7 +67045,7 @@ func findCollSeqEntry(db *struct_sqlite3, zName *int8, create int32) *struct_Col
 	pColl = (*struct_CollSeq)(sqlite3HashFind(&db.aCollSeq, zName))
 	if uintptr(unsafe.Pointer(nil)) == uintptr(unsafe.Pointer(pColl)) && create != 0 {
 		var nName int32 = sqlite3Strlen30(zName) + 1
-		pColl = (*struct_CollSeq)(sqlite3DbMallocZero(db, uint64(uint(3)*40+uint(nName))))
+		pColl = (*struct_CollSeq)(sqlite3DbMallocZero(db, uint64(uint64(3)*40+uint64(nName))))
 		if pColl != nil {
 			var pDel *struct_CollSeq = nil
 			(*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName = (*int8)(unsafe.Pointer(&*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(3)*40))))
@@ -67057,7 +67054,7 @@ func findCollSeqEntry(db *struct_sqlite3, zName *int8, create int32) *struct_Col
 			(*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(1)*40))).enc = uint8(2)
 			(*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(2)*40))).zName = (*int8)(unsafe.Pointer(&*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(3)*40))))
 			(*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(2)*40))).enc = uint8(3)
-			__builtin___memcpy_chk(unsafe.Pointer((*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName), unsafe.Pointer(zName), uint(nName), __builtin_object_size(unsafe.Pointer((*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName), 0))
+			__builtin___memcpy_chk(unsafe.Pointer((*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName), unsafe.Pointer(zName), uint(uint64(nName)), __builtin_object_size(unsafe.Pointer((*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName), 0))
 			pDel = (*struct_CollSeq)(sqlite3HashInsert(&db.aCollSeq, (*(*struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer(pColl)) + uintptr(0)*40))).zName, unsafe.Pointer(pColl)))
 			func() int {
 				_ = 0
@@ -67247,7 +67244,7 @@ func sqlite3FindFunction(db *struct_sqlite3, zName *int8, nArg int32, enc uint8,
 	}
 	if int32(createFlag) != 0 && bestScore < 6 && uintptr(unsafe.Pointer(func() (_cgo_ret *struct_FuncDef) {
 		_cgo_addr := &pBest
-		*_cgo_addr = (*struct_FuncDef)(sqlite3DbMallocZero(db, uint64(72+uint(nName)+uint(1))))
+		*_cgo_addr = (*struct_FuncDef)(sqlite3DbMallocZero(db, uint64(72+uint64(nName)+uint64(1))))
 		return *_cgo_addr
 	}())) != uintptr(unsafe.Pointer(nil)) {
 		var pOther *struct_FuncDef
@@ -67255,7 +67252,7 @@ func sqlite3FindFunction(db *struct_sqlite3, zName *int8, nArg int32, enc uint8,
 		pBest.zName = (*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pBest)) + uintptr(1)*72))))
 		pBest.nArg = int8(uint16(nArg))
 		pBest.funcFlags = uint32(enc)
-		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pBest)) + uintptr(1)*72))))), unsafe.Pointer(zName), uint(nName+1), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pBest)) + uintptr(1)*72))))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pBest)) + uintptr(1)*72))))), unsafe.Pointer(zName), uint(uint64(nName+1)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pBest)) + uintptr(1)*72))))), 0))
 		for z = (*uint8)(unsafe.Pointer(pBest.zName)); *z != 0; *(*uintptr)(unsafe.Pointer(&z))++ {
 			*z = *(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3UpperToLower)))) + uintptr(*z)))
 		}
@@ -67693,7 +67690,7 @@ func sqlite3DeleteFrom(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 				sqlite3WhereEnd(pWInfo)
 				goto delete_from_cleanup
 			}
-			__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(nIdx+1), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
+			__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(uint64(nIdx+1)), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aToOpen)) + uintptr(nIdx+1))) = uint8(0)
 			if *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&aiCurOnePass)))) + uintptr(0)*4)) >= 0 {
 				*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aToOpen)) + uintptr(*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&aiCurOnePass)))) + uintptr(0)*4))-iTabCur))) = uint8(0)
@@ -68239,7 +68236,7 @@ func instrFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite
 			goto endInstrOOM
 		}
 		firstChar = *(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zNeedle)) + uintptr(0)))
-		for nNeedle <= nHaystack && (int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHaystack)) + uintptr(0)))) != int32(firstChar) || memcmp(unsafe.Pointer(zHaystack), unsafe.Pointer(zNeedle), uint(nNeedle)) != 0) {
+		for nNeedle <= nHaystack && (int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zHaystack)) + uintptr(0)))) != int32(firstChar) || memcmp(unsafe.Pointer(zHaystack), unsafe.Pointer(zNeedle), uint64(nNeedle)) != 0) {
 			N++
 			for {
 				nHaystack--
@@ -69300,7 +69297,7 @@ func replaceFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqli
 		*_cgo_addr = int32(0)
 		return *_cgo_addr
 	}(); i <= loopLimit; i++ {
-		if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))) != int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zPattern)) + uintptr(0)))) || memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))), unsafe.Pointer(zPattern), uint(nPattern)) != 0 {
+		if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))) != int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zPattern)) + uintptr(0)))) || memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))), unsafe.Pointer(zPattern), uint64(nPattern)) != 0 {
 			*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(func() (_cgo_ret int32) {
 				_cgo_addr := &j
 				_cgo_ret = *_cgo_addr
@@ -69327,7 +69324,7 @@ func replaceFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqli
 					}
 				}
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), unsafe.Pointer(zRep), uint(nRep), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), unsafe.Pointer(zRep), uint(uint64(nRep)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), 0))
 			j += nRep
 			i += nPattern - 1
 		}
@@ -69336,7 +69333,7 @@ func replaceFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqli
 		_ = 0
 		return 0
 	}()
-	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))), uint(nStr-i), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zStr)) + uintptr(i)))), uint(uint64(nStr-i)), __builtin_object_size(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOut)) + uintptr(j)))), 0))
 	j += nStr - i
 	func() int {
 		_ = 0
@@ -69434,13 +69431,13 @@ func trimFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 		}
 	}
 	if nChar > 0 {
-		flags = int32(int(uintptr(sqlite3_user_data(context))))
+		flags = int32(int64(uintptr(sqlite3_user_data(context))))
 		if flags&1 != 0 {
 			for nIn > uint32(0) {
 				var len uint32 = uint32(0)
 				for i = int32(0); i < nChar; i++ {
 					len = *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLen)) + uintptr(i)*4))
-					if len <= nIn && memcmp(unsafe.Pointer(zIn), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(azChar)) + uintptr(i)*8))), uint(len)) == 0 {
+					if len <= nIn && memcmp(unsafe.Pointer(zIn), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(azChar)) + uintptr(i)*8))), uint64(len)) == 0 {
 						break
 					}
 				}
@@ -69456,7 +69453,7 @@ func trimFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 				var len uint32 = uint32(0)
 				for i = int32(0); i < nChar; i++ {
 					len = *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aLen)) + uintptr(i)*4))
-					if len <= nIn && memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zIn)) + uintptr(nIn-len)))), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(azChar)) + uintptr(i)*8))), uint(len)) == 0 {
+					if len <= nIn && memcmp(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(zIn)) + uintptr(nIn-len)))), unsafe.Pointer(*(**uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(azChar)) + uintptr(i)*8))), uint64(len)) == 0 {
 						break
 					}
 				}
@@ -69736,7 +69733,7 @@ func groupConcatStep(context *struct_sqlite3_context, argc int32, argv **struct_
 			if nSep != pGCC.nFirstSepLength || uintptr(unsafe.Pointer(pGCC.pnSepLengths)) != uintptr(unsafe.Pointer(nil)) {
 				var pnsl *int32 = pGCC.pnSepLengths
 				if uintptr(unsafe.Pointer(pnsl)) == uintptr(unsafe.Pointer(nil)) {
-					pnsl = (*int32)(sqlite3_malloc64(uint64(uint(pGCC.nAccum+1) * 4)))
+					pnsl = (*int32)(sqlite3_malloc64(uint64(uint64(pGCC.nAccum+1) * 4)))
 					if uintptr(unsafe.Pointer(pnsl)) != uintptr(unsafe.Pointer(nil)) {
 						var i int32 = 0
 						var nA int32 = pGCC.nAccum - 1
@@ -69750,7 +69747,7 @@ func groupConcatStep(context *struct_sqlite3_context, argc int32, argv **struct_
 						}
 					}
 				} else {
-					pnsl = (*int32)(sqlite3_realloc64(unsafe.Pointer(pnsl), uint64(uint(pGCC.nAccum)*4)))
+					pnsl = (*int32)(sqlite3_realloc64(unsafe.Pointer(pnsl), uint64(uint64(pGCC.nAccum)*4)))
 				}
 				if uintptr(unsafe.Pointer(pnsl)) != uintptr(unsafe.Pointer(nil)) {
 					if pGCC.nAccum > 0 {
@@ -69801,7 +69798,7 @@ func groupConcatInverse(context *struct_sqlite3_context, argc int32, argv **stru
 			}()
 			if pGCC.nAccum > 0 {
 				nVS += *pGCC.pnSepLengths
-				__builtin___memmove_chk(unsafe.Pointer(pGCC.pnSepLengths), unsafe.Pointer((*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(pGCC.pnSepLengths))+uintptr(1)*4))), uint(pGCC.nAccum-1)*4, __builtin_object_size(unsafe.Pointer(pGCC.pnSepLengths), 0))
+				__builtin___memmove_chk(unsafe.Pointer(pGCC.pnSepLengths), unsafe.Pointer((*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(pGCC.pnSepLengths))+uintptr(1)*4))), uint(uint64(pGCC.nAccum-1)*4), __builtin_object_size(unsafe.Pointer(pGCC.pnSepLengths), 0))
 			}
 		} else {
 			nVS += pGCC.nFirstSepLength
@@ -69810,7 +69807,7 @@ func groupConcatInverse(context *struct_sqlite3_context, argc int32, argv **stru
 			pGCC.str.nChar = uint32(0)
 		} else {
 			pGCC.str.nChar -= uint32(nVS)
-			__builtin___memmove_chk(unsafe.Pointer(pGCC.str.zText), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pGCC.str.zText)) + uintptr(nVS)))), uint(pGCC.str.nChar), __builtin_object_size(unsafe.Pointer(pGCC.str.zText), 0))
+			__builtin___memmove_chk(unsafe.Pointer(pGCC.str.zText), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pGCC.str.zText)) + uintptr(nVS)))), uint(uint64(pGCC.str.nChar)), __builtin_object_size(unsafe.Pointer(pGCC.str.zText), 0))
 		}
 		if pGCC.str.nChar == uint32(0) {
 			pGCC.str.mxAlloc = uint32(0)
@@ -69894,7 +69891,7 @@ func sqlite3IsLikeFunction(db *struct_sqlite3, pExpr *struct_Expr, pIsNocase *in
 	if uintptr(unsafe.Pointer(pDef)) == uintptr(unsafe.Pointer(nil)) || pDef.funcFlags&uint32(4) == uint32(0) {
 		return int32(0)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(aWc), pDef.pUserData, uint(3), __builtin_object_size(unsafe.Pointer(aWc), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(aWc), pDef.pUserData, uint(uint64(3)), __builtin_object_size(unsafe.Pointer(aWc), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -69971,7 +69968,7 @@ func signFunc(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 	}())
 }
 func sqlite3RegisterBuiltinFunctions() {
-	var aBuiltinFunc [69]struct_FuncDef = [69]struct_FuncDef{struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int(1))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[20]int8{'i', 'm', 'p', 'l', 'i', 'e', 's', '_', 'n', 'o', 'n', 'n', 'u', 'l', 'l', '_', 'r', 'o', 'w', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int(3))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'e', 'x', 'p', 'r', '_', 'c', 'o', 'm', 'p', 'a', 'r', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int(2))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'e', 'x', 'p', 'r', '_', 'i', 'm', 'p', 'l', 'i', 'e', 's', '_', 'e', 'x', 'p', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int(4))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'a', 'f', 'f', 'i', 'n', 'i', 't', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 524288 | 2097152), unsafe.Pointer(nil), nil, loadExt, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'l', 'o', 'a', 'd', '_', 'e', 'x', 't', 'e', 'n', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 524288 | 2097152), unsafe.Pointer(nil), nil, loadExt, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'l', 'o', 'a', 'd', '_', 'e', 'x', 't', 'e', 'n', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 8192 | 1), nil, nil, compileoptionusedFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[26]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'o', 'p', 't', 'i', 'o', 'n', '_', 'u', 's', 'e', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 8192 | 1), nil, nil, compileoptiongetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[25]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'o', 'p', 't', 'i', 'o', 'n', '_', 'g', 'e', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'u', 'n', 'l', 'i', 'k', 'e', 'l', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'l', 'i', 'k', 'e', 'l', 'i', 'h', 'o', 'o', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'l', 'i', 'k', 'e', 'l', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(1))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(1))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(2))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(2))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(3))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int(3))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, minmaxFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 1*32 | 4096 | 134217728), unsafe.Pointer(nil), nil, minmaxStep, minMaxFinalize, minMaxValue, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(uintptr(int(1))), nil, minmaxFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(uintptr(int(1))), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 1*32 | 4096 | 134217728), unsafe.Pointer(uintptr(int(1))), nil, minmaxStep, minMaxFinalize, minMaxValue, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 128), unsafe.Pointer(nil), nil, typeofFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'t', 'y', 'p', 'e', 'o', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 128), unsafe.Pointer(nil), nil, subtypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'s', 'u', 'b', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 64), unsafe.Pointer(nil), nil, lengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, instrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'i', 'n', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, printfFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'p', 'r', 'i', 'n', 't', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, printfFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'f', 'o', 'r', 'm', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, unicodeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'u', 'n', 'i', 'c', 'o', 'd', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, charFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'c', 'h', 'a', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, absFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'a', 'b', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, roundFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 'o', 'u', 'n', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, roundFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 'o', 'u', 'n', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, upperFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'u', 'p', 'p', 'e', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, lowerFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 'o', 'w', 'e', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, hexFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'h', 'e', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(nil), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'i', 'f', 'n', 'u', 'l', 'l', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, randomFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'r', 'a', 'n', 'd', 'o', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, randomBlob, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'r', 'a', 'n', 'd', 'o', 'm', 'b', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, nullifFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'n', 'u', 'l', 'l', 'i', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 8192 | 1), nil, nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 8192 | 1), nil, nil, sourceidFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[17]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 's', 'o', 'u', 'r', 'c', 'e', '_', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, errlogFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'l', 'o', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, quoteFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'q', 'u', 'o', 't', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, last_insert_rowid, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'l', 'a', 's', 't', '_', 'i', 'n', 's', 'e', 'r', 't', '_', 'r', 'o', 'w', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, changes, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'c', 'h', 'a', 'n', 'g', 'e', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, total_changes, nil, nil, nil, (*int8)(unsafe.Pointer(&[14]int8{'t', 'o', 't', 'a', 'l', '_', 'c', 'h', 'a', 'n', 'g', 'e', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, replaceFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'r', 'e', 'p', 'l', 'a', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, zeroblobFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'z', 'e', 'r', 'o', 'b', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'s', 'u', 'b', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'s', 'u', 'b', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 'u', 'b', 's', 't', 'r', 'i', 'n', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 'u', 'b', 's', 't', 'r', 'i', 'n', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, sumFinalize, sumFinalize, sumInverse, (*int8)(unsafe.Pointer(&[4]int8{'s', 'u', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, totalFinalize, totalFinalize, sumInverse, (*int8)(unsafe.Pointer(&[6]int8{'t', 'o', 't', 'a', 'l', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, avgFinalize, avgFinalize, sumInverse, (*int8)(unsafe.Pointer(&[4]int8{'a', 'v', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32 | 256 | 134217728), unsafe.Pointer(nil), nil, countStep, countFinalize, countFinalize, countInverse, (*int8)(unsafe.Pointer(&[6]int8{'c', 'o', 'u', 'n', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 134217728), unsafe.Pointer(nil), nil, countStep, countFinalize, countFinalize, countInverse, (*int8)(unsafe.Pointer(&[6]int8{'c', 'o', 'u', 'n', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, groupConcatStep, groupConcatFinalize, groupConcatValue, groupConcatInverse, (*int8)(unsafe.Pointer(&[13]int8{'g', 'r', 'o', 'u', 'p', '_', 'c', 'o', 'n', 'c', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, groupConcatStep, groupConcatFinalize, groupConcatValue, groupConcatInverse, (*int8)(unsafe.Pointer(&[13]int8{'g', 'r', 'o', 'u', 'p', '_', 'c', 'o', 'n', 'c', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 4 | 8), unsafe.Pointer(&globInfo), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'g', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 4), unsafe.Pointer(&likeInfoNorm), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'l', 'i', 'k', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 4), unsafe.Pointer(&likeInfoNorm), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'l', 'i', 'k', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, signFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'s', 'i', 'g', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(nil), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int(5))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'i', 'i', 'f', '\x00'})), _cgoa_9{nil}}}
+	var aBuiltinFunc [69]struct_FuncDef = [69]struct_FuncDef{struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int64(1))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[20]int8{'i', 'm', 'p', 'l', 'i', 'e', 's', '_', 'n', 'o', 'n', 'n', 'u', 'l', 'l', '_', 'r', 'o', 'w', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int64(3))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'e', 'x', 'p', 'r', '_', 'c', 'o', 'm', 'p', 'a', 'r', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int64(2))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'e', 'x', 'p', 'r', '_', 'i', 'm', 'p', 'l', 'i', 'e', 's', '_', 'e', 'x', 'p', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 262144 | 16384 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int64(4))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'a', 'f', 'f', 'i', 'n', 'i', 't', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 524288 | 2097152), unsafe.Pointer(nil), nil, loadExt, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'l', 'o', 'a', 'd', '_', 'e', 'x', 't', 'e', 'n', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 524288 | 2097152), unsafe.Pointer(nil), nil, loadExt, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'l', 'o', 'a', 'd', '_', 'e', 'x', 't', 'e', 'n', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 8192 | 1), nil, nil, compileoptionusedFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[26]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'o', 'p', 't', 'i', 'o', 'n', '_', 'u', 's', 'e', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 8192 | 1), nil, nil, compileoptiongetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[25]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'c', 'o', 'm', 'p', 'i', 'l', 'e', 'o', 'p', 't', 'i', 'o', 'n', '_', 'g', 'e', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int64(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'u', 'n', 'l', 'i', 'k', 'e', 'l', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int64(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'l', 'i', 'k', 'e', 'l', 'i', 'h', 'o', 'o', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 4194304 | 2048 | 1024), unsafe.Pointer(uintptr(int64(99))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'l', 'i', 'k', 'e', 'l', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(1))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(1))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(2))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(2))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 't', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(3))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(uintptr(int64(3))), nil, trimFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'i', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, minmaxFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 1*32 | 4096 | 134217728), unsafe.Pointer(nil), nil, minmaxStep, minMaxFinalize, minMaxValue, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'i', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(uintptr(int64(1))), nil, minmaxFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(uintptr(int64(1))), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 1*32 | 4096 | 134217728), unsafe.Pointer(uintptr(int64(1))), nil, minmaxStep, minMaxFinalize, minMaxValue, nil, (*int8)(unsafe.Pointer(&[4]int8{'m', 'a', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 128), unsafe.Pointer(nil), nil, typeofFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'t', 'y', 'p', 'e', 'o', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 128), unsafe.Pointer(nil), nil, subtypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'s', 'u', 'b', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32 | 64), unsafe.Pointer(nil), nil, lengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, instrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'i', 'n', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, printfFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'p', 'r', 'i', 'n', 't', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, printfFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'f', 'o', 'r', 'm', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, unicodeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'u', 'n', 'i', 'c', 'o', 'd', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, charFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'c', 'h', 'a', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, absFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'a', 'b', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, roundFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 'o', 'u', 'n', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, roundFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'r', 'o', 'u', 'n', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, upperFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'u', 'p', 'p', 'e', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, lowerFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'l', 'o', 'w', 'e', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, hexFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'h', 'e', 'x', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(nil), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'i', 'f', 'n', 'u', 'l', 'l', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, randomFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'r', 'a', 'n', 'd', 'o', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, randomBlob, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'r', 'a', 'n', 'd', 'o', 'm', 'b', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 1*32), unsafe.Pointer(nil), nil, nullifFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'n', 'u', 'l', 'l', 'i', 'f', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 8192 | 1), nil, nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[15]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'v', 'e', 'r', 's', 'i', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 8192 | 1), nil, nil, sourceidFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[17]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 's', 'o', 'u', 'r', 'c', 'e', '_', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, errlogFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'s', 'q', 'l', 'i', 't', 'e', '_', 'l', 'o', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, quoteFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[6]int8{'q', 'u', 'o', 't', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, last_insert_rowid, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'l', 'a', 's', 't', '_', 'i', 'n', 's', 'e', 'r', 't', '_', 'r', 'o', 'w', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, changes, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'c', 'h', 'a', 'n', 'g', 'e', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32), unsafe.Pointer(nil), nil, total_changes, nil, nil, nil, (*int8)(unsafe.Pointer(&[14]int8{'t', 'o', 't', 'a', 'l', '_', 'c', 'h', 'a', 'n', 'g', 'e', 's', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, replaceFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[8]int8{'r', 'e', 'p', 'l', 'a', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, zeroblobFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'z', 'e', 'r', 'o', 'b', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'s', 'u', 'b', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[7]int8{'s', 'u', 'b', 's', 't', 'r', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 'u', 'b', 's', 't', 'r', 'i', 'n', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, substrFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 'u', 'b', 's', 't', 'r', 'i', 'n', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, sumFinalize, sumFinalize, sumInverse, (*int8)(unsafe.Pointer(&[4]int8{'s', 'u', 'm', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, totalFinalize, totalFinalize, sumInverse, (*int8)(unsafe.Pointer(&[6]int8{'t', 'o', 't', 'a', 'l', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, sumStep, avgFinalize, avgFinalize, sumInverse, (*int8)(unsafe.Pointer(&[4]int8{'a', 'v', 'g', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 1 | 0*32 | 256 | 134217728), unsafe.Pointer(nil), nil, countStep, countFinalize, countFinalize, countInverse, (*int8)(unsafe.Pointer(&[6]int8{'c', 'o', 'u', 'n', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 134217728), unsafe.Pointer(nil), nil, countStep, countFinalize, countFinalize, countInverse, (*int8)(unsafe.Pointer(&[6]int8{'c', 'o', 'u', 'n', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, groupConcatStep, groupConcatFinalize, groupConcatValue, groupConcatInverse, (*int8)(unsafe.Pointer(&[13]int8{'g', 'r', 'o', 'u', 'p', '_', 'c', 'o', 'n', 'c', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 0*32 | 0), unsafe.Pointer(nil), nil, groupConcatStep, groupConcatFinalize, groupConcatValue, groupConcatInverse, (*int8)(unsafe.Pointer(&[13]int8{'g', 'r', 'o', 'u', 'p', '_', 'c', 'o', 'n', 'c', 'a', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 4 | 8), unsafe.Pointer(&globInfo), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'g', 'l', 'o', 'b', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 1 | 4), unsafe.Pointer(&likeInfoNorm), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'l', 'i', 'k', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 2048 | 1 | 4), unsafe.Pointer(&likeInfoNorm), nil, likeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'l', 'i', 'k', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(0), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, nil, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 1 | 0*32), unsafe.Pointer(nil), nil, signFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'s', 'i', 'g', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(nil), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'c', 'o', 'a', 'l', 'e', 's', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(3), uint32(8388608 | 1 | 4194304 | 2048 | 0), unsafe.Pointer(uintptr(int64(5))), nil, versionFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'i', 'i', 'f', '\x00'})), _cgoa_9{nil}}}
 	sqlite3AlterFunctions()
 	sqlite3WindowFunctions()
 	sqlite3RegisterDateTimeFunctions()
@@ -70009,7 +70006,7 @@ func sqlite3FkLocateIndex(pParse *struct_Parse, pParent *struct_Table, pFKey *st
 			_ = 0
 			return 0
 		}()
-		aiCol = (*int32)(sqlite3DbMallocRawNN(pParse.db, uint64(uint(nCol)*4)))
+		aiCol = (*int32)(sqlite3DbMallocRawNN(pParse.db, uint64(uint64(nCol)*4)))
 		if !(aiCol != nil) {
 			return int32(1)
 		}
@@ -70763,7 +70760,7 @@ func fkActionTrigger(pParse *struct_Parse, pTab *struct_Table, pFKey *struct_FKe
 		}
 		db.lookaside.bDisable++
 		db.lookaside.sz = uint16(0)
-		pTrigger = (*struct_Trigger)(sqlite3DbMallocZero(db, uint64(72+96+uint(nFrom)+uint(1))))
+		pTrigger = (*struct_Trigger)(sqlite3DbMallocZero(db, uint64(72+96+uint64(nFrom)+uint64(1))))
 		if pTrigger != nil {
 			pStep = func() (_cgo_ret *struct_TriggerStep) {
 				_cgo_addr := &pTrigger.step_list
@@ -70771,7 +70768,7 @@ func fkActionTrigger(pParse *struct_Parse, pTab *struct_Table, pFKey *struct_FKe
 				return *_cgo_addr
 			}()
 			pStep.zTarget = (*int8)(unsafe.Pointer(&*(*struct_TriggerStep)(unsafe.Pointer(uintptr(unsafe.Pointer(pStep)) + uintptr(1)*96))))
-			__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(pStep.zTarget))), unsafe.Pointer(zFrom), uint(nFrom), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(pStep.zTarget))), 0))
+			__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(pStep.zTarget))), unsafe.Pointer(zFrom), uint(uint64(nFrom)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(pStep.zTarget))), 0))
 			pStep.pWhere = sqlite3ExprDup(db, pWhere, 1)
 			pStep.pExprList = sqlite3ExprListDup(db, pList, 1)
 			pStep.pSelect = sqlite3SelectDup(db, pSelect, 1)
@@ -71028,7 +71025,7 @@ func sqlite3TableAffinity(v *struct_Vdbe, pTab *struct_Table, iReg int32) {
 		_ = 0
 		return 0
 	}()
-	i = int32(strlen(zColAff) & uint(1073741823))
+	i = int32(strlen(zColAff) & uint64(1073741823))
 	if i != 0 {
 		if iReg != 0 {
 			sqlite3VdbeAddOp4(v, 95, iReg, i, 0, zColAff, i)
@@ -71630,7 +71627,7 @@ func sqlite3Insert(pParse *struct_Parse, pTabList *struct_SrcList, pSelect *stru
 	if !(isView != 0) {
 		var nIdx int32
 		nIdx = sqlite3OpenTableAndIndices(pParse, pTab, 112, uint8(0), -1, nil, &iDataCur, &iIdxCur)
-		aRegIdx = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint(nIdx+2))))
+		aRegIdx = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint64(nIdx+2))))
 		if uintptr(unsafe.Pointer(aRegIdx)) == uintptr(unsafe.Pointer(nil)) {
 			goto insert_cleanup
 		}
@@ -72241,7 +72238,7 @@ func sqlite3GenerateConstraintChecks(pParse *struct_Parse, pTab *struct_Table, a
 			}
 			sIdxIter.eType = int32(1)
 			sIdxIter.u.ax.nIdx = nIdx
-			nByte = uint64((12+uint(1))*uint(nIdx) + uint(nIdx))
+			nByte = uint64((12+uint64(1))*uint64(nIdx) + uint64(nIdx))
 			sIdxIter.u.ax.aIdx = (*struct_IndexListTerm)(sqlite3DbMallocZero(db, nByte))
 			if uintptr(unsafe.Pointer(sIdxIter.u.ax.aIdx)) == uintptr(unsafe.Pointer(nil)) {
 				return
@@ -72610,7 +72607,7 @@ func sqlite3GenerateConstraintChecks(pParse *struct_Parse, pTab *struct_Table, a
 							}
 							zP4 = (*int8)(func() unsafe.Pointer {
 								if int32(x.p4type) == -3 {
-									return unsafe.Pointer(uintptr(int(*(*int32)(unsafe.Pointer(&x.p4)))))
+									return unsafe.Pointer(uintptr(int64(*(*int32)(unsafe.Pointer(&x.p4)))))
 								} else {
 									return unsafe.Pointer(*(**int8)(unsafe.Pointer(&x.p4)))
 								}
@@ -73272,7 +73269,7 @@ func sqlite3_exec(db *struct_sqlite3, zSql *int8, xCallback func(unsafe.Pointer,
 			if xCallback != nil && (100 == rc || 101 == rc && !(callbackIsInit != 0) && db.flags&uint64(256) != 0) {
 				if !(callbackIsInit != 0) {
 					nCol = sqlite3_column_count(pStmt)
-					azCols = (**int8)(sqlite3DbMallocRaw(db, uint64(uint(2*nCol+1)*8)))
+					azCols = (**int8)(sqlite3DbMallocRaw(db, uint64(uint64(2*nCol+1)*8)))
 					if uintptr(unsafe.Pointer(azCols)) == uintptr(unsafe.Pointer(nil)) {
 						goto exec_out
 					}
@@ -73676,7 +73673,7 @@ func sqlite3LoadExtension(db *struct_sqlite3, zFile *int8, zProc *int8, pzErrMsg
 			sqlite3OsDlClose(pVfs, handle)
 			return int32(7)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(zAltEntry), unsafe.Pointer((*int8)(unsafe.Pointer(&[9]int8{'s', 'q', 'l', 'i', 't', 'e', '3', '_', '\x00'}))), uint(8), __builtin_object_size(unsafe.Pointer(zAltEntry), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zAltEntry), unsafe.Pointer((*int8)(unsafe.Pointer(&[9]int8{'s', 'q', 'l', 'i', 't', 'e', '3', '_', '\x00'}))), uint(uint64(8)), __builtin_object_size(unsafe.Pointer(zAltEntry), 0))
 		for iFile = ncFile - 1; iFile >= 0 && !(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile)) + uintptr(iFile)))) == '/'); iFile-- {
 		}
 		iFile++
@@ -73697,7 +73694,7 @@ func sqlite3LoadExtension(db *struct_sqlite3, zFile *int8, zProc *int8, pzErrMsg
 				}()))) = int8(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3UpperToLower)))) + uintptr(uint32(c)))))
 			}
 		}
-		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAltEntry))+uintptr(iEntry)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'_', 'i', 'n', 'i', 't', '\x00'}))), uint(6), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAltEntry))+uintptr(iEntry)))), 0))
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAltEntry))+uintptr(iEntry)))), unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'_', 'i', 'n', 'i', 't', '\x00'}))), uint(uint64(6)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zAltEntry))+uintptr(iEntry)))), 0))
 		zEntry = zAltEntry
 		xInit = func(_cgo_fn func()) func(*struct_sqlite3, **int8, *struct_sqlite3_api_routines) int32 {
 			return *(*func(*struct_sqlite3, **int8, *struct_sqlite3_api_routines) int32)(unsafe.Pointer(&_cgo_fn))
@@ -73707,7 +73704,7 @@ func sqlite3LoadExtension(db *struct_sqlite3, zFile *int8, zProc *int8, pzErrMsg
 		return *(*uintptr)(unsafe.Pointer(&_cgo_fn))
 	}(xInit) == uintptr(unsafe.Pointer(nil)) {
 		if pzErrMsg != nil {
-			nMsg += uint64(strlen(zEntry) + uint(300))
+			nMsg += uint64(strlen(zEntry) + uint64(300))
 			*pzErrMsg = func() (_cgo_ret *int8) {
 				_cgo_addr := &zErrmsg
 				*_cgo_addr = (*int8)(sqlite3_malloc64(nMsg))
@@ -73739,12 +73736,12 @@ func sqlite3LoadExtension(db *struct_sqlite3, zFile *int8, zProc *int8, pzErrMsg
 		sqlite3OsDlClose(pVfs, handle)
 		return int32(1)
 	}
-	aHandle = (*unsafe.Pointer)(sqlite3DbMallocZero(db, uint64(8*uint(db.nExtension+1))))
+	aHandle = (*unsafe.Pointer)(sqlite3DbMallocZero(db, uint64(8*uint64(db.nExtension+1))))
 	if uintptr(unsafe.Pointer(aHandle)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
 	}
 	if db.nExtension > 0 {
-		__builtin___memcpy_chk(unsafe.Pointer(aHandle), unsafe.Pointer(db.aExtension), 8*uint(db.nExtension), __builtin_object_size(unsafe.Pointer(aHandle), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(aHandle), unsafe.Pointer(db.aExtension), uint(8*uint64(db.nExtension)), __builtin_object_size(unsafe.Pointer(aHandle), 0))
 	}
 	sqlite3DbFree(db, unsafe.Pointer(db.aExtension))
 	db.aExtension = aHandle
@@ -73831,7 +73828,7 @@ func sqlite3_auto_extension(xInit func()) int32 {
 			}
 		}
 		if i == sqlite3Autoext.nExt {
-			var nByte uint64 = uint64(uint(sqlite3Autoext.nExt+uint32(1)) * 8)
+			var nByte uint64 = uint64(uint64(sqlite3Autoext.nExt+uint32(1)) * 8)
 			var aNew *func()
 			aNew = (*func())(sqlite3_realloc64(unsafe.Pointer(sqlite3Autoext.aExt), nByte))
 			if uintptr(unsafe.Pointer(aNew)) == uintptr(unsafe.Pointer(nil)) {
@@ -75378,7 +75375,7 @@ func sqlite3Pragma(pParse *struct_Parse, pId1 *struct_Token, pId2 *struct_Token,
 				if pObjTab != nil {
 					cnt++
 				}
-				aRoot = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint(cnt+1))))
+				aRoot = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint64(cnt+1))))
 				if uintptr(unsafe.Pointer(aRoot)) == uintptr(unsafe.Pointer(nil)) {
 					break
 				}
@@ -75800,7 +75797,7 @@ func sqlite3Pragma(pParse *struct_Parse, pId1 *struct_Token, pId2 *struct_Token,
 				}(db.xWalCallback) == func(_cgo_fn func(unsafe.Pointer, *struct_sqlite3, *int8, int32) int32) uintptr {
 					return *(*uintptr)(unsafe.Pointer(&_cgo_fn))
 				}(sqlite3WalDefaultHook) {
-					return int32(int(uintptr(db.pWalArg)))
+					return int32(int64(uintptr(db.pWalArg)))
 				} else {
 					return 0
 				}
@@ -77563,7 +77560,7 @@ func pushOntoSorter(pParse *struct_Parse, pSort *struct_SortCtx, pSelect *struct
 		}
 		pOp.p2 = nKey + nData
 		pKI = *(**struct_KeyInfo)(unsafe.Pointer(&pOp.p4))
-		__builtin___memset_chk(unsafe.Pointer(pKI.aSortFlags), 0, uint(pKI.nKeyField), __builtin_object_size(unsafe.Pointer(pKI.aSortFlags), 0))
+		__builtin___memset_chk(unsafe.Pointer(pKI.aSortFlags), 0, uint(uint64(pKI.nKeyField)), __builtin_object_size(unsafe.Pointer(pKI.aSortFlags), 0))
 		sqlite3VdbeChangeP4(v, -1, (*int8)(unsafe.Pointer(pKI)), -9)
 		*(**struct_KeyInfo)(unsafe.Pointer(&pOp.p4)) = sqlite3KeyInfoFromExprList(pParse, pSort.pOrderBy, nOBSat, int32(pKI.nAllField)-int32(pKI.nKeyField)-1)
 		pOp = (*struct_VdbeOp)(nil)
@@ -77991,8 +77988,8 @@ func selectInnerLoop(pParse *struct_Parse, p *struct_Select, srcTab int32, pSort
 	}
 }
 func sqlite3KeyInfoAlloc(db *struct_sqlite3, N int32, X int32) *struct_KeyInfo {
-	var nExtra int32 = int32(uint(N+X)*(8+uint(1)) - 8)
-	var p *struct_KeyInfo = (*struct_KeyInfo)(sqlite3DbMallocRawNN(db, uint64(40+uint(nExtra))))
+	var nExtra int32 = int32(uint64(N+X)*(8+uint64(1)) - 8)
+	var p *struct_KeyInfo = (*struct_KeyInfo)(sqlite3DbMallocRawNN(db, uint64(40+uint64(nExtra))))
 	if p != nil {
 		p.aSortFlags = (*uint8)(unsafe.Pointer(&*(**struct_CollSeq)(unsafe.Pointer(uintptr(unsafe.Pointer((**struct_CollSeq)(unsafe.Pointer(&p.aColl)))) + uintptr(N+X)*8))))
 		p.nKeyField = uint16(N)
@@ -78000,7 +77997,7 @@ func sqlite3KeyInfoAlloc(db *struct_sqlite3, N int32, X int32) *struct_KeyInfo {
 		p.enc = db.enc
 		p.db = db
 		p.nRef = uint32(1)
-		__builtin___memset_chk(unsafe.Pointer(&*(*struct_KeyInfo)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*40))), 0, uint(nExtra), __builtin_object_size(unsafe.Pointer(&*(*struct_KeyInfo)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*40))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(*struct_KeyInfo)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*40))), 0, uint(uint64(nExtra)), __builtin_object_size(unsafe.Pointer(&*(*struct_KeyInfo)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*40))), 0))
 	} else {
 		return (*struct_KeyInfo)(sqlite3OomFault(db))
 	}
@@ -78490,7 +78487,7 @@ func sqlite3ColumnsFromExprList(pParse *struct_Parse, pEList *struct_ExprList, p
 	sqlite3HashInit(&ht)
 	if pEList != nil {
 		nCol = pEList.nExpr
-		aCol = (*struct_Column)(sqlite3DbMallocZero(db, uint64(20*uint(nCol))))
+		aCol = (*struct_Column)(sqlite3DbMallocZero(db, uint64(20*uint64(nCol))))
 		if nCol > 32767 {
 			nCol = int32(32767)
 		}
@@ -78656,7 +78653,7 @@ func sqlite3SelectAddColumnTypeAndCollation(pParse *struct_Parse, pTab *struct_T
 			n = int64(sqlite3Strlen30(pCol.zCnName))
 			pCol.zCnName = (*int8)(sqlite3DbReallocOrFree(db, unsafe.Pointer(pCol.zCnName), uint64(n+m+int64(2))))
 			if pCol.zCnName != nil {
-				__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName)) + uintptr(n+int64(1))))), unsafe.Pointer(zType), uint(m+int64(1)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName)) + uintptr(n+int64(1))))), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName)) + uintptr(n+int64(1))))), unsafe.Pointer(zType), uint(uint64(m+int64(1))), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pCol.zCnName)) + uintptr(n+int64(1))))), 0))
 				pCol.colFlags |= uint16(4)
 			} else {
 				pCol.colFlags &= uint16(65019)
@@ -79632,7 +79629,7 @@ func multiSelectOrderBy(pParse *struct_Parse, p *struct_Select, pDest *struct_Se
 			}
 		}
 	}
-	aPermute = (*uint32)(sqlite3DbMallocRawNN(db, uint64(4*uint(nOrderBy+1))))
+	aPermute = (*uint32)(sqlite3DbMallocRawNN(db, uint64(4*uint64(nOrderBy+1))))
 	if aPermute != nil {
 		var pItem *struct_ExprList_item
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aPermute)) + uintptr(0)*4)) = uint32(nOrderBy)
@@ -80448,7 +80445,7 @@ func constInsert(pConst *struct_WhereConst, pColumn *struct_Expr, pValue *struct
 		pConst.bHasAffBlob = int32(1)
 	}
 	pConst.nConst++
-	pConst.apExpr = (**struct_Expr)(sqlite3DbReallocOrFree(pConst.pParse.db, unsafe.Pointer(pConst.apExpr), uint64(uint(pConst.nConst*2)*8)))
+	pConst.apExpr = (**struct_Expr)(sqlite3DbReallocOrFree(pConst.pParse.db, unsafe.Pointer(pConst.apExpr), uint64(uint64(pConst.nConst*2)*8)))
 	if uintptr(unsafe.Pointer(pConst.apExpr)) == uintptr(unsafe.Pointer(nil)) {
 		pConst.nConst = int32(0)
 	} else {
@@ -82883,7 +82880,7 @@ func sqlite3_get_table_cb(pArg unsafe.Pointer, nCol int32, argv **int8, colv **i
 	if p.nData+uint32(need) > p.nAlloc {
 		var azNew **int8
 		p.nAlloc = p.nAlloc*uint32(2) + uint32(need)
-		azNew = (**int8)(sqlite3Realloc(unsafe.Pointer(p.azResult), uint64(8*uint(p.nAlloc))))
+		azNew = (**int8)(sqlite3Realloc(unsafe.Pointer(p.azResult), uint64(8*uint64(p.nAlloc))))
 		if uintptr(unsafe.Pointer(azNew)) == uintptr(unsafe.Pointer(nil)) {
 			goto malloc_failed
 		}
@@ -82919,7 +82916,7 @@ func sqlite3_get_table_cb(pArg unsafe.Pointer, nCol int32, argv **int8, colv **i
 				if uintptr(unsafe.Pointer(z)) == uintptr(unsafe.Pointer(nil)) {
 					goto malloc_failed
 				}
-				__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(argv)) + uintptr(i)*8))), uint(n), __builtin_object_size(unsafe.Pointer(z), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(argv)) + uintptr(i)*8))), uint(uint64(n)), __builtin_object_size(unsafe.Pointer(z), 0))
 			}
 			*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.azResult)) + uintptr(func() (_cgo_ret uint32) {
 				_cgo_addr := &p.nData
@@ -82954,7 +82951,7 @@ func sqlite3_get_table(db *struct_sqlite3, zSql *int8, pazResult ***int8, pnRow 
 	res.nData = uint32(1)
 	res.nAlloc = uint32(20)
 	res.rc = int32(0)
-	res.azResult = (**int8)(sqlite3_malloc64(uint64(8 * uint(res.nAlloc))))
+	res.azResult = (**int8)(sqlite3_malloc64(uint64(8 * uint64(res.nAlloc))))
 	if uintptr(unsafe.Pointer(res.azResult)) == uintptr(unsafe.Pointer(nil)) {
 		db.errCode = int32(7)
 		return int32(7)
@@ -82965,7 +82962,7 @@ func sqlite3_get_table(db *struct_sqlite3, zSql *int8, pazResult ***int8, pnRow 
 		_ = 0
 		return 0
 	}()
-	*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(res.azResult)) + uintptr(0)*8)) = (*int8)(unsafe.Pointer(uintptr(int(res.nData))))
+	*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(res.azResult)) + uintptr(0)*8)) = (*int8)(unsafe.Pointer(uintptr(int64(res.nData))))
 	if rc&255 == 4 {
 		sqlite3_free_table(&*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(res.azResult)) + uintptr(1)*8)))
 		if res.zErrMsg != nil {
@@ -82985,7 +82982,7 @@ func sqlite3_get_table(db *struct_sqlite3, zSql *int8, pazResult ***int8, pnRow 
 	}
 	if res.nAlloc > res.nData {
 		var azNew **int8
-		azNew = (**int8)(sqlite3Realloc(unsafe.Pointer(res.azResult), uint64(8*uint(res.nData))))
+		azNew = (**int8)(sqlite3Realloc(unsafe.Pointer(res.azResult), uint64(8*uint64(res.nData))))
 		if uintptr(unsafe.Pointer(azNew)) == uintptr(unsafe.Pointer(nil)) {
 			sqlite3_free_table(&*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(res.azResult)) + uintptr(1)*8)))
 			db.errCode = int32(7)
@@ -83011,7 +83008,7 @@ func sqlite3_free_table(azResult **int8) {
 			_ = 0
 			return 0
 		}()
-		n = int32(int(uintptr(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azResult)) + uintptr(0)*8))))))
+		n = int32(int64(uintptr(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azResult)) + uintptr(0)*8))))))
 		for i = int32(1); i < n; i++ {
 			if *(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azResult)) + uintptr(i)*8)) != nil {
 				sqlite3_free(unsafe.Pointer(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azResult)) + uintptr(i)*8))))
@@ -83372,10 +83369,10 @@ func triggerStepAllocate(pParse *struct_Parse, op uint8, pName *struct_Token, zS
 	if pParse.nErr != 0 {
 		return (*struct_TriggerStep)(nil)
 	}
-	pTriggerStep = (*struct_TriggerStep)(sqlite3DbMallocZero(db, uint64(96+uint(pName.n)+uint(1))))
+	pTriggerStep = (*struct_TriggerStep)(sqlite3DbMallocZero(db, uint64(96+uint64(pName.n)+uint64(1))))
 	if pTriggerStep != nil {
 		var z *int8 = (*int8)(unsafe.Pointer(&*(*struct_TriggerStep)(unsafe.Pointer(uintptr(unsafe.Pointer(pTriggerStep)) + uintptr(1)*96))))
-		__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(pName.z), uint(pName.n), __builtin_object_size(unsafe.Pointer(z), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(z), unsafe.Pointer(pName.z), uint(uint64(pName.n)), __builtin_object_size(unsafe.Pointer(z), 0))
 		sqlite3Dequote(z)
 		pTriggerStep.zTarget = z
 		pTriggerStep.op = op
@@ -84432,13 +84429,13 @@ func sqlite3Update(pParse *struct_Parse, pTabList *struct_SrcList, pChanges *str
 		pParse.nTab = iBaseCur
 	}
 	(*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&pTabList.a)))) + uintptr(0)*112))).iCursor = iDataCur
-	aXRef = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint(int32(pTab.nCol)+nIdx+1)+uint(nIdx)+uint(2))))
+	aXRef = (*int32)(sqlite3DbMallocRawNN(db, uint64(4*uint64(int32(pTab.nCol)+nIdx+1)+uint64(nIdx)+uint64(2))))
 	if uintptr(unsafe.Pointer(aXRef)) == uintptr(unsafe.Pointer(nil)) {
 		goto update_cleanup
 	}
 	aRegIdx = (*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aXRef)) + uintptr(int32(pTab.nCol))*4))
 	aToOpen = (*uint8)(unsafe.Pointer((*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aRegIdx))+uintptr(nIdx)*4)))) + uintptr(1)*4))))
-	__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(nIdx+1), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
+	__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(uint64(nIdx+1)), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
 	*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(aToOpen)) + uintptr(nIdx+1))) = uint8(0)
 	for i = int32(0); i < int32(pTab.nCol); i++ {
 		*(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer(aXRef)) + uintptr(i)*4)) = int32(-1)
@@ -84603,7 +84600,7 @@ func sqlite3Update(pParse *struct_Parse, pTabList *struct_SrcList, pChanges *str
 		return *_cgo_addr
 	}()
 	if bReplace != 0 {
-		__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(nIdx+1), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
+		__builtin___memset_chk(unsafe.Pointer(aToOpen), 1, uint(uint64(nIdx+1)), __builtin_object_size(unsafe.Pointer(aToOpen), 0))
 	}
 	if int32(pParse.nested) == 0 {
 		sqlite3VdbeCountChanges(v)
@@ -85508,7 +85505,7 @@ func execSql(db *struct_sqlite3, pzErrMsg **int8, zSql *int8) int32 {
 			_ = 0
 			return 0
 		}()
-		if zSubSql != nil && (strncmp(zSubSql, (*int8)(unsafe.Pointer(&[4]int8{'C', 'R', 'E', '\x00'})), uint(3)) == 0 || strncmp(zSubSql, (*int8)(unsafe.Pointer(&[4]int8{'I', 'N', 'S', '\x00'})), uint(3)) == 0) {
+		if zSubSql != nil && (strncmp(zSubSql, (*int8)(unsafe.Pointer(&[4]int8{'C', 'R', 'E', '\x00'})), uint64(3)) == 0 || strncmp(zSubSql, (*int8)(unsafe.Pointer(&[4]int8{'I', 'N', 'S', '\x00'})), uint64(3)) == 0) {
 			rc = execSql(db, pzErrMsg, zSubSql)
 			if rc != 0 {
 				break
@@ -85778,13 +85775,13 @@ func sqlite3VtabCreateModule(db *struct_sqlite3, zName *int8, pModule *struct_sq
 		pMod = (*struct_Module)(nil)
 	} else {
 		var nName int32 = sqlite3Strlen30(zName)
-		pMod = (*struct_Module)(sqlite3Malloc(uint64(48 + uint(nName) + uint(1))))
+		pMod = (*struct_Module)(sqlite3Malloc(uint64(48 + uint64(nName) + uint64(1))))
 		if uintptr(unsafe.Pointer(pMod)) == uintptr(unsafe.Pointer(nil)) {
 			sqlite3OomFault(db)
 			return (*struct_Module)(nil)
 		}
 		zCopy = (*int8)(unsafe.Pointer(&*(*struct_Module)(unsafe.Pointer(uintptr(unsafe.Pointer(pMod)) + uintptr(1)*48))))
-		__builtin___memcpy_chk(unsafe.Pointer(zCopy), unsafe.Pointer(zName), uint(nName+1), __builtin_object_size(unsafe.Pointer(zCopy), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zCopy), unsafe.Pointer(zName), uint(uint64(nName+1)), __builtin_object_size(unsafe.Pointer(zCopy), 0))
 		pMod.zName = zCopy
 		pMod.pModule = pModule
 		pMod.pAux = pAux
@@ -86005,7 +86002,7 @@ func addModuleArgument(pParse *struct_Parse, pTable *struct_Table, zArg *int8) {
 		_ = 0
 		return 0
 	}()
-	nBytes = int64(8 * uint(2+(*(*_cgoa_13)(unsafe.Pointer(&pTable.u))).nArg))
+	nBytes = int64(8 * uint64(2+(*(*_cgoa_13)(unsafe.Pointer(&pTable.u))).nArg))
 	if (*(*_cgoa_13)(unsafe.Pointer(&pTable.u))).nArg+3 >= *(*int32)(unsafe.Pointer(uintptr(unsafe.Pointer((*int32)(unsafe.Pointer(&db.aLimit)))) + uintptr(2)*4)) {
 		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[23]int8{'t', 'o', 'o', ' ', 'm', 'a', 'n', 'y', ' ', 'c', 'o', 'l', 'u', 'm', 'n', 's', ' ', 'o', 'n', ' ', '%', 's', '\x00'})), pTable.zName)
 	}
@@ -86311,7 +86308,7 @@ func growVTrans(db *struct_sqlite3) int32 {
 		if !(aVTrans != nil) {
 			return int32(7)
 		}
-		__builtin___memset_chk(unsafe.Pointer(&*(**struct_VTable)(unsafe.Pointer(uintptr(unsafe.Pointer(aVTrans)) + uintptr(db.nVTrans)*8))), 0, 8*uint(ARRAY_INCR), __builtin_object_size(unsafe.Pointer(&*(**struct_VTable)(unsafe.Pointer(uintptr(unsafe.Pointer(aVTrans)) + uintptr(db.nVTrans)*8))), 0))
+		__builtin___memset_chk(unsafe.Pointer(&*(**struct_VTable)(unsafe.Pointer(uintptr(unsafe.Pointer(aVTrans)) + uintptr(db.nVTrans)*8))), 0, uint(8*uint64(ARRAY_INCR)), __builtin_object_size(unsafe.Pointer(&*(**struct_VTable)(unsafe.Pointer(uintptr(unsafe.Pointer(aVTrans)) + uintptr(db.nVTrans)*8))), 0))
 		db.aVTrans = aVTrans
 	}
 	return int32(0)
@@ -86661,13 +86658,13 @@ func sqlite3VtabOverloadFunction(db *struct_sqlite3, pDef *struct_FuncDef, nArg 
 	if rc == 0 {
 		return pDef
 	}
-	pNew = (*struct_FuncDef)(sqlite3DbMallocZero(db, uint64(72+uint(sqlite3Strlen30(pDef.zName))+uint(1))))
+	pNew = (*struct_FuncDef)(sqlite3DbMallocZero(db, uint64(72+uint64(sqlite3Strlen30(pDef.zName))+uint64(1))))
 	if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
 		return pDef
 	}
 	*pNew = *pDef
 	pNew.zName = (*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*72))))
-	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*72))))), unsafe.Pointer(pDef.zName), uint(sqlite3Strlen30(pDef.zName)+1), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*72))))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*72))))), unsafe.Pointer(pDef.zName), uint(uint64(sqlite3Strlen30(pDef.zName)+1)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&*(*struct_FuncDef)(unsafe.Pointer(uintptr(unsafe.Pointer(pNew)) + uintptr(1)*72))))), 0))
 	pNew.xSFunc = xSFunc
 	pNew.pUserData = pArg
 	pNew.funcFlags |= uint32(16)
@@ -86693,7 +86690,7 @@ func sqlite3VtabMakeWritable(pParse *struct_Parse, pTab *struct_Table) {
 			return
 		}
 	}
-	n = int32(uint(pToplevel.nVtabLock+1) * 8)
+	n = int32(uint64(pToplevel.nVtabLock+1) * 8)
 	apVtabLock = (**struct_Table)(sqlite3Realloc(unsafe.Pointer(pToplevel.apVtabLock), uint64(n)))
 	if apVtabLock != nil {
 		pToplevel.apVtabLock = apVtabLock
@@ -87432,7 +87429,7 @@ func codeEqualityTerm(pParse *struct_Parse, pTerm *struct_WhereTerm, pLevel *str
 			var db *struct_sqlite3 = pParse.db
 			pX = removeUnindexableInClauseTerms(pParse, iEq, pLoop, pX)
 			if !(db.mallocFailed != 0) {
-				aiMap = (*int32)(sqlite3DbMallocZero(pParse.db, uint64(4*uint(nEq))))
+				aiMap = (*int32)(sqlite3DbMallocZero(pParse.db, uint64(4*uint64(nEq))))
 				eType = sqlite3FindInIndex(pParse, pX, uint32(4), nil, aiMap, &iTab)
 				pTerm.pExpr.iTable = iTab
 			}
@@ -87468,7 +87465,7 @@ func codeEqualityTerm(pParse *struct_Parse, pTerm *struct_WhereTerm, pLevel *str
 		}
 		i = pLevel.u.in.nIn
 		pLevel.u.in.nIn += nEq
-		pLevel.u.in.aInLoop = (*struct_InLoop)(sqlite3DbReallocOrFree(pParse.db, unsafe.Pointer(pLevel.u.in.aInLoop), uint64(17*uint(pLevel.u.in.nIn))))
+		pLevel.u.in.aInLoop = (*struct_InLoop)(sqlite3DbReallocOrFree(pParse.db, unsafe.Pointer(pLevel.u.in.aInLoop), uint64(17*uint64(pLevel.u.in.nIn))))
 		pIn = pLevel.u.in.aInLoop
 		if pIn != nil {
 			var iMap int32 = 0
@@ -87682,7 +87679,7 @@ func codeDeferredSeek(pWInfo *struct_WhereInfo, pIdx *struct_Index, iCur int32, 
 	}().writeMask == uint32(0) {
 		var i int32
 		var pTab *struct_Table = pIdx.pTable
-		var ai *uint32 = (*uint32)(sqlite3DbMallocZero(pParse.db, uint64(4*uint(int32(pTab.nCol)+1))))
+		var ai *uint32 = (*uint32)(sqlite3DbMallocZero(pParse.db, uint64(4*uint64(int32(pTab.nCol)+1))))
 		if ai != nil {
 			*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(ai)) + uintptr(0)*4)) = uint32(pTab.nCol)
 			for i = int32(0); i < int32(pIdx.nColumn)-1; i++ {
@@ -88771,7 +88768,7 @@ func sqlite3WhereCodeOneLoopStart(pParse *struct_Parse, v *struct_Vdbe, pWInfo *
 			var nNotReady int32
 			var origSrc *struct_SrcItem
 			nNotReady = int32(pWInfo.nLevel) - iLevel - 1
-			pOrTab = (*struct_SrcList)(sqlite3DbMallocRaw(db, uint64(120+uint(nNotReady)*112)))
+			pOrTab = (*struct_SrcList)(sqlite3DbMallocRaw(db, uint64(120+uint64(nNotReady)*112)))
 			if uintptr(unsafe.Pointer(pOrTab)) == uintptr(unsafe.Pointer(nil)) {
 				return notReady
 			}
@@ -89174,7 +89171,7 @@ func whereClauseInsert(pWC *struct_WhereClause, p *struct_Expr, wtFlags uint16) 
 	if pWC.nTerm >= pWC.nSlot {
 		var pOld *struct_WhereTerm = pWC.a
 		var db *struct_sqlite3 = pWC.pWInfo.pParse.db
-		pWC.a = (*struct_WhereTerm)(sqlite3DbMallocRawNN(db, uint64(56*uint(pWC.nSlot)*uint(2))))
+		pWC.a = (*struct_WhereTerm)(sqlite3DbMallocRawNN(db, uint64(56*uint64(pWC.nSlot)*uint64(2))))
 		if uintptr(unsafe.Pointer(pWC.a)) == uintptr(unsafe.Pointer(nil)) {
 			if int32(wtFlags)&1 != 0 {
 				sqlite3ExprDelete(db, p)
@@ -89182,11 +89179,11 @@ func whereClauseInsert(pWC *struct_WhereClause, p *struct_Expr, wtFlags uint16) 
 			pWC.a = pOld
 			return int32(0)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(pWC.a), unsafe.Pointer(pOld), 56*uint(pWC.nTerm), __builtin_object_size(unsafe.Pointer(pWC.a), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(pWC.a), unsafe.Pointer(pOld), uint(56*uint64(pWC.nTerm)), __builtin_object_size(unsafe.Pointer(pWC.a), 0))
 		if uintptr(unsafe.Pointer(pOld)) != uintptr(unsafe.Pointer((*struct_WhereTerm)(unsafe.Pointer(&pWC.aStatic)))) {
 			sqlite3DbFree(db, unsafe.Pointer(pOld))
 		}
-		pWC.nSlot = int32(uint(sqlite3DbMallocSize(db, unsafe.Pointer(pWC.a))) / 56)
+		pWC.nSlot = int32(uint64(sqlite3DbMallocSize(db, unsafe.Pointer(pWC.a))) / 56)
 	}
 	pTerm = &*(*struct_WhereTerm)(unsafe.Pointer(uintptr(unsafe.Pointer(pWC.a)) + uintptr(func() (_cgo_ret int32) {
 		_cgo_addr := &idx
@@ -90804,7 +90801,7 @@ func sqlite3WhereBreakLabel(pWInfo *struct_WhereInfo) int32 {
 	return pWInfo.iBreak
 }
 func sqlite3WhereOkOnePass(pWInfo *struct_WhereInfo, aiCur *int32) int32 {
-	__builtin___memcpy_chk(unsafe.Pointer(aiCur), unsafe.Pointer((*int32)(unsafe.Pointer(&pWInfo.aiCurOnePass))), 4*uint(2), __builtin_object_size(unsafe.Pointer(aiCur), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(aiCur), unsafe.Pointer((*int32)(unsafe.Pointer(&pWInfo.aiCurOnePass))), uint(4*uint64(2)), __builtin_object_size(unsafe.Pointer(aiCur), 0))
 	return int32(pWInfo.eOnePass)
 }
 func sqlite3WhereUsesDeferredSeek(pWInfo *struct_WhereInfo) int32 {
@@ -90812,7 +90809,7 @@ func sqlite3WhereUsesDeferredSeek(pWInfo *struct_WhereInfo) int32 {
 }
 func whereOrMove(pDest *struct_WhereOrSet, pSrc *struct_WhereOrSet) {
 	pDest.n = pSrc.n
-	__builtin___memcpy_chk(unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pDest.a))), unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pSrc.a))), uint(pDest.n)*12, __builtin_object_size(unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pDest.a))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pDest.a))), unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pSrc.a))), uint(uint64(pDest.n)*12), __builtin_object_size(unsafe.Pointer((*struct_WhereOrCost)(unsafe.Pointer(&pDest.a))), 0))
 }
 func whereOrInsert(pSet *struct_WhereOrSet, prereq uint64, rRun int16, nOut int16) int32 {
 	var i uint16
@@ -91263,8 +91260,8 @@ func constructAutomaticIndex(pParse *struct_Parse, pWC *struct_WhereClause, pSrc
 			}()
 			iCol = pTerm.u.x.leftColumn
 			cMask = func() uint64 {
-				if iCol >= int32(8*uint(8)) {
-					return uint64(1) << (int32(8*uint(8)) - 1)
+				if iCol >= int32(8*uint64(8)) {
+					return uint64(1) << (int32(8*uint64(8)) - 1)
 				} else {
 					return uint64(1) << iCol
 				}
@@ -91297,10 +91294,10 @@ func constructAutomaticIndex(pParse *struct_Parse, pWC *struct_WhereClause, pSrc
 		return *_cgo_addr
 	}()
 	pLoop.wsFlags = uint32(1 | 64 | 512 | 16384)
-	extraCols = pSrc.colUsed & (^idxCols | uint64(1)<<(int32(8*uint(8))-1))
+	extraCols = pSrc.colUsed & (^idxCols | uint64(1)<<(int32(8*uint64(8))-1))
 	mxBitCol = func() int32 {
-		if int32(8*uint(8))-1 < int32(pTable.nCol) {
-			return int32(8*uint(8)) - 1
+		if int32(8*uint64(8))-1 < int32(pTable.nCol) {
+			return int32(8*uint64(8)) - 1
 		} else {
 			return int32(pTable.nCol)
 		}
@@ -91310,8 +91307,8 @@ func constructAutomaticIndex(pParse *struct_Parse, pWC *struct_WhereClause, pSrc
 			nKeyCol++
 		}
 	}
-	if pSrc.colUsed&(uint64(1)<<(int32(8*uint(8))-1)) != 0 {
-		nKeyCol += int32(pTable.nCol) - int32(8*uint(8)) + 1
+	if pSrc.colUsed&(uint64(1)<<(int32(8*uint64(8))-1)) != 0 {
+		nKeyCol += int32(pTable.nCol) - int32(8*uint64(8)) + 1
 	}
 	pIdx = sqlite3AllocateIndexObject(pParse.db, int16(nKeyCol+1), 0, &zNotUsed)
 	if uintptr(unsafe.Pointer(pIdx)) == uintptr(unsafe.Pointer(nil)) {
@@ -91332,8 +91329,8 @@ func constructAutomaticIndex(pParse *struct_Parse, pWC *struct_WhereClause, pSrc
 			}()
 			iCol = pTerm.u.x.leftColumn
 			cMask = func() uint64 {
-				if iCol >= int32(8*uint(8)) {
-					return uint64(1) << (int32(8*uint(8)) - 1)
+				if iCol >= int32(8*uint64(8)) {
+					return uint64(1) << (int32(8*uint64(8)) - 1)
 				} else {
 					return uint64(1) << iCol
 				}
@@ -91369,8 +91366,8 @@ func constructAutomaticIndex(pParse *struct_Parse, pWC *struct_WhereClause, pSrc
 			n++
 		}
 	}
-	if pSrc.colUsed&(uint64(1)<<(int32(8*uint(8))-1)) != 0 {
-		for i = int32(8*uint(8)) - 1; i < int32(pTable.nCol); i++ {
+	if pSrc.colUsed&(uint64(1)<<(int32(8*uint64(8))-1)) != 0 {
+		for i = int32(8*uint64(8)) - 1; i < int32(pTable.nCol); i++ {
 			*(*int16)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdx.aiColumn)) + uintptr(n)*2)) = int16(i)
 			*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdx.azColl)) + uintptr(n)*8)) = (*int8)(unsafe.Pointer(&sqlite3StrBINARY))
 			n++
@@ -91712,7 +91709,7 @@ func allocateIndexInfo(pWInfo *struct_WhereInfo, pWC *struct_WhereClause, mUnusa
 			}
 		}
 	}
-	pIdxInfo = (*struct_sqlite3_index_info)(sqlite3DbMallocZero(pParse.db, uint64(96+(12+5)*uint(nTerm)+5*uint(nOrderBy)+40+8*uint(nTerm))))
+	pIdxInfo = (*struct_sqlite3_index_info)(sqlite3DbMallocZero(pParse.db, uint64(96+(12+5)*uint64(nTerm)+5*uint64(nOrderBy)+40+8*uint64(nTerm))))
 	if uintptr(unsafe.Pointer(pIdxInfo)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[14]int8{'o', 'u', 't', ' ', 'o', 'f', ' ', 'm', 'e', 'm', 'o', 'r', 'y', '\x00'})))
 		return (*struct_sqlite3_index_info)(nil)
@@ -91979,11 +91976,11 @@ func whereLoopResize(db *struct_sqlite3, p *struct_WhereLoop, n int32) int32 {
 		return int32(0)
 	}
 	n = (n + 7) & ^7
-	paNew = (**struct_WhereTerm)(sqlite3DbMallocRawNN(db, uint64(8*uint(n))))
+	paNew = (**struct_WhereTerm)(sqlite3DbMallocRawNN(db, uint64(8*uint64(n))))
 	if uintptr(unsafe.Pointer(paNew)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(paNew), unsafe.Pointer(p.aLTerm), 8*uint(p.nLSlot), __builtin_object_size(unsafe.Pointer(paNew), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(paNew), unsafe.Pointer(p.aLTerm), uint(8*uint64(p.nLSlot)), __builtin_object_size(unsafe.Pointer(paNew), 0))
 	if uintptr(unsafe.Pointer(p.aLTerm)) != uintptr(unsafe.Pointer((**struct_WhereTerm)(unsafe.Pointer(&p.aLTermSpace)))) {
 		sqlite3DbFreeNN(db, unsafe.Pointer(p.aLTerm))
 	}
@@ -91998,7 +91995,7 @@ func whereLoopXfer(db *struct_sqlite3, pTo *struct_WhereLoop, pFrom *struct_Wher
 		return int32(7)
 	}
 	__builtin___memcpy_chk(unsafe.Pointer(pTo), unsafe.Pointer(pFrom), 60, __builtin_object_size(unsafe.Pointer(pTo), 0))
-	__builtin___memcpy_chk(unsafe.Pointer(pTo.aLTerm), unsafe.Pointer(pFrom.aLTerm), uint(pTo.nLTerm)*8, __builtin_object_size(unsafe.Pointer(pTo.aLTerm), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(pTo.aLTerm), unsafe.Pointer(pFrom.aLTerm), uint(uint64(pTo.nLTerm)*8), __builtin_object_size(unsafe.Pointer(pTo.aLTerm), 0))
 	if pFrom.wsFlags&uint32(1024) != 0 {
 		{
 			_autoGo_90 := &pFrom.u.vtab.Xbf_0
@@ -92994,7 +92991,7 @@ func whereLoopAddVirtualOne(pBuilder *struct_WhereLoopBuilder, mPrereq uint64, m
 			pIdxCons.usable = uint8(1)
 		}
 	}
-	__builtin___memset_chk(unsafe.Pointer(pUsage), 0, 5*uint(nConstraint), __builtin_object_size(unsafe.Pointer(pUsage), 0))
+	__builtin___memset_chk(unsafe.Pointer(pUsage), 0, uint(5*uint64(nConstraint)), __builtin_object_size(unsafe.Pointer(pUsage), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -93019,7 +93016,7 @@ func whereLoopAddVirtualOne(pBuilder *struct_WhereLoopBuilder, mPrereq uint64, m
 		_ = 0
 		return 0
 	}()
-	__builtin___memset_chk(unsafe.Pointer(pNew.aLTerm), 0, 8*uint(nConstraint), __builtin_object_size(unsafe.Pointer(pNew.aLTerm), 0))
+	__builtin___memset_chk(unsafe.Pointer(pNew.aLTerm), 0, uint(8*uint64(nConstraint)), __builtin_object_size(unsafe.Pointer(pNew.aLTerm), 0))
 	__builtin___memset_chk(unsafe.Pointer(&pNew.u.vtab), 0, 28, __builtin_object_size(unsafe.Pointer(&pNew.u.vtab), 0))
 	pIdxCons = *(**struct_sqlite3_index_constraint)(unsafe.Pointer(&pIdxInfo.aConstraint))
 	for i = int32(0); i < nConstraint; func() *struct_sqlite3_index_constraint {
@@ -93506,7 +93503,7 @@ func wherePathSatisfiesOrderBy(pWInfo *struct_WhereInfo, pOrderBy *struct_ExprLi
 		return int8(0)
 	}
 	nOrderBy = uint16(pOrderBy.nExpr)
-	if int32(nOrderBy) > int32(8*uint(8))-1 {
+	if int32(nOrderBy) > int32(8*uint64(8))-1 {
 		return int8(0)
 	}
 	isOrderDistinct = uint8(1)
@@ -93763,7 +93760,7 @@ func wherePathSatisfiesOrderBy(pWInfo *struct_WhereInfo, pOrderBy *struct_ExprLi
 	if !(isOrderDistinct != 0) {
 		for i = int32(nOrderBy) - 1; i > 0; i-- {
 			var m uint64 = func() uint64 {
-				if i < int32(8*uint(8)) {
+				if i < int32(8*uint64(8)) {
 					return uint64(1)<<i - uint64(1)
 				} else {
 					return uint64(0)
@@ -93859,8 +93856,8 @@ func wherePathSolver(pWInfo *struct_WhereInfo, nRowEst int16) int32 {
 	} else {
 		nOrderBy = pWInfo.pOrderBy.nExpr
 	}
-	nSpace = int32((32 + 8*uint(nLoop)) * uint(mxChoice) * uint(2))
-	nSpace += int32(2 * uint(nOrderBy))
+	nSpace = int32((32 + 8*uint64(nLoop)) * uint64(mxChoice) * uint64(2))
+	nSpace += int32(2 * uint64(nOrderBy))
 	pSpace = (*int8)(sqlite3DbMallocRawNN(db, uint64(nSpace)))
 	if uintptr(unsafe.Pointer(pSpace)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
@@ -93896,7 +93893,7 @@ func wherePathSolver(pWInfo *struct_WhereInfo, nRowEst int16) int32 {
 	}
 	if nOrderBy != 0 {
 		aSortCost = (*int16)(unsafe.Pointer(pX))
-		__builtin___memset_chk(unsafe.Pointer(aSortCost), 0, 2*uint(nOrderBy), __builtin_object_size(unsafe.Pointer(aSortCost), 0))
+		__builtin___memset_chk(unsafe.Pointer(aSortCost), 0, uint(2*uint64(nOrderBy)), __builtin_object_size(unsafe.Pointer(aSortCost), 0))
 	}
 	func() int {
 		_ = 0
@@ -94031,7 +94028,7 @@ func wherePathSolver(pWInfo *struct_WhereInfo, nRowEst int16) int32 {
 				pTo.rCost = rCost
 				pTo.rUnsorted = rUnsorted
 				pTo.isOrdered = isOrdered
-				__builtin___memcpy_chk(unsafe.Pointer(pTo.aLoop), unsafe.Pointer(pFrom.aLoop), 8*uint(iLoop), __builtin_object_size(unsafe.Pointer(pTo.aLoop), 0))
+				__builtin___memcpy_chk(unsafe.Pointer(pTo.aLoop), unsafe.Pointer(pFrom.aLoop), uint(8*uint64(iLoop)), __builtin_object_size(unsafe.Pointer(pTo.aLoop), 0))
 				*(**struct_WhereLoop)(unsafe.Pointer(uintptr(unsafe.Pointer(pTo.aLoop)) + uintptr(iLoop)*8)) = pWLoop
 				if nTo >= mxChoice {
 					mxI = int32(0)
@@ -94339,8 +94336,8 @@ func whereOmitNoopJoin(pWInfo *struct_WhereInfo, notReady uint64) uint64 {
 			}
 		}
 		if i != int32(pWInfo.nLevel)-1 {
-			var nByte int32 = int32(uint(int32(pWInfo.nLevel)-1-i) * 104)
-			__builtin___memmove_chk(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i)*104))), unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i+1)*104))), uint(nByte), __builtin_object_size(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i)*104))), 0))
+			var nByte int32 = int32(uint64(int32(pWInfo.nLevel)-1-i) * 104)
+			__builtin___memmove_chk(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i)*104))), unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i+1)*104))), uint(uint64(nByte)), __builtin_object_size(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(i)*104))), 0))
 		}
 		pWInfo.nLevel--
 		func() int {
@@ -94401,11 +94398,11 @@ func sqlite3WhereBegin(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 	}()
 	db = pParse.db
 	__builtin___memset_chk(unsafe.Pointer(&sWLB), 0, 40, __builtin_object_size(unsafe.Pointer(&sWLB), 0))
-	if pOrderBy != nil && pOrderBy.nExpr >= int32(8*uint(8)) {
+	if pOrderBy != nil && pOrderBy.nExpr >= int32(8*uint64(8)) {
 		pOrderBy = (*struct_ExprList)(nil)
 	}
-	if pTabList.nSrc > int32(8*uint(8)) {
-		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[28]int8{'a', 't', ' ', 'm', 'o', 's', 't', ' ', '%', 'd', ' ', 't', 'a', 'b', 'l', 'e', 's', ' ', 'i', 'n', ' ', 'a', ' ', 'j', 'o', 'i', 'n', '\x00'})), int32(8*uint(8)))
+	if pTabList.nSrc > int32(8*uint64(8)) {
+		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[28]int8{'a', 't', ' ', 'm', 'o', 's', 't', ' ', '%', 'd', ' ', 't', 'a', 'b', 'l', 'e', 's', ' ', 'i', 'n', ' ', 'a', ' ', 'j', 'o', 'i', 'n', '\x00'})), int32(8*uint64(8)))
 		return (*struct_WhereInfo)(nil)
 	}
 	nTabList = func() int32 {
@@ -94415,8 +94412,8 @@ func sqlite3WhereBegin(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 			return pTabList.nSrc
 		}
 	}()
-	nByteWInfo = int32((976 + uint(nTabList-1)*104 + uint(7)) & uint(18446744073709551608))
-	pWInfo = (*struct_WhereInfo)(sqlite3DbMallocRawNN(db, uint64(uint(nByteWInfo)+104)))
+	nByteWInfo = int32((976 + uint64(nTabList-1)*104 + uint64(7)) & uint64(18446744073709551608))
+	pWInfo = (*struct_WhereInfo)(sqlite3DbMallocRawNN(db, uint64(uint64(nByteWInfo)+104)))
 	if db.mallocFailed != 0 {
 		sqlite3DbFree(db, unsafe.Pointer(pWInfo))
 		pWInfo = (*struct_WhereInfo)(nil)
@@ -94443,7 +94440,7 @@ func sqlite3WhereBegin(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 	pWInfo.savedNQueryLoop = int32(pParse.nQueryLoop)
 	pWInfo.pLimit = pLimit
 	__builtin___memset_chk(unsafe.Pointer(&pWInfo.nOBSat), 0, 120-73, __builtin_object_size(unsafe.Pointer(&pWInfo.nOBSat), 0))
-	__builtin___memset_chk(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(0)*104))), 0, 104+uint(nTabList)*104, __builtin_object_size(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(0)*104))), 0))
+	__builtin___memset_chk(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(0)*104))), 0, uint(104+uint64(nTabList)*104), __builtin_object_size(unsafe.Pointer(&*(*struct_WhereLevel)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_WhereLevel)(unsafe.Pointer(&pWInfo.a)))) + uintptr(0)*104))), 0))
 	func() int {
 		_ = 0
 		return 0
@@ -94621,7 +94618,7 @@ func sqlite3WhereBegin(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 				_ = 0
 				return 0
 			}()
-			if int32(pWInfo.eOnePass) == 0 && int32(pTab.nCol) < int32(8*uint(8)) && pTab.tabFlags&uint32(96|128) == uint32(0) && pLoop.wsFlags&uint32(16384|4194304) == uint32(0) {
+			if int32(pWInfo.eOnePass) == 0 && int32(pTab.nCol) < int32(8*uint64(8)) && pTab.tabFlags&uint32(96|128) == uint32(0) && pLoop.wsFlags&uint32(16384|4194304) == uint32(0) {
 				var b uint64 = pTabItem.colUsed
 				var n int32 = 0
 				for ; b != 0; func() int32 {
@@ -94634,7 +94631,7 @@ func sqlite3WhereBegin(pParse *struct_Parse, pTabList *struct_SrcList, pWhere *s
 					}()
 				}() {
 				}
-				sqlite3VdbeChangeP4(v, -1, (*int8)(unsafe.Pointer(uintptr(int(n)))), -3)
+				sqlite3VdbeChangeP4(v, -1, (*int8)(unsafe.Pointer(uintptr(int64(n)))), -3)
 				func() int {
 					_ = 0
 					return 0
@@ -97289,7 +97286,7 @@ func attachWithToSelect(pParse *struct_Parse, pSelect *struct_Select, pWith *str
 	return pSelect
 }
 func tokenExpr(pParse *struct_Parse, op int32, t struct_Token) *struct_Expr {
-	var p *struct_Expr = (*struct_Expr)(sqlite3DbMallocRawNN(pParse.db, uint64(72+uint(t.n)+uint(1))))
+	var p *struct_Expr = (*struct_Expr)(sqlite3DbMallocRawNN(pParse.db, uint64(72+uint64(t.n)+uint64(1))))
 	if p != nil {
 		p.op = uint8(op)
 		p.affExpr = int8(0)
@@ -97307,7 +97304,7 @@ func tokenExpr(pParse *struct_Parse, op int32, t struct_Token) *struct_Expr {
 		p.iTable = int32(0)
 		p.iColumn = int16(0)
 		p.u.zToken = (*int8)(unsafe.Pointer(&*(*struct_Expr)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*72))))
-		__builtin___memcpy_chk(unsafe.Pointer(p.u.zToken), unsafe.Pointer(t.z), uint(t.n), __builtin_object_size(unsafe.Pointer(p.u.zToken), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(p.u.zToken), unsafe.Pointer(t.z), uint(uint64(t.n)), __builtin_object_size(unsafe.Pointer(p.u.zToken), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.u.zToken)) + uintptr(t.n))) = int8(0)
 		*(*int32)(unsafe.Pointer(&p.w)) = int32(uintptr(unsafe.Pointer(t.z)) - uintptr(unsafe.Pointer(pParse.zTail)))
 		if int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.u.zToken)) + uintptr(0))))))))&128 != 0 {
@@ -102449,7 +102446,7 @@ func binCollFunc(NotUsed unsafe.Pointer, nKey1 int32, pKey1 unsafe.Pointer, nKey
 		_ = 0
 		return 0
 	}()
-	rc = memcmp(pKey1, pKey2, uint(n))
+	rc = memcmp(pKey1, pKey2, uint64(n))
 	if rc == 0 {
 		rc = nKey1 - nKey2
 	}
@@ -103179,7 +103176,7 @@ func sqlite3_autovacuum_pages(db *struct_sqlite3, xCallback func(unsafe.Pointer,
 	return int32(0)
 }
 func sqlite3WalDefaultHook(pClientData unsafe.Pointer, db *struct_sqlite3, zDb *int8, nFrame int32) int32 {
-	if nFrame >= int32(int(uintptr(pClientData))) {
+	if nFrame >= int32(int64(uintptr(pClientData))) {
 		sqlite3BeginBenignMalloc()
 		sqlite3_wal_checkpoint(db, zDb)
 		sqlite3EndBenignMalloc()
@@ -103188,7 +103185,7 @@ func sqlite3WalDefaultHook(pClientData unsafe.Pointer, db *struct_sqlite3, zDb *
 }
 func sqlite3_wal_autocheckpoint(db *struct_sqlite3, nFrame int32) int32 {
 	if nFrame > 0 {
-		sqlite3_wal_hook(db, sqlite3WalDefaultHook, unsafe.Pointer(uintptr(int(nFrame))))
+		sqlite3_wal_hook(db, sqlite3WalDefaultHook, unsafe.Pointer(uintptr(int64(nFrame))))
 	} else {
 		sqlite3_wal_hook(db, nil, nil)
 	}
@@ -103520,7 +103517,7 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 		_ = 0
 		return 0
 	}()
-	if (flags&uint32(64) != 0 || int32(sqlite3Config.bOpenUri) != 0) && nUri >= 5 && memcmp(unsafe.Pointer(zUri), unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'f', 'i', 'l', 'e', ':', '\x00'}))), uint(5)) == 0 {
+	if (flags&uint32(64) != 0 || int32(sqlite3Config.bOpenUri) != 0) && nUri >= 5 && memcmp(unsafe.Pointer(zUri), unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'f', 'i', 'l', 'e', ':', '\x00'}))), uint64(5)) == 0 {
 		var zOpt *int8
 		var eState int32
 		var iIn int32
@@ -103540,7 +103537,7 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 		if !(zFile != nil) {
 			return int32(7)
 		}
-		__builtin___memset_chk(unsafe.Pointer(zFile), 0, uint(4), __builtin_object_size(unsafe.Pointer(zFile), 0))
+		__builtin___memset_chk(unsafe.Pointer(zFile), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(zFile), 0))
 		*(*uintptr)(unsafe.Pointer(&zFile)) += uintptr(4)
 		iIn = int32(5)
 		if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(5)))) == '/' && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(6)))) == '/' {
@@ -103548,7 +103545,7 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 			for int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(iIn)))) != 0 && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(iIn)))) != '/' {
 				iIn++
 			}
-			if iIn != 7 && (iIn != 16 || memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[10]int8{'l', 'o', 'c', 'a', 'l', 'h', 'o', 's', 't', '\x00'}))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(7)))), uint(9)) != 0) {
+			if iIn != 7 && (iIn != 16 || memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[10]int8{'l', 'o', 'c', 'a', 'l', 'h', 'o', 's', 't', '\x00'}))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(7)))), uint64(9)) != 0) {
 				*pzErrMsg = sqlite3_mprintf((*int8)(unsafe.Pointer(&[28]int8{'i', 'n', 'v', 'a', 'l', 'i', 'd', ' ', 'u', 'r', 'i', ' ', 'a', 'u', 't', 'h', 'o', 'r', 'i', 't', 'y', ':', ' ', '%', '.', '*', 's', '\x00'})), iIn-7, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zUri)) + uintptr(7))))
 				rc = int32(1)
 				goto parse_uri_out
@@ -103626,13 +103623,13 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 				return
 			}()))) = int8('\x00')
 		}
-		__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(iOut)))), 0, uint(4), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(iOut)))), 0))
+		__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(iOut)))), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(iOut)))), 0))
 		zOpt = &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile)) + uintptr(sqlite3Strlen30(zFile)+1)))
 		for *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOpt)) + uintptr(0))) != 0 {
 			var nOpt int32 = sqlite3Strlen30(zOpt)
 			var zVal *int8 = &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zOpt)) + uintptr(nOpt+1)))
 			var nVal int32 = sqlite3Strlen30(zVal)
-			if nOpt == 3 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'v', 'f', 's', '\x00'}))), unsafe.Pointer(zOpt), uint(3)) == 0 {
+			if nOpt == 3 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[4]int8{'v', 'f', 's', '\x00'}))), unsafe.Pointer(zOpt), uint64(3)) == 0 {
 				zVfs = zVal
 			} else {
 				type struct_OpenMode struct {
@@ -103643,14 +103640,14 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 				var zModeType *int8 = nil
 				var mask int32 = 0
 				var limit int32 = 0
-				if nOpt == 5 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'c', 'a', 'c', 'h', 'e', '\x00'}))), unsafe.Pointer(zOpt), uint(5)) == 0 {
+				if nOpt == 5 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[6]int8{'c', 'a', 'c', 'h', 'e', '\x00'}))), unsafe.Pointer(zOpt), uint64(5)) == 0 {
 					var aCacheMode [3]struct_OpenMode = [3]struct_OpenMode{struct_OpenMode{(*int8)(unsafe.Pointer(&[7]int8{'s', 'h', 'a', 'r', 'e', 'd', '\x00'})), 131072}, struct_OpenMode{(*int8)(unsafe.Pointer(&[8]int8{'p', 'r', 'i', 'v', 'a', 't', 'e', '\x00'})), 262144}, struct_OpenMode{nil, 0}}
 					mask = int32(131072 | 262144)
 					aMode = (*struct_OpenMode)(unsafe.Pointer(&aCacheMode))
 					limit = mask
 					zModeType = (*int8)(unsafe.Pointer(&[6]int8{'c', 'a', 'c', 'h', 'e', '\x00'}))
 				}
-				if nOpt == 4 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[5]int8{'m', 'o', 'd', 'e', '\x00'}))), unsafe.Pointer(zOpt), uint(4)) == 0 {
+				if nOpt == 4 && memcmp(unsafe.Pointer((*int8)(unsafe.Pointer(&[5]int8{'m', 'o', 'd', 'e', '\x00'}))), unsafe.Pointer(zOpt), uint64(4)) == 0 {
 					var aOpenMode [5]struct_OpenMode = [5]struct_OpenMode{struct_OpenMode{(*int8)(unsafe.Pointer(&[3]int8{'r', 'o', '\x00'})), 1}, struct_OpenMode{(*int8)(unsafe.Pointer(&[3]int8{'r', 'w', '\x00'})), 2}, struct_OpenMode{(*int8)(unsafe.Pointer(&[4]int8{'r', 'w', 'c', '\x00'})), 2 | 4}, struct_OpenMode{(*int8)(unsafe.Pointer(&[7]int8{'m', 'e', 'm', 'o', 'r', 'y', '\x00'})), 128}, struct_OpenMode{nil, 0}}
 					mask = int32(1 | 2 | 4 | 128)
 					aMode = (*struct_OpenMode)(unsafe.Pointer(&aOpenMode))
@@ -103662,7 +103659,7 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 					var mode int32 = 0
 					for i = int32(0); (*(*struct_OpenMode)(unsafe.Pointer(uintptr(unsafe.Pointer(aMode)) + uintptr(i)*12))).z != nil; i++ {
 						var z *int8 = (*(*struct_OpenMode)(unsafe.Pointer(uintptr(unsafe.Pointer(aMode)) + uintptr(i)*12))).z
-						if nVal == sqlite3Strlen30(z) && 0 == memcmp(unsafe.Pointer(zVal), unsafe.Pointer(z), uint(nVal)) {
+						if nVal == sqlite3Strlen30(z) && 0 == memcmp(unsafe.Pointer(zVal), unsafe.Pointer(z), uint64(nVal)) {
 							mode = (*(*struct_OpenMode)(unsafe.Pointer(uintptr(unsafe.Pointer(aMode)) + uintptr(i)*12))).mode
 							break
 						}
@@ -103687,12 +103684,12 @@ func sqlite3ParseUri(zDefaultVfs *int8, zUri *int8, pFlags *uint32, ppVfs **stru
 		if !(zFile != nil) {
 			return int32(7)
 		}
-		__builtin___memset_chk(unsafe.Pointer(zFile), 0, uint(4), __builtin_object_size(unsafe.Pointer(zFile), 0))
+		__builtin___memset_chk(unsafe.Pointer(zFile), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(zFile), 0))
 		*(*uintptr)(unsafe.Pointer(&zFile)) += uintptr(4)
 		if nUri != 0 {
-			__builtin___memcpy_chk(unsafe.Pointer(zFile), unsafe.Pointer(zUri), uint(nUri), __builtin_object_size(unsafe.Pointer(zFile), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(zFile), unsafe.Pointer(zUri), uint(uint64(nUri)), __builtin_object_size(unsafe.Pointer(zFile), 0))
 		}
-		__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(nUri)))), 0, uint(4), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(nUri)))), 0))
+		__builtin___memset_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(nUri)))), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFile))+uintptr(nUri)))), 0))
 		flags &= uint32(4294967231)
 	}
 	*ppVfs = sqlite3_vfs_find(zVfs)
@@ -104540,8 +104537,8 @@ func databaseName(zName *int8) *int8 {
 	return zName
 }
 func appendText(p *int8, z *int8) *int8 {
-	var n uint = strlen(z)
-	__builtin___memcpy_chk(unsafe.Pointer(p), unsafe.Pointer(z), n+uint(1), __builtin_object_size(unsafe.Pointer(p), 0))
+	var n uint64 = strlen(z)
+	__builtin___memcpy_chk(unsafe.Pointer(p), unsafe.Pointer(z), uint(n+uint64(1)), __builtin_object_size(unsafe.Pointer(p), 0))
 	return (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p))+uintptr(n))))) + uintptr(1)))
 }
 func sqlite3_create_filename(zDatabase *int8, zJournal *int8, zWal *int8, nParam int32, azParam **int8) *int8 {
@@ -104549,9 +104546,9 @@ func sqlite3_create_filename(zDatabase *int8, zJournal *int8, zWal *int8, nParam
 	var i int32
 	var pResult *int8
 	var p *int8
-	nByte = int64(strlen(zDatabase) + strlen(zJournal) + strlen(zWal) + uint(10))
+	nByte = int64(strlen(zDatabase) + strlen(zJournal) + strlen(zWal) + uint64(10))
 	for i = int32(0); i < nParam*2; i++ {
-		nByte += int64(uint64(strlen(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azParam)) + uintptr(i)*8))) + uint(1)))
+		nByte += int64(uint64(strlen(*(**int8)(unsafe.Pointer(uintptr(unsafe.Pointer(azParam)) + uintptr(i)*8))) + uint64(1)))
 	}
 	pResult = func() (_cgo_ret *int8) {
 		_cgo_addr := &p
@@ -104561,7 +104558,7 @@ func sqlite3_create_filename(zDatabase *int8, zJournal *int8, zWal *int8, nParam
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 		return (*int8)(nil)
 	}
-	__builtin___memset_chk(unsafe.Pointer(p), 0, uint(4), __builtin_object_size(unsafe.Pointer(p), 0))
+	__builtin___memset_chk(unsafe.Pointer(p), 0, uint(uint64(4)), __builtin_object_size(unsafe.Pointer(p), 0))
 	*(*uintptr)(unsafe.Pointer(&p)) += uintptr(4)
 	p = appendText(p, zDatabase)
 	for i = int32(0); i < nParam*2; i++ {
@@ -104825,7 +104822,7 @@ func jsonGrow(p *struct_JsonString, N uint32) int32 {
 			jsonOom(p)
 			return int32(7)
 		}
-		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(p.zBuf), uint(p.nUsed), __builtin_object_size(unsafe.Pointer(zNew), 0))
+		__builtin___memcpy_chk(unsafe.Pointer(zNew), unsafe.Pointer(p.zBuf), uint(uint64(p.nUsed)), __builtin_object_size(unsafe.Pointer(zNew), 0))
 		p.zBuf = zNew
 		p.bStatic = uint8(0)
 	} else {
@@ -104846,7 +104843,7 @@ func jsonAppendRaw(p *struct_JsonString, zIn *int8, N uint32) {
 	if uint64(N)+p.nUsed >= p.nAlloc && jsonGrow(p, N) != 0 {
 		return
 	}
-	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zBuf))+uintptr(p.nUsed)))), unsafe.Pointer(zIn), uint(N), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zBuf))+uintptr(p.nUsed)))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zBuf))+uintptr(p.nUsed)))), unsafe.Pointer(zIn), uint(uint64(N)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.zBuf))+uintptr(p.nUsed)))), 0))
 	p.nUsed += uint64(N)
 }
 func jsonPrintf(N int32, p *struct_JsonString, zFormat *int8, __cgo_args ...interface {
@@ -105485,7 +105482,7 @@ func jsonParseAddNodeExpand(pParse *struct_JsonParse, eType uint32, n uint32, zC
 		return int32(-1)
 	}
 	nNew = pParse.nAlloc*uint32(2) + uint32(10)
-	pNew = (*struct_JsonNode)(sqlite3_realloc64(unsafe.Pointer(pParse.aNode), uint64(16*uint(nNew))))
+	pNew = (*struct_JsonNode)(sqlite3_realloc64(unsafe.Pointer(pParse.aNode), uint64(16*uint64(nNew))))
 	if uintptr(unsafe.Pointer(pNew)) == uintptr(unsafe.Pointer(nil)) {
 		pParse.oom = uint8(1)
 		return int32(-1)
@@ -105667,13 +105664,13 @@ func jsonParseValue(pParse *struct_JsonParse, i uint32) int32 {
 			(*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pParse.aNode)) + uintptr(pParse.nNode-uint32(1))*16))).jnFlags = jnFlags
 		}
 		return int32(j + uint32(1))
-	} else if int32(c) == 'n' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[5]int8{'n', 'u', 'l', 'l', '\x00'})), uint(4)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(4)))))))))&6 != 0) {
+	} else if int32(c) == 'n' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[5]int8{'n', 'u', 'l', 'l', '\x00'})), uint64(4)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(4)))))))))&6 != 0) {
 		jsonParseAddNode(pParse, uint32(0), uint32(0), nil)
 		return int32(i + uint32(4))
-	} else if int32(c) == 't' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'u', 'e', '\x00'})), uint(4)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(4)))))))))&6 != 0) {
+	} else if int32(c) == 't' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[5]int8{'t', 'r', 'u', 'e', '\x00'})), uint64(4)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(4)))))))))&6 != 0) {
 		jsonParseAddNode(pParse, uint32(1), uint32(0), nil)
 		return int32(i + uint32(4))
-	} else if int32(c) == 'f' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[6]int8{'f', 'a', 'l', 's', 'e', '\x00'})), uint(5)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(5)))))))))&6 != 0) {
+	} else if int32(c) == 'f' && strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z))+uintptr(i))), (*int8)(unsafe.Pointer(&[6]int8{'f', 'a', 'l', 's', 'e', '\x00'})), uint64(5)) == 0 && !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3CtypeMap)))) + uintptr(uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(5)))))))))&6 != 0) {
 		jsonParseAddNode(pParse, uint32(2), uint32(0), nil)
 		return int32(i + uint32(5))
 	} else if int32(c) == '-' || int32(c) >= '0' && int32(c) <= '9' {
@@ -105826,7 +105823,7 @@ func jsonParseFindParents(pParse *struct_JsonParse) int32 {
 	}()
 	aUp = func() (_cgo_ret *uint32) {
 		_cgo_addr := &pParse.aUp
-		*_cgo_addr = (*uint32)(sqlite3_malloc64(uint64(4 * uint(pParse.nNode))))
+		*_cgo_addr = (*uint32)(sqlite3_malloc64(uint64(4 * uint64(pParse.nNode))))
 		return *_cgo_addr
 	}()
 	if uintptr(unsafe.Pointer(aUp)) == uintptr(unsafe.Pointer(nil)) {
@@ -105854,7 +105851,7 @@ func jsonParseCached(pCtx *struct_sqlite3_context, argv **struct_sqlite3_value, 
 			iMinKey = iKey
 			break
 		}
-		if uintptr(unsafe.Pointer(pMatch)) == uintptr(unsafe.Pointer(nil)) && p.nJson == nJson && memcmp(unsafe.Pointer(p.zJson), unsafe.Pointer(zJson), uint(nJson)) == 0 {
+		if uintptr(unsafe.Pointer(pMatch)) == uintptr(unsafe.Pointer(nil)) && p.nJson == nJson && memcmp(unsafe.Pointer(p.zJson), unsafe.Pointer(zJson), uint64(nJson)) == 0 {
 			p.nErr = uint8(0)
 			pMatch = p
 		} else if p.iHold < iMinHold {
@@ -105870,14 +105867,14 @@ func jsonParseCached(pCtx *struct_sqlite3_context, argv **struct_sqlite3_value, 
 		pMatch.iHold = iMaxHold + uint32(1)
 		return pMatch
 	}
-	p = (*struct_JsonParse)(sqlite3_malloc64(uint64(44 + uint(nJson) + uint(1))))
+	p = (*struct_JsonParse)(sqlite3_malloc64(uint64(44 + uint64(nJson) + uint64(1))))
 	if uintptr(unsafe.Pointer(p)) == uintptr(unsafe.Pointer(nil)) {
 		sqlite3_result_error_nomem(pCtx)
 		return (*struct_JsonParse)(nil)
 	}
 	__builtin___memset_chk(unsafe.Pointer(p), 0, 44, __builtin_object_size(unsafe.Pointer(p), 0))
 	p.zJson = (*int8)(unsafe.Pointer(&*(*struct_JsonParse)(unsafe.Pointer(uintptr(unsafe.Pointer(p)) + uintptr(1)*44))))
-	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(p.zJson))), unsafe.Pointer(zJson), uint(nJson+1), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(p.zJson))), 0))
+	__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(p.zJson))), unsafe.Pointer(zJson), uint(uint64(nJson+1)), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(p.zJson))), 0))
 	if jsonParse(p, pErrCtx, p.zJson) != 0 {
 		sqlite3_free(unsafe.Pointer(p))
 		return (*struct_JsonParse)(nil)
@@ -105899,7 +105896,7 @@ func jsonLabelCompare(pNode *struct_JsonNode, zKey *int8, nKey uint32) int32 {
 			return int32(0)
 		}
 		return func() int32 {
-			if strncmp(pNode.u.zJContent, zKey, uint(nKey)) == 0 {
+			if strncmp(pNode.u.zJContent, zKey, uint64(nKey)) == 0 {
 				return 1
 			} else {
 				return 0
@@ -105910,7 +105907,7 @@ func jsonLabelCompare(pNode *struct_JsonNode, zKey *int8, nKey uint32) int32 {
 			return int32(0)
 		}
 		return func() int32 {
-			if strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNode.u.zJContent))+uintptr(1))), zKey, uint(nKey)) == 0 {
+			if strncmp((*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pNode.u.zJContent))+uintptr(1))), zKey, uint64(nKey)) == 0 {
 				return 1
 			} else {
 				return 0
@@ -106120,7 +106117,7 @@ func jsonLookupAppend(pParse *struct_JsonParse, zPath *int8, pApnd *int32, pzErr
 	}
 	if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zPath)) + uintptr(0)))) == '.' {
 		jsonParseAddNode(pParse, uint32(7), uint32(0), nil)
-	} else if strncmp(zPath, (*int8)(unsafe.Pointer(&[4]int8{'[', '0', ']', '\x00'})), uint(3)) == 0 {
+	} else if strncmp(zPath, (*int8)(unsafe.Pointer(&[4]int8{'[', '0', ']', '\x00'})), uint64(3)) == 0 {
 		jsonParseAddNode(pParse, uint32(6), uint32(0), nil)
 	} else {
 		return (*struct_JsonNode)(nil)
@@ -106249,7 +106246,7 @@ func jsonExtractFunc(ctx *struct_sqlite3_context, argc int32, argv **struct_sqli
 	var p *struct_JsonParse
 	var pNode *struct_JsonNode
 	var zPath *int8
-	var flags int32 = int32(int(uintptr(sqlite3_user_data(ctx))))
+	var flags int32 = int32(int64(uintptr(sqlite3_user_data(ctx))))
 	var jx struct_JsonString
 	if argc < 2 {
 		return
@@ -106387,7 +106384,7 @@ func jsonMergePatch(pParse *struct_JsonParse, iTarget uint32, pPatch *struct_Jso
 				_ = 0
 				return 0
 			}()
-			if (*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pTarget)) + uintptr(j)*16))).n == nKey && strncmp((*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pTarget)) + uintptr(j)*16))).u.zJContent, zKey, uint(nKey)) == 0 {
+			if (*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pTarget)) + uintptr(j)*16))).n == nKey && strncmp((*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pTarget)) + uintptr(j)*16))).u.zJContent, zKey, uint64(nKey)) == 0 {
 				if int32((*(*struct_JsonNode)(unsafe.Pointer(uintptr(unsafe.Pointer(pTarget)) + uintptr(j+uint32(1))*16))).jnFlags)&(4|16) != 0 {
 					break
 				}
@@ -106777,7 +106774,7 @@ func jsonGroupInverse(ctx *struct_sqlite3_context, argc int32, argv **struct_sql
 	}
 	if uint64(i) < pStr.nUsed {
 		pStr.nUsed -= uint64(i)
-		__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(1)))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(1))))), uint(pStr.nUsed)-uint(1), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(1)))), 0))
+		__builtin___memmove_chk(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(1)))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(i+uint32(1))))), uint(uint64(pStr.nUsed)-uint64(1)), __builtin_object_size(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(1)))), 0))
 		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(z)) + uintptr(pStr.nUsed))) = int8(0)
 	} else {
 		pStr.nUsed = uint64(1)
@@ -107267,7 +107264,7 @@ func jsonEachFilter(cur *struct_sqlite3_vtab_cursor, idxNum int32, idxStr *int8,
 	if uintptr(unsafe.Pointer(p.zJson)) == uintptr(unsafe.Pointer(nil)) {
 		return int32(7)
 	}
-	__builtin___memcpy_chk(unsafe.Pointer(p.zJson), unsafe.Pointer(z), uint(n)+uint(1), __builtin_object_size(unsafe.Pointer(p.zJson), 0))
+	__builtin___memcpy_chk(unsafe.Pointer(p.zJson), unsafe.Pointer(z), uint(uint64(n)+uint64(1)), __builtin_object_size(unsafe.Pointer(p.zJson), 0))
 	if jsonParse(&p.sParse, nil, p.zJson) != 0 {
 		var rc int32 = 7
 		if int32(p.sParse.oom) == 0 {
@@ -107295,7 +107292,7 @@ func jsonEachFilter(cur *struct_sqlite3_vtab_cursor, idxNum int32, idxStr *int8,
 			if uintptr(unsafe.Pointer(p.zRoot)) == uintptr(unsafe.Pointer(nil)) {
 				return int32(7)
 			}
-			__builtin___memcpy_chk(unsafe.Pointer(p.zRoot), unsafe.Pointer(zRoot), uint(n)+uint(1), __builtin_object_size(unsafe.Pointer(p.zRoot), 0))
+			__builtin___memcpy_chk(unsafe.Pointer(p.zRoot), unsafe.Pointer(zRoot), uint(uint64(n)+uint64(1)), __builtin_object_size(unsafe.Pointer(p.zRoot), 0))
 			if int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zRoot)) + uintptr(0)))) != '$' {
 				zErr = zRoot
 			} else {
@@ -107350,7 +107347,7 @@ var jsonEachModule struct_sqlite3_module = struct_sqlite3_module{0, nil, jsonEac
 var jsonTreeModule struct_sqlite3_module = struct_sqlite3_module{0, nil, jsonEachConnect, jsonEachBestIndex, jsonEachDisconnect, nil, jsonEachOpenTree, jsonEachClose, jsonEachFilter, jsonEachNext, jsonEachEof, jsonEachColumn, jsonEachRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
 
 func sqlite3RegisterJsonFunctions() {
-	var aJsonFunc [19]struct_FuncDef = [19]struct_FuncDef{struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'j', 's', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'e', 'x', 't', 'r', 'a', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int(1))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[3]int8{'-', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int(2))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'-', '>', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'i', 'n', 's', 'e', 'r', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonObjectFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonPatchFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'p', 'a', 't', 'c', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonQuoteFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'q', 'u', 'o', 't', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'm', 'o', 'v', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonReplaceFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'p', 'l', 'a', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int(4))), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'j', 's', 'o', 'n', '_', 's', 'e', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonValidFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'v', 'a', 'l', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonArrayStep, jsonArrayFinal, jsonArrayValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[17]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonObjectStep, jsonObjectFinal, jsonObjectValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}}
+	var aJsonFunc [19]struct_FuncDef = [19]struct_FuncDef{struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'j', 's', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'e', 'x', 't', 'r', 'a', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(1))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[3]int8{'-', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(2))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'-', '>', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'i', 'n', 's', 'e', 'r', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonObjectFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonPatchFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'p', 'a', 't', 'c', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonQuoteFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'q', 'u', 'o', 't', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'm', 'o', 'v', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonReplaceFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'p', 'l', 'a', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(4))), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'j', 's', 'o', 'n', '_', 's', 'e', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonValidFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'v', 'a', 'l', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonArrayStep, jsonArrayFinal, jsonArrayValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[17]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonObjectStep, jsonObjectFinal, jsonObjectValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}}
 	sqlite3InsertBuiltinFuncs((*struct_FuncDef)(unsafe.Pointer(&aJsonFunc)), int32(1368/72))
 }
 func sqlite3JsonTableFunctions(db *struct_sqlite3) int32 {
@@ -107361,7 +107358,7 @@ func sqlite3JsonTableFunctions(db *struct_sqlite3) int32 {
 	}
 	var aMod [2]_cgoa_92 = [2]_cgoa_92{_cgoa_92{(*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 'e', 'a', 'c', 'h', '\x00'})), &jsonEachModule}, _cgoa_92{(*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'r', 'e', 'e', '\x00'})), &jsonTreeModule}}
 	var i uint32
-	for i = uint32(0); uint(i) < 32/16 && rc == 0; i++ {
+	for i = uint32(0); uint64(i) < 32/16 && rc == 0; i++ {
 		rc = sqlite3_create_module(db, (*(*_cgoa_92)(unsafe.Pointer(uintptr(unsafe.Pointer((*_cgoa_92)(unsafe.Pointer(&aMod)))) + uintptr(i)*16))).zName, (*(*_cgoa_92)(unsafe.Pointer(uintptr(unsafe.Pointer((*_cgoa_92)(unsafe.Pointer(&aMod)))) + uintptr(i)*16))).pModule, nil)
 	}
 	return rc
