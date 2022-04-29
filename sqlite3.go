@@ -2224,13 +2224,18 @@ var sqlite3aLTb *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint
 var sqlite3aEQb *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3UpperToLower)))) + uintptr(256+6-52)))
 var sqlite3aGTb *uint8 = &*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(&sqlite3UpperToLower)))) + uintptr(256+12-52)))
 var sqlite3CtypeMap [256]uint8 = [256]uint8{uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(1), uint8(1), uint8(1), uint8(1), uint8(1), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(1), uint8(0), uint8(128), uint8(0), uint8(64), uint8(0), uint8(0), uint8(128), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(12), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(10), uint8(10), uint8(10), uint8(10), uint8(10), uint8(10), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(2), uint8(128), uint8(0), uint8(0), uint8(0), uint8(64), uint8(128), uint8(42), uint8(42), uint8(42), uint8(42), uint8(42), uint8(42), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(34), uint8(0), uint8(0), uint8(0), uint8(0), uint8(0), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64), uint8(64)}
-var sqlite3Config struct_Sqlite3Config = struct_Sqlite3Config{1, uint8(1), func() uint8 {
-	if 1 == 1 {
-		return 1
-	} else {
-		return 0
-	}
-}(), uint8(0), uint8(1), uint8(0), uint8(1), 2147483646, 0, 1200, 40, 64 * 1024, struct_sqlite3_mem_methods{nil, nil, nil, nil, nil, nil, nil, nil}, struct_sqlite3_mutex_methods{nil, nil, nil, nil, nil, nil, nil, nil, nil}, struct_sqlite3_pcache_methods2{0, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}, unsafe.Pointer(nil), 0, 0, 0, int64(0), int64(2147418112), unsafe.Pointer(nil), 0, 20, 0, 0, uint32(250), 0, 0, 0, 0, 0, 0, nil, nil, nil, int64(1073741824), nil, 0, nil, 2147483646, uint32(2147483647), uint32(0)}
+var sqlite3Config struct_Sqlite3Config
+
+func init() {
+	sqlite3Config = struct_Sqlite3Config{1, uint8(1), func() uint8 {
+		if 1 == 1 {
+			return 1
+		} else {
+			return 0
+		}
+	}(), uint8(0), uint8(1), uint8(0), uint8(1), 2147483646, 0, 1200, 40, 64 * 1024, struct_sqlite3_mem_methods{nil, nil, nil, nil, nil, nil, nil, nil}, struct_sqlite3_mutex_methods{nil, nil, nil, nil, nil, nil, nil, nil, nil}, struct_sqlite3_pcache_methods2{0, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}, unsafe.Pointer(nil), 0, 0, 0, int64(0), int64(2147418112), unsafe.Pointer(nil), 0, 20, 0, 0, uint32(250), 0, 0, 0, 0, 0, 0, nil, nil, nil, int64(1073741824), nil, 0, nil, 2147483646, uint32(2147483647), uint32(0)}
+}
+
 var sqlite3BuiltinFunctions struct_FuncDefHash
 var sqlite3PendingByte int32 = 1073741824
 var sqlite3SelectTrace uint32 = uint32(0)
@@ -4081,8 +4086,11 @@ type struct_BenignMallocHooks struct {
 	xBenignEnd   func()
 }
 
-var sqlite3Hooks struct_BenignMallocHooks = struct_BenignMallocHooks{nil, nil}
+var sqlite3Hooks struct_BenignMallocHooks
 
+func init() {
+	sqlite3Hooks = struct_BenignMallocHooks{nil, nil}
+}
 func sqlite3BenignMallocHooks(xBenignBegin func(), xBenignEnd func()) {
 	sqlite3Hooks.xBenignBegin = xBenignBegin
 	sqlite3Hooks.xBenignEnd = xBenignEnd
@@ -11492,57 +11500,60 @@ type struct_unix_syscall struct {
 	pDefault func()
 }
 
-var aSyscall [29]struct_unix_syscall = [29]struct_unix_syscall{struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'o', 'p', 'e', 'n', '\x00'})), func(_cgo_fn func(zFile *int8, flags int32, mode int32) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(posixOpen), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'c', 'l', 'o', 's', 'e', '\x00'})), func(_cgo_fn func(int32) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(close), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'a', 'c', 'c', 'e', 's', 's', '\x00'})), func(_cgo_fn func(*int8, int32) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(access), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'g', 'e', 't', 'c', 'w', 'd', '\x00'})), func(_cgo_fn func(*int8, uint64) *int8) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(getcwd), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'s', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(stat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'f', 's', 't', 'a', 't', '\x00'})), func(_cgo_fn func(int32, *struct_stat) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(fstat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[10]int8{'f', 't', 'r', 'u', 'n', 'c', 'a', 't', 'e', '\x00'})), func(_cgo_fn func(int32, int64) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(ftruncate), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'f', 'c', 'n', 't', 'l', '\x00'})), func(_cgo_fn func(int32, int32, ...interface {
-}) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(fcntl), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(int32, unsafe.Pointer, uint64) int64) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(read), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'p', 'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(pread), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'p', 'r', 'e', 'a', 'd', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64) int64) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(write), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'p', 'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(pwrite), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'p', 'w', 'r', 'i', 't', 'e', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'f', 'c', 'h', 'm', 'o', 'd', '\x00'})), func(_cgo_fn func(int32, uint16) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(fchmod), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[10]int8{'f', 'a', 'l', 'l', 'o', 'c', 'a', 't', 'e', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'u', 'n', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(unlink), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[14]int8{'o', 'p', 'e', 'n', 'D', 'i', 'r', 'e', 'c', 't', 'o', 'r', 'y', '\x00'})), func(_cgo_fn func(*int8, *int32) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(openDirectory), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'m', 'k', 'd', 'i', 'r', '\x00'})), func(_cgo_fn func(*int8, uint16) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(mkdir), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'r', 'm', 'd', 'i', 'r', '\x00'})), func(_cgo_fn func(*int8) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(rmdir), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'f', 'c', 'h', 'o', 'w', 'n', '\x00'})), func(_cgo_fn func(int32, uint32, uint32) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(fchown), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'g', 'e', 't', 'e', 'u', 'i', 'd', '\x00'})), func(_cgo_fn func() uint32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(geteuid), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'m', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(mmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'u', 'n', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(munmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'r', 'e', 'm', 'a', 'p', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[12]int8{'g', 'e', 't', 'p', 'a', 'g', 'e', 's', 'i', 'z', 'e', '\x00'})), func(_cgo_fn func() int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(unixGetpagesize), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'r', 'e', 'a', 'd', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8, *int8, uint64) int64) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(readlink), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'l', 's', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
-	return *(*func())(unsafe.Pointer(&_cgo_fn))
-}(lstat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'i', 'o', 'c', 't', 'l', '\x00'})), (func())(nil), nil}}
+var aSyscall [29]struct_unix_syscall
 
+func init() {
+	aSyscall = [29]struct_unix_syscall{struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'o', 'p', 'e', 'n', '\x00'})), func(_cgo_fn func(zFile *int8, flags int32, mode int32) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(posixOpen), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'c', 'l', 'o', 's', 'e', '\x00'})), func(_cgo_fn func(int32) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(close), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'a', 'c', 'c', 'e', 's', 's', '\x00'})), func(_cgo_fn func(*int8, int32) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(access), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'g', 'e', 't', 'c', 'w', 'd', '\x00'})), func(_cgo_fn func(*int8, uint64) *int8) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(getcwd), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'s', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(stat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'f', 's', 't', 'a', 't', '\x00'})), func(_cgo_fn func(int32, *struct_stat) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(fstat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[10]int8{'f', 't', 'r', 'u', 'n', 'c', 'a', 't', 'e', '\x00'})), func(_cgo_fn func(int32, int64) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(ftruncate), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'f', 'c', 'n', 't', 'l', '\x00'})), func(_cgo_fn func(int32, int32, ...interface {
+	}) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(fcntl), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(int32, unsafe.Pointer, uint64) int64) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(read), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'p', 'r', 'e', 'a', 'd', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(pread), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'p', 'r', 'e', 'a', 'd', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64) int64) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(write), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'p', 'w', 'r', 'i', 't', 'e', '\x00'})), func(_cgo_fn func(__fd int32, __buf unsafe.Pointer, __nbyte uint64, __offset int64) int64) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(pwrite), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'p', 'w', 'r', 'i', 't', 'e', '6', '4', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'f', 'c', 'h', 'm', 'o', 'd', '\x00'})), func(_cgo_fn func(int32, uint16) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(fchmod), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[10]int8{'f', 'a', 'l', 'l', 'o', 'c', 'a', 't', 'e', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'u', 'n', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(unlink), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[14]int8{'o', 'p', 'e', 'n', 'D', 'i', 'r', 'e', 'c', 't', 'o', 'r', 'y', '\x00'})), func(_cgo_fn func(*int8, *int32) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(openDirectory), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'m', 'k', 'd', 'i', 'r', '\x00'})), func(_cgo_fn func(*int8, uint16) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(mkdir), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'r', 'm', 'd', 'i', 'r', '\x00'})), func(_cgo_fn func(*int8) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(rmdir), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'f', 'c', 'h', 'o', 'w', 'n', '\x00'})), func(_cgo_fn func(int32, uint32, uint32) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(fchown), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[8]int8{'g', 'e', 't', 'e', 'u', 'i', 'd', '\x00'})), func(_cgo_fn func() uint32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(geteuid), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[5]int8{'m', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64, int32, int32, int32, int64) unsafe.Pointer) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(mmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'u', 'n', 'm', 'a', 'p', '\x00'})), func(_cgo_fn func(unsafe.Pointer, uint64) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(munmap), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[7]int8{'m', 'r', 'e', 'm', 'a', 'p', '\x00'})), (func())(nil), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[12]int8{'g', 'e', 't', 'p', 'a', 'g', 'e', 's', 'i', 'z', 'e', '\x00'})), func(_cgo_fn func() int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(unixGetpagesize), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[9]int8{'r', 'e', 'a', 'd', 'l', 'i', 'n', 'k', '\x00'})), func(_cgo_fn func(*int8, *int8, uint64) int64) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(readlink), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'l', 's', 't', 'a', 't', '\x00'})), func(_cgo_fn func(*int8, *struct_stat) int32) func() {
+		return *(*func())(unsafe.Pointer(&_cgo_fn))
+	}(lstat), nil}, struct_unix_syscall{(*int8)(unsafe.Pointer(&[6]int8{'i', 'o', 'c', 't', 'l', '\x00'})), (func())(nil), nil}}
+}
 func robustFchown(fd int32, uid uint32, gid uint32) int32 {
 	return func() int32 {
 		if func(_cgo_fn func()) func() uint32 {
@@ -14155,8 +14166,11 @@ func unixUnfetch(fd *struct_sqlite3_file, iOff int64, p unsafe.Pointer) int32 {
 	return int32(0)
 }
 
-var posixIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{3, unixClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, unixLock, unixUnlock, unixCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, unixShmMap, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var posixIoMethods struct_sqlite3_io_methods
 
+func init() {
+	posixIoMethods = struct_sqlite3_io_methods{3, unixClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, unixLock, unixUnlock, unixCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, unixShmMap, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func posixIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14170,8 +14184,11 @@ func posixIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 }
 
 var posixIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = posixIoFinderImpl
-var nolockIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{3, nolockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, nolockLock, nolockUnlock, nolockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var nolockIoMethods struct_sqlite3_io_methods
 
+func init() {
+	nolockIoMethods = struct_sqlite3_io_methods{3, nolockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, nolockLock, nolockUnlock, nolockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func nolockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14185,8 +14202,11 @@ func nolockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods 
 }
 
 var nolockIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = nolockIoFinderImpl
-var dotlockIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, dotlockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, dotlockLock, dotlockUnlock, dotlockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var dotlockIoMethods struct_sqlite3_io_methods
 
+func init() {
+	dotlockIoMethods = struct_sqlite3_io_methods{1, dotlockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, dotlockLock, dotlockUnlock, dotlockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func dotlockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14200,8 +14220,11 @@ func dotlockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods
 }
 
 var dotlockIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = dotlockIoFinderImpl
-var flockIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, flockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, flockLock, flockUnlock, flockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var flockIoMethods struct_sqlite3_io_methods
 
+func init() {
+	flockIoMethods = struct_sqlite3_io_methods{1, flockClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, flockLock, flockUnlock, flockCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func flockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14215,8 +14238,11 @@ func flockIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 }
 
 var flockIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = flockIoFinderImpl
-var afpIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, afpClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, afpLock, afpUnlock, afpCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var afpIoMethods struct_sqlite3_io_methods
 
+func init() {
+	afpIoMethods = struct_sqlite3_io_methods{1, afpClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, afpLock, afpUnlock, afpCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func afpIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14230,8 +14256,11 @@ func afpIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 }
 
 var afpIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = afpIoFinderImpl
-var proxyIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, proxyClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, proxyLock, proxyUnlock, proxyCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var proxyIoMethods struct_sqlite3_io_methods
 
+func init() {
+	proxyIoMethods = struct_sqlite3_io_methods{1, proxyClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, proxyLock, proxyUnlock, proxyCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func proxyIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -14245,8 +14274,11 @@ func proxyIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 }
 
 var proxyIoFinder func(*int8, *struct_unixFile) *struct_sqlite3_io_methods = proxyIoFinderImpl
-var nfsIoMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, unixClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, unixLock, nfsUnlock, unixCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+var nfsIoMethods struct_sqlite3_io_methods
 
+func init() {
+	nfsIoMethods = struct_sqlite3_io_methods{1, unixClose, unixRead, unixWrite, unixTruncate, unixSync, unixFileSize, unixLock, nfsUnlock, unixCheckReservedLock, unixFileControl, unixSectorSize, unixDeviceCharacteristics, nil, unixShmLock, unixShmBarrier, unixShmUnmap, unixFetch, unixUnfetch}
+}
 func nfsIoFinderImpl(z *int8, p *struct_unixFile) *struct_sqlite3_io_methods {
 	func() int {
 		_ = z
@@ -16067,9 +16099,17 @@ type struct_MemFS struct {
 }
 
 var memdb_g struct_MemFS
-var memdb_vfs struct_sqlite3_vfs = struct_sqlite3_vfs{2, 0, 1024, nil, (*int8)(unsafe.Pointer(&[6]int8{'m', 'e', 'm', 'd', 'b', '\x00'})), nil, memdbOpen, nil, memdbAccess, memdbFullPathname, memdbDlOpen, memdbDlError, memdbDlSym, memdbDlClose, memdbRandomness, memdbSleep, nil, memdbGetLastError, memdbCurrentTimeInt64, nil, nil, nil}
-var memdb_io_methods struct_sqlite3_io_methods = struct_sqlite3_io_methods{3, memdbClose, memdbRead, memdbWrite, memdbTruncate, memdbSync, memdbFileSize, memdbLock, memdbLock, nil, memdbFileControl, nil, memdbDeviceCharacteristics, nil, nil, nil, nil, memdbFetch, memdbUnfetch}
+var memdb_vfs struct_sqlite3_vfs
 
+func init() {
+	memdb_vfs = struct_sqlite3_vfs{2, 0, 1024, nil, (*int8)(unsafe.Pointer(&[6]int8{'m', 'e', 'm', 'd', 'b', '\x00'})), nil, memdbOpen, nil, memdbAccess, memdbFullPathname, memdbDlOpen, memdbDlError, memdbDlSym, memdbDlClose, memdbRandomness, memdbSleep, nil, memdbGetLastError, memdbCurrentTimeInt64, nil, nil, nil}
+}
+
+var memdb_io_methods struct_sqlite3_io_methods
+
+func init() {
+	memdb_io_methods = struct_sqlite3_io_methods{3, memdbClose, memdbRead, memdbWrite, memdbTruncate, memdbSync, memdbFileSize, memdbLock, memdbLock, nil, memdbFileControl, nil, memdbDeviceCharacteristics, nil, nil, nil, nil, memdbFetch, memdbUnfetch}
+}
 func memdbEnter(p *struct_MemStore) {
 	sqlite3_mutex_enter(p.pMutex)
 }
@@ -51293,8 +51333,11 @@ func memjrnlFileSize(pJfd *struct_sqlite3_file, pSize *int64) int32 {
 	return int32(0)
 }
 
-var MemJournalMethods struct_sqlite3_io_methods = struct_sqlite3_io_methods{1, memjrnlClose, memjrnlRead, memjrnlWrite, memjrnlTruncate, memjrnlSync, memjrnlFileSize, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+var MemJournalMethods struct_sqlite3_io_methods
 
+func init() {
+	MemJournalMethods = struct_sqlite3_io_methods{1, memjrnlClose, memjrnlRead, memjrnlWrite, memjrnlTruncate, memjrnlSync, memjrnlFileSize, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+}
 func sqlite3JournalOpen(pVfs *struct_sqlite3_vfs, zName *int8, pJfd *struct_sqlite3_file, flags int32, nSpill int32) int32 {
 	var p *struct_MemJournal = (*struct_MemJournal)(unsafe.Pointer(pJfd))
 	__builtin___memset_chk(unsafe.Pointer(p), 0, 80, __builtin_object_size(unsafe.Pointer(p), 0))
@@ -60916,8 +60959,11 @@ func statInit(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 	sqlite3_result_blob(context, unsafe.Pointer(p), int32(48), statAccumDestructor)
 }
 
-var statInitFuncdef struct_FuncDef = struct_FuncDef{int8(4), uint32(1), nil, nil, statInit, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 't', 'a', 't', '_', 'i', 'n', 'i', 't', '\x00'})), _cgoa_9{nil}}
+var statInitFuncdef struct_FuncDef
 
+func init() {
+	statInitFuncdef = struct_FuncDef{int8(4), uint32(1), nil, nil, statInit, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 't', 'a', 't', '_', 'i', 'n', 'i', 't', '\x00'})), _cgoa_9{nil}}
+}
 func statPush(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3_value) {
 	var i int32
 	var p *struct_StatAccum = (*struct_StatAccum)(sqlite3_value_blob(*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(argv)) + uintptr(0)*8))))
@@ -60964,8 +61010,11 @@ func statPush(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3
 	}
 }
 
-var statPushFuncdef struct_FuncDef = struct_FuncDef{int8(2 + 0), uint32(1), nil, nil, statPush, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 't', 'a', 't', '_', 'p', 'u', 's', 'h', '\x00'})), _cgoa_9{nil}}
+var statPushFuncdef struct_FuncDef
 
+func init() {
+	statPushFuncdef = struct_FuncDef{int8(2 + 0), uint32(1), nil, nil, statPush, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'s', 't', 'a', 't', '_', 'p', 'u', 's', 'h', '\x00'})), _cgoa_9{nil}}
+}
 func statGet(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3_value) {
 	var p *struct_StatAccum = (*struct_StatAccum)(sqlite3_value_blob(*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(argv)) + uintptr(0)*8))))
 	func() int {
@@ -61000,8 +61049,11 @@ func statGet(context *struct_sqlite3_context, argc int32, argv **struct_sqlite3_
 	}()
 }
 
-var statGetFuncdef struct_FuncDef = struct_FuncDef{int8(1 + 0), uint32(1), nil, nil, statGet, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'s', 't', 'a', 't', '_', 'g', 'e', 't', '\x00'})), _cgoa_9{nil}}
+var statGetFuncdef struct_FuncDef
 
+func init() {
+	statGetFuncdef = struct_FuncDef{int8(1 + 0), uint32(1), nil, nil, statGet, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'s', 't', 'a', 't', '_', 'g', 'e', 't', '\x00'})), _cgoa_9{nil}}
+}
 func callStatGet(pParse *struct_Parse, regStat int32, iParam int32, regOut int32) {
 	func() int {
 		_ = iParam
@@ -73613,8 +73665,11 @@ type struct_sqlite3_api_routines struct {
 }
 type sqlite3_loadext_entry = func(*struct_sqlite3, **int8, *struct_sqlite3_api_routines) int32
 
-var sqlite3Apis struct_sqlite3_api_routines = struct_sqlite3_api_routines{sqlite3_aggregate_context, sqlite3_aggregate_count, sqlite3_bind_blob, sqlite3_bind_double, sqlite3_bind_int, sqlite3_bind_int64, sqlite3_bind_null, sqlite3_bind_parameter_count, sqlite3_bind_parameter_index, sqlite3_bind_parameter_name, sqlite3_bind_text, sqlite3_bind_text16, sqlite3_bind_value, sqlite3_busy_handler, sqlite3_busy_timeout, sqlite3_changes, sqlite3_close, sqlite3_collation_needed, sqlite3_collation_needed16, sqlite3_column_blob, sqlite3_column_bytes, sqlite3_column_bytes16, sqlite3_column_count, nil, nil, sqlite3_column_decltype, sqlite3_column_decltype16, sqlite3_column_double, sqlite3_column_int, sqlite3_column_int64, sqlite3_column_name, sqlite3_column_name16, nil, nil, nil, nil, sqlite3_column_text, sqlite3_column_text16, sqlite3_column_type, sqlite3_column_value, sqlite3_commit_hook, sqlite3_complete, sqlite3_complete16, sqlite3_create_collation, sqlite3_create_collation16, sqlite3_create_function, sqlite3_create_function16, sqlite3_create_module, sqlite3_data_count, sqlite3_db_handle, sqlite3_declare_vtab, sqlite3_enable_shared_cache, sqlite3_errcode, sqlite3_errmsg, sqlite3_errmsg16, sqlite3_exec, sqlite3_expired, sqlite3_finalize, sqlite3_free, sqlite3_free_table, sqlite3_get_autocommit, sqlite3_get_auxdata, sqlite3_get_table, nil, sqlite3_interrupt, sqlite3_last_insert_rowid, sqlite3_libversion, sqlite3_libversion_number, sqlite3_malloc, sqlite3_mprintf, sqlite3_open, sqlite3_open16, sqlite3_prepare, sqlite3_prepare16, sqlite3_profile, sqlite3_progress_handler, sqlite3_realloc, sqlite3_reset, sqlite3_result_blob, sqlite3_result_double, sqlite3_result_error, sqlite3_result_error16, sqlite3_result_int, sqlite3_result_int64, sqlite3_result_null, sqlite3_result_text, sqlite3_result_text16, sqlite3_result_text16be, sqlite3_result_text16le, sqlite3_result_value, sqlite3_rollback_hook, sqlite3_set_authorizer, sqlite3_set_auxdata, sqlite3_snprintf, sqlite3_step, sqlite3_table_column_metadata, sqlite3_thread_cleanup, sqlite3_total_changes, sqlite3_trace, sqlite3_transfer_bindings, sqlite3_update_hook, sqlite3_user_data, sqlite3_value_blob, sqlite3_value_bytes, sqlite3_value_bytes16, sqlite3_value_double, sqlite3_value_int, sqlite3_value_int64, sqlite3_value_numeric_type, sqlite3_value_text, sqlite3_value_text16, sqlite3_value_text16be, sqlite3_value_text16le, sqlite3_value_type, sqlite3_vmprintf, sqlite3_overload_function, sqlite3_prepare_v2, sqlite3_prepare16_v2, sqlite3_clear_bindings, sqlite3_create_module_v2, sqlite3_bind_zeroblob, sqlite3_blob_bytes, sqlite3_blob_close, sqlite3_blob_open, sqlite3_blob_read, sqlite3_blob_write, sqlite3_create_collation_v2, sqlite3_file_control, sqlite3_memory_highwater, sqlite3_memory_used, sqlite3_mutex_alloc, sqlite3_mutex_enter, sqlite3_mutex_free, sqlite3_mutex_leave, sqlite3_mutex_try, sqlite3_open_v2, sqlite3_release_memory, sqlite3_result_error_nomem, sqlite3_result_error_toobig, sqlite3_sleep, sqlite3_soft_heap_limit, sqlite3_vfs_find, sqlite3_vfs_register, sqlite3_vfs_unregister, sqlite3_threadsafe, sqlite3_result_zeroblob, sqlite3_result_error_code, sqlite3_test_control, sqlite3_randomness, sqlite3_context_db_handle, sqlite3_extended_result_codes, sqlite3_limit, sqlite3_next_stmt, sqlite3_sql, sqlite3_status, sqlite3_backup_finish, sqlite3_backup_init, sqlite3_backup_pagecount, sqlite3_backup_remaining, sqlite3_backup_step, sqlite3_compileoption_get, sqlite3_compileoption_used, sqlite3_create_function_v2, sqlite3_db_config, sqlite3_db_mutex, sqlite3_db_status, sqlite3_extended_errcode, sqlite3_log, sqlite3_soft_heap_limit64, sqlite3_sourceid, sqlite3_stmt_status, sqlite3_strnicmp, nil, sqlite3_wal_autocheckpoint, sqlite3_wal_checkpoint, sqlite3_wal_hook, sqlite3_blob_reopen, sqlite3_vtab_config, sqlite3_vtab_on_conflict, sqlite3_close_v2, sqlite3_db_filename, sqlite3_db_readonly, sqlite3_db_release_memory, sqlite3_errstr, sqlite3_stmt_busy, sqlite3_stmt_readonly, sqlite3_stricmp, sqlite3_uri_boolean, sqlite3_uri_int64, sqlite3_uri_parameter, sqlite3_vsnprintf, sqlite3_wal_checkpoint_v2, sqlite3_auto_extension, sqlite3_bind_blob64, sqlite3_bind_text64, sqlite3_cancel_auto_extension, sqlite3_load_extension, sqlite3_malloc64, sqlite3_msize, sqlite3_realloc64, sqlite3_reset_auto_extension, sqlite3_result_blob64, sqlite3_result_text64, sqlite3_strglob, (func(*struct_sqlite3_value) *struct_sqlite3_value)(sqlite3_value_dup), sqlite3_value_free, sqlite3_result_zeroblob64, sqlite3_bind_zeroblob64, sqlite3_value_subtype, sqlite3_result_subtype, sqlite3_status64, sqlite3_strlike, sqlite3_db_cacheflush, sqlite3_system_errno, sqlite3_trace_v2, sqlite3_expanded_sql, sqlite3_set_last_insert_rowid, sqlite3_prepare_v3, sqlite3_prepare16_v3, sqlite3_bind_pointer, sqlite3_result_pointer, sqlite3_value_pointer, sqlite3_vtab_nochange, sqlite3_value_nochange, sqlite3_vtab_collation, sqlite3_keyword_count, sqlite3_keyword_name, sqlite3_keyword_check, sqlite3_str_new, sqlite3_str_finish, sqlite3_str_appendf, sqlite3_str_vappendf, sqlite3_str_append, sqlite3_str_appendall, sqlite3_str_appendchar, sqlite3_str_reset, sqlite3_str_errcode, sqlite3_str_length, sqlite3_str_value, sqlite3_create_window_function, nil, sqlite3_stmt_isexplain, sqlite3_value_frombind, sqlite3_drop_modules, sqlite3_hard_heap_limit64, sqlite3_uri_key, sqlite3_filename_database, sqlite3_filename_journal, sqlite3_filename_wal, sqlite3_create_filename, sqlite3_free_filename, sqlite3_database_file_object, sqlite3_txn_state, sqlite3_changes64, sqlite3_total_changes64, sqlite3_autovacuum_pages, sqlite3_error_offset, sqlite3_vtab_rhs_value, sqlite3_vtab_distinct, sqlite3_vtab_in, sqlite3_vtab_in_first, sqlite3_vtab_in_next}
+var sqlite3Apis struct_sqlite3_api_routines
 
+func init() {
+	sqlite3Apis = struct_sqlite3_api_routines{sqlite3_aggregate_context, sqlite3_aggregate_count, sqlite3_bind_blob, sqlite3_bind_double, sqlite3_bind_int, sqlite3_bind_int64, sqlite3_bind_null, sqlite3_bind_parameter_count, sqlite3_bind_parameter_index, sqlite3_bind_parameter_name, sqlite3_bind_text, sqlite3_bind_text16, sqlite3_bind_value, sqlite3_busy_handler, sqlite3_busy_timeout, sqlite3_changes, sqlite3_close, sqlite3_collation_needed, sqlite3_collation_needed16, sqlite3_column_blob, sqlite3_column_bytes, sqlite3_column_bytes16, sqlite3_column_count, nil, nil, sqlite3_column_decltype, sqlite3_column_decltype16, sqlite3_column_double, sqlite3_column_int, sqlite3_column_int64, sqlite3_column_name, sqlite3_column_name16, nil, nil, nil, nil, sqlite3_column_text, sqlite3_column_text16, sqlite3_column_type, sqlite3_column_value, sqlite3_commit_hook, sqlite3_complete, sqlite3_complete16, sqlite3_create_collation, sqlite3_create_collation16, sqlite3_create_function, sqlite3_create_function16, sqlite3_create_module, sqlite3_data_count, sqlite3_db_handle, sqlite3_declare_vtab, sqlite3_enable_shared_cache, sqlite3_errcode, sqlite3_errmsg, sqlite3_errmsg16, sqlite3_exec, sqlite3_expired, sqlite3_finalize, sqlite3_free, sqlite3_free_table, sqlite3_get_autocommit, sqlite3_get_auxdata, sqlite3_get_table, nil, sqlite3_interrupt, sqlite3_last_insert_rowid, sqlite3_libversion, sqlite3_libversion_number, sqlite3_malloc, sqlite3_mprintf, sqlite3_open, sqlite3_open16, sqlite3_prepare, sqlite3_prepare16, sqlite3_profile, sqlite3_progress_handler, sqlite3_realloc, sqlite3_reset, sqlite3_result_blob, sqlite3_result_double, sqlite3_result_error, sqlite3_result_error16, sqlite3_result_int, sqlite3_result_int64, sqlite3_result_null, sqlite3_result_text, sqlite3_result_text16, sqlite3_result_text16be, sqlite3_result_text16le, sqlite3_result_value, sqlite3_rollback_hook, sqlite3_set_authorizer, sqlite3_set_auxdata, sqlite3_snprintf, sqlite3_step, sqlite3_table_column_metadata, sqlite3_thread_cleanup, sqlite3_total_changes, sqlite3_trace, sqlite3_transfer_bindings, sqlite3_update_hook, sqlite3_user_data, sqlite3_value_blob, sqlite3_value_bytes, sqlite3_value_bytes16, sqlite3_value_double, sqlite3_value_int, sqlite3_value_int64, sqlite3_value_numeric_type, sqlite3_value_text, sqlite3_value_text16, sqlite3_value_text16be, sqlite3_value_text16le, sqlite3_value_type, sqlite3_vmprintf, sqlite3_overload_function, sqlite3_prepare_v2, sqlite3_prepare16_v2, sqlite3_clear_bindings, sqlite3_create_module_v2, sqlite3_bind_zeroblob, sqlite3_blob_bytes, sqlite3_blob_close, sqlite3_blob_open, sqlite3_blob_read, sqlite3_blob_write, sqlite3_create_collation_v2, sqlite3_file_control, sqlite3_memory_highwater, sqlite3_memory_used, sqlite3_mutex_alloc, sqlite3_mutex_enter, sqlite3_mutex_free, sqlite3_mutex_leave, sqlite3_mutex_try, sqlite3_open_v2, sqlite3_release_memory, sqlite3_result_error_nomem, sqlite3_result_error_toobig, sqlite3_sleep, sqlite3_soft_heap_limit, sqlite3_vfs_find, sqlite3_vfs_register, sqlite3_vfs_unregister, sqlite3_threadsafe, sqlite3_result_zeroblob, sqlite3_result_error_code, sqlite3_test_control, sqlite3_randomness, sqlite3_context_db_handle, sqlite3_extended_result_codes, sqlite3_limit, sqlite3_next_stmt, sqlite3_sql, sqlite3_status, sqlite3_backup_finish, sqlite3_backup_init, sqlite3_backup_pagecount, sqlite3_backup_remaining, sqlite3_backup_step, sqlite3_compileoption_get, sqlite3_compileoption_used, sqlite3_create_function_v2, sqlite3_db_config, sqlite3_db_mutex, sqlite3_db_status, sqlite3_extended_errcode, sqlite3_log, sqlite3_soft_heap_limit64, sqlite3_sourceid, sqlite3_stmt_status, sqlite3_strnicmp, nil, sqlite3_wal_autocheckpoint, sqlite3_wal_checkpoint, sqlite3_wal_hook, sqlite3_blob_reopen, sqlite3_vtab_config, sqlite3_vtab_on_conflict, sqlite3_close_v2, sqlite3_db_filename, sqlite3_db_readonly, sqlite3_db_release_memory, sqlite3_errstr, sqlite3_stmt_busy, sqlite3_stmt_readonly, sqlite3_stricmp, sqlite3_uri_boolean, sqlite3_uri_int64, sqlite3_uri_parameter, sqlite3_vsnprintf, sqlite3_wal_checkpoint_v2, sqlite3_auto_extension, sqlite3_bind_blob64, sqlite3_bind_text64, sqlite3_cancel_auto_extension, sqlite3_load_extension, sqlite3_malloc64, sqlite3_msize, sqlite3_realloc64, sqlite3_reset_auto_extension, sqlite3_result_blob64, sqlite3_result_text64, sqlite3_strglob, (func(*struct_sqlite3_value) *struct_sqlite3_value)(sqlite3_value_dup), sqlite3_value_free, sqlite3_result_zeroblob64, sqlite3_bind_zeroblob64, sqlite3_value_subtype, sqlite3_result_subtype, sqlite3_status64, sqlite3_strlike, sqlite3_db_cacheflush, sqlite3_system_errno, sqlite3_trace_v2, sqlite3_expanded_sql, sqlite3_set_last_insert_rowid, sqlite3_prepare_v3, sqlite3_prepare16_v3, sqlite3_bind_pointer, sqlite3_result_pointer, sqlite3_value_pointer, sqlite3_vtab_nochange, sqlite3_value_nochange, sqlite3_vtab_collation, sqlite3_keyword_count, sqlite3_keyword_name, sqlite3_keyword_check, sqlite3_str_new, sqlite3_str_finish, sqlite3_str_appendf, sqlite3_str_vappendf, sqlite3_str_append, sqlite3_str_appendall, sqlite3_str_appendchar, sqlite3_str_reset, sqlite3_str_errcode, sqlite3_str_length, sqlite3_str_value, sqlite3_create_window_function, nil, sqlite3_stmt_isexplain, sqlite3_value_frombind, sqlite3_drop_modules, sqlite3_hard_heap_limit64, sqlite3_uri_key, sqlite3_filename_database, sqlite3_filename_journal, sqlite3_filename_wal, sqlite3_create_filename, sqlite3_free_filename, sqlite3_database_file_object, sqlite3_txn_state, sqlite3_changes64, sqlite3_total_changes64, sqlite3_autovacuum_pages, sqlite3_error_offset, sqlite3_vtab_rhs_value, sqlite3_vtab_distinct, sqlite3_vtab_in, sqlite3_vtab_in_first, sqlite3_vtab_in_next}
+}
 func sqlite3LoadExtension(db *struct_sqlite3, zFile *int8, zProc *int8, pzErrMsg **int8) int32 {
 	var pVfs *struct_sqlite3_vfs = db.pVfs
 	var handle unsafe.Pointer
@@ -76229,8 +76284,11 @@ func pragmaVtabRowid(pVtabCursor *struct_sqlite3_vtab_cursor, p *int64) int32 {
 	return int32(0)
 }
 
-var pragmaVtabModule struct_sqlite3_module = struct_sqlite3_module{0, nil, pragmaVtabConnect, pragmaVtabBestIndex, pragmaVtabDisconnect, nil, pragmaVtabOpen, pragmaVtabClose, pragmaVtabFilter, pragmaVtabNext, pragmaVtabEof, pragmaVtabColumn, pragmaVtabRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+var pragmaVtabModule struct_sqlite3_module
 
+func init() {
+	pragmaVtabModule = struct_sqlite3_module{0, nil, pragmaVtabConnect, pragmaVtabBestIndex, pragmaVtabDisconnect, nil, pragmaVtabOpen, pragmaVtabClose, pragmaVtabFilter, pragmaVtabNext, pragmaVtabEof, pragmaVtabColumn, pragmaVtabRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+}
 func sqlite3PragmaVtabRegister(db *struct_sqlite3, zName *int8) *struct_Module {
 	var pName *struct_PragmaName
 	func() int {
@@ -107343,9 +107401,17 @@ func jsonEachFilter(cur *struct_sqlite3_vtab_cursor, idxNum int32, idxStr *int8,
 	return int32(0)
 }
 
-var jsonEachModule struct_sqlite3_module = struct_sqlite3_module{0, nil, jsonEachConnect, jsonEachBestIndex, jsonEachDisconnect, nil, jsonEachOpenEach, jsonEachClose, jsonEachFilter, jsonEachNext, jsonEachEof, jsonEachColumn, jsonEachRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
-var jsonTreeModule struct_sqlite3_module = struct_sqlite3_module{0, nil, jsonEachConnect, jsonEachBestIndex, jsonEachDisconnect, nil, jsonEachOpenTree, jsonEachClose, jsonEachFilter, jsonEachNext, jsonEachEof, jsonEachColumn, jsonEachRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+var jsonEachModule struct_sqlite3_module
 
+func init() {
+	jsonEachModule = struct_sqlite3_module{0, nil, jsonEachConnect, jsonEachBestIndex, jsonEachDisconnect, nil, jsonEachOpenEach, jsonEachClose, jsonEachFilter, jsonEachNext, jsonEachEof, jsonEachColumn, jsonEachRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+}
+
+var jsonTreeModule struct_sqlite3_module
+
+func init() {
+	jsonTreeModule = struct_sqlite3_module{0, nil, jsonEachConnect, jsonEachBestIndex, jsonEachDisconnect, nil, jsonEachOpenTree, jsonEachClose, jsonEachFilter, jsonEachNext, jsonEachEof, jsonEachColumn, jsonEachRowid, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+}
 func sqlite3RegisterJsonFunctions() {
 	var aJsonFunc [19]struct_FuncDef = [19]struct_FuncDef{struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[5]int8{'j', 's', 'o', 'n', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonArrayLengthFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'a', 'r', 'r', 'a', 'y', '_', 'l', 'e', 'n', 'g', 't', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'e', 'x', 't', 'r', 'a', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(1))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[3]int8{'-', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(2))), nil, jsonExtractFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[4]int8{'-', '>', '>', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'i', 'n', 's', 'e', 'r', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonObjectFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonPatchFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'p', 'a', 't', 'c', 'h', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonQuoteFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'q', 'u', 'o', 't', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonRemoveFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[12]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'm', 'o', 'v', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonReplaceFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[13]int8{'j', 's', 'o', 'n', '_', 'r', 'e', 'p', 'l', 'a', 'c', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(-1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(uintptr(int64(4))), nil, jsonSetFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[9]int8{'j', 's', 'o', 'n', '_', 's', 'e', 't', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonTypeFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[10]int8{'j', 's', 'o', 'n', '_', 't', 'y', 'p', 'e', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 2048 | 2097152 | 2048 | 1), unsafe.Pointer(nil), nil, jsonValidFunc, nil, nil, nil, (*int8)(unsafe.Pointer(&[11]int8{'j', 's', 'o', 'n', '_', 'v', 'a', 'l', 'i', 'd', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(1), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonArrayStep, jsonArrayFinal, jsonArrayValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[17]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'a', 'r', 'r', 'a', 'y', '\x00'})), _cgoa_9{nil}}, struct_FuncDef{int8(2), uint32(8388608 | 1 | 0*32 | 1048576 | 1 | 2048 | 2097152), unsafe.Pointer(nil), nil, jsonObjectStep, jsonObjectFinal, jsonObjectValue, jsonGroupInverse, (*int8)(unsafe.Pointer(&[18]int8{'j', 's', 'o', 'n', '_', 'g', 'r', 'o', 'u', 'p', '_', 'o', 'b', 'j', 'e', 'c', 't', '\x00'})), _cgoa_9{nil}}}
 	sqlite3InsertBuiltinFuncs((*struct_FuncDef)(unsafe.Pointer(&aJsonFunc)), int32(1368/72))
