@@ -7030,15 +7030,15 @@ func printfTempBuf(pAccum *struct_sqlite3_str, n int64) *int8 {
 func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...interface {
 }) {
 	var (
-		i_cgo17         int32
-		j_cgo18         int32
-		k_cgo19         int32
-		n_cgo20         int32
-		isnull_cgo21    int32
-		needQuote_cgo22 int32
-		ch_cgo23        int8
-		q_cgo24         int8
-		escarg_cgo25    *int8
+		i_cgo1         int32
+		j_cgo2         int32
+		k_cgo3         int32
+		n_cgo4         int32
+		isnull_cgo5    int32
+		needQuote_cgo6 int32
+		ch_cgo7        int8
+		q_cgo8         int8
+		escarg_cgo9    *int8
 	)
 	var c int32
 	var bufpt *int8
@@ -8101,39 +8101,39 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 			goto _cgol_16
 		}
 		_cgo_nm = false
-		i_cgo17 = 0
-		j_cgo18 = 0
-		k_cgo19 = 0
-		n_cgo20 = 0
-		isnull_cgo21 = 0
-		needQuote_cgo22 = 0
-		ch_cgo23 = 0
-		q_cgo24 = int8(func() int32 {
+		i_cgo1 = 0
+		j_cgo2 = 0
+		k_cgo3 = 0
+		n_cgo4 = 0
+		isnull_cgo5 = 0
+		needQuote_cgo6 = 0
+		ch_cgo7 = 0
+		q_cgo8 = int8(func() int32 {
 			if int32(xtype) == 14 {
 				return '"'
 			} else {
 				return '\''
 			}
 		}())
-		escarg_cgo25 = nil
+		escarg_cgo9 = nil
 		if bArgList != 0 {
-			escarg_cgo25 = getTextArg(pArgList)
+			escarg_cgo9 = getTextArg(pArgList)
 		} else {
-			escarg_cgo25 = func() (_cgo_ret *int8) {
+			escarg_cgo9 = func() (_cgo_ret *int8) {
 				_cgo_ret = __cgo_args[0].(*int8)
 				__cgo_args = __cgo_args[1:]
 				return
 			}()
 		}
-		isnull_cgo21 = func() int32 {
-			if uintptr(unsafe.Pointer(escarg_cgo25)) == uintptr(unsafe.Pointer(nil)) {
+		isnull_cgo5 = func() int32 {
+			if uintptr(unsafe.Pointer(escarg_cgo9)) == uintptr(unsafe.Pointer(nil)) {
 				return 1
 			} else {
 				return 0
 			}
 		}()
-		if isnull_cgo21 != 0 {
-			escarg_cgo25 = func() *int8 {
+		if isnull_cgo5 != 0 {
+			escarg_cgo9 = func() *int8 {
 				if int32(xtype) == 10 {
 					return (*int8)(unsafe.Pointer(&[5]int8{'N', 'U', 'L', 'L', '\x00'}))
 				} else {
@@ -8141,45 +8141,45 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 				}
 			}()
 		}
-		k_cgo19 = precision
-		for i_cgo17 = func() (_cgo_ret int32) {
-			_cgo_addr := &n_cgo20
+		k_cgo3 = precision
+		for i_cgo1 = func() (_cgo_ret int32) {
+			_cgo_addr := &n_cgo4
 			*_cgo_addr = int32(0)
 			return *_cgo_addr
-		}(); k_cgo19 != 0 && int32(func() (_cgo_ret int8) {
-			_cgo_addr := &ch_cgo23
-			*_cgo_addr = *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo25)) + uintptr(i_cgo17)))
+		}(); k_cgo3 != 0 && int32(func() (_cgo_ret int8) {
+			_cgo_addr := &ch_cgo7
+			*_cgo_addr = *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo9)) + uintptr(i_cgo1)))
 			return *_cgo_addr
 		}()) != 0; func() int32 {
-			i_cgo17++
+			i_cgo1++
 			return func() (_cgo_ret int32) {
-				_cgo_addr := &k_cgo19
+				_cgo_addr := &k_cgo3
 				_cgo_ret = *_cgo_addr
 				*_cgo_addr--
 				return
 			}()
 		}() {
-			if int32(ch_cgo23) == int32(q_cgo24) {
-				n_cgo20++
+			if int32(ch_cgo7) == int32(q_cgo8) {
+				n_cgo4++
 			}
-			if int32(flag_altform2) != 0 && int32(ch_cgo23)&192 == 192 {
-				for int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo25)) + uintptr(i_cgo17+1))))&192 == 128 {
-					i_cgo17++
+			if int32(flag_altform2) != 0 && int32(ch_cgo7)&192 == 192 {
+				for int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo9)) + uintptr(i_cgo1+1))))&192 == 128 {
+					i_cgo1++
 				}
 			}
 		}
-		needQuote_cgo22 = func() int32 {
-			if !(isnull_cgo21 != 0) && int32(xtype) == 10 {
+		needQuote_cgo6 = func() int32 {
+			if !(isnull_cgo5 != 0) && int32(xtype) == 10 {
 				return 1
 			} else {
 				return 0
 			}
 		}()
-		n_cgo20 += i_cgo17 + 3
-		if n_cgo20 > 70 {
+		n_cgo4 += i_cgo1 + 3
+		if n_cgo4 > 70 {
 			bufpt = func() (_cgo_ret *int8) {
 				_cgo_addr := &zExtra
-				*_cgo_addr = printfTempBuf(pAccum, int64(n_cgo20))
+				*_cgo_addr = printfTempBuf(pAccum, int64(n_cgo4))
 				return *_cgo_addr
 			}()
 			if uintptr(unsafe.Pointer(bufpt)) == uintptr(unsafe.Pointer(nil)) {
@@ -8188,50 +8188,50 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 		} else {
 			bufpt = (*int8)(unsafe.Pointer(&buf))
 		}
-		j_cgo18 = int32(0)
-		if needQuote_cgo22 != 0 {
+		j_cgo2 = int32(0)
+		if needQuote_cgo6 != 0 {
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(func() (_cgo_ret int32) {
-				_cgo_addr := &j_cgo18
+				_cgo_addr := &j_cgo2
 				_cgo_ret = *_cgo_addr
 				*_cgo_addr++
 				return
-			}()))) = q_cgo24
+			}()))) = q_cgo8
 		}
-		k_cgo19 = i_cgo17
-		for i_cgo17 = int32(0); i_cgo17 < k_cgo19; i_cgo17++ {
+		k_cgo3 = i_cgo1
+		for i_cgo1 = int32(0); i_cgo1 < k_cgo3; i_cgo1++ {
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(func() (_cgo_ret int32) {
-				_cgo_addr := &j_cgo18
+				_cgo_addr := &j_cgo2
 				_cgo_ret = *_cgo_addr
 				*_cgo_addr++
 				return
 			}()))) = func() (_cgo_ret int8) {
-				_cgo_addr := &ch_cgo23
-				*_cgo_addr = *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo25)) + uintptr(i_cgo17)))
+				_cgo_addr := &ch_cgo7
+				*_cgo_addr = *(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(escarg_cgo9)) + uintptr(i_cgo1)))
 				return *_cgo_addr
 			}()
-			if int32(ch_cgo23) == int32(q_cgo24) {
+			if int32(ch_cgo7) == int32(q_cgo8) {
 				*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(func() (_cgo_ret int32) {
-					_cgo_addr := &j_cgo18
+					_cgo_addr := &j_cgo2
 					_cgo_ret = *_cgo_addr
 					*_cgo_addr++
 					return
-				}()))) = ch_cgo23
+				}()))) = ch_cgo7
 			}
 		}
-		if needQuote_cgo22 != 0 {
+		if needQuote_cgo6 != 0 {
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(func() (_cgo_ret int32) {
-				_cgo_addr := &j_cgo18
+				_cgo_addr := &j_cgo2
 				_cgo_ret = *_cgo_addr
 				*_cgo_addr++
 				return
-			}()))) = q_cgo24
+			}()))) = q_cgo8
 		}
-		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(j_cgo18))) = int8(0)
-		length = j_cgo18
+		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(bufpt)) + uintptr(j_cgo2))) = int8(0)
+		length = j_cgo2
 		goto adjust_width_for_utf8
 	_cgol_16:
 		if _cgo_nm && _cgo_tag != 11 {
-			goto _cgol_26
+			goto _cgol_17
 		}
 		_cgo_nm = false
 		{
@@ -8270,9 +8270,9 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 			}()
 			goto _cgol_5
 		}
-	_cgol_26:
+	_cgol_17:
 		if _cgo_nm && _cgo_tag != 12 {
-			goto _cgol_27
+			goto _cgol_18
 		}
 		_cgo_nm = false
 		{
@@ -8309,7 +8309,7 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 			}()
 			goto _cgol_5
 		}
-	_cgol_28:
+	_cgol_19:
 		_cgo_nm = false
 		{
 			func() int {
@@ -8319,8 +8319,8 @@ func sqlite3_str_vappendf(pAccum *struct_sqlite3_str, fmt *int8, __cgo_args ...i
 			return
 		}
 		goto _cgol_5
-	_cgol_27:
-		goto _cgol_28
+	_cgol_18:
+		goto _cgol_19
 	_cgol_5:
 		width -= length
 		if width > 0 {
@@ -15522,7 +15522,7 @@ func proxyConchLock(pFile *struct_unixFile, myHostID *uint8, lockType int32) int
 	return rc
 }
 func proxyTakeConch(pFile *struct_unixFile) int32 {
-
+	var pathLen_cgo1 uint64
 	var pCtx *struct_proxyLockingContext = (*struct_proxyLockingContext)(pFile.lockingContext)
 	if pCtx.conchHeld != 0 {
 		return int32(0)
@@ -15567,34 +15567,49 @@ func proxyTakeConch(pFile *struct_unixFile) int32 {
 	_cgol_3:
 		;
 	_cgol_5:
-		if !(createConch != 0) && !(forceNewLockPath != 0) {
-			hostIdMatch = func() int32 {
-				if !(memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint64(16)) != 0) {
-					return 1
-				} else {
-					return 0
-				}
-			}()
-			if !(pCtx.lockProxyPath != nil) {
-				if hostIdMatch != 0 {
-					var pathLen uint64 = uint64(readLen - (1 + 16))
-					if pathLen >= uint64(1024) {
-						pathLen = uint64(1024 - 1)
-					}
-					__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16)))), uint(pathLen), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), 0))
-					*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath)))) + uintptr(pathLen))) = int8(0)
-					tempLockPath = (*int8)(unsafe.Pointer(&lockPath))
-					tryOldLockPath = int32(1)
-					goto end_takeconch
-				}
-			} else if hostIdMatch != 0 && !(strncmp(pCtx.lockProxyPath, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16))), uint64(readLen-(1+16))) != 0) {
-				goto end_takeconch
+		if !(!(createConch != 0) && !(forceNewLockPath != 0)) {
+			goto _cgol_6
+		}
+		hostIdMatch = func() int32 {
+			if !(memcmp(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1)))), unsafe.Pointer((*uint8)(unsafe.Pointer(&myHostID))), uint64(16)) != 0) {
+				return 1
+			} else {
+				return 0
 			}
+		}()
+		if !!(pCtx.lockProxyPath != nil) {
+			goto _cgol_8
 		}
-		if conchFile.openFlags&2 == 0 {
-			rc = int32(5)
-			goto end_takeconch
+		if !(hostIdMatch != 0) {
+			goto _cgol_9
 		}
+		pathLen_cgo1 = uint64(readLen - (1 + 16))
+		if pathLen_cgo1 >= uint64(1024) {
+			pathLen_cgo1 = uint64(1024 - 1)
+		}
+		__builtin___memcpy_chk(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16)))), uint(pathLen_cgo1), __builtin_object_size(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath))), 0))
+		*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&lockPath)))) + uintptr(pathLen_cgo1))) = int8(0)
+		tempLockPath = (*int8)(unsafe.Pointer(&lockPath))
+		tryOldLockPath = int32(1)
+		goto end_takeconch
+	_cgol_9:
+		goto _cgol_7
+	_cgol_8:
+		if !(hostIdMatch != 0 && !(strncmp(pCtx.lockProxyPath, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&readBuf)))) + uintptr(1+16))), uint64(readLen-(1+16))) != 0)) {
+			goto _cgol_10
+		}
+		goto end_takeconch
+	_cgol_10:
+		;
+	_cgol_7:
+		;
+	_cgol_6:
+		if !(conchFile.openFlags&2 == 0) {
+			goto _cgol_11
+		}
+		rc = int32(5)
+		goto end_takeconch
+	_cgol_11:
 		if !(pCtx.lockProxyPath != nil) {
 			proxyGetLockPath(pCtx.dbPath, (*int8)(unsafe.Pointer(&lockPath)), uint64(1024))
 			tempLockPath = (*int8)(unsafe.Pointer(&lockPath))
@@ -20929,8 +20944,8 @@ func sqlite3PagerFlush(pPager *struct_Pager) int32 {
 }
 func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilename *int8, nExtra int32, flags int32, vfsFlags int32, xReinit func(*struct_PgHdr)) int32 {
 	var (
-		fout_cgo3 int32
-		iDc_cgo5  int32
+		fout_cgo1 int32
+		iDc_cgo2  int32
 	)
 	var pPtr *uint8
 	var pPager *struct_Pager = nil
@@ -21076,8 +21091,8 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 	if !(zFilename != nil && int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(zFilename)) + uintptr(0)))) != 0) {
 		goto _cgol_2
 	}
-	fout_cgo3 = 0
-	rc = sqlite3OsOpen(pVfs, pPager.zFilename, pPager.fd, vfsFlags, &fout_cgo3)
+	fout_cgo1 = 0
+	rc = sqlite3OsOpen(pVfs, pPager.zFilename, pPager.fd, vfsFlags, &fout_cgo1)
 	func() int {
 		_ = 0
 		return 0
@@ -21085,7 +21100,7 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 	pPager.memVfs = uint8(func() (_cgo_ret int32) {
 		_cgo_addr := &memJM
 		*_cgo_addr = func() int32 {
-			if fout_cgo3&128 != 0 {
+			if fout_cgo1&128 != 0 {
 				return 1
 			} else {
 				return 0
@@ -21094,16 +21109,16 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 		return *_cgo_addr
 	}())
 	readOnly = func() int32 {
-		if fout_cgo3&1 != 0 {
+		if fout_cgo1&1 != 0 {
 			return 1
 		} else {
 			return 0
 		}
 	}()
 	if !(rc == 0) {
-		goto _cgol_4
+		goto _cgol_3
 	}
-	iDc_cgo5 = sqlite3OsDeviceCharacteristics(pPager.fd)
+	iDc_cgo2 = sqlite3OsDeviceCharacteristics(pPager.fd)
 	if !(readOnly != 0) {
 		setSectorSize(pPager)
 		func() int {
@@ -21119,14 +21134,14 @@ func sqlite3PagerOpen(pVfs *struct_sqlite3_vfs, ppPager **struct_Pager, zFilenam
 		}
 	}
 	pPager.noLock = uint8(sqlite3_uri_boolean(pPager.zFilename, (*int8)(unsafe.Pointer(&[7]int8{'n', 'o', 'l', 'o', 'c', 'k', '\x00'})), 0))
-	if !(iDc_cgo5&8192 != 0 || sqlite3_uri_boolean(pPager.zFilename, (*int8)(unsafe.Pointer(&[10]int8{'i', 'm', 'm', 'u', 't', 'a', 'b', 'l', 'e', '\x00'})), 0) != 0) {
-		goto _cgol_6
+	if !(iDc_cgo2&8192 != 0 || sqlite3_uri_boolean(pPager.zFilename, (*int8)(unsafe.Pointer(&[10]int8{'i', 'm', 'm', 'u', 't', 'a', 'b', 'l', 'e', '\x00'})), 0) != 0) {
+		goto _cgol_4
 	}
 	vfsFlags |= int32(1)
 	goto act_like_temp_file
-_cgol_6:
-	;
 _cgol_4:
+	;
+_cgol_3:
 	goto _cgol_1
 _cgol_2:
 	;
@@ -41590,97 +41605,97 @@ func vdbeMemTypeName(pMem *struct_sqlite3_value) *int8 {
 }
 func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 	var (
-		res_cgo65            int32
-		res2_cgo66           int32
-		affinity_cgo67       int8
-		flags1_cgo68         uint16
-		flags3_cgo69         uint16
-		iAddr_cgo95          uint32
-		c_cgo101             int32
-		c_cgo104             int32
-		doTheJump_cgo109     int32
-		nEntry_cgo128        int64
-		pCrsr_cgo129         *struct_BtCursor
-		pC_cgo143            *struct_VdbeCursor
-		res_cgo151           int32
-		oc_cgo152            int32
-		pC_cgo153            *struct_VdbeCursor
-		r_cgo154             struct_UnpackedRecord
-		nField_cgo155        int32
-		iKey_cgo156          int64
-		eqOnly_cgo157        int32
-		flags3_cgo160        uint16
-		newType_cgo161       uint16
-		c_cgo163             int32
-		pC_cgo171            *struct_VdbeCursor
-		res_cgo172           int32
-		nStep_cgo173         int32
-		r_cgo174             struct_UnpackedRecord
-		alreadyExists_cgo189 int32
-		takeJump_cgo190      int32
-		ii_cgo191            int32
-		pC_cgo192            *struct_VdbeCursor
-		res_cgo193           int32
-		pFree_cgo194         *struct_UnpackedRecord
-		pIdxKey_cgo195       *struct_UnpackedRecord
-		r_cgo196             struct_UnpackedRecord
-		pC_cgo202            *struct_VdbeCursor
-		pCrsr_cgo203         *struct_BtCursor
-		res_cgo204           int32
-		iKey_cgo205          uint64
-		x_cgo207             struct_sqlite3_value
-		pC_cgo220            *struct_VdbeCursor
-		res_cgo221           int32
-		nKeyCol_cgo222       int32
-		pC_cgo230            *struct_VdbeCursor
-		pCrsr_cgo231         *struct_BtCursor
-		res_cgo232           int32
-		pC_cgo236            *struct_VdbeCursor
-		pCrsr_cgo237         *struct_BtCursor
-		res_cgo238           int32
-		sz_cgo239            int64
-		pC_cgo244            *struct_VdbeCursor
-		pCrsr_cgo245         *struct_BtCursor
-		res_cgo246           int32
-		pC_cgo249            *struct_VdbeCursor
-		pC_cgo263            *struct_VdbeCursor
-		res_cgo264           int32
-		r_cgo265             struct_UnpackedRecord
-		nRoot_cgo278         int32
-		aRoot_cgo279         *uint32
-		nErr_cgo280          int32
-		z_cgo281             *int8
-		pnErr_cgo282         *struct_sqlite3_value
-		val_cgo285           int64
-		iSet_cgo289          int32
-		exists_cgo290        int32
-		nMem_cgo294          int32
-		nByte_cgo295         int32
-		pRt_cgo296           *struct_sqlite3_value
-		pMem_cgo297          *struct_sqlite3_value
-		pEnd_cgo298          *struct_sqlite3_value
-		pFrame_cgo299        *struct_VdbeFrame
-		pProgram_cgo300      *struct_SubProgram
-		t_cgo301             unsafe.Pointer
-		pBt_cgo326           *struct_Btree
-		nArg_cgo338          int32
-		iQuery_cgo339        int32
-		pModule_cgo340       *struct_sqlite3_module
-		pQuery_cgo341        *struct_sqlite3_value
-		pArgc_cgo342         *struct_sqlite3_value
-		pVCur_cgo343         *struct_sqlite3_vtab_cursor
-		pVtab_cgo344         *struct_sqlite3_vtab
-		pCur_cgo345          *struct_VdbeCursor
-		res_cgo346           int32
-		i_cgo347             int32
-		apArg_cgo348         **struct_sqlite3_value
-		pVtab_cgo352         *struct_sqlite3_vtab
-		pModule_cgo353       *struct_sqlite3_module
-		res_cgo354           int32
-		pCur_cgo355          *struct_VdbeCursor
-		h_cgo365             uint64
-		i_cgo370             int32
-		zTrace_cgo371        *int8
+		res_cgo1            int32
+		res2_cgo2           int32
+		affinity_cgo3       int8
+		flags1_cgo4         uint16
+		flags3_cgo5         uint16
+		iAddr_cgo6          uint32
+		c_cgo7              int32
+		c_cgo8              int32
+		doTheJump_cgo9      int32
+		nEntry_cgo10        int64
+		pCrsr_cgo11         *struct_BtCursor
+		pC_cgo12            *struct_VdbeCursor
+		res_cgo13           int32
+		oc_cgo14            int32
+		pC_cgo15            *struct_VdbeCursor
+		r_cgo16             struct_UnpackedRecord
+		nField_cgo17        int32
+		iKey_cgo18          int64
+		eqOnly_cgo19        int32
+		flags3_cgo20        uint16
+		newType_cgo21       uint16
+		c_cgo22             int32
+		pC_cgo23            *struct_VdbeCursor
+		res_cgo24           int32
+		nStep_cgo25         int32
+		r_cgo26             struct_UnpackedRecord
+		alreadyExists_cgo27 int32
+		takeJump_cgo28      int32
+		ii_cgo29            int32
+		pC_cgo30            *struct_VdbeCursor
+		res_cgo31           int32
+		pFree_cgo32         *struct_UnpackedRecord
+		pIdxKey_cgo33       *struct_UnpackedRecord
+		r_cgo34             struct_UnpackedRecord
+		pC_cgo35            *struct_VdbeCursor
+		pCrsr_cgo36         *struct_BtCursor
+		res_cgo37           int32
+		iKey_cgo38          uint64
+		x_cgo39             struct_sqlite3_value
+		pC_cgo40            *struct_VdbeCursor
+		res_cgo41           int32
+		nKeyCol_cgo42       int32
+		pC_cgo43            *struct_VdbeCursor
+		pCrsr_cgo44         *struct_BtCursor
+		res_cgo45           int32
+		pC_cgo46            *struct_VdbeCursor
+		pCrsr_cgo47         *struct_BtCursor
+		res_cgo48           int32
+		sz_cgo49            int64
+		pC_cgo50            *struct_VdbeCursor
+		pCrsr_cgo51         *struct_BtCursor
+		res_cgo52           int32
+		pC_cgo53            *struct_VdbeCursor
+		pC_cgo54            *struct_VdbeCursor
+		res_cgo55           int32
+		r_cgo56             struct_UnpackedRecord
+		nRoot_cgo57         int32
+		aRoot_cgo58         *uint32
+		nErr_cgo59          int32
+		z_cgo60             *int8
+		pnErr_cgo61         *struct_sqlite3_value
+		val_cgo62           int64
+		iSet_cgo63          int32
+		exists_cgo64        int32
+		nMem_cgo65          int32
+		nByte_cgo66         int32
+		pRt_cgo67           *struct_sqlite3_value
+		pMem_cgo68          *struct_sqlite3_value
+		pEnd_cgo69          *struct_sqlite3_value
+		pFrame_cgo70        *struct_VdbeFrame
+		pProgram_cgo71      *struct_SubProgram
+		t_cgo72             unsafe.Pointer
+		pBt_cgo73           *struct_Btree
+		nArg_cgo74          int32
+		iQuery_cgo75        int32
+		pModule_cgo76       *struct_sqlite3_module
+		pQuery_cgo77        *struct_sqlite3_value
+		pArgc_cgo78         *struct_sqlite3_value
+		pVCur_cgo79         *struct_sqlite3_vtab_cursor
+		pVtab_cgo80         *struct_sqlite3_vtab
+		pCur_cgo81          *struct_VdbeCursor
+		res_cgo82           int32
+		i_cgo83             int32
+		apArg_cgo84         **struct_sqlite3_value
+		pVtab_cgo85         *struct_sqlite3_vtab
+		pModule_cgo86       *struct_sqlite3_module
+		res_cgo87           int32
+		pCur_cgo88          *struct_VdbeCursor
+		h_cgo89             uint64
+		i_cgo90             int32
+		zTrace_cgo91        *int8
 	)
 	var aOp *struct_VdbeOp = p.aOp
 	var pOp *struct_VdbeOp = aOp
@@ -42809,61 +42824,61 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			goto _cgol_64
 		}
 		_cgo_nm = false
-		res_cgo65 = 0
-		res2_cgo66 = 0
-		affinity_cgo67 = 0
-		flags1_cgo68 = 0
-		flags3_cgo69 = 0
+		res_cgo1 = 0
+		res2_cgo2 = 0
+		affinity_cgo3 = 0
+		flags1_cgo4 = 0
+		flags3_cgo5 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		flags1_cgo68 = pIn1.flags
-		flags3_cgo69 = pIn3.flags
-		if !(int32(flags1_cgo68)&int32(flags3_cgo69)&4 != 0) {
-			goto _cgol_70
+		flags1_cgo4 = pIn1.flags
+		flags3_cgo5 = pIn3.flags
+		if !(int32(flags1_cgo4)&int32(flags3_cgo5)&4 != 0) {
+			goto _cgol_65
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if !(*(*int64)(unsafe.Pointer(&pIn3.u)) > *(*int64)(unsafe.Pointer(&pIn1.u))) {
-			goto _cgol_72
+			goto _cgol_67
 		}
 		iCompare = int32(1)
 		if !(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aGTb)) + uintptr(pOp.opcode))) != 0) {
-			goto _cgol_73
+			goto _cgol_68
 		}
 		goto jump_to_p2
-	_cgol_73:
-		goto _cgol_71
-	_cgol_72:
+	_cgol_68:
+		goto _cgol_66
+	_cgol_67:
 		if !(*(*int64)(unsafe.Pointer(&pIn3.u)) < *(*int64)(unsafe.Pointer(&pIn1.u))) {
-			goto _cgol_75
+			goto _cgol_70
 		}
 		iCompare = int32(-1)
 		if !(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aLTb)) + uintptr(pOp.opcode))) != 0) {
-			goto _cgol_76
+			goto _cgol_71
 		}
 		goto jump_to_p2
-	_cgol_76:
-		goto _cgol_74
-	_cgol_75:
+	_cgol_71:
+		goto _cgol_69
+	_cgol_70:
 		iCompare = int32(0)
 		if !(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aEQb)) + uintptr(pOp.opcode))) != 0) {
-			goto _cgol_77
+			goto _cgol_72
 		}
 		goto jump_to_p2
-	_cgol_77:
+	_cgol_72:
 		;
-	_cgol_74:
+	_cgol_69:
 		;
-	_cgol_71:
-		goto _cgol_70
-	_cgol_70:
-		if !((int32(flags1_cgo68)|int32(flags3_cgo69))&1 != 0) {
-			goto _cgol_79
+	_cgol_66:
+		goto _cgol_65
+	_cgol_65:
+		if !((int32(flags1_cgo4)|int32(flags3_cgo5))&1 != 0) {
+			goto _cgol_74
 		}
 		if !(int32(pOp.p5)&128 != 0) {
-			goto _cgol_81
+			goto _cgol_76
 		}
 		func() int {
 			_ = 0
@@ -42873,59 +42888,59 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if int32(flags1_cgo68)&int32(flags3_cgo69)&1 != 0 && int32(flags3_cgo69)&256 == 0 {
-			res_cgo65 = int32(0)
+		if int32(flags1_cgo4)&int32(flags3_cgo5)&1 != 0 && int32(flags3_cgo5)&256 == 0 {
+			res_cgo1 = int32(0)
 		} else {
-			res_cgo65 = func() int32 {
-				if int32(flags3_cgo69)&1 != 0 {
+			res_cgo1 = func() int32 {
+				if int32(flags3_cgo5)&1 != 0 {
 					return -1
 				} else {
 					return 1
 				}
 			}()
 		}
-		goto _cgol_80
-	_cgol_81:
+		goto _cgol_75
+	_cgol_76:
 		iCompare = int32(1)
 		if !(int32(pOp.p5)&16 != 0) {
-			goto _cgol_82
+			goto _cgol_77
 		}
 		goto jump_to_p2
-	_cgol_82:
-		goto _cgol_80
-	_cgol_80:
-		goto _cgol_78
-	_cgol_79:
-		affinity_cgo67 = int8(int32(pOp.p5) & 71)
-		if int32(affinity_cgo67) >= 67 {
-			if (int32(flags1_cgo68)|int32(flags3_cgo69))&2 != 0 {
-				if int32(flags1_cgo68)&(4|32|8|2) == 2 {
+	_cgol_77:
+		goto _cgol_75
+	_cgol_75:
+		goto _cgol_73
+	_cgol_74:
+		affinity_cgo3 = int8(int32(pOp.p5) & 71)
+		if int32(affinity_cgo3) >= 67 {
+			if (int32(flags1_cgo4)|int32(flags3_cgo5))&2 != 0 {
+				if int32(flags1_cgo4)&(4|32|8|2) == 2 {
 					applyNumericAffinity(pIn1, 0)
-					flags3_cgo69 = pIn3.flags
+					flags3_cgo5 = pIn3.flags
 				}
-				if int32(flags3_cgo69)&(4|32|8|2) == 2 {
+				if int32(flags3_cgo5)&(4|32|8|2) == 2 {
 					applyNumericAffinity(pIn3, 0)
 				}
 			}
-		} else if int32(affinity_cgo67) == 66 {
-			if int32(flags1_cgo68)&2 == 0 && int32(flags1_cgo68)&(4|8|32) != 0 {
+		} else if int32(affinity_cgo3) == 66 {
+			if int32(flags1_cgo4)&2 == 0 && int32(flags1_cgo4)&(4|8|32) != 0 {
 				sqlite3VdbeMemStringify(pIn1, encoding, uint8(1))
-				flags1_cgo68 = uint16(int32(pIn1.flags) & ^49599 | int32(flags1_cgo68)&49599)
+				flags1_cgo4 = uint16(int32(pIn1.flags) & ^49599 | int32(flags1_cgo4)&49599)
 				if uintptr(unsafe.Pointer(pIn1)) == uintptr(unsafe.Pointer(pIn3)) {
-					flags3_cgo69 = uint16(int32(flags1_cgo68) | 2)
+					flags3_cgo5 = uint16(int32(flags1_cgo4) | 2)
 				}
 			}
-			if int32(flags3_cgo69)&2 == 0 && int32(flags3_cgo69)&(4|8|32) != 0 {
+			if int32(flags3_cgo5)&2 == 0 && int32(flags3_cgo5)&(4|8|32) != 0 {
 				sqlite3VdbeMemStringify(pIn3, encoding, uint8(1))
-				flags3_cgo69 = uint16(int32(pIn3.flags) & ^49599 | int32(flags3_cgo69)&49599)
+				flags3_cgo5 = uint16(int32(pIn3.flags) & ^49599 | int32(flags3_cgo5)&49599)
 			}
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
-		res_cgo65 = sqlite3MemCompare(pIn3, pIn1, *(**struct_CollSeq)(unsafe.Pointer(&pOp.p4)))
-	_cgol_78:
+		res_cgo1 = sqlite3MemCompare(pIn3, pIn1, *(**struct_CollSeq)(unsafe.Pointer(&pOp.p4)))
+	_cgol_73:
 		func() int {
 			_ = 0
 			return 0
@@ -42946,44 +42961,44 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if res_cgo65 < 0 {
-			res2_cgo66 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aLTb)) + uintptr(pOp.opcode))))
-		} else if res_cgo65 == 0 {
-			res2_cgo66 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aEQb)) + uintptr(pOp.opcode))))
+		if res_cgo1 < 0 {
+			res2_cgo2 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aLTb)) + uintptr(pOp.opcode))))
+		} else if res_cgo1 == 0 {
+			res2_cgo2 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aEQb)) + uintptr(pOp.opcode))))
 		} else {
-			res2_cgo66 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aGTb)) + uintptr(pOp.opcode))))
+			res2_cgo2 = int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(sqlite3aGTb)) + uintptr(pOp.opcode))))
 		}
-		iCompare = res_cgo65
+		iCompare = res_cgo1
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pIn3.flags = flags3_cgo69
+		pIn3.flags = flags3_cgo5
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pIn1.flags = flags1_cgo68
-		if !(res2_cgo66 != 0) {
-			goto _cgol_83
+		pIn1.flags = flags1_cgo4
+		if !(res2_cgo2 != 0) {
+			goto _cgol_78
 		}
 		goto jump_to_p2
-	_cgol_83:
+	_cgol_78:
 		goto _cgol_2
 	_cgol_64:
 		if _cgo_nm && _cgo_tag != 58 {
-			goto _cgol_84
+			goto _cgol_79
 		}
 		_cgo_nm = false
 		if !(iCompare == 0) {
-			goto _cgol_85
+			goto _cgol_80
 		}
 		goto jump_to_p2
-	_cgol_85:
+	_cgol_80:
 		goto _cgol_2
-	_cgol_84:
+	_cgol_79:
 		if _cgo_nm && _cgo_tag != 88 {
-			goto _cgol_86
+			goto _cgol_81
 		}
 		_cgo_nm = false
 		{
@@ -43005,9 +43020,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_86:
+	_cgol_81:
 		if _cgo_nm && _cgo_tag != 89 {
-			goto _cgol_87
+			goto _cgol_82
 		}
 		_cgo_nm = false
 		{
@@ -43088,9 +43103,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_87:
+	_cgol_82:
 		if _cgo_nm && _cgo_tag != 16 {
-			goto _cgol_88
+			goto _cgol_83
 		}
 		_cgo_nm = false
 		{
@@ -43103,14 +43118,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_88:
+	_cgol_83:
 		if _cgo_nm && _cgo_tag != 44 {
-			goto _cgol_89
+			goto _cgol_84
 		}
 		_cgo_nm = false
-	_cgol_89:
+	_cgol_84:
 		if _cgo_nm && _cgo_tag != 43 {
-			goto _cgol_90
+			goto _cgol_85
 		}
 		_cgo_nm = false
 		{
@@ -43134,9 +43149,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_90:
+	_cgol_85:
 		if _cgo_nm && _cgo_tag != 90 {
-			goto _cgol_91
+			goto _cgol_86
 		}
 		_cgo_nm = false
 		{
@@ -43155,9 +43170,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeMemSetInt64(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p2)*56)), int64(sqlite3VdbeBooleanValue(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56)), pOp.p3)^*(*int32)(unsafe.Pointer(&pOp.p4))))
 			goto _cgol_2
 		}
-	_cgol_91:
+	_cgol_86:
 		if _cgo_nm && _cgo_tag != 19 {
-			goto _cgol_92
+			goto _cgol_87
 		}
 		_cgo_nm = false
 		{
@@ -43176,9 +43191,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_92:
+	_cgol_87:
 		if _cgo_nm && _cgo_tag != 114 {
-			goto _cgol_93
+			goto _cgol_88
 		}
 		_cgo_nm = false
 		{
@@ -43191,57 +43206,57 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_93:
+	_cgol_88:
 		if _cgo_nm && _cgo_tag != 17 {
-			goto _cgol_94
+			goto _cgol_89
 		}
 		_cgo_nm = false
-		iAddr_cgo95 = 0
+		iAddr_cgo6 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if !(p.pFrame != nil) {
-			goto _cgol_97
+			goto _cgol_91
 		}
-		iAddr_cgo95 = uint32(int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(p.aOp))) * 24))
-		if !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.pFrame.aOnce)) + uintptr(iAddr_cgo95/uint32(8)))))&int32(1<<(iAddr_cgo95&uint32(7))) != 0) {
-			goto _cgol_98
+		iAddr_cgo6 = uint32(int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(p.aOp))) * 24))
+		if !(int32(*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.pFrame.aOnce)) + uintptr(iAddr_cgo6/uint32(8)))))&int32(1<<(iAddr_cgo6&uint32(7))) != 0) {
+			goto _cgol_92
 		}
 		goto jump_to_p2
-	_cgol_98:
-		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.pFrame.aOnce)) + uintptr(iAddr_cgo95/uint32(8)))) |= uint8(1 << (iAddr_cgo95 & uint32(7)))
-		goto _cgol_96
-	_cgol_97:
+	_cgol_92:
+		*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(p.pFrame.aOnce)) + uintptr(iAddr_cgo6/uint32(8)))) |= uint8(1 << (iAddr_cgo6 & uint32(7)))
+		goto _cgol_90
+	_cgol_91:
 		if !((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(0)*24))).p1 == pOp.p1) {
-			goto _cgol_99
+			goto _cgol_93
 		}
 		goto jump_to_p2
-	_cgol_99:
+	_cgol_93:
 		;
-	_cgol_96:
+	_cgol_90:
 		pOp.p1 = (*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(0)*24))).p1
 		goto _cgol_2
-	_cgol_94:
+	_cgol_89:
 		if _cgo_nm && _cgo_tag != 18 {
-			goto _cgol_100
+			goto _cgol_94
 		}
 		_cgo_nm = false
-		c_cgo101 = 0
-		c_cgo101 = sqlite3VdbeBooleanValue(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56)), pOp.p3)
-		if !(c_cgo101 != 0) {
-			goto _cgol_102
+		c_cgo7 = 0
+		c_cgo7 = sqlite3VdbeBooleanValue(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56)), pOp.p3)
+		if !(c_cgo7 != 0) {
+			goto _cgol_95
 		}
 		goto jump_to_p2
-	_cgol_102:
+	_cgol_95:
 		goto _cgol_2
-	_cgol_100:
+	_cgol_94:
 		if _cgo_nm && _cgo_tag != 20 {
-			goto _cgol_103
+			goto _cgol_96
 		}
 		_cgo_nm = false
-		c_cgo104 = 0
-		c_cgo104 = func() int32 {
+		c_cgo8 = 0
+		c_cgo8 = func() int32 {
 			if !(sqlite3VdbeBooleanValue(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56)), func() int32 {
 				if !(pOp.p3 != 0) {
 					return 1
@@ -43254,47 +43269,47 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				return 0
 			}
 		}()
-		if !(c_cgo104 != 0) {
-			goto _cgol_105
+		if !(c_cgo8 != 0) {
+			goto _cgol_97
 		}
 		goto jump_to_p2
-	_cgol_105:
+	_cgol_97:
 		goto _cgol_2
-	_cgol_103:
+	_cgol_96:
 		if _cgo_nm && _cgo_tag != 50 {
-			goto _cgol_106
+			goto _cgol_98
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		if !(int32(pIn1.flags)&1 != 0) {
-			goto _cgol_107
+			goto _cgol_99
 		}
 		goto jump_to_p2
-	_cgol_107:
+	_cgol_99:
 		goto _cgol_2
-	_cgol_106:
+	_cgol_98:
 		if _cgo_nm && _cgo_tag != 21 {
-			goto _cgol_108
+			goto _cgol_100
 		}
 		_cgo_nm = false
-		doTheJump_cgo109 = 0
+		doTheJump_cgo9 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
-		doTheJump_cgo109 = func() int32 {
+		doTheJump_cgo9 = func() int32 {
 			if int32(pIn1.flags)&1 != 0 || sqlite3_value_type(pIn1) == pOp.p3 {
 				return 1
 			} else {
 				return 0
 			}
 		}()
-		if !(doTheJump_cgo109 != 0) {
-			goto _cgol_110
+		if !(doTheJump_cgo9 != 0) {
+			goto _cgol_101
 		}
 		goto jump_to_p2
-	_cgol_110:
+	_cgol_101:
 		goto _cgol_2
-	_cgol_108:
+	_cgol_100:
 		if _cgo_nm && _cgo_tag != 91 {
-			goto _cgol_111
+			goto _cgol_102
 		}
 		_cgo_nm = false
 		{
@@ -43305,21 +43320,21 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_111:
+	_cgol_102:
 		if _cgo_nm && _cgo_tag != 51 {
-			goto _cgol_112
+			goto _cgol_103
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		if !(int32(pIn1.flags)&1 == 0) {
-			goto _cgol_113
+			goto _cgol_104
 		}
 		goto jump_to_p2
-	_cgol_113:
+	_cgol_104:
 		goto _cgol_2
-	_cgol_112:
+	_cgol_103:
 		if _cgo_nm && _cgo_tag != 22 {
-			goto _cgol_114
+			goto _cgol_105
 		}
 		_cgo_nm = false
 		func() int {
@@ -43331,15 +43346,15 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !((*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))).nullRow != 0) {
-			goto _cgol_115
+			goto _cgol_106
 		}
 		sqlite3VdbeMemSetNull((*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56)))
 		goto jump_to_p2
-	_cgol_115:
+	_cgol_106:
 		goto _cgol_2
-	_cgol_114:
+	_cgol_105:
 		if _cgo_nm && _cgo_tag != 93 {
-			goto _cgol_116
+			goto _cgol_107
 		}
 		_cgo_nm = false
 		{
@@ -43402,7 +43417,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				return 0
 			}()
 			if !(pC.cacheStatus != p.cacheCtr) {
-				goto _cgol_117
+				goto _cgol_108
 			}
 			if pC.nullRow != 0 {
 				if int32(pC.eCurType) == 3 {
@@ -43470,29 +43485,29 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()))
 			pC.nHdrParsed = uint16(0)
 			if !(pC.szRow < *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aOffset)) + uintptr(0)*4))) {
-				goto _cgol_119
+				goto _cgol_110
 			}
 			pC.aRow = (*uint8)(nil)
 			pC.szRow = uint32(0)
 			if *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aOffset)) + uintptr(0)*4)) > uint32(98307) || *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aOffset)) + uintptr(0)*4)) > pC.payloadSize {
 				goto op_column_corrupt
 			}
-			goto _cgol_118
-		_cgol_119:
+			goto _cgol_109
+		_cgol_110:
 			zData = pC.aRow
 			func() int {
 				_ = 0
 				return 0
 			}()
 			goto op_column_read_header
-		_cgol_118:
+		_cgol_109:
 			;
-		_cgol_117:
+		_cgol_108:
 			if !(uint32(pC.nHdrParsed) <= p2) {
-				goto _cgol_121
+				goto _cgol_112
 			}
 			if !(pC.iHdrOffset < *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aOffset)) + uintptr(0)*4))) {
-				goto _cgol_123
+				goto _cgol_114
 			}
 			if uintptr(unsafe.Pointer(pC.aRow)) == uintptr(unsafe.Pointer(nil)) {
 				__builtin___memset_chk(unsafe.Pointer(&sMem), 0, 56, __builtin_object_size(unsafe.Pointer(&sMem), 0))
@@ -43551,10 +43566,10 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if uintptr(unsafe.Pointer(pC.aRow)) == uintptr(unsafe.Pointer(nil)) {
 				sqlite3VdbeMemRelease(&sMem)
 			}
-			goto _cgol_122
-		_cgol_123:
+			goto _cgol_113
+		_cgol_114:
 			t = uint32(0)
-		_cgol_122:
+		_cgol_113:
 			if uint32(pC.nHdrParsed) <= p2 {
 				if int32(pOp.p4type) == -11 {
 					sqlite3VdbeMemShallowCopy(pDest, *(**struct_sqlite3_value)(unsafe.Pointer(&pOp.p4)), 2048)
@@ -43563,10 +43578,10 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				}
 				goto op_column_out
 			}
-			goto _cgol_120
-		_cgol_121:
+			goto _cgol_111
+		_cgol_112:
 			t = *(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&pC.aType)))) + uintptr(p2)*4))
-		_cgol_120:
+		_cgol_111:
 			func() int {
 				_ = 0
 				return 0
@@ -43639,9 +43654,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				goto abort_due_to_error
 			}
 		}
-	_cgol_116:
+	_cgol_107:
 		if _cgo_nm && _cgo_tag != 94 {
-			goto _cgol_124
+			goto _cgol_115
 		}
 		_cgo_nm = false
 		{
@@ -43737,9 +43752,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			rc = int32(19 | 12<<8)
 			goto abort_due_to_error
 		}
-	_cgol_124:
+	_cgol_115:
 		if _cgo_nm && _cgo_tag != 95 {
-			goto _cgol_125
+			goto _cgol_116
 		}
 		_cgo_nm = false
 		{
@@ -43786,9 +43801,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_125:
+	_cgol_116:
 		if _cgo_nm && _cgo_tag != 96 {
-			goto _cgol_126
+			goto _cgol_117
 		}
 		_cgo_nm = false
 		{
@@ -44026,37 +44041,37 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_126:
+	_cgol_117:
 		if _cgo_nm && _cgo_tag != 97 {
-			goto _cgol_127
+			goto _cgol_118
 		}
 		_cgo_nm = false
-		nEntry_cgo128 = 0
-		pCrsr_cgo129 = nil
+		nEntry_cgo10 = 0
+		pCrsr_cgo11 = nil
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo129 = (*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))).uc.pCursor
+		pCrsr_cgo11 = (*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))).uc.pCursor
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if pOp.p3 != 0 {
-			nEntry_cgo128 = sqlite3BtreeRowCountEst(pCrsr_cgo129)
+			nEntry_cgo10 = sqlite3BtreeRowCountEst(pCrsr_cgo11)
 		} else {
-			nEntry_cgo128 = int64(0)
-			rc = sqlite3BtreeCount(db, pCrsr_cgo129, &nEntry_cgo128)
+			nEntry_cgo10 = int64(0)
+			rc = sqlite3BtreeCount(db, pCrsr_cgo11, &nEntry_cgo10)
 			if rc != 0 {
 				goto abort_due_to_error
 			}
 		}
 		pOut = out2Prerelease(p, pOp)
-		*(*int64)(unsafe.Pointer(&pOut.u)) = nEntry_cgo128
+		*(*int64)(unsafe.Pointer(&pOut.u)) = nEntry_cgo10
 		goto check_for_interrupt
-	_cgol_127:
+	_cgol_118:
 		if _cgo_nm && _cgo_tag != 0 {
-			goto _cgol_130
+			goto _cgol_119
 		}
 		_cgo_nm = false
 		{
@@ -44250,9 +44265,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_130:
+	_cgol_119:
 		if _cgo_nm && _cgo_tag != 1 {
-			goto _cgol_131
+			goto _cgol_120
 		}
 		_cgo_nm = false
 		{
@@ -44336,9 +44351,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				return 0
 			}()
 		}
-	_cgol_131:
+	_cgol_120:
 		if _cgo_nm && _cgo_tag != 2 {
-			goto _cgol_132
+			goto _cgol_121
 		}
 		_cgo_nm = false
 		{
@@ -44429,9 +44444,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_132:
+	_cgol_121:
 		if _cgo_nm && _cgo_tag != 98 {
-			goto _cgol_133
+			goto _cgol_122
 		}
 		_cgo_nm = false
 		{
@@ -44465,9 +44480,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(iMeta)
 			goto _cgol_2
 		}
-	_cgol_133:
+	_cgol_122:
 		if _cgo_nm && _cgo_tag != 99 {
-			goto _cgol_134
+			goto _cgol_123
 		}
 		_cgo_nm = false
 		{
@@ -44517,9 +44532,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_134:
+	_cgol_123:
 		if _cgo_nm && _cgo_tag != 100 {
-			goto _cgol_135
+			goto _cgol_124
 		}
 		_cgo_nm = false
 		{
@@ -44552,14 +44567,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				sqlite3BtreeClearCursor(pCur.uc.pCursor)
 				goto open_cursor_set_hints
 			}
-		_cgol_135:
+		_cgol_124:
 			if _cgo_nm && _cgo_tag != 101 {
-				goto _cgol_136
+				goto _cgol_125
 			}
 			_cgo_nm = false
-		_cgol_136:
+		_cgol_125:
 			if _cgo_nm && _cgo_tag != 112 {
-				goto _cgol_137
+				goto _cgol_126
 			}
 			_cgo_nm = false
 			func() int {
@@ -44698,9 +44713,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_137:
+	_cgol_126:
 		if _cgo_nm && _cgo_tag != 113 {
-			goto _cgol_138
+			goto _cgol_127
 		}
 		_cgo_nm = false
 		{
@@ -44747,14 +44762,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_138:
+	_cgol_127:
 		if _cgo_nm && _cgo_tag != 115 {
-			goto _cgol_139
+			goto _cgol_128
 		}
 		_cgo_nm = false
-	_cgol_139:
+	_cgol_128:
 		if _cgo_nm && _cgo_tag != 116 {
-			goto _cgol_140
+			goto _cgol_129
 		}
 		_cgo_nm = false
 		{
@@ -44864,9 +44879,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			pCx.nullRow = uint8(1)
 			goto _cgol_2
 		}
-	_cgol_140:
+	_cgol_129:
 		if _cgo_nm && _cgo_tag != 118 {
-			goto _cgol_141
+			goto _cgol_130
 		}
 		_cgo_nm = false
 		{
@@ -44898,35 +44913,35 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_141:
+	_cgol_130:
 		if _cgo_nm && _cgo_tag != 119 {
-			goto _cgol_142
+			goto _cgol_131
 		}
 		_cgo_nm = false
-		pC_cgo143 = nil
+		pC_cgo12 = nil
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo143 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo12 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if !(func() (_cgo_ret int64) {
-			_cgo_addr := &pC_cgo143.seqCount
+			_cgo_addr := &pC_cgo12.seqCount
 			_cgo_ret = *_cgo_addr
 			*_cgo_addr++
 			return
 		}() == int64(0)) {
-			goto _cgol_144
+			goto _cgol_132
 		}
 		goto jump_to_p2
-	_cgol_144:
+	_cgol_132:
 		goto _cgol_2
-	_cgol_142:
+	_cgol_131:
 		if _cgo_nm && _cgo_tag != 120 {
-			goto _cgol_145
+			goto _cgol_133
 		}
 		_cgo_nm = false
 		{
@@ -44953,9 +44968,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_145:
+	_cgol_133:
 		if _cgo_nm && _cgo_tag != 121 {
-			goto _cgol_146
+			goto _cgol_134
 		}
 		_cgo_nm = false
 		{
@@ -44967,30 +44982,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8)) = (*struct_VdbeCursor)(nil)
 			goto _cgol_2
 		}
-	_cgol_146:
+	_cgol_134:
 		if _cgo_nm && _cgo_tag != 23 {
-			goto _cgol_147
+			goto _cgol_135
 		}
 		_cgo_nm = false
-	_cgol_147:
+	_cgol_135:
 		if _cgo_nm && _cgo_tag != 24 {
-			goto _cgol_148
+			goto _cgol_136
 		}
 		_cgo_nm = false
-	_cgol_148:
+	_cgol_136:
 		if _cgo_nm && _cgo_tag != 25 {
-			goto _cgol_149
+			goto _cgol_137
 		}
 		_cgo_nm = false
-	_cgol_149:
+	_cgol_137:
 		if _cgo_nm && _cgo_tag != 26 {
-			goto _cgol_150
+			goto _cgol_138
 		}
 		_cgo_nm = false
-		res_cgo151 = 0
-		oc_cgo152 = 0
-		pC_cgo153 = nil
-		r_cgo154 = struct {
+		res_cgo13 = 0
+		oc_cgo14 = 0
+		pC_cgo15 = nil
+		r_cgo16 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -45000,9 +45015,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			r2         int8
 			eqSeen     uint8
 		}{}
-		nField_cgo155 = 0
-		iKey_cgo156 = 0
-		eqOnly_cgo157 = 0
+		nField_cgo17 = 0
+		iKey_cgo18 = 0
+		eqOnly_cgo19 = 0
 		func() int {
 			_ = 0
 			return 0
@@ -45011,19 +45026,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo153 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
-		func() int {
-			_ = 0
-			return 0
-		}()
+		pC_cgo15 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45040,51 +45043,63 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		oc_cgo152 = int32(pOp.opcode)
-		eqOnly_cgo157 = int32(0)
-		pC_cgo153.nullRow = uint8(0)
-		pC_cgo153.deferredMoveto = uint8(0)
-		pC_cgo153.cacheStatus = uint32(0)
-		if !(pC_cgo153.isTable != 0) {
-			goto _cgol_159
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		func() int {
+			_ = 0
+			return 0
+		}()
+		oc_cgo14 = int32(pOp.opcode)
+		eqOnly_cgo19 = int32(0)
+		pC_cgo15.nullRow = uint8(0)
+		pC_cgo15.deferredMoveto = uint8(0)
+		pC_cgo15.cacheStatus = uint32(0)
+		if !(pC_cgo15.isTable != 0) {
+			goto _cgol_140
 		}
-		flags3_cgo160 = 0
-		newType_cgo161 = 0
+		flags3_cgo20 = 0
+		newType_cgo21 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		flags3_cgo160 = pIn3.flags
-		if int32(flags3_cgo160)&(4|8|32|2) == 2 {
+		flags3_cgo20 = pIn3.flags
+		if int32(flags3_cgo20)&(4|8|32|2) == 2 {
 			applyNumericAffinity(pIn3, 0)
 		}
-		iKey_cgo156 = sqlite3VdbeIntValue(pIn3)
-		newType_cgo161 = pIn3.flags
-		pIn3.flags = flags3_cgo160
-		if !(int32(newType_cgo161)&(4|32) == 0) {
-			goto _cgol_162
+		iKey_cgo18 = sqlite3VdbeIntValue(pIn3)
+		newType_cgo21 = pIn3.flags
+		pIn3.flags = flags3_cgo20
+		if !(int32(newType_cgo21)&(4|32) == 0) {
+			goto _cgol_141
 		}
-		c_cgo163 = 0
-		if !(int32(newType_cgo161)&8 == 0) {
-			goto _cgol_164
+		c_cgo22 = 0
+		if !(int32(newType_cgo21)&8 == 0) {
+			goto _cgol_142
 		}
-		if !(int32(newType_cgo161)&1 != 0 || oc_cgo152 >= 25) {
-			goto _cgol_166
+		if !(int32(newType_cgo21)&1 != 0 || oc_cgo14 >= 25) {
+			goto _cgol_144
 		}
 		goto jump_to_p2
-		goto _cgol_165
-	_cgol_166:
-		rc = sqlite3BtreeLast(pC_cgo153.uc.pCursor, &res_cgo151)
+		goto _cgol_143
+	_cgol_144:
+		rc = sqlite3BtreeLast(pC_cgo15.uc.pCursor, &res_cgo13)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
 		goto seek_not_found
-	_cgol_165:
+	_cgol_143:
 		;
-	_cgol_164:
-		c_cgo163 = sqlite3IntFloatCompare(iKey_cgo156, pIn3.u.r)
-		if c_cgo163 > 0 {
+	_cgol_142:
+		c_cgo22 = sqlite3IntFloatCompare(iKey_cgo18, pIn3.u.r)
+		if c_cgo22 > 0 {
 			func() int {
 				_ = 0
 				return 0
@@ -45097,10 +45112,10 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			if oc_cgo152&1 == 26&1 {
-				oc_cgo152--
+			if oc_cgo14&1 == 26&1 {
+				oc_cgo14--
 			}
-		} else if c_cgo163 < 0 {
+		} else if c_cgo22 < 0 {
 			func() int {
 				_ = 0
 				return 0
@@ -45113,20 +45128,20 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			if oc_cgo152&1 == 23&1 {
-				oc_cgo152++
+			if oc_cgo14&1 == 23&1 {
+				oc_cgo14++
 			}
 		}
-	_cgol_162:
-		rc = sqlite3BtreeTableMoveto(pC_cgo153.uc.pCursor, int64(uint64(iKey_cgo156)), 0, &res_cgo151)
-		pC_cgo153.movetoTarget = iKey_cgo156
+	_cgol_141:
+		rc = sqlite3BtreeTableMoveto(pC_cgo15.uc.pCursor, int64(uint64(iKey_cgo18)), 0, &res_cgo13)
+		pC_cgo15.movetoTarget = iKey_cgo18
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		goto _cgol_158
-	_cgol_159:
-		if sqlite3BtreeCursorHasHint(pC_cgo153.uc.pCursor, uint32(2)) != 0 {
-			eqOnly_cgo157 = int32(1)
+		goto _cgol_139
+	_cgol_140:
+		if sqlite3BtreeCursorHasHint(pC_cgo15.uc.pCursor, uint32(2)) != 0 {
+			eqOnly_cgo19 = int32(1)
 			func() int {
 				_ = 0
 				return 0
@@ -45160,7 +45175,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				return 0
 			}()
 		}
-		nField_cgo155 = *(*int32)(unsafe.Pointer(&pOp.p4))
+		nField_cgo17 = *(*int32)(unsafe.Pointer(&pOp.p4))
 		func() int {
 			_ = 0
 			return 0
@@ -45169,10 +45184,10 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		r_cgo154.pKeyInfo = pC_cgo153.pKeyInfo
-		r_cgo154.nField = uint16(nField_cgo155)
-		r_cgo154.default_rc = int8(func() int32 {
-			if 1&(oc_cgo152-23) != 0 {
+		r_cgo16.pKeyInfo = pC_cgo15.pKeyInfo
+		r_cgo16.nField = uint16(nField_cgo17)
+		r_cgo16.default_rc = int8(func() int32 {
+			if 1&(oc_cgo14-23) != 0 {
 				return -1
 			} else {
 				return 1
@@ -45194,60 +45209,60 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		r_cgo154.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		r_cgo154.eqSeen = uint8(0)
-		rc = sqlite3BtreeIndexMoveto(pC_cgo153.uc.pCursor, &r_cgo154, &res_cgo151)
+		r_cgo16.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		r_cgo16.eqSeen = uint8(0)
+		rc = sqlite3BtreeIndexMoveto(pC_cgo15.uc.pCursor, &r_cgo16, &res_cgo13)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(eqOnly_cgo157 != 0 && int32(r_cgo154.eqSeen) == 0) {
-			goto _cgol_167
+		if !(eqOnly_cgo19 != 0 && int32(r_cgo16.eqSeen) == 0) {
+			goto _cgol_145
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
 		goto seek_not_found
-	_cgol_167:
+	_cgol_145:
 		;
-	_cgol_158:
-		if oc_cgo152 >= 25 {
+	_cgol_139:
+		if oc_cgo14 >= 25 {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			if res_cgo151 < 0 || res_cgo151 == 0 && oc_cgo152 == 26 {
-				res_cgo151 = int32(0)
-				rc = sqlite3BtreeNext(pC_cgo153.uc.pCursor, 0)
+			if res_cgo13 < 0 || res_cgo13 == 0 && oc_cgo14 == 26 {
+				res_cgo13 = int32(0)
+				rc = sqlite3BtreeNext(pC_cgo15.uc.pCursor, 0)
 				if rc != 0 {
 					if rc == 101 {
 						rc = int32(0)
-						res_cgo151 = int32(1)
+						res_cgo13 = int32(1)
 					} else {
 						goto abort_due_to_error
 					}
 				}
 			} else {
-				res_cgo151 = int32(0)
+				res_cgo13 = int32(0)
 			}
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			if res_cgo151 > 0 || res_cgo151 == 0 && oc_cgo152 == 23 {
-				res_cgo151 = int32(0)
-				rc = sqlite3BtreePrevious(pC_cgo153.uc.pCursor, 0)
+			if res_cgo13 > 0 || res_cgo13 == 0 && oc_cgo14 == 23 {
+				res_cgo13 = int32(0)
+				rc = sqlite3BtreePrevious(pC_cgo15.uc.pCursor, 0)
 				if rc != 0 {
 					if rc == 101 {
 						rc = int32(0)
-						res_cgo151 = int32(1)
+						res_cgo13 = int32(1)
 					} else {
 						goto abort_due_to_error
 					}
 				}
 			} else {
-				res_cgo151 = sqlite3BtreeEof(pC_cgo153.uc.pCursor)
+				res_cgo13 = sqlite3BtreeEof(pC_cgo15.uc.pCursor)
 			}
 		}
 	seek_not_found:
@@ -45255,30 +45270,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if !(res_cgo151 != 0) {
-			goto _cgol_169
+		if !(res_cgo13 != 0) {
+			goto _cgol_147
 		}
 		goto jump_to_p2
-		goto _cgol_168
-	_cgol_169:
-		if eqOnly_cgo157 != 0 {
+		goto _cgol_146
+	_cgol_147:
+		if eqOnly_cgo19 != 0 {
 			func() int {
 				_ = 0
 				return 0
 			}()
 			*(*uintptr)(unsafe.Pointer(&pOp)) += 24
 		}
-	_cgol_168:
+	_cgol_146:
 		goto _cgol_2
-	_cgol_150:
+	_cgol_138:
 		if _cgo_nm && _cgo_tag != 123 {
-			goto _cgol_170
+			goto _cgol_148
 		}
 		_cgo_nm = false
-		pC_cgo171 = nil
-		res_cgo172 = 0
-		nStep_cgo173 = 0
-		r_cgo174 = struct {
+		pC_cgo23 = nil
+		res_cgo24 = 0
+		nStep_cgo25 = 0
+		r_cgo26 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -45316,7 +45331,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo171 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p1)*8))
+		pC_cgo23 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45329,65 +45344,65 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if !(sqlite3BtreeCursorIsValidNN(pC_cgo171.uc.pCursor) != 0) {
+		if !(sqlite3BtreeCursorIsValidNN(pC_cgo23.uc.pCursor) != 0) {
 			goto _cgol_2
 		}
-		nStep_cgo173 = pOp.p1
+		nStep_cgo25 = pOp.p1
 		func() int {
 			_ = 0
 			return 0
 		}()
-		r_cgo174.pKeyInfo = pC_cgo171.pKeyInfo
-		r_cgo174.nField = uint16(*(*int32)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p4)))
-		r_cgo174.default_rc = int8(0)
-		r_cgo174.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p3)*56))
-		res_cgo172 = int32(0)
-	_cgol_175:
+		r_cgo26.pKeyInfo = pC_cgo23.pKeyInfo
+		r_cgo26.nField = uint16(*(*int32)(unsafe.Pointer(&(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p4)))
+		r_cgo26.default_rc = int8(0)
+		r_cgo26.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(pOp)) + uintptr(1)*24))).p3)*56))
+		res_cgo24 = int32(0)
+	_cgol_149:
 		if false {
-			goto _cgol_176
+			goto _cgol_150
 		}
-		rc = sqlite3VdbeIdxKeyCompare(db, pC_cgo171, &r_cgo174, &res_cgo172)
+		rc = sqlite3VdbeIdxKeyCompare(db, pC_cgo23, &r_cgo26, &res_cgo24)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(res_cgo172 > 0) {
-			goto _cgol_177
+		if !(res_cgo24 > 0) {
+			goto _cgol_151
 		}
 	seekscan_search_fail:
 		*(*uintptr)(unsafe.Pointer(&pOp)) += 24
 		goto jump_to_p2
-	_cgol_177:
-		if !(res_cgo172 == 0) {
-			goto _cgol_178
+	_cgol_151:
+		if !(res_cgo24 == 0) {
+			goto _cgol_152
 		}
 		goto jump_to_p2
-		goto _cgol_178
-	_cgol_178:
-		if nStep_cgo173 <= 0 {
-			goto _cgol_176
+		goto _cgol_152
+	_cgol_152:
+		if nStep_cgo25 <= 0 {
+			goto _cgol_150
 		}
-		nStep_cgo173--
-		rc = sqlite3BtreeNext(pC_cgo171.uc.pCursor, 0)
+		nStep_cgo25--
+		rc = sqlite3BtreeNext(pC_cgo23.uc.pCursor, 0)
 		if !(rc != 0) {
-			goto _cgol_179
+			goto _cgol_153
 		}
 		if !(rc == 101) {
-			goto _cgol_181
+			goto _cgol_155
 		}
 		rc = int32(0)
 		goto seekscan_search_fail
-		goto _cgol_180
-	_cgol_181:
+		goto _cgol_154
+	_cgol_155:
 		goto abort_due_to_error
-	_cgol_180:
+	_cgol_154:
 		;
-	_cgol_179:
-		goto _cgol_175
-	_cgol_176:
+	_cgol_153:
+		goto _cgol_149
+	_cgol_150:
 		goto _cgol_2
-	_cgol_170:
+	_cgol_148:
 		if _cgo_nm && _cgo_tag != 124 {
-			goto _cgol_182
+			goto _cgol_156
 		}
 		_cgo_nm = false
 		{
@@ -45412,9 +45427,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_182:
+	_cgol_156:
 		if _cgo_nm && _cgo_tag != 27 {
-			goto _cgol_183
+			goto _cgol_157
 		}
 		_cgo_nm = false
 		func() int {
@@ -45422,14 +45437,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !!(*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8)) != nil) {
-			goto _cgol_184
+			goto _cgol_158
 		}
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_184:
+	_cgol_158:
 		goto _cgol_2
-	_cgol_183:
+	_cgol_157:
 		if _cgo_nm && _cgo_tag != 28 {
-			goto _cgol_185
+			goto _cgol_159
 		}
 		_cgo_nm = false
 		{
@@ -45447,29 +45462,29 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				goto _cgol_2
 			}
 		}
-	_cgol_185:
+	_cgol_159:
 		if _cgo_nm && _cgo_tag != 29 {
-			goto _cgol_186
+			goto _cgol_160
 		}
 		_cgo_nm = false
-	_cgol_186:
+	_cgol_160:
 		if _cgo_nm && _cgo_tag != 30 {
-			goto _cgol_187
+			goto _cgol_161
 		}
 		_cgo_nm = false
-	_cgol_187:
+	_cgol_161:
 		if _cgo_nm && _cgo_tag != 31 {
-			goto _cgol_188
+			goto _cgol_162
 		}
 		_cgo_nm = false
-		alreadyExists_cgo189 = 0
-		takeJump_cgo190 = 0
-		ii_cgo191 = 0
-		pC_cgo192 = nil
-		res_cgo193 = 0
-		pFree_cgo194 = nil
-		pIdxKey_cgo195 = nil
-		r_cgo196 = struct {
+		alreadyExists_cgo27 = 0
+		takeJump_cgo28 = 0
+		ii_cgo29 = 0
+		pC_cgo30 = nil
+		res_cgo31 = 0
+		pFree_cgo32 = nil
+		pIdxKey_cgo33 = nil
+		r_cgo34 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -45487,7 +45502,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo192 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo30 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45506,11 +45521,11 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if *(*int32)(unsafe.Pointer(&pOp.p4)) > 0 {
-			r_cgo196.pKeyInfo = pC_cgo192.pKeyInfo
-			r_cgo196.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
-			r_cgo196.aMem = pIn3
-			pIdxKey_cgo195 = &r_cgo196
-			pFree_cgo194 = (*struct_UnpackedRecord)(nil)
+			r_cgo34.pKeyInfo = pC_cgo30.pKeyInfo
+			r_cgo34.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+			r_cgo34.aMem = pIn3
+			pIdxKey_cgo33 = &r_cgo34
+			pFree_cgo32 = (*struct_UnpackedRecord)(nil)
 		} else {
 			func() int {
 				_ = 0
@@ -45530,91 +45545,91 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if rc != 0 {
 				goto no_mem
 			}
-			pFree_cgo194 = func() (_cgo_ret *struct_UnpackedRecord) {
-				_cgo_addr := &pIdxKey_cgo195
-				*_cgo_addr = sqlite3VdbeAllocUnpackedRecord(pC_cgo192.pKeyInfo)
+			pFree_cgo32 = func() (_cgo_ret *struct_UnpackedRecord) {
+				_cgo_addr := &pIdxKey_cgo33
+				*_cgo_addr = sqlite3VdbeAllocUnpackedRecord(pC_cgo30.pKeyInfo)
 				return *_cgo_addr
 			}()
-			if uintptr(unsafe.Pointer(pIdxKey_cgo195)) == uintptr(unsafe.Pointer(nil)) {
+			if uintptr(unsafe.Pointer(pIdxKey_cgo33)) == uintptr(unsafe.Pointer(nil)) {
 				goto no_mem
 			}
-			sqlite3VdbeRecordUnpack(pC_cgo192.pKeyInfo, pIn3.n, unsafe.Pointer(pIn3.z), pIdxKey_cgo195)
+			sqlite3VdbeRecordUnpack(pC_cgo30.pKeyInfo, pIn3.n, unsafe.Pointer(pIn3.z), pIdxKey_cgo33)
 		}
-		pIdxKey_cgo195.default_rc = int8(0)
-		takeJump_cgo190 = int32(0)
+		pIdxKey_cgo33.default_rc = int8(0)
+		takeJump_cgo28 = int32(0)
 		if int32(pOp.opcode) == 29 {
-			for ii_cgo191 = int32(0); ii_cgo191 < int32(pIdxKey_cgo195.nField); ii_cgo191++ {
-				if int32((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdxKey_cgo195.aMem)) + uintptr(ii_cgo191)*56))).flags)&1 != 0 {
-					takeJump_cgo190 = int32(1)
+			for ii_cgo29 = int32(0); ii_cgo29 < int32(pIdxKey_cgo33.nField); ii_cgo29++ {
+				if int32((*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIdxKey_cgo33.aMem)) + uintptr(ii_cgo29)*56))).flags)&1 != 0 {
+					takeJump_cgo28 = int32(1)
 					break
 				}
 			}
 		}
-		rc = sqlite3BtreeIndexMoveto(pC_cgo192.uc.pCursor, pIdxKey_cgo195, &res_cgo193)
-		if pFree_cgo194 != nil {
-			sqlite3DbFreeNN(db, unsafe.Pointer(pFree_cgo194))
+		rc = sqlite3BtreeIndexMoveto(pC_cgo30.uc.pCursor, pIdxKey_cgo33, &res_cgo31)
+		if pFree_cgo32 != nil {
+			sqlite3DbFreeNN(db, unsafe.Pointer(pFree_cgo32))
 		}
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		pC_cgo192.seekResult = res_cgo193
-		alreadyExists_cgo189 = func() int32 {
-			if res_cgo193 == 0 {
+		pC_cgo30.seekResult = res_cgo31
+		alreadyExists_cgo27 = func() int32 {
+			if res_cgo31 == 0 {
 				return 1
 			} else {
 				return 0
 			}
 		}()
-		pC_cgo192.nullRow = uint8(1 - alreadyExists_cgo189)
-		pC_cgo192.deferredMoveto = uint8(0)
-		pC_cgo192.cacheStatus = uint32(0)
+		pC_cgo30.nullRow = uint8(1 - alreadyExists_cgo27)
+		pC_cgo30.deferredMoveto = uint8(0)
+		pC_cgo30.cacheStatus = uint32(0)
 		if !(int32(pOp.opcode) == 31) {
-			goto _cgol_198
+			goto _cgol_164
 		}
-		if !(alreadyExists_cgo189 != 0) {
-			goto _cgol_199
-		}
-		goto jump_to_p2
-	_cgol_199:
-		goto _cgol_197
-	_cgol_198:
-		if !(takeJump_cgo190 != 0 || !(alreadyExists_cgo189 != 0)) {
-			goto _cgol_200
+		if !(alreadyExists_cgo27 != 0) {
+			goto _cgol_165
 		}
 		goto jump_to_p2
-	_cgol_200:
+	_cgol_165:
+		goto _cgol_163
+	_cgol_164:
+		if !(takeJump_cgo28 != 0 || !(alreadyExists_cgo27 != 0)) {
+			goto _cgol_166
+		}
+		goto jump_to_p2
+	_cgol_166:
 		if int32(pOp.opcode) == 28 {
-			pC_cgo192.seekHit = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+			pC_cgo30.seekHit = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
 		}
-	_cgol_197:
+	_cgol_163:
 		goto _cgol_2
-	_cgol_188:
+	_cgol_162:
 		if _cgo_nm && _cgo_tag != 32 {
-			goto _cgol_201
+			goto _cgol_167
 		}
 		_cgo_nm = false
-		pC_cgo202 = nil
-		pCrsr_cgo203 = nil
-		res_cgo204 = 0
-		iKey_cgo205 = 0
+		pC_cgo35 = nil
+		pCrsr_cgo36 = nil
+		res_cgo37 = 0
+		iKey_cgo38 = 0
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		if !(int32(pIn3.flags)&(4|32) == 0) {
-			goto _cgol_206
+			goto _cgol_168
 		}
-		x_cgo207 = *(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn3)) + uintptr(0)*56))
-		applyAffinity(&x_cgo207, int8(67), encoding)
-		if !(int32(x_cgo207.flags)&4 == 0) {
-			goto _cgol_208
+		x_cgo39 = *(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn3)) + uintptr(0)*56))
+		applyAffinity(&x_cgo39, int8(67), encoding)
+		if !(int32(x_cgo39.flags)&4 == 0) {
+			goto _cgol_169
 		}
 		goto jump_to_p2
-	_cgol_208:
-		iKey_cgo205 = uint64(*(*int64)(unsafe.Pointer(&x_cgo207.u)))
+	_cgol_169:
+		iKey_cgo38 = uint64(*(*int64)(unsafe.Pointer(&x_cgo39.u)))
 		goto notExistsWithKey
-	_cgol_206:
+	_cgol_168:
 		;
-	_cgol_201:
+	_cgol_167:
 		if _cgo_nm && _cgo_tag != 33 {
-			goto _cgol_209
+			goto _cgol_170
 		}
 		_cgo_nm = false
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
@@ -45626,9 +45641,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		iKey_cgo205 = uint64(*(*int64)(unsafe.Pointer(&pIn3.u)))
+		iKey_cgo38 = uint64(*(*int64)(unsafe.Pointer(&pIn3.u)))
 	notExistsWithKey:
-		pC_cgo202 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo35 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -45641,46 +45656,46 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo203 = pC_cgo202.uc.pCursor
+		pCrsr_cgo36 = pC_cgo35.uc.pCursor
 		func() int {
 			_ = 0
 			return 0
 		}()
-		res_cgo204 = int32(0)
-		rc = sqlite3BtreeTableMoveto(pCrsr_cgo203, int64(iKey_cgo205), 0, &res_cgo204)
+		res_cgo37 = int32(0)
+		rc = sqlite3BtreeTableMoveto(pCrsr_cgo36, int64(iKey_cgo38), 0, &res_cgo37)
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo202.movetoTarget = int64(iKey_cgo205)
-		pC_cgo202.nullRow = uint8(0)
-		pC_cgo202.cacheStatus = uint32(0)
-		pC_cgo202.deferredMoveto = uint8(0)
-		pC_cgo202.seekResult = res_cgo204
-		if !(res_cgo204 != 0) {
-			goto _cgol_210
+		pC_cgo35.movetoTarget = int64(iKey_cgo38)
+		pC_cgo35.nullRow = uint8(0)
+		pC_cgo35.cacheStatus = uint32(0)
+		pC_cgo35.deferredMoveto = uint8(0)
+		pC_cgo35.seekResult = res_cgo37
+		if !(res_cgo37 != 0) {
+			goto _cgol_171
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if !(pOp.p2 == 0) {
-			goto _cgol_212
+			goto _cgol_173
 		}
 		rc = sqlite3CorruptError(92470)
-		goto _cgol_211
-	_cgol_212:
+		goto _cgol_172
+	_cgol_173:
 		goto jump_to_p2
-	_cgol_211:
+	_cgol_172:
 		;
-	_cgol_210:
+	_cgol_171:
 		if rc != 0 {
 			goto abort_due_to_error
 		}
 		goto _cgol_2
-	_cgol_209:
+	_cgol_170:
 		if _cgo_nm && _cgo_tag != 125 {
-			goto _cgol_213
+			goto _cgol_174
 		}
 		_cgo_nm = false
 		{
@@ -45705,9 +45720,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_213:
+	_cgol_174:
 		if _cgo_nm && _cgo_tag != 126 {
-			goto _cgol_214
+			goto _cgol_175
 		}
 		_cgo_nm = false
 		{
@@ -45847,9 +45862,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = v
 			goto _cgol_2
 		}
-	_cgol_214:
+	_cgol_175:
 		if _cgo_nm && _cgo_tag != 127 {
-			goto _cgol_215
+			goto _cgol_176
 		}
 		_cgo_nm = false
 		{
@@ -45969,9 +45984,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_215:
+	_cgol_176:
 		if _cgo_nm && _cgo_tag != 128 {
-			goto _cgol_216
+			goto _cgol_177
 		}
 		_cgo_nm = false
 		{
@@ -46009,9 +46024,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_216:
+	_cgol_177:
 		if _cgo_nm && _cgo_tag != 129 {
-			goto _cgol_217
+			goto _cgol_178
 		}
 		_cgo_nm = false
 		{
@@ -46089,9 +46104,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_217:
+	_cgol_178:
 		if _cgo_nm && _cgo_tag != 130 {
-			goto _cgol_218
+			goto _cgol_179
 		}
 		_cgo_nm = false
 		{
@@ -46099,15 +46114,15 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			p.nChange = int64(0)
 			goto _cgol_2
 		}
-	_cgol_218:
+	_cgol_179:
 		if _cgo_nm && _cgo_tag != 131 {
-			goto _cgol_219
+			goto _cgol_180
 		}
 		_cgo_nm = false
-		pC_cgo220 = nil
-		res_cgo221 = 0
-		nKeyCol_cgo222 = 0
-		pC_cgo220 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo40 = nil
+		res_cgo41 = 0
+		nKeyCol_cgo42 = 0
+		pC_cgo40 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46117,21 +46132,21 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		nKeyCol_cgo222 = *(*int32)(unsafe.Pointer(&pOp.p4))
-		res_cgo221 = int32(0)
-		rc = sqlite3VdbeSorterCompare(pC_cgo220, pIn3, nKeyCol_cgo222, &res_cgo221)
+		nKeyCol_cgo42 = *(*int32)(unsafe.Pointer(&pOp.p4))
+		res_cgo41 = int32(0)
+		rc = sqlite3VdbeSorterCompare(pC_cgo40, pIn3, nKeyCol_cgo42, &res_cgo41)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if !(res_cgo221 != 0) {
-			goto _cgol_223
+		if !(res_cgo41 != 0) {
+			goto _cgol_181
 		}
 		goto jump_to_p2
-	_cgol_223:
+	_cgol_181:
 		goto _cgol_2
-	_cgol_219:
+	_cgol_180:
 		if _cgo_nm && _cgo_tag != 132 {
-			goto _cgol_224
+			goto _cgol_182
 		}
 		_cgo_nm = false
 		{
@@ -46157,9 +46172,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			(*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p3)*8))).cacheStatus = uint32(0)
 			goto _cgol_2
 		}
-	_cgol_224:
+	_cgol_182:
 		if _cgo_nm && _cgo_tag != 133 {
-			goto _cgol_225
+			goto _cgol_183
 		}
 		_cgo_nm = false
 		{
@@ -46216,9 +46231,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_225:
+	_cgol_183:
 		if _cgo_nm && _cgo_tag != 134 {
-			goto _cgol_226
+			goto _cgol_184
 		}
 		_cgo_nm = false
 		{
@@ -46283,9 +46298,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = v
 			goto _cgol_2
 		}
-	_cgol_226:
+	_cgol_184:
 		if _cgo_nm && _cgo_tag != 135 {
-			goto _cgol_227
+			goto _cgol_185
 		}
 		_cgo_nm = false
 		{
@@ -46310,24 +46325,24 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_227:
+	_cgol_185:
 		if _cgo_nm && _cgo_tag != 136 {
-			goto _cgol_228
+			goto _cgol_186
 		}
 		_cgo_nm = false
-	_cgol_228:
+	_cgol_186:
 		if _cgo_nm && _cgo_tag != 34 {
-			goto _cgol_229
+			goto _cgol_187
 		}
 		_cgo_nm = false
-		pC_cgo230 = nil
-		pCrsr_cgo231 = nil
-		res_cgo232 = 0
+		pC_cgo43 = nil
+		pCrsr_cgo44 = nil
+		res_cgo45 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo230 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo43 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46336,8 +46351,8 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo231 = pC_cgo230.uc.pCursor
-		res_cgo232 = int32(0)
+		pCrsr_cgo44 = pC_cgo43.uc.pCursor
+		res_cgo45 = int32(0)
 		func() int {
 			_ = 0
 			return 0
@@ -46347,89 +46362,89 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			pC_cgo230.seekResult = int32(-1)
-			if sqlite3BtreeCursorIsValidNN(pCrsr_cgo231) != 0 {
+			pC_cgo43.seekResult = int32(-1)
+			if sqlite3BtreeCursorIsValidNN(pCrsr_cgo44) != 0 {
 				goto _cgol_2
 			}
 		}
-		rc = sqlite3BtreeLast(pCrsr_cgo231, &res_cgo232)
-		pC_cgo230.nullRow = uint8(res_cgo232)
-		pC_cgo230.deferredMoveto = uint8(0)
-		pC_cgo230.cacheStatus = uint32(0)
+		rc = sqlite3BtreeLast(pCrsr_cgo44, &res_cgo45)
+		pC_cgo43.nullRow = uint8(res_cgo45)
+		pC_cgo43.deferredMoveto = uint8(0)
+		pC_cgo43.cacheStatus = uint32(0)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
 		if !(pOp.p2 > 0) {
-			goto _cgol_233
+			goto _cgol_188
 		}
-		if !(res_cgo232 != 0) {
-			goto _cgol_234
+		if !(res_cgo45 != 0) {
+			goto _cgol_189
 		}
 		goto jump_to_p2
-	_cgol_234:
+	_cgol_189:
 		;
-	_cgol_233:
+	_cgol_188:
 		goto _cgol_2
-	_cgol_229:
+	_cgol_187:
 		if _cgo_nm && _cgo_tag != 35 {
-			goto _cgol_235
+			goto _cgol_190
 		}
 		_cgo_nm = false
-		pC_cgo236 = nil
-		pCrsr_cgo237 = nil
-		res_cgo238 = 0
-		sz_cgo239 = 0
+		pC_cgo46 = nil
+		pCrsr_cgo47 = nil
+		res_cgo48 = 0
+		sz_cgo49 = 0
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pC_cgo236 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo46 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pCrsr_cgo237 = pC_cgo236.uc.pCursor
+		pCrsr_cgo47 = pC_cgo46.uc.pCursor
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = sqlite3BtreeFirst(pCrsr_cgo237, &res_cgo238)
+		rc = sqlite3BtreeFirst(pCrsr_cgo47, &res_cgo48)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		if res_cgo238 == 0 {
-			sz_cgo239 = sqlite3BtreeRowCountEst(pCrsr_cgo237)
-			if sz_cgo239 >= int64(0) && int32(sqlite3LogEst(uint64(sz_cgo239))) < pOp.p3 {
-				res_cgo238 = int32(1)
+		if res_cgo48 == 0 {
+			sz_cgo49 = sqlite3BtreeRowCountEst(pCrsr_cgo47)
+			if sz_cgo49 >= int64(0) && int32(sqlite3LogEst(uint64(sz_cgo49))) < pOp.p3 {
+				res_cgo48 = int32(1)
 			}
 		}
-		if !(res_cgo238 != 0) {
-			goto _cgol_240
+		if !(res_cgo48 != 0) {
+			goto _cgol_191
 		}
 		goto jump_to_p2
-	_cgol_240:
+	_cgol_191:
 		goto _cgol_2
-	_cgol_235:
+	_cgol_190:
 		if _cgo_nm && _cgo_tag != 36 {
-			goto _cgol_241
+			goto _cgol_192
 		}
 		_cgo_nm = false
-	_cgol_241:
+	_cgol_192:
 		if _cgo_nm && _cgo_tag != 37 {
-			goto _cgol_242
+			goto _cgol_193
 		}
 		_cgo_nm = false
 		{
 			*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(2)*4))++
 		}
-	_cgol_242:
+	_cgol_193:
 		if _cgo_nm && _cgo_tag != 38 {
-			goto _cgol_243
+			goto _cgol_194
 		}
 		_cgo_nm = false
-		pC_cgo244 = nil
-		pCrsr_cgo245 = nil
-		res_cgo246 = 0
+		pC_cgo50 = nil
+		pCrsr_cgo51 = nil
+		res_cgo52 = 0
 		func() int {
 			_ = 0
 			return 0
@@ -46438,7 +46453,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo244 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo50 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46447,58 +46462,58 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		res_cgo246 = int32(1)
-		if int32(pC_cgo244.eCurType) == 1 {
-			rc = sqlite3VdbeSorterRewind(pC_cgo244, &res_cgo246)
+		res_cgo52 = int32(1)
+		if int32(pC_cgo50.eCurType) == 1 {
+			rc = sqlite3VdbeSorterRewind(pC_cgo50, &res_cgo52)
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			pCrsr_cgo245 = pC_cgo244.uc.pCursor
+			pCrsr_cgo51 = pC_cgo50.uc.pCursor
 			func() int {
 				_ = 0
 				return 0
 			}()
-			rc = sqlite3BtreeFirst(pCrsr_cgo245, &res_cgo246)
-			pC_cgo244.deferredMoveto = uint8(0)
-			pC_cgo244.cacheStatus = uint32(0)
+			rc = sqlite3BtreeFirst(pCrsr_cgo51, &res_cgo52)
+			pC_cgo50.deferredMoveto = uint8(0)
+			pC_cgo50.cacheStatus = uint32(0)
 		}
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		pC_cgo244.nullRow = uint8(res_cgo246)
+		pC_cgo50.nullRow = uint8(res_cgo52)
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(res_cgo246 != 0) {
-			goto _cgol_247
+		if !(res_cgo52 != 0) {
+			goto _cgol_195
 		}
 		goto jump_to_p2
-	_cgol_247:
+	_cgol_195:
 		goto _cgol_2
-	_cgol_243:
+	_cgol_194:
 		if _cgo_nm && _cgo_tag != 3 {
-			goto _cgol_248
+			goto _cgol_196
 		}
 		_cgo_nm = false
-		pC_cgo249 = nil
-		pC_cgo249 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo53 = nil
+		pC_cgo53 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = sqlite3VdbeSorterNext(db, pC_cgo249)
+		rc = sqlite3VdbeSorterNext(db, pC_cgo53)
 		goto next_tail
-	_cgol_248:
+	_cgol_196:
 		if _cgo_nm && _cgo_tag != 4 {
-			goto _cgol_250
+			goto _cgol_197
 		}
 		_cgo_nm = false
-	_cgol_250:
+	_cgol_197:
 		if _cgo_nm && _cgo_tag != 5 {
-			goto _cgol_251
+			goto _cgol_198
 		}
 		_cgo_nm = false
 		func() int {
@@ -46509,7 +46524,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo249 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo53 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46538,25 +46553,25 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		rc = (*(*func(*struct_BtCursor, int32) int32)(unsafe.Pointer(&pOp.p4)))(pC_cgo249.uc.pCursor, pOp.p3)
+		rc = (*(*func(*struct_BtCursor, int32) int32)(unsafe.Pointer(&pOp.p4)))(pC_cgo53.uc.pCursor, pOp.p3)
 	next_tail:
-		pC_cgo249.cacheStatus = uint32(0)
+		pC_cgo53.cacheStatus = uint32(0)
 		if !(rc == 0) {
-			goto _cgol_252
+			goto _cgol_199
 		}
-		pC_cgo249.nullRow = uint8(0)
+		pC_cgo53.nullRow = uint8(0)
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(pOp.p5)*4))++
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_252:
+	_cgol_199:
 		if rc != 101 {
 			goto abort_due_to_error
 		}
 		rc = int32(0)
-		pC_cgo249.nullRow = uint8(1)
+		pC_cgo53.nullRow = uint8(1)
 		goto check_for_interrupt
-	_cgol_251:
+	_cgol_198:
 		if _cgo_nm && _cgo_tag != 137 {
-			goto _cgol_253
+			goto _cgol_200
 		}
 		_cgo_nm = false
 		{
@@ -46622,9 +46637,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_253:
+	_cgol_200:
 		if _cgo_nm && _cgo_tag != 138 {
-			goto _cgol_254
+			goto _cgol_201
 		}
 		_cgo_nm = false
 		{
@@ -46667,9 +46682,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_254:
+	_cgol_201:
 		if _cgo_nm && _cgo_tag != 139 {
-			goto _cgol_255
+			goto _cgol_202
 		}
 		_cgo_nm = false
 		{
@@ -46728,14 +46743,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			pC.seekResult = int32(0)
 			goto _cgol_2
 		}
-	_cgol_255:
+	_cgol_202:
 		if _cgo_nm && _cgo_tag != 140 {
-			goto _cgol_256
+			goto _cgol_203
 		}
 		_cgo_nm = false
-	_cgol_256:
+	_cgol_203:
 		if _cgo_nm && _cgo_tag != 141 {
-			goto _cgol_257
+			goto _cgol_204
 		}
 		_cgo_nm = false
 		{
@@ -46833,9 +46848,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_257:
+	_cgol_204:
 		if _cgo_nm && _cgo_tag != 142 {
-			goto _cgol_258
+			goto _cgol_205
 		}
 		_cgo_nm = false
 		{
@@ -46853,29 +46868,29 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_258:
+	_cgol_205:
 		if _cgo_nm && _cgo_tag != 39 {
-			goto _cgol_259
+			goto _cgol_206
 		}
 		_cgo_nm = false
-	_cgol_259:
+	_cgol_206:
 		if _cgo_nm && _cgo_tag != 40 {
-			goto _cgol_260
+			goto _cgol_207
 		}
 		_cgo_nm = false
-	_cgol_260:
+	_cgol_207:
 		if _cgo_nm && _cgo_tag != 41 {
-			goto _cgol_261
+			goto _cgol_208
 		}
 		_cgo_nm = false
-	_cgol_261:
+	_cgol_208:
 		if _cgo_nm && _cgo_tag != 42 {
-			goto _cgol_262
+			goto _cgol_209
 		}
 		_cgo_nm = false
-		pC_cgo263 = nil
-		res_cgo264 = 0
-		r_cgo265 = struct {
+		pC_cgo54 = nil
+		res_cgo55 = 0
+		r_cgo56 = struct {
 			pKeyInfo   *struct_KeyInfo
 			aMem       *struct_sqlite3_value
 			nField     uint16
@@ -46889,7 +46904,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pC_cgo263 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pC_cgo54 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -46914,22 +46929,22 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		r_cgo265.pKeyInfo = pC_cgo263.pKeyInfo
-		r_cgo265.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
+		r_cgo56.pKeyInfo = pC_cgo54.pKeyInfo
+		r_cgo56.nField = uint16(*(*int32)(unsafe.Pointer(&pOp.p4)))
 		if int32(pOp.opcode) < 41 {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			r_cgo265.default_rc = int8(-1)
+			r_cgo56.default_rc = int8(-1)
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			r_cgo265.default_rc = int8(0)
+			r_cgo56.default_rc = int8(0)
 		}
-		r_cgo265.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		r_cgo56.aMem = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		{
 			var nCellKey int64 = int64(0)
 			var pCur *struct_BtCursor
@@ -46938,7 +46953,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			pCur = pC_cgo263.uc.pCursor
+			pCur = pC_cgo54.uc.pCursor
 			func() int {
 				_ = 0
 				return 0
@@ -46953,7 +46968,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if rc != 0 {
 				goto abort_due_to_error
 			}
-			res_cgo264 = sqlite3VdbeRecordCompareWithSkip(m.n, unsafe.Pointer(m.z), &r_cgo265, 0)
+			res_cgo55 = sqlite3VdbeRecordCompareWithSkip(m.n, unsafe.Pointer(m.z), &r_cgo56, 0)
 			sqlite3VdbeMemRelease(&m)
 		}
 		func() int {
@@ -46965,27 +46980,27 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				_ = 0
 				return 0
 			}()
-			res_cgo264 = -res_cgo264
+			res_cgo55 = -res_cgo55
 		} else {
 			func() int {
 				_ = 0
 				return 0
 			}()
-			res_cgo264++
+			res_cgo55++
 		}
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(res_cgo264 > 0) {
-			goto _cgol_266
+		if !(res_cgo55 > 0) {
+			goto _cgol_210
 		}
 		goto jump_to_p2
-	_cgol_266:
+	_cgol_210:
 		goto _cgol_2
-	_cgol_262:
+	_cgol_209:
 		if _cgo_nm && _cgo_tag != 143 {
-			goto _cgol_267
+			goto _cgol_211
 		}
 		_cgo_nm = false
 		{
@@ -47029,9 +47044,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_267:
+	_cgol_211:
 		if _cgo_nm && _cgo_tag != 144 {
-			goto _cgol_268
+			goto _cgol_212
 		}
 		_cgo_nm = false
 		{
@@ -47061,9 +47076,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_268:
+	_cgol_212:
 		if _cgo_nm && _cgo_tag != 145 {
-			goto _cgol_269
+			goto _cgol_213
 		}
 		_cgo_nm = false
 		{
@@ -47095,9 +47110,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_269:
+	_cgol_213:
 		if _cgo_nm && _cgo_tag != 146 {
-			goto _cgol_270
+			goto _cgol_214
 		}
 		_cgo_nm = false
 		{
@@ -47133,9 +47148,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(pgno)
 			goto _cgol_2
 		}
-	_cgol_270:
+	_cgol_214:
 		if _cgo_nm && _cgo_tag != 147 {
-			goto _cgol_271
+			goto _cgol_215
 		}
 		_cgo_nm = false
 		{
@@ -47147,9 +47162,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_271:
+	_cgol_215:
 		if _cgo_nm && _cgo_tag != 148 {
-			goto _cgol_272
+			goto _cgol_216
 		}
 		_cgo_nm = false
 		{
@@ -47217,9 +47232,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_272:
+	_cgol_216:
 		if _cgo_nm && _cgo_tag != 149 {
-			goto _cgol_273
+			goto _cgol_217
 		}
 		_cgo_nm = false
 		{
@@ -47233,49 +47248,49 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_273:
+	_cgol_217:
 		if _cgo_nm && _cgo_tag != 150 {
-			goto _cgol_274
+			goto _cgol_218
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteTable(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_274:
+	_cgol_218:
 		if _cgo_nm && _cgo_tag != 151 {
-			goto _cgol_275
+			goto _cgol_219
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteIndex(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_275:
+	_cgol_219:
 		if _cgo_nm && _cgo_tag != 152 {
-			goto _cgol_276
+			goto _cgol_220
 		}
 		_cgo_nm = false
 		{
 			sqlite3UnlinkAndDeleteTrigger(db, pOp.p1, *(**int8)(unsafe.Pointer(&pOp.p4)))
 			goto _cgol_2
 		}
-	_cgol_276:
+	_cgol_220:
 		if _cgo_nm && _cgo_tag != 154 {
-			goto _cgol_277
+			goto _cgol_221
 		}
 		_cgo_nm = false
-		nRoot_cgo278 = 0
-		aRoot_cgo279 = nil
-		nErr_cgo280 = 0
-		z_cgo281 = nil
-		pnErr_cgo282 = nil
+		nRoot_cgo57 = 0
+		aRoot_cgo58 = nil
+		nErr_cgo59 = 0
+		z_cgo60 = nil
+		pnErr_cgo61 = nil
 		func() int {
 			_ = 0
 			return 0
 		}()
-		nRoot_cgo278 = pOp.p2
-		aRoot_cgo279 = *(**uint32)(unsafe.Pointer(&pOp.p4))
+		nRoot_cgo57 = pOp.p2
+		aRoot_cgo58 = *(**uint32)(unsafe.Pointer(&pOp.p4))
 		func() int {
 			_ = 0
 			return 0
@@ -47288,7 +47303,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pnErr_cgo282 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		pnErr_cgo61 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		func() int {
 			_ = 0
 			return 0
@@ -47306,24 +47321,24 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		z_cgo281 = sqlite3BtreeIntegrityCheck(db, (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p5)*32))).pBt, &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aRoot_cgo279)) + uintptr(1)*4)), nRoot_cgo278, int32(*(*int64)(unsafe.Pointer(&pnErr_cgo282.u)))+1, &nErr_cgo280)
+		z_cgo60 = sqlite3BtreeIntegrityCheck(db, (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p5)*32))).pBt, &*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer(aRoot_cgo58)) + uintptr(1)*4)), nRoot_cgo57, int32(*(*int64)(unsafe.Pointer(&pnErr_cgo61.u)))+1, &nErr_cgo59)
 		sqlite3VdbeMemSetNull(pIn1)
-		if nErr_cgo280 == 0 {
+		if nErr_cgo59 == 0 {
 			func() int {
 				_ = 0
 				return 0
 			}()
-		} else if uintptr(unsafe.Pointer(z_cgo281)) == uintptr(unsafe.Pointer(nil)) {
+		} else if uintptr(unsafe.Pointer(z_cgo60)) == uintptr(unsafe.Pointer(nil)) {
 			goto no_mem
 		} else {
-			*(*int64)(unsafe.Pointer(&pnErr_cgo282.u)) -= int64(nErr_cgo280 - 1)
-			sqlite3VdbeMemSetStr(pIn1, z_cgo281, int64(-1), uint8(1), sqlite3_free)
+			*(*int64)(unsafe.Pointer(&pnErr_cgo61.u)) -= int64(nErr_cgo59 - 1)
+			sqlite3VdbeMemSetStr(pIn1, z_cgo60, int64(-1), uint8(1), sqlite3_free)
 		}
 		sqlite3VdbeChangeEncoding(pIn1, int32(encoding))
 		goto check_for_interrupt
-	_cgol_277:
+	_cgol_221:
 		if _cgo_nm && _cgo_tag != 155 {
-			goto _cgol_283
+			goto _cgol_222
 		}
 		_cgo_nm = false
 		{
@@ -47345,37 +47360,37 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3RowSetInsert((*struct_RowSet)(unsafe.Pointer(pIn1.z)), *(*int64)(unsafe.Pointer(&pIn2.u)))
 			goto _cgol_2
 		}
-	_cgol_283:
+	_cgol_222:
 		if _cgo_nm && _cgo_tag != 45 {
-			goto _cgol_284
+			goto _cgol_223
 		}
 		_cgo_nm = false
-		val_cgo285 = 0
+		val_cgo62 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		func() int {
 			_ = 0
 			return 0
 		}()
-		if !(int32(pIn1.flags)&16 == 0 || sqlite3RowSetNext((*struct_RowSet)(unsafe.Pointer(pIn1.z)), &val_cgo285) == 0) {
-			goto _cgol_287
+		if !(int32(pIn1.flags)&16 == 0 || sqlite3RowSetNext((*struct_RowSet)(unsafe.Pointer(pIn1.z)), &val_cgo62) == 0) {
+			goto _cgol_225
 		}
 		sqlite3VdbeMemSetNull(pIn1)
 		goto jump_to_p2_and_check_for_interrupt
-		goto _cgol_286
-	_cgol_287:
-		sqlite3VdbeMemSetInt64(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56)), val_cgo285)
-	_cgol_286:
+		goto _cgol_224
+	_cgol_225:
+		sqlite3VdbeMemSetInt64(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56)), val_cgo62)
+	_cgol_224:
 		goto check_for_interrupt
-	_cgol_284:
+	_cgol_223:
 		if _cgo_nm && _cgo_tag != 46 {
-			goto _cgol_288
+			goto _cgol_226
 		}
 		_cgo_nm = false
-		iSet_cgo289 = 0
-		exists_cgo290 = 0
+		iSet_cgo63 = 0
+		exists_cgo64 = 0
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
 		pIn3 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		iSet_cgo289 = *(*int32)(unsafe.Pointer(&pOp.p4))
+		iSet_cgo63 = *(*int32)(unsafe.Pointer(&pOp.p4))
 		func() int {
 			_ = 0
 			return 0
@@ -47397,45 +47412,45 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if !(iSet_cgo289 != 0) {
-			goto _cgol_291
+		if !(iSet_cgo63 != 0) {
+			goto _cgol_227
 		}
-		exists_cgo290 = sqlite3RowSetTest((*struct_RowSet)(unsafe.Pointer(pIn1.z)), iSet_cgo289, *(*int64)(unsafe.Pointer(&pIn3.u)))
-		if !(exists_cgo290 != 0) {
-			goto _cgol_292
+		exists_cgo64 = sqlite3RowSetTest((*struct_RowSet)(unsafe.Pointer(pIn1.z)), iSet_cgo63, *(*int64)(unsafe.Pointer(&pIn3.u)))
+		if !(exists_cgo64 != 0) {
+			goto _cgol_228
 		}
 		goto jump_to_p2
-	_cgol_292:
+	_cgol_228:
 		;
-	_cgol_291:
-		if iSet_cgo289 >= 0 {
+	_cgol_227:
+		if iSet_cgo63 >= 0 {
 			sqlite3RowSetInsert((*struct_RowSet)(unsafe.Pointer(pIn1.z)), *(*int64)(unsafe.Pointer(&pIn3.u)))
 		}
 		goto _cgol_2
-	_cgol_288:
+	_cgol_226:
 		if _cgo_nm && _cgo_tag != 47 {
-			goto _cgol_293
+			goto _cgol_229
 		}
 		_cgo_nm = false
-		nMem_cgo294 = 0
-		nByte_cgo295 = 0
-		pRt_cgo296 = nil
-		pMem_cgo297 = nil
-		pEnd_cgo298 = nil
-		pFrame_cgo299 = nil
-		pProgram_cgo300 = nil
-		t_cgo301 = nil
-		pProgram_cgo300 = *(**struct_SubProgram)(unsafe.Pointer(&pOp.p4))
-		pRt_cgo296 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		nMem_cgo65 = 0
+		nByte_cgo66 = 0
+		pRt_cgo67 = nil
+		pMem_cgo68 = nil
+		pEnd_cgo69 = nil
+		pFrame_cgo70 = nil
+		pProgram_cgo71 = nil
+		t_cgo72 = nil
+		pProgram_cgo71 = *(**struct_SubProgram)(unsafe.Pointer(&pOp.p4))
+		pRt_cgo67 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
 		func() int {
 			_ = 0
 			return 0
 		}()
 		if pOp.p5 != 0 {
-			t_cgo301 = pProgram_cgo300.token
-			for pFrame_cgo299 = p.pFrame; pFrame_cgo299 != nil && uintptr(unsafe.Pointer(pFrame_cgo299.token)) != uintptr(unsafe.Pointer(t_cgo301)); pFrame_cgo299 = pFrame_cgo299.pParent {
+			t_cgo72 = pProgram_cgo71.token
+			for pFrame_cgo70 = p.pFrame; pFrame_cgo70 != nil && uintptr(unsafe.Pointer(pFrame_cgo70.token)) != uintptr(unsafe.Pointer(t_cgo72)); pFrame_cgo70 = pFrame_cgo70.pParent {
 			}
-			if pFrame_cgo299 != nil {
+			if pFrame_cgo70 != nil {
 				goto _cgol_2
 			}
 		}
@@ -47444,43 +47459,43 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeError(p, (*int8)(unsafe.Pointer(&[37]int8{'t', 'o', 'o', ' ', 'm', 'a', 'n', 'y', ' ', 'l', 'e', 'v', 'e', 'l', 's', ' ', 'o', 'f', ' ', 't', 'r', 'i', 'g', 'g', 'e', 'r', ' ', 'r', 'e', 'c', 'u', 'r', 's', 'i', 'o', 'n', '\x00'})))
 			goto abort_due_to_error
 		}
-		if int32(pRt_cgo296.flags)&16 == 0 {
-			nMem_cgo294 = pProgram_cgo300.nMem + pProgram_cgo300.nCsr
+		if int32(pRt_cgo67.flags)&16 == 0 {
+			nMem_cgo65 = pProgram_cgo71.nMem + pProgram_cgo71.nCsr
 			func() int {
 				_ = 0
 				return 0
 			}()
-			if pProgram_cgo300.nCsr == 0 {
-				nMem_cgo294++
+			if pProgram_cgo71.nCsr == 0 {
+				nMem_cgo65++
 			}
-			nByte_cgo295 = int32((120+uint64(7))&uint64(18446744073709551608) + uint64(nMem_cgo294)*56 + uint64(pProgram_cgo300.nCsr)*8 + uint64((pProgram_cgo300.nOp+7)/8))
-			pFrame_cgo299 = (*struct_VdbeFrame)(sqlite3DbMallocZero(db, uint64(nByte_cgo295)))
-			if !(pFrame_cgo299 != nil) {
+			nByte_cgo66 = int32((120+uint64(7))&uint64(18446744073709551608) + uint64(nMem_cgo65)*56 + uint64(pProgram_cgo71.nCsr)*8 + uint64((pProgram_cgo71.nOp+7)/8))
+			pFrame_cgo70 = (*struct_VdbeFrame)(sqlite3DbMallocZero(db, uint64(nByte_cgo66)))
+			if !(pFrame_cgo70 != nil) {
 				goto no_mem
 			}
-			sqlite3VdbeMemRelease(pRt_cgo296)
-			pRt_cgo296.flags = uint16(16 | 1024)
-			pRt_cgo296.z = (*int8)(unsafe.Pointer(pFrame_cgo299))
-			pRt_cgo296.n = nByte_cgo295
-			pRt_cgo296.xDel = sqlite3VdbeFrameMemDel
-			pFrame_cgo299.v = p
-			pFrame_cgo299.nChildMem = nMem_cgo294
-			pFrame_cgo299.nChildCsr = pProgram_cgo300.nCsr
-			pFrame_cgo299.pc = int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(aOp))) * 24)
-			pFrame_cgo299.aMem = p.aMem
-			pFrame_cgo299.nMem = p.nMem
-			pFrame_cgo299.apCsr = p.apCsr
-			pFrame_cgo299.nCursor = p.nCursor
-			pFrame_cgo299.aOp = p.aOp
-			pFrame_cgo299.nOp = p.nOp
-			pFrame_cgo299.token = pProgram_cgo300.token
-			pEnd_cgo298 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))))) + uintptr(pFrame_cgo299.nChildMem)*56))
-			for pMem_cgo297 = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))); uintptr(unsafe.Pointer(pMem_cgo297)) != uintptr(unsafe.Pointer(pEnd_cgo298)); *(*uintptr)(unsafe.Pointer(&pMem_cgo297)) += 56 {
-				pMem_cgo297.flags = uint16(128)
-				pMem_cgo297.db = db
+			sqlite3VdbeMemRelease(pRt_cgo67)
+			pRt_cgo67.flags = uint16(16 | 1024)
+			pRt_cgo67.z = (*int8)(unsafe.Pointer(pFrame_cgo70))
+			pRt_cgo67.n = nByte_cgo66
+			pRt_cgo67.xDel = sqlite3VdbeFrameMemDel
+			pFrame_cgo70.v = p
+			pFrame_cgo70.nChildMem = nMem_cgo65
+			pFrame_cgo70.nChildCsr = pProgram_cgo71.nCsr
+			pFrame_cgo70.pc = int32((uintptr(unsafe.Pointer(pOp)) - uintptr(unsafe.Pointer(aOp))) * 24)
+			pFrame_cgo70.aMem = p.aMem
+			pFrame_cgo70.nMem = p.nMem
+			pFrame_cgo70.apCsr = p.apCsr
+			pFrame_cgo70.nCursor = p.nCursor
+			pFrame_cgo70.aOp = p.aOp
+			pFrame_cgo70.nOp = p.nOp
+			pFrame_cgo70.token = pProgram_cgo71.token
+			pEnd_cgo69 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo70)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))))) + uintptr(pFrame_cgo70.nChildMem)*56))
+			for pMem_cgo68 = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo70)))) + uintptr((120+uint64(7))&uint64(18446744073709551608)))))); uintptr(unsafe.Pointer(pMem_cgo68)) != uintptr(unsafe.Pointer(pEnd_cgo69)); *(*uintptr)(unsafe.Pointer(&pMem_cgo68)) += 56 {
+				pMem_cgo68.flags = uint16(128)
+				pMem_cgo68.db = db
 			}
 		} else {
-			pFrame_cgo299 = (*struct_VdbeFrame)(unsafe.Pointer(pRt_cgo296.z))
+			pFrame_cgo70 = (*struct_VdbeFrame)(unsafe.Pointer(pRt_cgo67.z))
 			func() int {
 				_ = 0
 				return 0
@@ -47499,39 +47514,39 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 		}
 		p.nFrame++
-		pFrame_cgo299.pParent = p.pFrame
-		pFrame_cgo299.lastRowid = db.lastRowid
-		pFrame_cgo299.nChange = p.nChange
-		pFrame_cgo299.nDbChange = p.db.nChange
+		pFrame_cgo70.pParent = p.pFrame
+		pFrame_cgo70.lastRowid = db.lastRowid
+		pFrame_cgo70.nChange = p.nChange
+		pFrame_cgo70.nDbChange = p.db.nChange
 		func() int {
 			_ = 0
 			return 0
 		}()
-		pFrame_cgo299.pAuxData = p.pAuxData
+		pFrame_cgo70.pAuxData = p.pAuxData
 		p.pAuxData = (*struct_AuxData)(nil)
 		p.nChange = int64(0)
-		p.pFrame = pFrame_cgo299
+		p.pFrame = pFrame_cgo70
 		p.aMem = func() (_cgo_ret *struct_sqlite3_value) {
 			_cgo_addr := &aMem
-			*_cgo_addr = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo299)))) + uintptr((120+uint64(7))&uint64(18446744073709551608))))))
+			*_cgo_addr = (*struct_sqlite3_value)(unsafe.Pointer(&*(*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint8)(unsafe.Pointer(pFrame_cgo70)))) + uintptr((120+uint64(7))&uint64(18446744073709551608))))))
 			return *_cgo_addr
 		}()
-		p.nMem = pFrame_cgo299.nChildMem
-		p.nCursor = int32(uint16(pFrame_cgo299.nChildCsr))
+		p.nMem = pFrame_cgo70.nChildMem
+		p.nCursor = int32(uint16(pFrame_cgo70.nChildCsr))
 		p.apCsr = (**struct_VdbeCursor)(unsafe.Pointer(&*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(p.nMem)*56))))
-		pFrame_cgo299.aOnce = (*uint8)(unsafe.Pointer(&*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pProgram_cgo300.nCsr)*8))))
-		__builtin___memset_chk(unsafe.Pointer(pFrame_cgo299.aOnce), 0, uint(uint64((pProgram_cgo300.nOp+7)/8)), __builtin_object_size(unsafe.Pointer(pFrame_cgo299.aOnce), 0))
+		pFrame_cgo70.aOnce = (*uint8)(unsafe.Pointer(&*(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pProgram_cgo71.nCsr)*8))))
+		__builtin___memset_chk(unsafe.Pointer(pFrame_cgo70.aOnce), 0, uint(uint64((pProgram_cgo71.nOp+7)/8)), __builtin_object_size(unsafe.Pointer(pFrame_cgo70.aOnce), 0))
 		p.aOp = func() (_cgo_ret *struct_VdbeOp) {
 			_cgo_addr := &aOp
-			*_cgo_addr = pProgram_cgo300.aOp
+			*_cgo_addr = pProgram_cgo71.aOp
 			return *_cgo_addr
 		}()
-		p.nOp = pProgram_cgo300.nOp
+		p.nOp = pProgram_cgo71.nOp
 		pOp = &*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(aOp)) - uintptr(- -1)*24))
 		goto check_for_interrupt
-	_cgol_293:
+	_cgol_229:
 		if _cgo_nm && _cgo_tag != 156 {
-			goto _cgol_302
+			goto _cgol_230
 		}
 		_cgo_nm = false
 		{
@@ -47543,9 +47558,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeMemShallowCopy(pOut, pIn, 4096)
 			goto _cgol_2
 		}
-	_cgol_302:
+	_cgol_230:
 		if _cgo_nm && _cgo_tag != 157 {
-			goto _cgol_303
+			goto _cgol_231
 		}
 		_cgo_nm = false
 		{
@@ -47558,32 +47573,32 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_303:
+	_cgol_231:
 		if _cgo_nm && _cgo_tag != 48 {
-			goto _cgol_304
+			goto _cgol_232
 		}
 		_cgo_nm = false
 		if !(pOp.p1 != 0) {
-			goto _cgol_306
+			goto _cgol_234
 		}
 		if !(db.nDeferredCons == int64(0) && db.nDeferredImmCons == int64(0)) {
-			goto _cgol_307
+			goto _cgol_235
 		}
 		goto jump_to_p2
-	_cgol_307:
-		goto _cgol_305
-	_cgol_306:
+	_cgol_235:
+		goto _cgol_233
+	_cgol_234:
 		if !(p.nFkConstraint == int64(0) && db.nDeferredImmCons == int64(0)) {
-			goto _cgol_308
+			goto _cgol_236
 		}
 		goto jump_to_p2
-	_cgol_308:
+	_cgol_236:
 		;
-	_cgol_305:
+	_cgol_233:
 		goto _cgol_2
-	_cgol_304:
+	_cgol_232:
 		if _cgo_nm && _cgo_tag != 158 {
-			goto _cgol_309
+			goto _cgol_237
 		}
 		_cgo_nm = false
 		{
@@ -47607,9 +47622,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_309:
+	_cgol_237:
 		if _cgo_nm && _cgo_tag != 49 {
-			goto _cgol_310
+			goto _cgol_238
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47618,15 +47633,15 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) > int64(0)) {
-			goto _cgol_311
+			goto _cgol_239
 		}
 		*(*int64)(unsafe.Pointer(&pIn1.u)) -= int64(pOp.p3)
 		goto jump_to_p2
-	_cgol_311:
+	_cgol_239:
 		goto _cgol_2
-	_cgol_310:
+	_cgol_238:
 		if _cgo_nm && _cgo_tag != 159 {
-			goto _cgol_312
+			goto _cgol_240
 		}
 		_cgo_nm = false
 		{
@@ -47656,9 +47671,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_312:
+	_cgol_240:
 		if _cgo_nm && _cgo_tag != 59 {
-			goto _cgol_313
+			goto _cgol_241
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47667,17 +47682,17 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) != 0) {
-			goto _cgol_314
+			goto _cgol_242
 		}
 		if *(*int64)(unsafe.Pointer(&pIn1.u)) > int64(0) {
 			*(*int64)(unsafe.Pointer(&pIn1.u))--
 		}
 		goto jump_to_p2
-	_cgol_314:
+	_cgol_242:
 		goto _cgol_2
-	_cgol_313:
+	_cgol_241:
 		if _cgo_nm && _cgo_tag != 60 {
-			goto _cgol_315
+			goto _cgol_243
 		}
 		_cgo_nm = false
 		pIn1 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p1)*56))
@@ -47689,19 +47704,19 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pIn1.u))--
 		}
 		if !(*(*int64)(unsafe.Pointer(&pIn1.u)) == int64(0)) {
-			goto _cgol_316
+			goto _cgol_244
 		}
 		goto jump_to_p2
-	_cgol_316:
+	_cgol_244:
 		goto _cgol_2
-	_cgol_315:
+	_cgol_243:
 		if _cgo_nm && _cgo_tag != 160 {
-			goto _cgol_317
+			goto _cgol_245
 		}
 		_cgo_nm = false
-	_cgol_317:
+	_cgol_245:
 		if _cgo_nm && _cgo_tag != 161 {
-			goto _cgol_318
+			goto _cgol_246
 		}
 		_cgo_nm = false
 		{
@@ -47745,9 +47760,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			pOp.opcode = uint8(162)
 		}
-	_cgol_318:
+	_cgol_246:
 		if _cgo_nm && _cgo_tag != 162 {
-			goto _cgol_319
+			goto _cgol_247
 		}
 		_cgo_nm = false
 		{
@@ -47817,14 +47832,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}()
 			goto _cgol_2
 		}
-	_cgol_319:
+	_cgol_247:
 		if _cgo_nm && _cgo_tag != 163 {
-			goto _cgol_320
+			goto _cgol_248
 		}
 		_cgo_nm = false
-	_cgol_320:
+	_cgol_248:
 		if _cgo_nm && _cgo_tag != 164 {
-			goto _cgol_321
+			goto _cgol_249
 		}
 		_cgo_nm = false
 		{
@@ -47858,9 +47873,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_321:
+	_cgol_249:
 		if _cgo_nm && _cgo_tag != 6 {
-			goto _cgol_322
+			goto _cgol_250
 		}
 		_cgo_nm = false
 		{
@@ -47909,9 +47924,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_322:
+	_cgol_250:
 		if _cgo_nm && _cgo_tag != 7 {
-			goto _cgol_323
+			goto _cgol_251
 		}
 		_cgo_nm = false
 		{
@@ -48000,9 +48015,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_323:
+	_cgol_251:
 		if _cgo_nm && _cgo_tag != 8 {
-			goto _cgol_324
+			goto _cgol_252
 		}
 		_cgo_nm = false
 		{
@@ -48022,12 +48037,12 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_324:
+	_cgol_252:
 		if _cgo_nm && _cgo_tag != 61 {
-			goto _cgol_325
+			goto _cgol_253
 		}
 		_cgo_nm = false
-		pBt_cgo326 = nil
+		pBt_cgo73 = nil
 		func() int {
 			_ = 0
 			return 0
@@ -48040,21 +48055,21 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pBt_cgo326 = (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt
-		rc = sqlite3BtreeIncrVacuum(pBt_cgo326)
+		pBt_cgo73 = (*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt
+		rc = sqlite3BtreeIncrVacuum(pBt_cgo73)
 		if !(rc != 0) {
-			goto _cgol_327
+			goto _cgol_254
 		}
 		if rc != 101 {
 			goto abort_due_to_error
 		}
 		rc = int32(0)
 		goto jump_to_p2
-	_cgol_327:
+	_cgol_254:
 		goto _cgol_2
-	_cgol_325:
+	_cgol_253:
 		if _cgo_nm && _cgo_tag != 165 {
-			goto _cgol_328
+			goto _cgol_255
 		}
 		_cgo_nm = false
 		{
@@ -48072,9 +48087,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_328:
+	_cgol_255:
 		if _cgo_nm && _cgo_tag != 166 {
-			goto _cgol_329
+			goto _cgol_256
 		}
 		_cgo_nm = false
 		{
@@ -48095,9 +48110,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3BtreeCursorPin(pC.uc.pCursor)
 			goto _cgol_2
 		}
-	_cgol_329:
+	_cgol_256:
 		if _cgo_nm && _cgo_tag != 167 {
-			goto _cgol_330
+			goto _cgol_257
 		}
 		_cgo_nm = false
 		{
@@ -48118,9 +48133,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3BtreeCursorUnpin(pC.uc.pCursor)
 			goto _cgol_2
 		}
-	_cgol_330:
+	_cgol_257:
 		if _cgo_nm && _cgo_tag != 168 {
-			goto _cgol_331
+			goto _cgol_258
 		}
 		_cgo_nm = false
 		{
@@ -48150,9 +48165,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_331:
+	_cgol_258:
 		if _cgo_nm && _cgo_tag != 169 {
-			goto _cgol_332
+			goto _cgol_259
 		}
 		_cgo_nm = false
 		{
@@ -48167,9 +48182,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_332:
+	_cgol_259:
 		if _cgo_nm && _cgo_tag != 170 {
-			goto _cgol_333
+			goto _cgol_260
 		}
 		_cgo_nm = false
 		{
@@ -48204,9 +48219,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_333:
+	_cgol_260:
 		if _cgo_nm && _cgo_tag != 171 {
-			goto _cgol_334
+			goto _cgol_261
 		}
 		_cgo_nm = false
 		{
@@ -48222,9 +48237,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_334:
+	_cgol_261:
 		if _cgo_nm && _cgo_tag != 172 {
-			goto _cgol_335
+			goto _cgol_262
 		}
 		_cgo_nm = false
 		{
@@ -48264,9 +48279,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_335:
+	_cgol_262:
 		if _cgo_nm && _cgo_tag != 173 {
-			goto _cgol_336
+			goto _cgol_263
 		}
 		_cgo_nm = false
 		{
@@ -48284,25 +48299,25 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			sqlite3VdbeMemSetPointer(pOut, unsafe.Pointer(pRhs), (*int8)(unsafe.Pointer(&[10]int8{'V', 'a', 'l', 'u', 'e', 'L', 'i', 's', 't', '\x00'})), sqlite3_free)
 			goto _cgol_2
 		}
-	_cgol_336:
+	_cgol_263:
 		if _cgo_nm && _cgo_tag != 9 {
-			goto _cgol_337
+			goto _cgol_264
 		}
 		_cgo_nm = false
-		nArg_cgo338 = 0
-		iQuery_cgo339 = 0
-		pModule_cgo340 = nil
-		pQuery_cgo341 = nil
-		pArgc_cgo342 = nil
-		pVCur_cgo343 = nil
-		pVtab_cgo344 = nil
-		pCur_cgo345 = nil
-		res_cgo346 = 0
-		i_cgo347 = 0
-		apArg_cgo348 = nil
-		pQuery_cgo341 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
-		pArgc_cgo342 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pQuery_cgo341)) + uintptr(1)*56))
-		pCur_cgo345 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		nArg_cgo74 = 0
+		iQuery_cgo75 = 0
+		pModule_cgo76 = nil
+		pQuery_cgo77 = nil
+		pArgc_cgo78 = nil
+		pVCur_cgo79 = nil
+		pVtab_cgo80 = nil
+		pCur_cgo81 = nil
+		res_cgo82 = 0
+		i_cgo83 = 0
+		apArg_cgo84 = nil
+		pQuery_cgo77 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(aMem)) + uintptr(pOp.p3)*56))
+		pArgc_cgo78 = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pQuery_cgo77)) + uintptr(1)*56))
+		pCur_cgo81 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -48315,35 +48330,35 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		pVCur_cgo343 = *(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo345.uc))
-		pVtab_cgo344 = pVCur_cgo343.pVtab
-		pModule_cgo340 = pVtab_cgo344.pModule
+		pVCur_cgo79 = *(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo81.uc))
+		pVtab_cgo80 = pVCur_cgo79.pVtab
+		pModule_cgo76 = pVtab_cgo80.pModule
 		func() int {
 			_ = 0
 			return 0
 		}()
-		nArg_cgo338 = int32(*(*int64)(unsafe.Pointer(&pArgc_cgo342.u)))
-		iQuery_cgo339 = int32(*(*int64)(unsafe.Pointer(&pQuery_cgo341.u)))
-		apArg_cgo348 = p.apArg
-		for i_cgo347 = int32(0); i_cgo347 < nArg_cgo338; i_cgo347++ {
-			*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(apArg_cgo348)) + uintptr(i_cgo347)*8)) = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pArgc_cgo342)) + uintptr(i_cgo347+1)*56))
+		nArg_cgo74 = int32(*(*int64)(unsafe.Pointer(&pArgc_cgo78.u)))
+		iQuery_cgo75 = int32(*(*int64)(unsafe.Pointer(&pQuery_cgo77.u)))
+		apArg_cgo84 = p.apArg
+		for i_cgo83 = int32(0); i_cgo83 < nArg_cgo74; i_cgo83++ {
+			*(**struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(apArg_cgo84)) + uintptr(i_cgo83)*8)) = &*(*struct_sqlite3_value)(unsafe.Pointer(uintptr(unsafe.Pointer(pArgc_cgo78)) + uintptr(i_cgo83+1)*56))
 		}
-		rc = pModule_cgo340.xFilter(pVCur_cgo343, iQuery_cgo339, *(**int8)(unsafe.Pointer(&pOp.p4)), nArg_cgo338, apArg_cgo348)
-		sqlite3VtabImportErrmsg(p, pVtab_cgo344)
+		rc = pModule_cgo76.xFilter(pVCur_cgo79, iQuery_cgo75, *(**int8)(unsafe.Pointer(&pOp.p4)), nArg_cgo74, apArg_cgo84)
+		sqlite3VtabImportErrmsg(p, pVtab_cgo80)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		res_cgo346 = pModule_cgo340.xEof(pVCur_cgo343)
-		pCur_cgo345.nullRow = uint8(0)
-		if !(res_cgo346 != 0) {
-			goto _cgol_349
+		res_cgo82 = pModule_cgo76.xEof(pVCur_cgo79)
+		pCur_cgo81.nullRow = uint8(0)
+		if !(res_cgo82 != 0) {
+			goto _cgol_265
 		}
 		goto jump_to_p2
-	_cgol_349:
+	_cgol_265:
 		goto _cgol_2
-	_cgol_337:
+	_cgol_264:
 		if _cgo_nm && _cgo_tag != 174 {
-			goto _cgol_350
+			goto _cgol_266
 		}
 		_cgo_nm = false
 		{
@@ -48403,16 +48418,16 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_350:
+	_cgol_266:
 		if _cgo_nm && _cgo_tag != 62 {
-			goto _cgol_351
+			goto _cgol_267
 		}
 		_cgo_nm = false
-		pVtab_cgo352 = nil
-		pModule_cgo353 = nil
-		res_cgo354 = 0
-		pCur_cgo355 = nil
-		pCur_cgo355 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
+		pVtab_cgo85 = nil
+		pModule_cgo86 = nil
+		res_cgo87 = 0
+		pCur_cgo88 = nil
+		pCur_cgo88 = *(**struct_VdbeCursor)(unsafe.Pointer(uintptr(unsafe.Pointer(p.apCsr)) + uintptr(pOp.p1)*8))
 		func() int {
 			_ = 0
 			return 0
@@ -48421,30 +48436,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		if pCur_cgo355.nullRow != 0 {
+		if pCur_cgo88.nullRow != 0 {
 			goto _cgol_2
 		}
-		pVtab_cgo352 = (*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc))).pVtab
-		pModule_cgo353 = pVtab_cgo352.pModule
+		pVtab_cgo85 = (*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo88.uc))).pVtab
+		pModule_cgo86 = pVtab_cgo85.pModule
 		func() int {
 			_ = 0
 			return 0
 		}()
-		rc = pModule_cgo353.xNext(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc)))
-		sqlite3VtabImportErrmsg(p, pVtab_cgo352)
+		rc = pModule_cgo86.xNext(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo88.uc)))
+		sqlite3VtabImportErrmsg(p, pVtab_cgo85)
 		if rc != 0 {
 			goto abort_due_to_error
 		}
-		res_cgo354 = pModule_cgo353.xEof(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo355.uc)))
-		if !!(res_cgo354 != 0) {
-			goto _cgol_356
+		res_cgo87 = pModule_cgo86.xEof(*(**struct_sqlite3_vtab_cursor)(unsafe.Pointer(&pCur_cgo88.uc)))
+		if !!(res_cgo87 != 0) {
+			goto _cgol_268
 		}
 		goto jump_to_p2_and_check_for_interrupt
-	_cgol_356:
+	_cgol_268:
 		goto check_for_interrupt
-	_cgol_351:
+	_cgol_267:
 		if _cgo_nm && _cgo_tag != 175 {
-			goto _cgol_357
+			goto _cgol_269
 		}
 		_cgo_nm = false
 		{
@@ -48489,9 +48504,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_357:
+	_cgol_269:
 		if _cgo_nm && _cgo_tag != 10 {
-			goto _cgol_358
+			goto _cgol_270
 		}
 		_cgo_nm = false
 		{
@@ -48568,9 +48583,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_358:
+	_cgol_270:
 		if _cgo_nm && _cgo_tag != 176 {
-			goto _cgol_359
+			goto _cgol_271
 		}
 		_cgo_nm = false
 		{
@@ -48578,9 +48593,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(sqlite3BtreeLastPage((*(*struct_Db)(unsafe.Pointer(uintptr(unsafe.Pointer(db.aDb)) + uintptr(pOp.p1)*32))).pBt))
 			goto _cgol_2
 		}
-	_cgol_359:
+	_cgol_271:
 		if _cgo_nm && _cgo_tag != 177 {
-			goto _cgol_360
+			goto _cgol_272
 		}
 		_cgo_nm = false
 		{
@@ -48598,14 +48613,14 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int64)(unsafe.Pointer(&pOut.u)) = int64(sqlite3BtreeMaxPageCount(pBt, newMax))
 			goto _cgol_2
 		}
-	_cgol_360:
+	_cgol_272:
 		if _cgo_nm && _cgo_tag != 65 {
-			goto _cgol_361
+			goto _cgol_273
 		}
 		_cgo_nm = false
-	_cgol_361:
+	_cgol_273:
 		if _cgo_nm && _cgo_tag != 66 {
-			goto _cgol_362
+			goto _cgol_274
 		}
 		_cgo_nm = false
 		{
@@ -48653,9 +48668,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			}
 			goto _cgol_2
 		}
-	_cgol_362:
+	_cgol_274:
 		if _cgo_nm && _cgo_tag != 178 {
-			goto _cgol_363
+			goto _cgol_275
 		}
 		_cgo_nm = false
 		{
@@ -48678,12 +48693,12 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h/uint64(8)))) |= int8(1 << (h & uint64(7)))
 			goto _cgol_2
 		}
-	_cgol_363:
+	_cgol_275:
 		if _cgo_nm && _cgo_tag != 63 {
-			goto _cgol_364
+			goto _cgol_276
 		}
 		_cgo_nm = false
-		h_cgo365 = 0
+		h_cgo89 = 0
 		func() int {
 			_ = 0
 			return 0
@@ -48697,30 +48712,30 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			_ = 0
 			return 0
 		}()
-		h_cgo365 = filterHash(aMem, pOp)
-		h_cgo365 %= uint64(pIn1.n)
-		if !(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h_cgo365/uint64(8)))))&int32(1<<(h_cgo365&uint64(7))) == 0) {
-			goto _cgol_367
+		h_cgo89 = filterHash(aMem, pOp)
+		h_cgo89 %= uint64(pIn1.n)
+		if !(int32(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer(pIn1.z)) + uintptr(h_cgo89/uint64(8)))))&int32(1<<(h_cgo89&uint64(7))) == 0) {
+			goto _cgol_278
 		}
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(8)*4))++
 		goto jump_to_p2
-		goto _cgol_366
-	_cgol_367:
+		goto _cgol_277
+	_cgol_278:
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(7)*4))++
-	_cgol_366:
+	_cgol_277:
 		goto _cgol_2
-	_cgol_364:
+	_cgol_276:
 		if _cgo_nm && _cgo_tag != 179 {
-			goto _cgol_368
+			goto _cgol_279
 		}
 		_cgo_nm = false
-	_cgol_368:
+	_cgol_279:
 		if _cgo_nm && _cgo_tag != 64 {
-			goto _cgol_369
+			goto _cgol_280
 		}
 		_cgo_nm = false
-		i_cgo370 = 0
-		zTrace_cgo371 = nil
+		i_cgo90 = 0
+		zTrace_cgo91 = nil
 		func() int {
 			_ = 0
 			return 0
@@ -48730,7 +48745,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return 0
 		}()
 		if int32(db.mTrace)&(1|64) != 0 && !(p.doingRerun != 0) && uintptr(unsafe.Pointer(func() (_cgo_ret *int8) {
-			_cgo_addr := &zTrace_cgo371
+			_cgo_addr := &zTrace_cgo91
 			*_cgo_addr = func() *int8 {
 				if *(**int8)(unsafe.Pointer(&pOp.p4)) != nil {
 					return *(**int8)(unsafe.Pointer(&pOp.p4))
@@ -48741,11 +48756,11 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			return *_cgo_addr
 		}())) != uintptr(unsafe.Pointer(nil)) {
 			if int32(db.mTrace)&64 != 0 {
-				var z *int8 = sqlite3VdbeExpandSql(p, zTrace_cgo371)
+				var z *int8 = sqlite3VdbeExpandSql(p, zTrace_cgo91)
 				db.trace.xLegacy(db.pTraceArg, z)
 				sqlite3_free(unsafe.Pointer(z))
 			} else if db.nVdbeExec > 1 {
-				var z *int8 = sqlite3MPrintf(db, (*int8)(unsafe.Pointer(&[6]int8{'-', '-', ' ', '%', 's', '\x00'})), zTrace_cgo371)
+				var z *int8 = sqlite3MPrintf(db, (*int8)(unsafe.Pointer(&[6]int8{'-', '-', ' ', '%', 's', '\x00'})), zTrace_cgo91)
 				func() int {
 					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(z))
 					return 0
@@ -48753,7 +48768,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 				sqlite3DbFree(db, unsafe.Pointer(z))
 			} else {
 				func() int {
-					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(zTrace_cgo371))
+					_ = (*(*func(uint32, unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) int32)(unsafe.Pointer(&db.trace)))(uint32(1), db.pTraceArg, unsafe.Pointer(p), unsafe.Pointer(zTrace_cgo91))
 					return 0
 				}()
 			}
@@ -48766,9 +48781,9 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			if int32(pOp.opcode) == 179 {
 				goto _cgol_2
 			}
-			for i_cgo370 = int32(1); i_cgo370 < p.nOp; i_cgo370++ {
-				if int32((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo370)*24))).opcode) == 17 {
-					(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo370)*24))).p1 = int32(0)
+			for i_cgo90 = int32(1); i_cgo90 < p.nOp; i_cgo90++ {
+				if int32((*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo90)*24))).opcode) == 17 {
+					(*(*struct_VdbeOp)(unsafe.Pointer(uintptr(unsafe.Pointer(p.aOp)) + uintptr(i_cgo90)*24))).p1 = int32(0)
 				}
 			}
 			pOp.p1 = int32(0)
@@ -48776,7 +48791,7 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 		pOp.p1++
 		*(*uint32)(unsafe.Pointer(uintptr(unsafe.Pointer((*uint32)(unsafe.Pointer(&p.aCounter)))) + uintptr(6)*4))++
 		goto jump_to_p2
-	_cgol_372:
+	_cgol_281:
 		_cgo_nm = false
 		{
 			func() int {
@@ -48786,8 +48801,8 @@ func sqlite3VdbeExec(p *struct_Vdbe) int32 {
 			goto _cgol_2
 		}
 		goto _cgol_2
-	_cgol_369:
-		goto _cgol_372
+	_cgol_280:
+		goto _cgol_281
 	_cgol_2:
 	}
 abort_due_to_error:
@@ -97709,7 +97724,7 @@ var yyRuleInfoLhs [402]uint16 = [402]uint16{uint16(189), uint16(189), uint16(188
 var yyRuleInfoNRhs [402]int8 = [402]int8{int8(-1), int8(-3), int8(-1), int8(-3), int8(0), int8(-1), int8(-1), int8(-1), int8(-2), int8(-2), int8(-2), int8(-3), int8(-5), int8(-6), int8(-1), int8(0), int8(-3), int8(-1), int8(0), int8(-5), int8(-2), int8(0), int8(-3), int8(-2), int8(-1), int8(-2), int8(0), int8(-4), int8(-6), int8(-2), int8(0), int8(0), int8(-2), int8(-3), int8(-4), int8(-4), int8(-4), int8(-3), int8(-3), int8(-5), int8(-2), int8(-4), int8(-4), int8(-1), int8(-2), int8(-3), int8(-4), int8(0), int8(-1), int8(0), int8(-2), int8(-2), int8(-3), int8(-3), int8(-3), int8(-2), int8(-2), int8(-1), int8(-1), int8(-2), int8(-3), int8(-2), int8(0), int8(-2), int8(-2), int8(0), int8(-1), int8(-2), int8(-7), int8(-5), int8(-5), int8(-10), int8(0), int8(0), int8(-3), int8(0), int8(-2), int8(-1), int8(-1), int8(-4), int8(-2), int8(0), int8(-9), int8(-4), int8(-1), int8(-3), int8(-4), int8(-1), int8(-3), int8(-1), int8(-2), int8(-1), int8(-9), int8(-10), int8(-4), int8(-5), int8(-1), int8(-1), int8(0), int8(0), int8(-5), int8(-3), int8(-5), int8(-2), int8(0), int8(0), int8(-2), int8(-2), int8(0), int8(-7), int8(-9), int8(-7), int8(-7), int8(0), int8(-2), int8(-1), int8(-3), int8(-1), int8(-3), int8(-5), int8(-3), int8(-1), int8(-2), int8(-3), int8(-4), int8(-2), int8(0), int8(0), int8(-3), int8(-2), int8(-4), int8(0), int8(0), int8(-3), int8(-5), int8(-3), int8(-1), int8(-1), int8(0), int8(-2), int8(-2), int8(0), int8(0), int8(-3), int8(0), int8(-2), int8(0), int8(-2), int8(-4), int8(-4), int8(-6), int8(0), int8(-2), int8(0), int8(-2), int8(-2), int8(-4), int8(-9), int8(-5), int8(-7), int8(-3), int8(-5), int8(-7), int8(-8), int8(0), int8(-2), int8(-12), int8(-9), int8(-5), int8(-8), int8(-2), int8(-2), int8(-1), int8(0), int8(-3), int8(-3), int8(-1), int8(-3), int8(-1), int8(-1), int8(-3), int8(-5), int8(-1), int8(-1), int8(-1), int8(-1), int8(-3), int8(-6), int8(-5), int8(-4), int8(-6), int8(-5), int8(-1), int8(-5), int8(-3), int8(-3), int8(-3), int8(-3), int8(-3), int8(-3), int8(-3), int8(-3), int8(-2), int8(-3), int8(-5), int8(-2), int8(-3), int8(-3), int8(-4), int8(-2), int8(-2), int8(-2), int8(-3), int8(-1), int8(-2), int8(-5), int8(-1), int8(-2), int8(-5), int8(-3), int8(-5), int8(-5), int8(-4), int8(-5), int8(-5), int8(-4), int8(-2), int8(0), int8(-1), int8(0), int8(0), int8(-3), int8(-1), int8(0), int8(-3), int8(-12), int8(-1), int8(0), int8(0), int8(-3), int8(-5), int8(-3), int8(0), int8(-2), int8(-4), int8(-2), int8(-3), int8(-2), int8(0), int8(-3), int8(-5), int8(-6), int8(-5), int8(-6), int8(-2), int8(-2), int8(-5), int8(-11), int8(-1), int8(-2), int8(0), int8(-1), int8(-1), int8(-3), int8(0), int8(-2), int8(-3), int8(-2), int8(-3), int8(-3), int8(-2), int8(-9), int8(-8), int8(-6), int8(-3), int8(-4), int8(-6), int8(-1), int8(-1), int8(-1), int8(-4), int8(-6), int8(-3), int8(0), int8(-2), int8(-1), int8(-3), int8(-1), int8(-3), int8(-6), int8(-7), int8(-6), int8(-1), int8(-8), int8(-1), int8(-4), int8(-8), int8(0), int8(-1), int8(-3), int8(-1), int8(-2), int8(-3), int8(-1), int8(-2), int8(-3), int8(-6), int8(-1), int8(-3), int8(-1), int8(-3), int8(-5), int8(-5), int8(-6), int8(-4), int8(-5), int8(-1), int8(-2), int8(0), int8(-3), int8(-6), int8(-1), int8(-1), int8(-2), int8(-1), int8(-2), int8(-2), int8(-2), int8(0), int8(-2), int8(-2), int8(-2), int8(-1), int8(-2), int8(-2), int8(-1), int8(-1), int8(-4), int8(-2), int8(-5), int8(-1), int8(-2), int8(-1), int8(-1), int8(-2), int8(-3), int8(0), int8(-1), int8(-2), int8(-1), int8(0), int8(-2), int8(-1), int8(-4), int8(-2), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-2), int8(0), int8(-2), int8(-4), int8(-2), int8(-2), int8(-3), int8(-1), int8(0), int8(-1), int8(-1), int8(-1), int8(-1), int8(-2), int8(-1), int8(0), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(-1), int8(0), int8(-3), int8(-1), int8(0), int8(-1), int8(0), int8(0), int8(-1), int8(-1), int8(-3), int8(-2), int8(0), int8(-4), int8(-2), int8(0)}
 
 func yy_reduce(yypParser *struct_yyParser, yyruleno uint32, yyLookahead int32, yyLookaheadToken struct_Token, pParse *struct_Parse) uint16 {
-	var yylhsminor_cgo2 _cgoa_88
+	var yylhsminor_cgo1 _cgoa_88
 	var yygoto int32
 	var yyact uint16
 	var yymsp *struct_yyStackEntry
@@ -97725,193 +97740,193 @@ func yy_reduce(yypParser *struct_yyParser, yyruleno uint32, yyLookahead int32, y
 	yymsp = yypParser.yytos
 	_cgo_nm, _cgo_tag := true, yyruleno
 	goto _cgol_1
-	yylhsminor_cgo2 = struct {
+	yylhsminor_cgo1 = struct {
 		yy180 struct_TrigEvent
 	}{}
 _cgol_1:
 	if _cgo_nm && _cgo_tag != uint32(0) {
-		goto _cgol_3
+		goto _cgol_2
 	}
 	_cgo_nm = false
 	{
 		pParse.explain = uint8(1)
 	}
-	goto _cgol_4
-_cgol_3:
+	goto _cgol_3
+_cgol_2:
 	if _cgo_nm && _cgo_tag != uint32(1) {
-		goto _cgol_5
+		goto _cgol_4
 	}
 	_cgo_nm = false
 	{
 		pParse.explain = uint8(2)
 	}
-	goto _cgol_4
-_cgol_5:
+	goto _cgol_3
+_cgol_4:
 	if _cgo_nm && _cgo_tag != uint32(2) {
-		goto _cgol_6
+		goto _cgol_5
 	}
 	_cgo_nm = false
 	{
 		sqlite3FinishCoding(pParse)
 	}
-	goto _cgol_4
-_cgol_6:
+	goto _cgol_3
+_cgol_5:
 	if _cgo_nm && _cgo_tag != uint32(3) {
-		goto _cgol_7
+		goto _cgol_6
 	}
 	_cgo_nm = false
 	{
 		sqlite3BeginTransaction(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_7:
+	goto _cgol_3
+_cgol_6:
 	if _cgo_nm && _cgo_tag != uint32(4) {
-		goto _cgol_8
+		goto _cgol_7
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(7)
 	}
-	goto _cgol_4
-_cgol_8:
+	goto _cgol_3
+_cgol_7:
 	if _cgo_nm && _cgo_tag != uint32(5) {
+		goto _cgol_8
+	}
+	_cgo_nm = false
+_cgol_8:
+	if _cgo_nm && _cgo_tag != uint32(6) {
 		goto _cgol_9
 	}
 	_cgo_nm = false
 _cgol_9:
-	if _cgo_nm && _cgo_tag != uint32(6) {
+	if _cgo_nm && _cgo_tag != uint32(7) {
 		goto _cgol_10
 	}
 	_cgo_nm = false
 _cgol_10:
-	if _cgo_nm && _cgo_tag != uint32(7) {
-		goto _cgol_11
-	}
-	_cgo_nm = false
-_cgol_11:
 	if _cgo_nm && _cgo_tag != uint32(321) {
-		goto _cgol_12
+		goto _cgol_11
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
 	}
-	goto _cgol_4
-_cgol_12:
+	goto _cgol_3
+_cgol_11:
 	if _cgo_nm && _cgo_tag != uint32(8) {
-		goto _cgol_13
+		goto _cgol_12
 	}
 	_cgo_nm = false
-_cgol_13:
+_cgol_12:
 	if _cgo_nm && _cgo_tag != uint32(9) {
-		goto _cgol_14
+		goto _cgol_13
 	}
 	_cgo_nm = false
 	{
 		sqlite3EndTransaction(pParse, int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major))
 	}
-	goto _cgol_4
-_cgol_14:
+	goto _cgol_3
+_cgol_13:
 	if _cgo_nm && _cgo_tag != uint32(10) {
-		goto _cgol_15
+		goto _cgol_14
 	}
 	_cgo_nm = false
 	{
 		sqlite3Savepoint(pParse, 0, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_15:
+	goto _cgol_3
+_cgol_14:
 	if _cgo_nm && _cgo_tag != uint32(11) {
-		goto _cgol_16
+		goto _cgol_15
 	}
 	_cgo_nm = false
 	{
 		sqlite3Savepoint(pParse, 1, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_16:
+	goto _cgol_3
+_cgol_15:
 	if _cgo_nm && _cgo_tag != uint32(12) {
-		goto _cgol_17
+		goto _cgol_16
 	}
 	_cgo_nm = false
 	{
 		sqlite3Savepoint(pParse, 2, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_17:
+	goto _cgol_3
+_cgol_16:
 	if _cgo_nm && _cgo_tag != uint32(13) {
-		goto _cgol_18
+		goto _cgol_17
 	}
 	_cgo_nm = false
 	{
 		sqlite3StartTable(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), 0, 0, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_18:
+	goto _cgol_3
+_cgol_17:
 	if _cgo_nm && _cgo_tag != uint32(14) {
-		goto _cgol_19
+		goto _cgol_18
 	}
 	_cgo_nm = false
 	{
 		disableLookaside(pParse)
 	}
-	goto _cgol_4
-_cgol_19:
+	goto _cgol_3
+_cgol_18:
 	if _cgo_nm && _cgo_tag != uint32(15) {
+		goto _cgol_19
+	}
+	_cgo_nm = false
+_cgol_19:
+	if _cgo_nm && _cgo_tag != uint32(18) {
 		goto _cgol_20
 	}
 	_cgo_nm = false
 _cgol_20:
-	if _cgo_nm && _cgo_tag != uint32(18) {
+	if _cgo_nm && _cgo_tag != uint32(47) {
 		goto _cgol_21
 	}
 	_cgo_nm = false
 _cgol_21:
-	if _cgo_nm && _cgo_tag != uint32(47) {
+	if _cgo_nm && _cgo_tag != uint32(62) {
 		goto _cgol_22
 	}
 	_cgo_nm = false
 _cgol_22:
-	if _cgo_nm && _cgo_tag != uint32(62) {
+	if _cgo_nm && _cgo_tag != uint32(72) {
 		goto _cgol_23
 	}
 	_cgo_nm = false
 _cgol_23:
-	if _cgo_nm && _cgo_tag != uint32(72) {
+	if _cgo_nm && _cgo_tag != uint32(81) {
 		goto _cgol_24
 	}
 	_cgo_nm = false
 _cgol_24:
-	if _cgo_nm && _cgo_tag != uint32(81) {
+	if _cgo_nm && _cgo_tag != uint32(98) {
 		goto _cgol_25
 	}
 	_cgo_nm = false
 _cgol_25:
-	if _cgo_nm && _cgo_tag != uint32(98) {
-		goto _cgol_26
-	}
-	_cgo_nm = false
-_cgol_26:
 	if _cgo_nm && _cgo_tag != uint32(242) {
-		goto _cgol_27
+		goto _cgol_26
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_27:
+	goto _cgol_3
+_cgol_26:
 	if _cgo_nm && _cgo_tag != uint32(16) {
-		goto _cgol_28
+		goto _cgol_27
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_28:
+	goto _cgol_3
+_cgol_27:
 	if _cgo_nm && _cgo_tag != uint32(17) {
-		goto _cgol_29
+		goto _cgol_28
 	}
 	_cgo_nm = false
 	{
@@ -97923,48 +97938,48 @@ _cgol_28:
 			}
 		}()
 	}
-	goto _cgol_4
-_cgol_29:
+	goto _cgol_3
+_cgol_28:
 	if _cgo_nm && _cgo_tag != uint32(19) {
-		goto _cgol_30
+		goto _cgol_29
 	}
 	_cgo_nm = false
 	{
 		sqlite3EndTable(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_30:
+	goto _cgol_3
+_cgol_29:
 	if _cgo_nm && _cgo_tag != uint32(20) {
-		goto _cgol_31
+		goto _cgol_30
 	}
 	_cgo_nm = false
 	{
 		sqlite3EndTable(pParse, nil, nil, uint32(0), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		sqlite3SelectDelete(pParse.db, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_31:
+	goto _cgol_3
+_cgol_30:
 	if _cgo_nm && _cgo_tag != uint32(21) {
-		goto _cgol_32
+		goto _cgol_31
 	}
 	_cgo_nm = false
 	{
 		*(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = uint32(0)
 	}
-	goto _cgol_4
-_cgol_32:
+	goto _cgol_3
+_cgol_31:
 	if _cgo_nm && _cgo_tag != uint32(22) {
-		goto _cgol_33
+		goto _cgol_32
 	}
 	_cgo_nm = false
 	{
-		*(*uint32)(unsafe.Pointer(&yylhsminor_cgo2)) = *(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) | *(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(*uint32)(unsafe.Pointer(&yylhsminor_cgo1)) = *(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) | *(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	*(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(*uint32)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_33:
+	*(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(*uint32)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_32:
 	if _cgo_nm && _cgo_tag != uint32(23) {
-		goto _cgol_34
+		goto _cgol_33
 	}
 	_cgo_nm = false
 	{
@@ -97975,81 +97990,81 @@ _cgol_33:
 			sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[27]int8{'u', 'n', 'k', 'n', 'o', 'w', 'n', ' ', 't', 'a', 'b', 'l', 'e', ' ', 'o', 'p', 't', 'i', 'o', 'n', ':', ' ', '%', '.', '*', 's', '\x00'})), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)
 		}
 	}
-	goto _cgol_4
-_cgol_34:
+	goto _cgol_3
+_cgol_33:
 	if _cgo_nm && _cgo_tag != uint32(24) {
-		goto _cgol_35
+		goto _cgol_34
 	}
 	_cgo_nm = false
 	{
 		if (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n == uint32(6) && sqlite3_strnicmp((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z, (*int8)(unsafe.Pointer(&[7]int8{'s', 't', 'r', 'i', 'c', 't', '\x00'})), 6) == 0 {
-			*(*uint32)(unsafe.Pointer(&yylhsminor_cgo2)) = uint32(65536)
+			*(*uint32)(unsafe.Pointer(&yylhsminor_cgo1)) = uint32(65536)
 		} else {
-			*(*uint32)(unsafe.Pointer(&yylhsminor_cgo2)) = uint32(0)
+			*(*uint32)(unsafe.Pointer(&yylhsminor_cgo1)) = uint32(0)
 			sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[27]int8{'u', 'n', 'k', 'n', 'o', 'w', 'n', ' ', 't', 'a', 'b', 'l', 'e', ' ', 'o', 'p', 't', 'i', 'o', 'n', ':', ' ', '%', '.', '*', 's', '\x00'})), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)
 		}
 	}
-	*(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(*uint32)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_35:
+	*(*uint32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(*uint32)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_34:
 	if _cgo_nm && _cgo_tag != uint32(25) {
-		goto _cgol_36
+		goto _cgol_35
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddColumn(pParse, *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_36:
+	goto _cgol_3
+_cgol_35:
 	if _cgo_nm && _cgo_tag != uint32(26) {
+		goto _cgol_36
+	}
+	_cgo_nm = false
+_cgol_36:
+	if _cgo_nm && _cgo_tag != uint32(65) {
 		goto _cgol_37
 	}
 	_cgo_nm = false
 _cgol_37:
-	if _cgo_nm && _cgo_tag != uint32(65) {
-		goto _cgol_38
-	}
-	_cgo_nm = false
-_cgol_38:
 	if _cgo_nm && _cgo_tag != uint32(104) {
-		goto _cgol_39
+		goto _cgol_38
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor))).n = uint32(0)
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor))).z = (*int8)(nil)
 	}
-	goto _cgol_4
-_cgol_39:
+	goto _cgol_3
+_cgol_38:
 	if _cgo_nm && _cgo_tag != uint32(27) {
-		goto _cgol_40
+		goto _cgol_39
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).n = uint32(int32(uintptr(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)) + uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n))))) - uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).z))))
 	}
-	goto _cgol_4
-_cgol_40:
+	goto _cgol_3
+_cgol_39:
 	if _cgo_nm && _cgo_tag != uint32(28) {
-		goto _cgol_41
+		goto _cgol_40
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor))).n = uint32(int32(uintptr(unsafe.Pointer(&*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)) + uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n))))) - uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor))).z))))
 	}
-	goto _cgol_4
-_cgol_41:
+	goto _cgol_3
+_cgol_40:
 	if _cgo_nm && _cgo_tag != uint32(29) {
-		goto _cgol_42
+		goto _cgol_41
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n = (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n + uint32(int32(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z))-uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z))))
 	}
-	goto _cgol_4
-_cgol_42:
+	goto _cgol_3
+_cgol_41:
 	if _cgo_nm && _cgo_tag != uint32(30) {
-		goto _cgol_43
+		goto _cgol_42
 	}
 	_cgo_nm = false
 	{
@@ -98059,10 +98074,10 @@ _cgol_42:
 		}()
 		*(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = yyLookaheadToken.z
 	}
-	goto _cgol_4
-_cgol_43:
+	goto _cgol_3
+_cgol_42:
 	if _cgo_nm && _cgo_tag != uint32(31) {
-		goto _cgol_44
+		goto _cgol_43
 	}
 	_cgo_nm = false
 	{
@@ -98072,61 +98087,61 @@ _cgol_43:
 		}()
 		*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = yyLookaheadToken
 	}
-	goto _cgol_4
-_cgol_44:
+	goto _cgol_3
+_cgol_43:
 	if _cgo_nm && _cgo_tag != uint32(32) {
-		goto _cgol_45
+		goto _cgol_44
 	}
 	_cgo_nm = false
-_cgol_45:
+_cgol_44:
 	if _cgo_nm && _cgo_tag != uint32(67) {
-		goto _cgol_46
+		goto _cgol_45
 	}
 	_cgo_nm = false
 	{
 		pParse.constraintName = *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_46:
+	goto _cgol_3
+_cgol_45:
 	if _cgo_nm && _cgo_tag != uint32(33) {
-		goto _cgol_47
+		goto _cgol_46
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddDefaultValue(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z)) + uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n))))
 	}
-	goto _cgol_4
-_cgol_47:
+	goto _cgol_3
+_cgol_46:
 	if _cgo_nm && _cgo_tag != uint32(34) {
-		goto _cgol_48
+		goto _cgol_47
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddDefaultValue(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).z))+uintptr(1))), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)
 	}
-	goto _cgol_4
-_cgol_48:
+	goto _cgol_3
+_cgol_47:
 	if _cgo_nm && _cgo_tag != uint32(35) {
-		goto _cgol_49
+		goto _cgol_48
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddDefaultValue(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).z, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z)) + uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n))))
 	}
-	goto _cgol_4
-_cgol_49:
+	goto _cgol_3
+_cgol_48:
 	if _cgo_nm && _cgo_tag != uint32(36) {
-		goto _cgol_50
+		goto _cgol_49
 	}
 	_cgo_nm = false
 	{
 		var p *struct_Expr = sqlite3PExpr(pParse, 173, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 		sqlite3AddDefaultValue(pParse, p, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).z, &*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z)) + uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n))))
 	}
-	goto _cgol_4
-_cgol_50:
+	goto _cgol_3
+_cgol_49:
 	if _cgo_nm && _cgo_tag != uint32(37) {
-		goto _cgol_51
+		goto _cgol_50
 	}
 	_cgo_nm = false
 	{
@@ -98136,388 +98151,388 @@ _cgol_50:
 		}
 		sqlite3AddDefaultValue(pParse, p, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z, (*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z))+uintptr((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n))))
 	}
-	goto _cgol_4
-_cgol_51:
+	goto _cgol_3
+_cgol_50:
 	if _cgo_nm && _cgo_tag != uint32(38) {
-		goto _cgol_52
+		goto _cgol_51
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddNotNull(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_52:
+	goto _cgol_3
+_cgol_51:
 	if _cgo_nm && _cgo_tag != uint32(39) {
-		goto _cgol_53
+		goto _cgol_52
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddPrimaryKey(pParse, nil, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_53:
+	goto _cgol_3
+_cgol_52:
 	if _cgo_nm && _cgo_tag != uint32(40) {
-		goto _cgol_54
+		goto _cgol_53
 	}
 	_cgo_nm = false
 	{
 		sqlite3CreateIndex(pParse, nil, nil, nil, nil, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, nil, 0, 0, uint8(1))
 	}
-	goto _cgol_4
-_cgol_54:
+	goto _cgol_3
+_cgol_53:
 	if _cgo_nm && _cgo_tag != uint32(41) {
-		goto _cgol_55
+		goto _cgol_54
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddCheckConstraint(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).z, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)
 	}
-	goto _cgol_4
-_cgol_55:
+	goto _cgol_3
+_cgol_54:
 	if _cgo_nm && _cgo_tag != uint32(42) {
-		goto _cgol_56
+		goto _cgol_55
 	}
 	_cgo_nm = false
 	{
 		sqlite3CreateForeignKey(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_56:
+	goto _cgol_3
+_cgol_55:
 	if _cgo_nm && _cgo_tag != uint32(43) {
-		goto _cgol_57
+		goto _cgol_56
 	}
 	_cgo_nm = false
 	{
 		sqlite3DeferForeignKey(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_57:
+	goto _cgol_3
+_cgol_56:
 	if _cgo_nm && _cgo_tag != uint32(44) {
-		goto _cgol_58
+		goto _cgol_57
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddCollateType(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_58:
+	goto _cgol_3
+_cgol_57:
 	if _cgo_nm && _cgo_tag != uint32(45) {
-		goto _cgol_59
+		goto _cgol_58
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddGenerated(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_59:
+	goto _cgol_3
+_cgol_58:
 	if _cgo_nm && _cgo_tag != uint32(46) {
-		goto _cgol_60
+		goto _cgol_59
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddGenerated(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_60:
+	goto _cgol_3
+_cgol_59:
 	if _cgo_nm && _cgo_tag != uint32(48) {
-		goto _cgol_61
+		goto _cgol_60
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_61:
+	goto _cgol_3
+_cgol_60:
 	if _cgo_nm && _cgo_tag != uint32(49) {
-		goto _cgol_62
+		goto _cgol_61
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(0 * 257)
 	}
-	goto _cgol_4
-_cgol_62:
+	goto _cgol_3
+_cgol_61:
 	if _cgo_nm && _cgo_tag != uint32(50) {
-		goto _cgol_63
+		goto _cgol_62
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) & ^(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).mask | (*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).value
 	}
-	goto _cgol_4
-_cgol_63:
+	goto _cgol_3
+_cgol_62:
 	if _cgo_nm && _cgo_tag != uint32(51) {
-		goto _cgol_64
+		goto _cgol_63
 	}
 	_cgo_nm = false
 	{
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).value = int32(0)
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).mask = int32(0)
 	}
-	goto _cgol_4
-_cgol_64:
+	goto _cgol_3
+_cgol_63:
 	if _cgo_nm && _cgo_tag != uint32(52) {
-		goto _cgol_65
+		goto _cgol_64
 	}
 	_cgo_nm = false
 	{
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).value = int32(0)
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).mask = int32(0)
 	}
-	goto _cgol_4
-_cgol_65:
+	goto _cgol_3
+_cgol_64:
 	if _cgo_nm && _cgo_tag != uint32(53) {
-		goto _cgol_66
+		goto _cgol_65
 	}
 	_cgo_nm = false
 	{
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).value = *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).mask = int32(255)
 	}
-	goto _cgol_4
-_cgol_66:
+	goto _cgol_3
+_cgol_65:
 	if _cgo_nm && _cgo_tag != uint32(54) {
-		goto _cgol_67
+		goto _cgol_66
 	}
 	_cgo_nm = false
 	{
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).value = *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) << 8
 		(*(*_cgoa_89)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).mask = int32(65280)
 	}
-	goto _cgol_4
-_cgol_67:
+	goto _cgol_3
+_cgol_66:
 	if _cgo_nm && _cgo_tag != uint32(55) {
-		goto _cgol_68
+		goto _cgol_67
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(8)
 	}
-	goto _cgol_4
-_cgol_68:
+	goto _cgol_3
+_cgol_67:
 	if _cgo_nm && _cgo_tag != uint32(56) {
-		goto _cgol_69
+		goto _cgol_68
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(9)
 	}
-	goto _cgol_4
-_cgol_69:
+	goto _cgol_3
+_cgol_68:
 	if _cgo_nm && _cgo_tag != uint32(57) {
-		goto _cgol_70
+		goto _cgol_69
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(10)
 	}
-	goto _cgol_4
-_cgol_70:
+	goto _cgol_3
+_cgol_69:
 	if _cgo_nm && _cgo_tag != uint32(58) {
-		goto _cgol_71
+		goto _cgol_70
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(7)
 	}
-	goto _cgol_4
-_cgol_71:
+	goto _cgol_3
+_cgol_70:
 	if _cgo_nm && _cgo_tag != uint32(59) {
-		goto _cgol_72
+		goto _cgol_71
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_72:
+	goto _cgol_3
+_cgol_71:
 	if _cgo_nm && _cgo_tag != uint32(60) {
-		goto _cgol_73
+		goto _cgol_72
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_73:
+	goto _cgol_3
+_cgol_72:
 	if _cgo_nm && _cgo_tag != uint32(61) {
+		goto _cgol_73
+	}
+	_cgo_nm = false
+_cgol_73:
+	if _cgo_nm && _cgo_tag != uint32(76) {
 		goto _cgol_74
 	}
 	_cgo_nm = false
 _cgol_74:
-	if _cgo_nm && _cgo_tag != uint32(76) {
-		goto _cgol_75
-	}
-	_cgo_nm = false
-_cgol_75:
 	if _cgo_nm && _cgo_tag != uint32(171) {
-		goto _cgol_76
+		goto _cgol_75
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_76:
+	goto _cgol_3
+_cgol_75:
 	if _cgo_nm && _cgo_tag != uint32(63) {
+		goto _cgol_76
+	}
+	_cgo_nm = false
+_cgol_76:
+	if _cgo_nm && _cgo_tag != uint32(80) {
 		goto _cgol_77
 	}
 	_cgo_nm = false
 _cgol_77:
-	if _cgo_nm && _cgo_tag != uint32(80) {
+	if _cgo_nm && _cgo_tag != uint32(214) {
 		goto _cgol_78
 	}
 	_cgo_nm = false
 _cgol_78:
-	if _cgo_nm && _cgo_tag != uint32(214) {
+	if _cgo_nm && _cgo_tag != uint32(217) {
 		goto _cgol_79
 	}
 	_cgo_nm = false
 _cgol_79:
-	if _cgo_nm && _cgo_tag != uint32(217) {
-		goto _cgol_80
-	}
-	_cgo_nm = false
-_cgol_80:
 	if _cgo_nm && _cgo_tag != uint32(243) {
-		goto _cgol_81
+		goto _cgol_80
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_81:
+	goto _cgol_3
+_cgol_80:
 	if _cgo_nm && _cgo_tag != uint32(64) {
-		goto _cgol_82
+		goto _cgol_81
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_82:
+	goto _cgol_3
+_cgol_81:
 	if _cgo_nm && _cgo_tag != uint32(66) {
-		goto _cgol_83
+		goto _cgol_82
 	}
 	_cgo_nm = false
 	{
 		pParse.constraintName.n = uint32(0)
 	}
-	goto _cgol_4
-_cgol_83:
+	goto _cgol_3
+_cgol_82:
 	if _cgo_nm && _cgo_tag != uint32(68) {
-		goto _cgol_84
+		goto _cgol_83
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddPrimaryKey(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), 0)
 	}
-	goto _cgol_4
-_cgol_84:
+	goto _cgol_3
+_cgol_83:
 	if _cgo_nm && _cgo_tag != uint32(69) {
-		goto _cgol_85
+		goto _cgol_84
 	}
 	_cgo_nm = false
 	{
 		sqlite3CreateIndex(pParse, nil, nil, nil, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, nil, 0, 0, uint8(1))
 	}
-	goto _cgol_4
-_cgol_85:
+	goto _cgol_3
+_cgol_84:
 	if _cgo_nm && _cgo_tag != uint32(70) {
-		goto _cgol_86
+		goto _cgol_85
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddCheckConstraint(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).z, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z)
 	}
-	goto _cgol_4
-_cgol_86:
+	goto _cgol_3
+_cgol_85:
 	if _cgo_nm && _cgo_tag != uint32(71) {
-		goto _cgol_87
+		goto _cgol_86
 	}
 	_cgo_nm = false
 	{
 		sqlite3CreateForeignKey(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 		sqlite3DeferForeignKey(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_87:
+	goto _cgol_3
+_cgol_86:
 	if _cgo_nm && _cgo_tag != uint32(73) {
-		goto _cgol_88
+		goto _cgol_87
 	}
 	_cgo_nm = false
-_cgol_88:
+_cgol_87:
 	if _cgo_nm && _cgo_tag != uint32(75) {
-		goto _cgol_89
+		goto _cgol_88
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(11)
 	}
-	goto _cgol_4
-_cgol_89:
+	goto _cgol_3
+_cgol_88:
 	if _cgo_nm && _cgo_tag != uint32(74) {
-		goto _cgol_90
+		goto _cgol_89
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_90:
+	goto _cgol_3
+_cgol_89:
 	if _cgo_nm && _cgo_tag != uint32(77) {
-		goto _cgol_91
+		goto _cgol_90
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(4)
 	}
-	goto _cgol_4
-_cgol_91:
+	goto _cgol_3
+_cgol_90:
 	if _cgo_nm && _cgo_tag != uint32(78) {
-		goto _cgol_92
+		goto _cgol_91
 	}
 	_cgo_nm = false
-_cgol_92:
+_cgol_91:
 	if _cgo_nm && _cgo_tag != uint32(172) {
-		goto _cgol_93
+		goto _cgol_92
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(5)
 	}
-	goto _cgol_4
-_cgol_93:
+	goto _cgol_3
+_cgol_92:
 	if _cgo_nm && _cgo_tag != uint32(79) {
-		goto _cgol_94
+		goto _cgol_93
 	}
 	_cgo_nm = false
 	{
 		sqlite3DropTable(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 0, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_94:
+	goto _cgol_3
+_cgol_93:
 	if _cgo_nm && _cgo_tag != uint32(82) {
-		goto _cgol_95
+		goto _cgol_94
 	}
 	_cgo_nm = false
 	{
 		sqlite3CreateView(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_95:
+	goto _cgol_3
+_cgol_94:
 	if _cgo_nm && _cgo_tag != uint32(83) {
-		goto _cgol_96
+		goto _cgol_95
 	}
 	_cgo_nm = false
 	{
 		sqlite3DropTable(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 1, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_96:
+	goto _cgol_3
+_cgol_95:
 	if _cgo_nm && _cgo_tag != uint32(84) {
-		goto _cgol_97
+		goto _cgol_96
 	}
 	_cgo_nm = false
 	{
@@ -98525,28 +98540,28 @@ _cgol_96:
 		sqlite3Select(pParse, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), &dest)
 		sqlite3SelectDelete(pParse.db, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_97:
+	goto _cgol_3
+_cgol_96:
 	if _cgo_nm && _cgo_tag != uint32(85) {
-		goto _cgol_98
+		goto _cgol_97
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = attachWithToSelect(pParse, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_98:
+	goto _cgol_3
+_cgol_97:
 	if _cgo_nm && _cgo_tag != uint32(86) {
-		goto _cgol_99
+		goto _cgol_98
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = attachWithToSelect(pParse, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_99:
+	goto _cgol_3
+_cgol_98:
 	if _cgo_nm && _cgo_tag != uint32(87) {
-		goto _cgol_100
+		goto _cgol_99
 	}
 	_cgo_nm = false
 	{
@@ -98556,10 +98571,10 @@ _cgol_99:
 		}
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = p
 	}
-	goto _cgol_4
-_cgol_100:
+	goto _cgol_3
+_cgol_99:
 	if _cgo_nm && _cgo_tag != uint32(88) {
-		goto _cgol_101
+		goto _cgol_100
 	}
 	_cgo_nm = false
 	{
@@ -98588,42 +98603,42 @@ _cgol_100:
 		}
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = pRhs
 	}
-	goto _cgol_4
-_cgol_101:
+	goto _cgol_3
+_cgol_100:
 	if _cgo_nm && _cgo_tag != uint32(89) {
-		goto _cgol_102
+		goto _cgol_101
 	}
 	_cgo_nm = false
-_cgol_102:
+_cgol_101:
 	if _cgo_nm && _cgo_tag != uint32(91) {
-		goto _cgol_103
+		goto _cgol_102
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
 	}
-	goto _cgol_4
-_cgol_103:
+	goto _cgol_3
+_cgol_102:
 	if _cgo_nm && _cgo_tag != uint32(90) {
-		goto _cgol_104
+		goto _cgol_103
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(135)
 	}
-	goto _cgol_4
-_cgol_104:
+	goto _cgol_3
+_cgol_103:
 	if _cgo_nm && _cgo_tag != uint32(92) {
-		goto _cgol_105
+		goto _cgol_104
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)) = sqlite3SelectNew(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), uint32(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor))), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_105:
+	goto _cgol_3
+_cgol_104:
 	if _cgo_nm && _cgo_tag != uint32(93) {
-		goto _cgol_106
+		goto _cgol_105
 	}
 	_cgo_nm = false
 	{
@@ -98634,19 +98649,19 @@ _cgol_105:
 			sqlite3WindowListDelete(pParse.db, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_106:
+	goto _cgol_3
+_cgol_105:
 	if _cgo_nm && _cgo_tag != uint32(94) {
-		goto _cgol_107
+		goto _cgol_106
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3SelectNew(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil, nil, nil, nil, nil, uint32(512), nil)
 	}
-	goto _cgol_4
-_cgol_107:
+	goto _cgol_3
+_cgol_106:
 	if _cgo_nm && _cgo_tag != uint32(95) {
-		goto _cgol_108
+		goto _cgol_107
 	}
 	_cgo_nm = false
 	{
@@ -98664,62 +98679,62 @@ _cgol_107:
 			*(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = pLeft
 		}
 	}
-	goto _cgol_4
-_cgol_108:
+	goto _cgol_3
+_cgol_107:
 	if _cgo_nm && _cgo_tag != uint32(96) {
-		goto _cgol_109
+		goto _cgol_108
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_109:
+	goto _cgol_3
+_cgol_108:
 	if _cgo_nm && _cgo_tag != uint32(97) {
-		goto _cgol_110
+		goto _cgol_109
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(2)
 	}
-	goto _cgol_4
-_cgol_110:
+	goto _cgol_3
+_cgol_109:
 	if _cgo_nm && _cgo_tag != uint32(99) {
+		goto _cgol_110
+	}
+	_cgo_nm = false
+_cgol_110:
+	if _cgo_nm && _cgo_tag != uint32(132) {
 		goto _cgol_111
 	}
 	_cgo_nm = false
 _cgol_111:
-	if _cgo_nm && _cgo_tag != uint32(132) {
+	if _cgo_nm && _cgo_tag != uint32(142) {
 		goto _cgol_112
 	}
 	_cgo_nm = false
 _cgol_112:
-	if _cgo_nm && _cgo_tag != uint32(142) {
+	if _cgo_nm && _cgo_tag != uint32(230) {
 		goto _cgol_113
 	}
 	_cgo_nm = false
 _cgol_113:
-	if _cgo_nm && _cgo_tag != uint32(230) {
+	if _cgo_nm && _cgo_tag != uint32(233) {
 		goto _cgol_114
 	}
 	_cgo_nm = false
 _cgol_114:
-	if _cgo_nm && _cgo_tag != uint32(233) {
-		goto _cgol_115
-	}
-	_cgo_nm = false
-_cgol_115:
 	if _cgo_nm && _cgo_tag != uint32(238) {
-		goto _cgol_116
+		goto _cgol_115
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_ExprList)(nil)
 	}
-	goto _cgol_4
-_cgol_116:
+	goto _cgol_3
+_cgol_115:
 	if _cgo_nm && _cgo_tag != uint32(100) {
-		goto _cgol_117
+		goto _cgol_116
 	}
 	_cgo_nm = false
 	{
@@ -98729,20 +98744,20 @@ _cgol_116:
 		}
 		sqlite3ExprListSetSpan(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_117:
+	goto _cgol_3
+_cgol_116:
 	if _cgo_nm && _cgo_tag != uint32(101) {
-		goto _cgol_118
+		goto _cgol_117
 	}
 	_cgo_nm = false
 	{
 		var p *struct_Expr = sqlite3Expr(pParse.db, 180, nil)
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), p)
 	}
-	goto _cgol_4
-_cgol_118:
+	goto _cgol_3
+_cgol_117:
 	if _cgo_nm && _cgo_tag != uint32(102) {
-		goto _cgol_119
+		goto _cgol_118
 	}
 	_cgo_nm = false
 	{
@@ -98751,58 +98766,58 @@ _cgol_118:
 		var pDot *struct_Expr = sqlite3PExpr(pParse, 141, pLeft, pRight)
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), pDot)
 	}
-	goto _cgol_4
-_cgol_119:
+	goto _cgol_3
+_cgol_118:
 	if _cgo_nm && _cgo_tag != uint32(103) {
+		goto _cgol_119
+	}
+	_cgo_nm = false
+_cgol_119:
+	if _cgo_nm && _cgo_tag != uint32(114) {
 		goto _cgol_120
 	}
 	_cgo_nm = false
 _cgol_120:
-	if _cgo_nm && _cgo_tag != uint32(114) {
+	if _cgo_nm && _cgo_tag != uint32(254) {
 		goto _cgol_121
 	}
 	_cgo_nm = false
 _cgol_121:
-	if _cgo_nm && _cgo_tag != uint32(254) {
-		goto _cgol_122
-	}
-	_cgo_nm = false
-_cgol_122:
 	if _cgo_nm && _cgo_tag != uint32(255) {
-		goto _cgol_123
+		goto _cgol_122
 	}
 	_cgo_nm = false
 	{
 		*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_123:
+	goto _cgol_3
+_cgol_122:
 	if _cgo_nm && _cgo_tag != uint32(105) {
-		goto _cgol_124
+		goto _cgol_123
 	}
 	_cgo_nm = false
-_cgol_124:
+_cgol_123:
 	if _cgo_nm && _cgo_tag != uint32(108) {
-		goto _cgol_125
+		goto _cgol_124
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_SrcList)(nil)
 	}
-	goto _cgol_4
-_cgol_125:
+	goto _cgol_3
+_cgol_124:
 	if _cgo_nm && _cgo_tag != uint32(106) {
-		goto _cgol_126
+		goto _cgol_125
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 		sqlite3SrcListShiftJoinType(*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_126:
+	goto _cgol_3
+_cgol_125:
 	if _cgo_nm && _cgo_tag != uint32(107) {
-		goto _cgol_127
+		goto _cgol_126
 	}
 	_cgo_nm = false
 	{
@@ -98810,39 +98825,39 @@ _cgol_126:
 			(*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).a)))) + uintptr((*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).nSrc-1)*112))).fg.jointype = uint8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_127:
+	goto _cgol_3
+_cgol_126:
 	if _cgo_nm && _cgo_tag != uint32(109) {
-		goto _cgol_128
+		goto _cgol_127
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)) = sqlite3SrcListAppendFromTerm(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		sqlite3SrcListIndexedBy(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_128:
+	goto _cgol_3
+_cgol_127:
 	if _cgo_nm && _cgo_tag != uint32(110) {
-		goto _cgol_129
+		goto _cgol_128
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)) = sqlite3SrcListAppendFromTerm(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		sqlite3SrcListFuncArgs(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_129:
+	goto _cgol_3
+_cgol_128:
 	if _cgo_nm && _cgo_tag != uint32(111) {
-		goto _cgol_130
+		goto _cgol_129
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)) = sqlite3SrcListAppendFromTerm(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), nil, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_130:
+	goto _cgol_3
+_cgol_129:
 	if _cgo_nm && _cgo_tag != uint32(112) {
-		goto _cgol_131
+		goto _cgol_130
 	}
 	_cgo_nm = false
 	{
@@ -98883,69 +98898,69 @@ _cgol_130:
 			*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)) = sqlite3SrcListAppendFromTerm(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), nil, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), pSubquery, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_131:
+	goto _cgol_3
+_cgol_130:
 	if _cgo_nm && _cgo_tag != uint32(113) {
-		goto _cgol_132
+		goto _cgol_131
 	}
 	_cgo_nm = false
-_cgol_132:
+_cgol_131:
 	if _cgo_nm && _cgo_tag != uint32(127) {
-		goto _cgol_133
+		goto _cgol_132
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor))).z = (*int8)(nil)
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor))).n = uint32(0)
 	}
-	goto _cgol_4
-_cgol_133:
+	goto _cgol_3
+_cgol_132:
 	if _cgo_nm && _cgo_tag != uint32(115) {
+		goto _cgol_133
+	}
+	_cgo_nm = false
+	{
+		*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
+		if int32(pParse.eParseMode) >= 2 && *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1)) != nil {
+			sqlite3RenameTokenMap(pParse, unsafe.Pointer((*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1))).a)))) + uintptr(0)*112))).zName), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		}
+	}
+	*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_133:
+	if _cgo_nm && _cgo_tag != uint32(116) {
 		goto _cgol_134
 	}
 	_cgo_nm = false
 	{
-		*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
-		if int32(pParse.eParseMode) >= 2 && *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2)) != nil {
-			sqlite3RenameTokenMap(pParse, unsafe.Pointer((*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2))).a)))) + uintptr(0)*112))).zName), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		if int32(pParse.eParseMode) >= 2 && *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1)) != nil {
+			sqlite3RenameTokenMap(pParse, unsafe.Pointer((*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1))).a)))) + uintptr(0)*112))).zName), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_134:
-	if _cgo_nm && _cgo_tag != uint32(116) {
-		goto _cgol_135
-	}
-	_cgo_nm = false
-	{
-		*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-		if int32(pParse.eParseMode) >= 2 && *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2)) != nil {
-			sqlite3RenameTokenMap(pParse, unsafe.Pointer((*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2))).a)))) + uintptr(0)*112))).zName), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-		}
-	}
-	*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_SrcList)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_135:
 	if _cgo_nm && _cgo_tag != uint32(117) {
-		goto _cgol_136
+		goto _cgol_135
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_136:
+	goto _cgol_3
+_cgol_135:
 	if _cgo_nm && _cgo_tag != uint32(118) {
-		goto _cgol_137
+		goto _cgol_136
 	}
 	_cgo_nm = false
 	{
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3SrcListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_137:
+	goto _cgol_3
+_cgol_136:
 	if _cgo_nm && _cgo_tag != uint32(119) {
-		goto _cgol_138
+		goto _cgol_137
 	}
 	_cgo_nm = false
 	{
@@ -98954,10 +98969,10 @@ _cgol_137:
 			(*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor))).a)))) + uintptr(0)*112))).zAlias = sqlite3NameFromToken(pParse.db, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_138:
+	goto _cgol_3
+_cgol_137:
 	if _cgo_nm && _cgo_tag != uint32(120) {
-		goto _cgol_139
+		goto _cgol_138
 	}
 	_cgo_nm = false
 	{
@@ -98966,307 +98981,307 @@ _cgol_138:
 			(*(*struct_SrcItem)(unsafe.Pointer(uintptr(unsafe.Pointer((*struct_SrcItem)(unsafe.Pointer(&(*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).a)))) + uintptr(0)*112))).zAlias = sqlite3NameFromToken(pParse.db, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_139:
+	goto _cgol_3
+_cgol_138:
 	if _cgo_nm && _cgo_tag != uint32(121) {
-		goto _cgol_140
+		goto _cgol_139
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_140:
+	goto _cgol_3
+_cgol_139:
 	if _cgo_nm && _cgo_tag != uint32(122) {
-		goto _cgol_141
+		goto _cgol_140
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = sqlite3JoinType(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil, nil)
 	}
-	goto _cgol_4
-_cgol_141:
+	goto _cgol_3
+_cgol_140:
 	if _cgo_nm && _cgo_tag != uint32(123) {
-		goto _cgol_142
+		goto _cgol_141
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3JoinType(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_142:
+	goto _cgol_3
+_cgol_141:
 	if _cgo_nm && _cgo_tag != uint32(124) {
-		goto _cgol_143
+		goto _cgol_142
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3JoinType(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_143:
+	goto _cgol_3
+_cgol_142:
 	if _cgo_nm && _cgo_tag != uint32(125) {
+		goto _cgol_143
+	}
+	_cgo_nm = false
+_cgol_143:
+	if _cgo_nm && _cgo_tag != uint32(145) {
 		goto _cgol_144
 	}
 	_cgo_nm = false
 _cgol_144:
-	if _cgo_nm && _cgo_tag != uint32(145) {
+	if _cgo_nm && _cgo_tag != uint32(152) {
 		goto _cgol_145
 	}
 	_cgo_nm = false
 _cgol_145:
-	if _cgo_nm && _cgo_tag != uint32(152) {
+	if _cgo_nm && _cgo_tag != uint32(154) {
 		goto _cgol_146
 	}
 	_cgo_nm = false
 _cgol_146:
-	if _cgo_nm && _cgo_tag != uint32(154) {
+	if _cgo_nm && _cgo_tag != uint32(226) {
 		goto _cgol_147
 	}
 	_cgo_nm = false
 _cgol_147:
-	if _cgo_nm && _cgo_tag != uint32(226) {
-		goto _cgol_148
-	}
-	_cgo_nm = false
-_cgol_148:
 	if _cgo_nm && _cgo_tag != uint32(247) {
-		goto _cgol_149
+		goto _cgol_148
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_149:
+	goto _cgol_3
+_cgol_148:
 	if _cgo_nm && _cgo_tag != uint32(126) {
+		goto _cgol_149
+	}
+	_cgo_nm = false
+_cgol_149:
+	if _cgo_nm && _cgo_tag != uint32(144) {
 		goto _cgol_150
 	}
 	_cgo_nm = false
 _cgol_150:
-	if _cgo_nm && _cgo_tag != uint32(144) {
+	if _cgo_nm && _cgo_tag != uint32(146) {
 		goto _cgol_151
 	}
 	_cgo_nm = false
 _cgol_151:
-	if _cgo_nm && _cgo_tag != uint32(146) {
+	if _cgo_nm && _cgo_tag != uint32(151) {
 		goto _cgol_152
 	}
 	_cgo_nm = false
 _cgol_152:
-	if _cgo_nm && _cgo_tag != uint32(151) {
+	if _cgo_nm && _cgo_tag != uint32(153) {
 		goto _cgol_153
 	}
 	_cgo_nm = false
 _cgol_153:
-	if _cgo_nm && _cgo_tag != uint32(153) {
+	if _cgo_nm && _cgo_tag != uint32(227) {
 		goto _cgol_154
 	}
 	_cgo_nm = false
 _cgol_154:
-	if _cgo_nm && _cgo_tag != uint32(227) {
+	if _cgo_nm && _cgo_tag != uint32(229) {
 		goto _cgol_155
 	}
 	_cgo_nm = false
 _cgol_155:
-	if _cgo_nm && _cgo_tag != uint32(229) {
-		goto _cgol_156
-	}
-	_cgo_nm = false
-_cgol_156:
 	if _cgo_nm && _cgo_tag != uint32(248) {
-		goto _cgol_157
+		goto _cgol_156
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_Expr)(nil)
 	}
-	goto _cgol_4
-_cgol_157:
+	goto _cgol_3
+_cgol_156:
 	if _cgo_nm && _cgo_tag != uint32(128) {
-		goto _cgol_158
+		goto _cgol_157
 	}
 	_cgo_nm = false
 	{
 		*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_158:
+	goto _cgol_3
+_cgol_157:
 	if _cgo_nm && _cgo_tag != uint32(129) {
-		goto _cgol_159
+		goto _cgol_158
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z = (*int8)(nil)
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n = uint32(1)
 	}
-	goto _cgol_4
-_cgol_159:
+	goto _cgol_3
+_cgol_158:
 	if _cgo_nm && _cgo_tag != uint32(130) {
-		goto _cgol_160
+		goto _cgol_159
 	}
 	_cgo_nm = false
 	{
 		*(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_160:
+	goto _cgol_3
+_cgol_159:
 	if _cgo_nm && _cgo_tag != uint32(131) {
-		goto _cgol_161
+		goto _cgol_160
 	}
 	_cgo_nm = false
-_cgol_161:
+_cgol_160:
 	if _cgo_nm && _cgo_tag != uint32(173) {
-		goto _cgol_162
+		goto _cgol_161
 	}
 	_cgo_nm = false
 	{
 		*(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_IdList)(nil)
 	}
-	goto _cgol_4
-_cgol_162:
+	goto _cgol_3
+_cgol_161:
 	if _cgo_nm && _cgo_tag != uint32(133) {
-		goto _cgol_163
+		goto _cgol_162
 	}
 	_cgo_nm = false
-_cgol_163:
+_cgol_162:
 	if _cgo_nm && _cgo_tag != uint32(143) {
-		goto _cgol_164
+		goto _cgol_163
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_164:
+	goto _cgol_3
+_cgol_163:
 	if _cgo_nm && _cgo_tag != uint32(134) {
-		goto _cgol_165
+		goto _cgol_164
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		sqlite3ExprListSetSortOrder(*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_165:
+	goto _cgol_3
+_cgol_164:
 	if _cgo_nm && _cgo_tag != uint32(135) {
-		goto _cgol_166
+		goto _cgol_165
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		sqlite3ExprListSetSortOrder(*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_166:
+	goto _cgol_3
+_cgol_165:
 	if _cgo_nm && _cgo_tag != uint32(136) {
-		goto _cgol_167
+		goto _cgol_166
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_167:
+	goto _cgol_3
+_cgol_166:
 	if _cgo_nm && _cgo_tag != uint32(137) {
-		goto _cgol_168
+		goto _cgol_167
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_168:
+	goto _cgol_3
+_cgol_167:
 	if _cgo_nm && _cgo_tag != uint32(138) {
-		goto _cgol_169
+		goto _cgol_168
 	}
 	_cgo_nm = false
-_cgol_169:
+_cgol_168:
 	if _cgo_nm && _cgo_tag != uint32(141) {
-		goto _cgol_170
+		goto _cgol_169
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(-1)
 	}
-	goto _cgol_4
-_cgol_170:
+	goto _cgol_3
+_cgol_169:
 	if _cgo_nm && _cgo_tag != uint32(139) {
-		goto _cgol_171
+		goto _cgol_170
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_171:
+	goto _cgol_3
+_cgol_170:
 	if _cgo_nm && _cgo_tag != uint32(140) {
-		goto _cgol_172
+		goto _cgol_171
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_172:
+	goto _cgol_3
+_cgol_171:
 	if _cgo_nm && _cgo_tag != uint32(147) {
-		goto _cgol_173
+		goto _cgol_172
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = sqlite3PExpr(pParse, 148, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_173:
+	goto _cgol_3
+_cgol_172:
 	if _cgo_nm && _cgo_tag != uint32(148) {
-		goto _cgol_174
+		goto _cgol_173
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3PExpr(pParse, 148, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_174:
+	goto _cgol_3
+_cgol_173:
 	if _cgo_nm && _cgo_tag != uint32(149) {
-		goto _cgol_175
+		goto _cgol_174
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3PExpr(pParse, 148, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_175:
+	goto _cgol_3
+_cgol_174:
 	if _cgo_nm && _cgo_tag != uint32(150) {
-		goto _cgol_176
+		goto _cgol_175
 	}
 	_cgo_nm = false
 	{
 		sqlite3SrcListIndexedBy(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 		sqlite3DeleteFrom(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, nil)
 	}
-	goto _cgol_4
-_cgol_176:
+	goto _cgol_3
+_cgol_175:
 	if _cgo_nm && _cgo_tag != uint32(155) {
-		goto _cgol_177
+		goto _cgol_176
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddReturning(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = (*struct_Expr)(nil)
 	}
-	goto _cgol_4
-_cgol_177:
+	goto _cgol_3
+_cgol_176:
 	if _cgo_nm && _cgo_tag != uint32(156) {
-		goto _cgol_178
+		goto _cgol_177
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddReturning(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_178:
+	goto _cgol_3
+_cgol_177:
 	if _cgo_nm && _cgo_tag != uint32(157) {
-		goto _cgol_179
+		goto _cgol_178
 	}
 	_cgo_nm = false
 	{
@@ -99275,193 +99290,193 @@ _cgol_178:
 		*(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = sqlite3SrcListAppendList(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 		sqlite3Update(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), nil, nil, nil)
 	}
-	goto _cgol_4
-_cgol_179:
+	goto _cgol_3
+_cgol_178:
 	if _cgo_nm && _cgo_tag != uint32(158) {
-		goto _cgol_180
+		goto _cgol_179
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		sqlite3ExprListSetName(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), 1)
 	}
-	goto _cgol_4
-_cgol_180:
+	goto _cgol_3
+_cgol_179:
 	if _cgo_nm && _cgo_tag != uint32(159) {
-		goto _cgol_181
+		goto _cgol_180
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)) = sqlite3ExprListAppendVector(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_181:
+	goto _cgol_3
+_cgol_180:
 	if _cgo_nm && _cgo_tag != uint32(160) {
-		goto _cgol_182
+		goto _cgol_181
 	}
 	_cgo_nm = false
 	{
-		*(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-		sqlite3ExprListSetName(pParse, *(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo2)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), 1)
+		*(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		sqlite3ExprListSetName(pParse, *(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo1)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), 1)
 	}
-	*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_182:
+	*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_ExprList)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_181:
 	if _cgo_nm && _cgo_tag != uint32(161) {
-		goto _cgol_183
+		goto _cgol_182
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppendVector(pParse, nil, *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_183:
+	goto _cgol_3
+_cgol_182:
 	if _cgo_nm && _cgo_tag != uint32(162) {
-		goto _cgol_184
+		goto _cgol_183
 	}
 	_cgo_nm = false
 	{
 		sqlite3Insert(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_184:
+	goto _cgol_3
+_cgol_183:
 	if _cgo_nm && _cgo_tag != uint32(163) {
-		goto _cgol_185
+		goto _cgol_184
 	}
 	_cgo_nm = false
 	{
 		sqlite3Insert(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), nil, *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_185:
+	goto _cgol_3
+_cgol_184:
 	if _cgo_nm && _cgo_tag != uint32(164) {
-		goto _cgol_186
+		goto _cgol_185
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_Upsert)(nil)
 	}
-	goto _cgol_4
-_cgol_186:
+	goto _cgol_3
+_cgol_185:
 	if _cgo_nm && _cgo_tag != uint32(165) {
-		goto _cgol_187
+		goto _cgol_186
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = (*struct_Upsert)(nil)
 		sqlite3AddReturning(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_187:
+	goto _cgol_3
+_cgol_186:
 	if _cgo_nm && _cgo_tag != uint32(166) {
-		goto _cgol_188
+		goto _cgol_187
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -11)*24))).minor)) = sqlite3UpsertNew(pParse.db, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_188:
+	goto _cgol_3
+_cgol_187:
 	if _cgo_nm && _cgo_tag != uint32(167) {
-		goto _cgol_189
+		goto _cgol_188
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)) = sqlite3UpsertNew(pParse.db, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), nil, nil, *(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_189:
+	goto _cgol_3
+_cgol_188:
 	if _cgo_nm && _cgo_tag != uint32(168) {
-		goto _cgol_190
+		goto _cgol_189
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3UpsertNew(pParse.db, nil, nil, nil, nil, nil)
 	}
-	goto _cgol_4
-_cgol_190:
+	goto _cgol_3
+_cgol_189:
 	if _cgo_nm && _cgo_tag != uint32(169) {
-		goto _cgol_191
+		goto _cgol_190
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)) = sqlite3UpsertNew(pParse.db, nil, nil, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_191:
+	goto _cgol_3
+_cgol_190:
 	if _cgo_nm && _cgo_tag != uint32(170) {
-		goto _cgol_192
+		goto _cgol_191
 	}
 	_cgo_nm = false
 	{
 		sqlite3AddReturning(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_192:
+	goto _cgol_3
+_cgol_191:
 	if _cgo_nm && _cgo_tag != uint32(174) {
-		goto _cgol_193
+		goto _cgol_192
 	}
 	_cgo_nm = false
 	{
 		*(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_193:
+	goto _cgol_3
+_cgol_192:
 	if _cgo_nm && _cgo_tag != uint32(175) {
-		goto _cgol_194
+		goto _cgol_193
 	}
 	_cgo_nm = false
 	{
 		*(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3IdListAppend(pParse, *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_194:
+	goto _cgol_3
+_cgol_193:
 	if _cgo_nm && _cgo_tag != uint32(176) {
-		goto _cgol_195
+		goto _cgol_194
 	}
 	_cgo_nm = false
 	{
 		*(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = sqlite3IdListAppend(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_195:
+	goto _cgol_3
+_cgol_194:
 	if _cgo_nm && _cgo_tag != uint32(177) {
-		goto _cgol_196
+		goto _cgol_195
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_196:
+	goto _cgol_3
+_cgol_195:
 	if _cgo_nm && _cgo_tag != uint32(178) {
-		goto _cgol_197
+		goto _cgol_196
 	}
 	_cgo_nm = false
-_cgol_197:
+_cgol_196:
 	if _cgo_nm && _cgo_tag != uint32(179) {
-		goto _cgol_198
+		goto _cgol_197
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = tokenExpr(pParse, 59, *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_198:
+	goto _cgol_3
+_cgol_197:
 	if _cgo_nm && _cgo_tag != uint32(180) {
-		goto _cgol_199
+		goto _cgol_198
 	}
 	_cgo_nm = false
 	{
 		var temp1 *struct_Expr = tokenExpr(pParse, 59, *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		var temp2 *struct_Expr = tokenExpr(pParse, 59, *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3PExpr(pParse, 141, temp1, temp2)
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3PExpr(pParse, 141, temp1, temp2)
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_199:
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_198:
 	if _cgo_nm && _cgo_tag != uint32(181) {
-		goto _cgol_200
+		goto _cgol_199
 	}
 	_cgo_nm = false
 	{
@@ -99472,40 +99487,40 @@ _cgol_199:
 		if int32(pParse.eParseMode) >= 2 {
 			sqlite3RenameTokenRemap(pParse, nil, unsafe.Pointer(temp1))
 		}
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3PExpr(pParse, 141, temp1, temp4)
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3PExpr(pParse, 141, temp1, temp4)
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_200:
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_199:
 	if _cgo_nm && _cgo_tag != uint32(182) {
-		goto _cgol_201
+		goto _cgol_200
 	}
 	_cgo_nm = false
-_cgol_201:
+_cgol_200:
 	if _cgo_nm && _cgo_tag != uint32(183) {
-		goto _cgol_202
+		goto _cgol_201
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = tokenExpr(pParse, int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major), *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_202:
+	goto _cgol_3
+_cgol_201:
 	if _cgo_nm && _cgo_tag != uint32(184) {
-		goto _cgol_203
+		goto _cgol_202
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprAlloc(pParse.db, 155, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 1)
-		if *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) != nil {
-			*(*int32)(unsafe.Pointer(&(*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))).w)) = int32(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)) - uintptr(unsafe.Pointer(pParse.zTail)))
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprAlloc(pParse.db, 155, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 1)
+		if *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) != nil {
+			*(*int32)(unsafe.Pointer(&(*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))).w)) = int32(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z)) - uintptr(unsafe.Pointer(pParse.zTail)))
 		}
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_203:
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_202:
 	if _cgo_nm && _cgo_tag != uint32(185) {
-		goto _cgol_204
+		goto _cgol_203
 	}
 	_cgo_nm = false
 	{
@@ -99530,81 +99545,81 @@ _cgol_203:
 			}
 		}
 	}
-	goto _cgol_4
-_cgol_204:
+	goto _cgol_3
+_cgol_203:
 	if _cgo_nm && _cgo_tag != uint32(186) {
-		goto _cgol_205
+		goto _cgol_204
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3ExprAddCollateToken(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 1)
 	}
-	goto _cgol_4
-_cgol_205:
+	goto _cgol_3
+_cgol_204:
 	if _cgo_nm && _cgo_tag != uint32(187) {
-		goto _cgol_206
+		goto _cgol_205
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = sqlite3ExprAlloc(pParse.db, 36, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), 1)
 		sqlite3ExprAttachSubtrees(pParse.db, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_206:
+	goto _cgol_3
+_cgol_205:
 	if _cgo_nm && _cgo_tag != uint32(188) {
+		goto _cgol_206
+	}
+	_cgo_nm = false
+	{
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
+	}
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_206:
+	if _cgo_nm && _cgo_tag != uint32(189) {
 		goto _cgol_207
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), 0)
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_207:
-	if _cgo_nm && _cgo_tag != uint32(189) {
+	if _cgo_nm && _cgo_tag != uint32(190) {
 		goto _cgol_208
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), 0)
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)))
+		sqlite3WindowAttach(pParse, *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)), *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_208:
-	if _cgo_nm && _cgo_tag != uint32(190) {
+	if _cgo_nm && _cgo_tag != uint32(191) {
 		goto _cgol_209
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)))
-		sqlite3WindowAttach(pParse, *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)), *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), 0)
+		sqlite3WindowAttach(pParse, *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)), *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_209:
-	if _cgo_nm && _cgo_tag != uint32(191) {
+	if _cgo_nm && _cgo_tag != uint32(192) {
 		goto _cgol_210
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), 0)
-		sqlite3WindowAttach(pParse, *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)), *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 0)
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_210:
-	if _cgo_nm && _cgo_tag != uint32(192) {
-		goto _cgol_211
-	}
-	_cgo_nm = false
-	{
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 0)
-	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_211:
 	if _cgo_nm && _cgo_tag != uint32(193) {
-		goto _cgol_212
+		goto _cgol_211
 	}
 	_cgo_nm = false
 	{
@@ -99619,68 +99634,68 @@ _cgol_211:
 			sqlite3ExprListDelete(pParse.db, pList)
 		}
 	}
-	goto _cgol_4
-_cgol_212:
+	goto _cgol_3
+_cgol_211:
 	if _cgo_nm && _cgo_tag != uint32(194) {
-		goto _cgol_213
+		goto _cgol_212
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3ExprAnd(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_213:
+	goto _cgol_3
+_cgol_212:
 	if _cgo_nm && _cgo_tag != uint32(195) {
+		goto _cgol_213
+	}
+	_cgo_nm = false
+_cgol_213:
+	if _cgo_nm && _cgo_tag != uint32(196) {
 		goto _cgol_214
 	}
 	_cgo_nm = false
 _cgol_214:
-	if _cgo_nm && _cgo_tag != uint32(196) {
+	if _cgo_nm && _cgo_tag != uint32(197) {
 		goto _cgol_215
 	}
 	_cgo_nm = false
 _cgol_215:
-	if _cgo_nm && _cgo_tag != uint32(197) {
+	if _cgo_nm && _cgo_tag != uint32(198) {
 		goto _cgol_216
 	}
 	_cgo_nm = false
 _cgol_216:
-	if _cgo_nm && _cgo_tag != uint32(198) {
+	if _cgo_nm && _cgo_tag != uint32(199) {
 		goto _cgol_217
 	}
 	_cgo_nm = false
 _cgol_217:
-	if _cgo_nm && _cgo_tag != uint32(199) {
+	if _cgo_nm && _cgo_tag != uint32(200) {
 		goto _cgol_218
 	}
 	_cgo_nm = false
 _cgol_218:
-	if _cgo_nm && _cgo_tag != uint32(200) {
-		goto _cgol_219
-	}
-	_cgo_nm = false
-_cgol_219:
 	if _cgo_nm && _cgo_tag != uint32(201) {
-		goto _cgol_220
+		goto _cgol_219
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3PExpr(pParse, int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_220:
+	goto _cgol_3
+_cgol_219:
 	if _cgo_nm && _cgo_tag != uint32(202) {
-		goto _cgol_221
+		goto _cgol_220
 	}
 	_cgo_nm = false
 	{
 		*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n |= uint32(2147483648)
 	}
-	goto _cgol_4
-_cgol_221:
+	goto _cgol_3
+_cgol_220:
 	if _cgo_nm && _cgo_tag != uint32(203) {
-		goto _cgol_222
+		goto _cgol_221
 	}
 	_cgo_nm = false
 	{
@@ -99697,10 +99712,10 @@ _cgol_221:
 			(*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).flags |= uint32(128)
 		}
 	}
-	goto _cgol_4
-_cgol_222:
+	goto _cgol_3
+_cgol_221:
 	if _cgo_nm && _cgo_tag != uint32(204) {
-		goto _cgol_223
+		goto _cgol_222
 	}
 	_cgo_nm = false
 	{
@@ -99718,62 +99733,62 @@ _cgol_222:
 			(*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor))).flags |= uint32(128)
 		}
 	}
-	goto _cgol_4
-_cgol_223:
+	goto _cgol_3
+_cgol_222:
 	if _cgo_nm && _cgo_tag != uint32(205) {
-		goto _cgol_224
+		goto _cgol_223
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = sqlite3PExpr(pParse, int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_224:
+	goto _cgol_3
+_cgol_223:
 	if _cgo_nm && _cgo_tag != uint32(206) {
-		goto _cgol_225
+		goto _cgol_224
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3PExpr(pParse, 51, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_225:
+	goto _cgol_3
+_cgol_224:
 	if _cgo_nm && _cgo_tag != uint32(207) {
-		goto _cgol_226
+		goto _cgol_225
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3PExpr(pParse, 45, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		binaryToUnaryIfNull(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), 50)
 	}
-	goto _cgol_4
-_cgol_226:
+	goto _cgol_3
+_cgol_225:
 	if _cgo_nm && _cgo_tag != uint32(208) {
-		goto _cgol_227
+		goto _cgol_226
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3PExpr(pParse, 171, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		binaryToUnaryIfNull(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), 51)
 	}
-	goto _cgol_4
-_cgol_227:
+	goto _cgol_3
+_cgol_226:
 	if _cgo_nm && _cgo_tag != uint32(209) {
-		goto _cgol_228
+		goto _cgol_227
 	}
 	_cgo_nm = false
-_cgol_228:
+_cgol_227:
 	if _cgo_nm && _cgo_tag != uint32(210) {
-		goto _cgol_229
+		goto _cgol_228
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = sqlite3PExpr(pParse, int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_229:
+	goto _cgol_3
+_cgol_228:
 	if _cgo_nm && _cgo_tag != uint32(211) {
-		goto _cgol_230
+		goto _cgol_229
 	}
 	_cgo_nm = false
 	{
@@ -99785,36 +99800,36 @@ _cgol_229:
 			}
 		}(), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_230:
+	goto _cgol_3
+_cgol_229:
 	if _cgo_nm && _cgo_tag != uint32(212) {
-		goto _cgol_231
+		goto _cgol_230
 	}
 	_cgo_nm = false
 	{
 		var pList *struct_ExprList = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		pList = sqlite3ExprListAppend(pParse, pList, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3ExprFunction(pParse, pList, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), 0)
+		*(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3ExprFunction(pParse, pList, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), 0)
 	}
-	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_231:
+	*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_230:
 	if _cgo_nm && _cgo_tag != uint32(213) {
-		goto _cgol_232
+		goto _cgol_231
 	}
 	_cgo_nm = false
-_cgol_232:
+_cgol_231:
 	if _cgo_nm && _cgo_tag != uint32(216) {
-		goto _cgol_233
+		goto _cgol_232
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_233:
+	goto _cgol_3
+_cgol_232:
 	if _cgo_nm && _cgo_tag != uint32(215) {
-		goto _cgol_234
+		goto _cgol_233
 	}
 	_cgo_nm = false
 	{
@@ -99830,10 +99845,10 @@ _cgol_233:
 			*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3PExpr(pParse, 19, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), nil)
 		}
 	}
-	goto _cgol_4
-_cgol_234:
+	goto _cgol_3
+_cgol_233:
 	if _cgo_nm && _cgo_tag != uint32(218) {
-		goto _cgol_235
+		goto _cgol_234
 	}
 	_cgo_nm = false
 	{
@@ -99874,20 +99889,20 @@ _cgol_234:
 			}
 		}
 	}
-	goto _cgol_4
-_cgol_235:
+	goto _cgol_3
+_cgol_234:
 	if _cgo_nm && _cgo_tag != uint32(219) {
-		goto _cgol_236
+		goto _cgol_235
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3PExpr(pParse, 138, nil, nil)
 		sqlite3PExprAddSelect(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_236:
+	goto _cgol_3
+_cgol_235:
 	if _cgo_nm && _cgo_tag != uint32(220) {
-		goto _cgol_237
+		goto _cgol_236
 	}
 	_cgo_nm = false
 	{
@@ -99897,10 +99912,10 @@ _cgol_236:
 			*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3PExpr(pParse, 19, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), nil)
 		}
 	}
-	goto _cgol_4
-_cgol_237:
+	goto _cgol_3
+_cgol_236:
 	if _cgo_nm && _cgo_tag != uint32(221) {
-		goto _cgol_238
+		goto _cgol_237
 	}
 	_cgo_nm = false
 	{
@@ -99921,10 +99936,10 @@ _cgol_237:
 			*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3PExpr(pParse, 19, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), nil)
 		}
 	}
-	goto _cgol_4
-_cgol_238:
+	goto _cgol_3
+_cgol_237:
 	if _cgo_nm && _cgo_tag != uint32(222) {
-		goto _cgol_239
+		goto _cgol_238
 	}
 	_cgo_nm = false
 	{
@@ -99936,10 +99951,10 @@ _cgol_238:
 		}()
 		sqlite3PExprAddSelect(pParse, p, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_239:
+	goto _cgol_3
+_cgol_238:
 	if _cgo_nm && _cgo_tag != uint32(223) {
-		goto _cgol_240
+		goto _cgol_239
 	}
 	_cgo_nm = false
 	{
@@ -99958,71 +99973,71 @@ _cgol_239:
 			sqlite3ExprDelete(pParse.db, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_240:
+	goto _cgol_3
+_cgol_239:
 	if _cgo_nm && _cgo_tag != uint32(224) {
-		goto _cgol_241
+		goto _cgol_240
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_241:
+	goto _cgol_3
+_cgol_240:
 	if _cgo_nm && _cgo_tag != uint32(225) {
-		goto _cgol_242
+		goto _cgol_241
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_242:
+	goto _cgol_3
+_cgol_241:
 	if _cgo_nm && _cgo_tag != uint32(228) {
-		goto _cgol_243
+		goto _cgol_242
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_243:
+	goto _cgol_3
+_cgol_242:
 	if _cgo_nm && _cgo_tag != uint32(231) {
-		goto _cgol_244
+		goto _cgol_243
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3ExprListAppend(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_244:
+	goto _cgol_3
+_cgol_243:
 	if _cgo_nm && _cgo_tag != uint32(232) {
-		goto _cgol_245
+		goto _cgol_244
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = sqlite3ExprListAppend(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_245:
+	goto _cgol_3
+_cgol_244:
 	if _cgo_nm && _cgo_tag != uint32(234) {
-		goto _cgol_246
+		goto _cgol_245
 	}
 	_cgo_nm = false
-_cgol_246:
+_cgol_245:
 	if _cgo_nm && _cgo_tag != uint32(239) {
-		goto _cgol_247
+		goto _cgol_246
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_247:
+	goto _cgol_3
+_cgol_246:
 	if _cgo_nm && _cgo_tag != uint32(235) {
-		goto _cgol_248
+		goto _cgol_247
 	}
 	_cgo_nm = false
 	{
@@ -100031,123 +100046,123 @@ _cgol_247:
 			sqlite3RenameTokenMap(pParse, unsafe.Pointer(pParse.pNewIndex.zName), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_248:
+	goto _cgol_3
+_cgol_247:
 	if _cgo_nm && _cgo_tag != uint32(236) {
-		goto _cgol_249
+		goto _cgol_248
 	}
 	_cgo_nm = false
-_cgol_249:
+_cgol_248:
 	if _cgo_nm && _cgo_tag != uint32(278) {
-		goto _cgol_250
+		goto _cgol_249
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(2)
 	}
-	goto _cgol_4
-_cgol_250:
+	goto _cgol_3
+_cgol_249:
 	if _cgo_nm && _cgo_tag != uint32(237) {
-		goto _cgol_251
+		goto _cgol_250
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(0)
 	}
-	goto _cgol_4
-_cgol_251:
+	goto _cgol_3
+_cgol_250:
 	if _cgo_nm && _cgo_tag != uint32(240) {
-		goto _cgol_252
+		goto _cgol_251
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = parserAddExprIdListTerm(pParse, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_252:
+	goto _cgol_3
+_cgol_251:
 	if _cgo_nm && _cgo_tag != uint32(241) {
-		goto _cgol_253
+		goto _cgol_252
 	}
 	_cgo_nm = false
 	{
 		*(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = parserAddExprIdListTerm(pParse, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_253:
+	goto _cgol_3
+_cgol_252:
 	if _cgo_nm && _cgo_tag != uint32(244) {
-		goto _cgol_254
+		goto _cgol_253
 	}
 	_cgo_nm = false
 	{
 		sqlite3DropIndex(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_254:
+	goto _cgol_3
+_cgol_253:
 	if _cgo_nm && _cgo_tag != uint32(245) {
-		goto _cgol_255
+		goto _cgol_254
 	}
 	_cgo_nm = false
 	{
 		sqlite3Vacuum(pParse, nil, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_255:
+	goto _cgol_3
+_cgol_254:
 	if _cgo_nm && _cgo_tag != uint32(246) {
-		goto _cgol_256
+		goto _cgol_255
 	}
 	_cgo_nm = false
 	{
 		sqlite3Vacuum(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_256:
+	goto _cgol_3
+_cgol_255:
 	if _cgo_nm && _cgo_tag != uint32(249) {
-		goto _cgol_257
+		goto _cgol_256
 	}
 	_cgo_nm = false
 	{
 		sqlite3Pragma(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, 0)
 	}
-	goto _cgol_4
-_cgol_257:
+	goto _cgol_3
+_cgol_256:
 	if _cgo_nm && _cgo_tag != uint32(250) {
-		goto _cgol_258
+		goto _cgol_257
 	}
 	_cgo_nm = false
 	{
 		sqlite3Pragma(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 0)
 	}
-	goto _cgol_4
-_cgol_258:
+	goto _cgol_3
+_cgol_257:
 	if _cgo_nm && _cgo_tag != uint32(251) {
-		goto _cgol_259
+		goto _cgol_258
 	}
 	_cgo_nm = false
 	{
 		sqlite3Pragma(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), 0)
 	}
-	goto _cgol_4
-_cgol_259:
+	goto _cgol_3
+_cgol_258:
 	if _cgo_nm && _cgo_tag != uint32(252) {
-		goto _cgol_260
+		goto _cgol_259
 	}
 	_cgo_nm = false
 	{
 		sqlite3Pragma(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), 1)
 	}
-	goto _cgol_4
-_cgol_260:
+	goto _cgol_3
+_cgol_259:
 	if _cgo_nm && _cgo_tag != uint32(253) {
-		goto _cgol_261
+		goto _cgol_260
 	}
 	_cgo_nm = false
 	{
 		sqlite3Pragma(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), 1)
 	}
-	goto _cgol_4
-_cgol_261:
+	goto _cgol_3
+_cgol_260:
 	if _cgo_nm && _cgo_tag != uint32(256) {
-		goto _cgol_262
+		goto _cgol_261
 	}
 	_cgo_nm = false
 	{
@@ -100156,10 +100171,10 @@ _cgol_261:
 		all.n = uint32(int32(uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z))-uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).z)))) + (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n
 		sqlite3FinishTrigger(pParse, *(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &all)
 	}
-	goto _cgol_4
-_cgol_262:
+	goto _cgol_3
+_cgol_261:
 	if _cgo_nm && _cgo_tag != uint32(257) {
-		goto _cgol_263
+		goto _cgol_262
 	}
 	_cgo_nm = false
 	{
@@ -100172,90 +100187,90 @@ _cgol_262:
 			}
 		}()
 	}
-	goto _cgol_4
-_cgol_263:
+	goto _cgol_3
+_cgol_262:
 	if _cgo_nm && _cgo_tag != uint32(258) {
-		goto _cgol_264
+		goto _cgol_263
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
 	}
-	goto _cgol_4
-_cgol_264:
+	goto _cgol_3
+_cgol_263:
 	if _cgo_nm && _cgo_tag != uint32(259) {
-		goto _cgol_265
+		goto _cgol_264
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = int32(65)
 	}
-	goto _cgol_4
-_cgol_265:
+	goto _cgol_3
+_cgol_264:
 	if _cgo_nm && _cgo_tag != uint32(260) {
-		goto _cgol_266
+		goto _cgol_265
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = int32(33)
 	}
-	goto _cgol_4
-_cgol_266:
+	goto _cgol_3
+_cgol_265:
 	if _cgo_nm && _cgo_tag != uint32(261) {
-		goto _cgol_267
+		goto _cgol_266
 	}
 	_cgo_nm = false
-_cgol_267:
+_cgol_266:
 	if _cgo_nm && _cgo_tag != uint32(262) {
-		goto _cgol_268
+		goto _cgol_267
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor.yy180.a = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
 		(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor.yy180.b = (*struct_IdList)(nil)
 	}
-	goto _cgol_4
-_cgol_268:
+	goto _cgol_3
+_cgol_267:
 	if _cgo_nm && _cgo_tag != uint32(263) {
-		goto _cgol_269
+		goto _cgol_268
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor.yy180.a = int32(129)
 		(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor.yy180.b = *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_269:
+	goto _cgol_3
+_cgol_268:
 	if _cgo_nm && _cgo_tag != uint32(264) {
-		goto _cgol_270
+		goto _cgol_269
 	}
 	_cgo_nm = false
-_cgol_270:
+_cgol_269:
 	if _cgo_nm && _cgo_tag != uint32(283) {
-		goto _cgol_271
+		goto _cgol_270
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = (*struct_Expr)(nil)
 	}
-	goto _cgol_4
-_cgol_271:
+	goto _cgol_3
+_cgol_270:
 	if _cgo_nm && _cgo_tag != uint32(265) {
-		goto _cgol_272
+		goto _cgol_271
 	}
 	_cgo_nm = false
-_cgol_272:
+_cgol_271:
 	if _cgo_nm && _cgo_tag != uint32(284) {
-		goto _cgol_273
+		goto _cgol_272
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_273:
+	goto _cgol_3
+_cgol_272:
 	if _cgo_nm && _cgo_tag != uint32(266) {
-		goto _cgol_274
+		goto _cgol_273
 	}
 	_cgo_nm = false
 	{
@@ -100266,10 +100281,10 @@ _cgol_273:
 		(*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).pLast.pNext = *(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 		(*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))).pLast = *(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_274:
+	goto _cgol_3
+_cgol_273:
 	if _cgo_nm && _cgo_tag != uint32(267) {
-		goto _cgol_275
+		goto _cgol_274
 	}
 	_cgo_nm = false
 	{
@@ -100279,78 +100294,78 @@ _cgol_274:
 		}()
 		(*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).pLast = *(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_275:
+	goto _cgol_3
+_cgol_274:
 	if _cgo_nm && _cgo_tag != uint32(268) {
-		goto _cgol_276
+		goto _cgol_275
 	}
 	_cgo_nm = false
 	{
 		*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[95]int8{'q', 'u', 'a', 'l', 'i', 'f', 'i', 'e', 'd', ' ', 't', 'a', 'b', 'l', 'e', ' ', 'n', 'a', 'm', 'e', 's', ' ', 'a', 'r', 'e', ' ', 'n', 'o', 't', ' ', 'a', 'l', 'l', 'o', 'w', 'e', 'd', ' ', 'o', 'n', ' ', 'I', 'N', 'S', 'E', 'R', 'T', ',', ' ', 'U', 'P', 'D', 'A', 'T', 'E', ',', ' ', 'a', 'n', 'd', ' ', 'D', 'E', 'L', 'E', 'T', 'E', ' ', 's', 't', 'a', 't', 'e', 'm', 'e', 'n', 't', 's', ' ', 'w', 'i', 't', 'h', 'i', 'n', ' ', 't', 'r', 'i', 'g', 'g', 'e', 'r', 's', '\x00'})))
 	}
-	goto _cgol_4
-_cgol_276:
+	goto _cgol_3
+_cgol_275:
 	if _cgo_nm && _cgo_tag != uint32(269) {
-		goto _cgol_277
+		goto _cgol_276
 	}
 	_cgo_nm = false
 	{
 		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[84]int8{'t', 'h', 'e', ' ', 'I', 'N', 'D', 'E', 'X', 'E', 'D', ' ', 'B', 'Y', ' ', 'c', 'l', 'a', 'u', 's', 'e', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', 'l', 'l', 'o', 'w', 'e', 'd', ' ', 'o', 'n', ' ', 'U', 'P', 'D', 'A', 'T', 'E', ' ', 'o', 'r', ' ', 'D', 'E', 'L', 'E', 'T', 'E', ' ', 's', 't', 'a', 't', 'e', 'm', 'e', 'n', 't', 's', ' ', 'w', 'i', 't', 'h', 'i', 'n', ' ', 't', 'r', 'i', 'g', 'g', 'e', 'r', 's', '\x00'})))
 	}
-	goto _cgol_4
-_cgol_277:
+	goto _cgol_3
+_cgol_276:
 	if _cgo_nm && _cgo_tag != uint32(270) {
-		goto _cgol_278
+		goto _cgol_277
 	}
 	_cgo_nm = false
 	{
 		sqlite3ErrorMsg(pParse, (*int8)(unsafe.Pointer(&[85]int8{'t', 'h', 'e', ' ', 'N', 'O', 'T', ' ', 'I', 'N', 'D', 'E', 'X', 'E', 'D', ' ', 'c', 'l', 'a', 'u', 's', 'e', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', 'l', 'l', 'o', 'w', 'e', 'd', ' ', 'o', 'n', ' ', 'U', 'P', 'D', 'A', 'T', 'E', ' ', 'o', 'r', ' ', 'D', 'E', 'L', 'E', 'T', 'E', ' ', 's', 't', 'a', 't', 'e', 'm', 'e', 'n', 't', 's', ' ', 'w', 'i', 't', 'h', 'i', 'n', ' ', 't', 'r', 'i', 'g', 'g', 'e', 'r', 's', '\x00'})))
 	}
-	goto _cgol_4
-_cgol_278:
+	goto _cgol_3
+_cgol_277:
 	if _cgo_nm && _cgo_tag != uint32(271) {
+		goto _cgol_278
+	}
+	_cgo_nm = false
+	{
+		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3TriggerUpdateStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), uint8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor))), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor))).z, *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+	}
+	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_278:
+	if _cgo_nm && _cgo_tag != uint32(272) {
 		goto _cgol_279
 	}
 	_cgo_nm = false
 	{
-		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3TriggerUpdateStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor)), *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), uint8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor))), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor))).z, *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3TriggerInsertStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), uint8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor))), *(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -8)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_279:
-	if _cgo_nm && _cgo_tag != uint32(272) {
+	if _cgo_nm && _cgo_tag != uint32(273) {
 		goto _cgol_280
 	}
 	_cgo_nm = false
 	{
-		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3TriggerInsertStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_IdList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), uint8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -6)*24))).minor))), *(**struct_Upsert)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3TriggerDeleteStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor))).z, *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -7)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_280:
-	if _cgo_nm && _cgo_tag != uint32(273) {
+	if _cgo_nm && _cgo_tag != uint32(274) {
 		goto _cgol_281
 	}
 	_cgo_nm = false
 	{
-		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3TriggerDeleteStep(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor))).z, *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3TriggerSelectStep(pParse.db, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_281:
-	if _cgo_nm && _cgo_tag != uint32(274) {
-		goto _cgol_282
-	}
-	_cgo_nm = false
-	{
-		*(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3TriggerSelectStep(pParse.db, *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**int8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-	}
-	*(**struct_TriggerStep)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_TriggerStep)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_282:
 	if _cgo_nm && _cgo_tag != uint32(275) {
-		goto _cgol_283
+		goto _cgol_282
 	}
 	_cgo_nm = false
 	{
@@ -100359,10 +100374,10 @@ _cgol_282:
 			(*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).affExpr = int8(4)
 		}
 	}
-	goto _cgol_4
-_cgol_283:
+	goto _cgol_3
+_cgol_282:
 	if _cgo_nm && _cgo_tag != uint32(276) {
-		goto _cgol_284
+		goto _cgol_283
 	}
 	_cgo_nm = false
 	{
@@ -100371,271 +100386,271 @@ _cgol_283:
 			(*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor))).affExpr = int8(*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)))
 		}
 	}
-	goto _cgol_4
-_cgol_284:
+	goto _cgol_3
+_cgol_283:
 	if _cgo_nm && _cgo_tag != uint32(277) {
-		goto _cgol_285
+		goto _cgol_284
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(1)
 	}
-	goto _cgol_4
-_cgol_285:
+	goto _cgol_3
+_cgol_284:
 	if _cgo_nm && _cgo_tag != uint32(279) {
-		goto _cgol_286
+		goto _cgol_285
 	}
 	_cgo_nm = false
 	{
 		*(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = int32(3)
 	}
-	goto _cgol_4
-_cgol_286:
+	goto _cgol_3
+_cgol_285:
 	if _cgo_nm && _cgo_tag != uint32(280) {
-		goto _cgol_287
+		goto _cgol_286
 	}
 	_cgo_nm = false
 	{
 		sqlite3DropTrigger(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_287:
+	goto _cgol_3
+_cgol_286:
 	if _cgo_nm && _cgo_tag != uint32(281) {
-		goto _cgol_288
+		goto _cgol_287
 	}
 	_cgo_nm = false
 	{
 		sqlite3Attach(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_288:
+	goto _cgol_3
+_cgol_287:
 	if _cgo_nm && _cgo_tag != uint32(282) {
-		goto _cgol_289
+		goto _cgol_288
 	}
 	_cgo_nm = false
 	{
 		sqlite3Detach(pParse, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_289:
+	goto _cgol_3
+_cgol_288:
 	if _cgo_nm && _cgo_tag != uint32(285) {
-		goto _cgol_290
+		goto _cgol_289
 	}
 	_cgo_nm = false
 	{
 		sqlite3Reindex(pParse, nil, nil)
 	}
-	goto _cgol_4
-_cgol_290:
+	goto _cgol_3
+_cgol_289:
 	if _cgo_nm && _cgo_tag != uint32(286) {
-		goto _cgol_291
+		goto _cgol_290
 	}
 	_cgo_nm = false
 	{
 		sqlite3Reindex(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_291:
+	goto _cgol_3
+_cgol_290:
 	if _cgo_nm && _cgo_tag != uint32(287) {
-		goto _cgol_292
+		goto _cgol_291
 	}
 	_cgo_nm = false
 	{
 		sqlite3Analyze(pParse, nil, nil)
 	}
-	goto _cgol_4
-_cgol_292:
+	goto _cgol_3
+_cgol_291:
 	if _cgo_nm && _cgo_tag != uint32(288) {
-		goto _cgol_293
+		goto _cgol_292
 	}
 	_cgo_nm = false
 	{
 		sqlite3Analyze(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_293:
+	goto _cgol_3
+_cgol_292:
 	if _cgo_nm && _cgo_tag != uint32(289) {
-		goto _cgol_294
+		goto _cgol_293
 	}
 	_cgo_nm = false
 	{
 		sqlite3AlterRenameTable(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_294:
+	goto _cgol_3
+_cgol_293:
 	if _cgo_nm && _cgo_tag != uint32(290) {
-		goto _cgol_295
+		goto _cgol_294
 	}
 	_cgo_nm = false
 	{
 		(*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).n = uint32(int32(uintptr(unsafe.Pointer(pParse.sLastToken.z))-uintptr(unsafe.Pointer((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).z)))) + pParse.sLastToken.n
 		sqlite3AlterFinishAddColumn(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_295:
+	goto _cgol_3
+_cgol_294:
 	if _cgo_nm && _cgo_tag != uint32(291) {
-		goto _cgol_296
+		goto _cgol_295
 	}
 	_cgo_nm = false
 	{
 		sqlite3AlterDropColumn(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_296:
+	goto _cgol_3
+_cgol_295:
 	if _cgo_nm && _cgo_tag != uint32(292) {
-		goto _cgol_297
+		goto _cgol_296
 	}
 	_cgo_nm = false
 	{
 		disableLookaside(pParse)
 		sqlite3AlterBeginAddColumn(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_297:
+	goto _cgol_3
+_cgol_296:
 	if _cgo_nm && _cgo_tag != uint32(293) {
-		goto _cgol_298
+		goto _cgol_297
 	}
 	_cgo_nm = false
 	{
 		sqlite3AlterRenameColumn(pParse, *(**struct_SrcList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_298:
+	goto _cgol_3
+_cgol_297:
 	if _cgo_nm && _cgo_tag != uint32(294) {
-		goto _cgol_299
+		goto _cgol_298
 	}
 	_cgo_nm = false
 	{
 		sqlite3VtabFinishParse(pParse, nil)
 	}
-	goto _cgol_4
-_cgol_299:
+	goto _cgol_3
+_cgol_298:
 	if _cgo_nm && _cgo_tag != uint32(295) {
-		goto _cgol_300
+		goto _cgol_299
 	}
 	_cgo_nm = false
 	{
 		sqlite3VtabFinishParse(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_300:
+	goto _cgol_3
+_cgol_299:
 	if _cgo_nm && _cgo_tag != uint32(296) {
-		goto _cgol_301
+		goto _cgol_300
 	}
 	_cgo_nm = false
 	{
 		sqlite3VtabBeginParse(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_301:
+	goto _cgol_3
+_cgol_300:
 	if _cgo_nm && _cgo_tag != uint32(297) {
-		goto _cgol_302
+		goto _cgol_301
 	}
 	_cgo_nm = false
 	{
 		sqlite3VtabArgInit(pParse)
 	}
-	goto _cgol_4
-_cgol_302:
+	goto _cgol_3
+_cgol_301:
 	if _cgo_nm && _cgo_tag != uint32(298) {
+		goto _cgol_302
+	}
+	_cgo_nm = false
+_cgol_302:
+	if _cgo_nm && _cgo_tag != uint32(299) {
 		goto _cgol_303
 	}
 	_cgo_nm = false
 _cgol_303:
-	if _cgo_nm && _cgo_tag != uint32(299) {
-		goto _cgol_304
-	}
-	_cgo_nm = false
-_cgol_304:
 	if _cgo_nm && _cgo_tag != uint32(300) {
-		goto _cgol_305
+		goto _cgol_304
 	}
 	_cgo_nm = false
 	{
 		sqlite3VtabArgExtend(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_305:
+	goto _cgol_3
+_cgol_304:
 	if _cgo_nm && _cgo_tag != uint32(301) {
-		goto _cgol_306
+		goto _cgol_305
 	}
 	_cgo_nm = false
-_cgol_306:
+_cgol_305:
 	if _cgo_nm && _cgo_tag != uint32(302) {
-		goto _cgol_307
+		goto _cgol_306
 	}
 	_cgo_nm = false
 	{
 		sqlite3WithPush(pParse, *(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), uint8(1))
 	}
-	goto _cgol_4
-_cgol_307:
+	goto _cgol_3
+_cgol_306:
 	if _cgo_nm && _cgo_tag != uint32(303) {
-		goto _cgol_308
+		goto _cgol_307
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = uint8(1)
 	}
-	goto _cgol_4
-_cgol_308:
+	goto _cgol_3
+_cgol_307:
 	if _cgo_nm && _cgo_tag != uint32(304) {
-		goto _cgol_309
+		goto _cgol_308
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = uint8(0)
 	}
-	goto _cgol_4
-_cgol_309:
+	goto _cgol_3
+_cgol_308:
 	if _cgo_nm && _cgo_tag != uint32(305) {
-		goto _cgol_310
+		goto _cgol_309
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = uint8(2)
 	}
-	goto _cgol_4
-_cgol_310:
+	goto _cgol_3
+_cgol_309:
 	if _cgo_nm && _cgo_tag != uint32(306) {
-		goto _cgol_311
+		goto _cgol_310
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Cte)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = sqlite3CteNew(pParse, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)), *(**struct_Select)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_311:
+	goto _cgol_3
+_cgol_310:
 	if _cgo_nm && _cgo_tag != uint32(307) {
-		goto _cgol_312
+		goto _cgol_311
 	}
 	_cgo_nm = false
 	{
 		*(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = sqlite3WithAdd(pParse, nil, *(**struct_Cte)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_312:
+	goto _cgol_3
+_cgol_311:
 	if _cgo_nm && _cgo_tag != uint32(308) {
-		goto _cgol_313
+		goto _cgol_312
 	}
 	_cgo_nm = false
 	{
 		*(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = sqlite3WithAdd(pParse, *(**struct_With)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_Cte)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	goto _cgol_4
-_cgol_313:
+	goto _cgol_3
+_cgol_312:
 	if _cgo_nm && _cgo_tag != uint32(309) {
-		goto _cgol_314
+		goto _cgol_313
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_314:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_313:
 	if _cgo_nm && _cgo_tag != uint32(310) {
-		goto _cgol_315
+		goto _cgol_314
 	}
 	_cgo_nm = false
 	{
@@ -100645,215 +100660,215 @@ _cgol_314:
 		}()
 		sqlite3WindowChain(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)))
 		(*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).pNextWin = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor))
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_315:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_314:
 	if _cgo_nm && _cgo_tag != uint32(311) {
-		goto _cgol_316
+		goto _cgol_315
 	}
 	_cgo_nm = false
 	{
 		if *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) != nil {
 			(*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).zName = sqlite3DbStrNDup(pParse.db, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor))).z, uint64((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor))).n))
 		}
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_316:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_315:
 	if _cgo_nm && _cgo_tag != uint32(312) {
-		goto _cgol_317
+		goto _cgol_316
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_317:
+	goto _cgol_3
+_cgol_316:
 	if _cgo_nm && _cgo_tag != uint32(313) {
-		goto _cgol_318
+		goto _cgol_317
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_318:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_317:
 	if _cgo_nm && _cgo_tag != uint32(314) {
-		goto _cgol_319
+		goto _cgol_318
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), nil)
 	}
-	goto _cgol_4
-_cgol_319:
+	goto _cgol_3
+_cgol_318:
 	if _cgo_nm && _cgo_tag != uint32(315) {
-		goto _cgol_320
+		goto _cgol_319
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, *(**struct_ExprList)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)), &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_320:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_319:
 	if _cgo_nm && _cgo_tag != uint32(316) {
+		goto _cgol_320
+	}
+	_cgo_nm = false
+_cgol_320:
+	if _cgo_nm && _cgo_tag != uint32(335) {
 		goto _cgol_321
 	}
 	_cgo_nm = false
+	{
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+	}
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_321:
-	if _cgo_nm && _cgo_tag != uint32(335) {
+	if _cgo_nm && _cgo_tag != uint32(317) {
 		goto _cgol_322
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_322:
-	if _cgo_nm && _cgo_tag != uint32(317) {
-		goto _cgol_323
-	}
-	_cgo_nm = false
-	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3WindowAssemble(pParse, *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)), nil, nil, &*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
-	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_323:
 	if _cgo_nm && _cgo_tag != uint32(318) {
-		goto _cgol_324
+		goto _cgol_323
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = sqlite3WindowAlloc(pParse, 0, 90, nil, 85, nil, uint8(0))
 	}
-	goto _cgol_4
-_cgol_324:
+	goto _cgol_3
+_cgol_323:
 	if _cgo_nm && _cgo_tag != uint32(319) {
+		goto _cgol_324
+	}
+	_cgo_nm = false
+	{
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3WindowAlloc(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).pExpr, 85, nil, *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+	}
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_324:
+	if _cgo_nm && _cgo_tag != uint32(320) {
 		goto _cgol_325
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3WindowAlloc(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)), (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).pExpr, 85, nil, *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = sqlite3WindowAlloc(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).pExpr, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).pExpr, *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -2)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_325:
-	if _cgo_nm && _cgo_tag != uint32(320) {
+	if _cgo_nm && _cgo_tag != uint32(322) {
 		goto _cgol_326
 	}
 	_cgo_nm = false
-	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = sqlite3WindowAlloc(pParse, *(*int32)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)), (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -3)*24))).minor))).pExpr, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).eType, (*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).pExpr, *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
-	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -5)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
 _cgol_326:
-	if _cgo_nm && _cgo_tag != uint32(322) {
+	if _cgo_nm && _cgo_tag != uint32(324) {
 		goto _cgol_327
 	}
 	_cgo_nm = false
+	{
+		*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1)) = *(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+	}
+	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_327:
-	if _cgo_nm && _cgo_tag != uint32(324) {
+	if _cgo_nm && _cgo_tag != uint32(323) {
 		goto _cgol_328
 	}
 	_cgo_nm = false
-	{
-		*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2)) = *(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
-	}
-	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
 _cgol_328:
-	if _cgo_nm && _cgo_tag != uint32(323) {
+	if _cgo_nm && _cgo_tag != uint32(325) {
 		goto _cgol_329
 	}
 	_cgo_nm = false
 _cgol_329:
-	if _cgo_nm && _cgo_tag != uint32(325) {
+	if _cgo_nm && _cgo_tag != uint32(327) {
 		goto _cgol_330
 	}
 	_cgo_nm = false
+	{
+		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))).eType = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major)
+		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))).pExpr = (*struct_Expr)(nil)
+	}
+	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_330:
-	if _cgo_nm && _cgo_tag != uint32(327) {
+	if _cgo_nm && _cgo_tag != uint32(326) {
 		goto _cgol_331
 	}
 	_cgo_nm = false
 	{
-		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))).eType = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major)
-		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))).pExpr = (*struct_Expr)(nil)
+		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))).eType = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
+		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))).pExpr = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
+	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
 _cgol_331:
-	if _cgo_nm && _cgo_tag != uint32(326) {
-		goto _cgol_332
-	}
-	_cgo_nm = false
-	{
-		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))).eType = int32((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
-		(*(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))).pExpr = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
-	}
-	*(*struct_FrameBound)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*struct_FrameBound)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_332:
 	if _cgo_nm && _cgo_tag != uint32(328) {
-		goto _cgol_333
+		goto _cgol_332
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(1)*24))).minor)) = uint8(0)
 	}
-	goto _cgol_4
-_cgol_333:
+	goto _cgol_3
+_cgol_332:
 	if _cgo_nm && _cgo_tag != uint32(329) {
-		goto _cgol_334
+		goto _cgol_333
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_334:
+	goto _cgol_3
+_cgol_333:
 	if _cgo_nm && _cgo_tag != uint32(330) {
-		goto _cgol_335
+		goto _cgol_334
 	}
 	_cgo_nm = false
-_cgol_335:
+_cgol_334:
 	if _cgo_nm && _cgo_tag != uint32(331) {
-		goto _cgol_336
+		goto _cgol_335
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = uint8((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).major)
 	}
-	goto _cgol_4
-_cgol_336:
+	goto _cgol_3
+_cgol_335:
 	if _cgo_nm && _cgo_tag != uint32(332) {
-		goto _cgol_337
+		goto _cgol_336
 	}
 	_cgo_nm = false
 	{
 		*(*uint8)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = uint8((*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).major)
 	}
-	goto _cgol_4
-_cgol_337:
+	goto _cgol_3
+_cgol_336:
 	if _cgo_nm && _cgo_tag != uint32(333) {
-		goto _cgol_338
+		goto _cgol_337
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_338:
+	goto _cgol_3
+_cgol_337:
 	if _cgo_nm && _cgo_tag != uint32(334) {
-		goto _cgol_339
+		goto _cgol_338
 	}
 	_cgo_nm = false
 	{
@@ -100862,29 +100877,29 @@ _cgol_338:
 		} else {
 			sqlite3ExprDelete(pParse.db, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)))
 		}
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = *(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_339:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_338:
 	if _cgo_nm && _cgo_tag != uint32(336) {
-		goto _cgol_340
+		goto _cgol_339
 	}
 	_cgo_nm = false
 	{
-		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) = (*struct_Window)(sqlite3DbMallocZero(pParse.db, uint64(141)))
-		if *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2)) != nil {
-			(*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))).eFrmType = uint8(166)
-			(*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))).pFilter = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
+		*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) = (*struct_Window)(sqlite3DbMallocZero(pParse.db, uint64(141)))
+		if *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1)) != nil {
+			(*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))).eFrmType = uint8(166)
+			(*(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))).pFilter = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))
 		} else {
 			sqlite3ExprDelete(pParse.db, *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)))
 		}
 	}
-	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo2))
-	goto _cgol_4
-_cgol_340:
+	*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor)) = *(**struct_Window)(unsafe.Pointer(&yylhsminor_cgo1))
+	goto _cgol_3
+_cgol_339:
 	if _cgo_nm && _cgo_tag != uint32(337) {
-		goto _cgol_341
+		goto _cgol_340
 	}
 	_cgo_nm = false
 	{
@@ -100894,10 +100909,10 @@ _cgol_340:
 			return 0
 		}()
 	}
-	goto _cgol_4
-_cgol_341:
+	goto _cgol_3
+_cgol_340:
 	if _cgo_nm && _cgo_tag != uint32(338) {
-		goto _cgol_342
+		goto _cgol_341
 	}
 	_cgo_nm = false
 	{
@@ -100906,17 +100921,17 @@ _cgol_341:
 			(*(**struct_Window)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))).zName = sqlite3DbStrNDup(pParse.db, (*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).z, uint64((*(*struct_Token)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) + uintptr(0)*24))).minor))).n))
 		}
 	}
-	goto _cgol_4
-_cgol_342:
+	goto _cgol_3
+_cgol_341:
 	if _cgo_nm && _cgo_tag != uint32(339) {
-		goto _cgol_343
+		goto _cgol_342
 	}
 	_cgo_nm = false
 	{
 		*(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -4)*24))).minor)) = *(**struct_Expr)(unsafe.Pointer(&(*(*struct_yyStackEntry)(unsafe.Pointer(uintptr(unsafe.Pointer(yymsp)) - uintptr(- -1)*24))).minor))
 	}
-	goto _cgol_4
-_cgol_344:
+	goto _cgol_3
+_cgol_343:
 	_cgo_nm = false
 	func() int {
 		_ = 0
@@ -100966,11 +100981,11 @@ _cgol_344:
 		_ = 0
 		return 0
 	}()
-	goto _cgol_4
-	goto _cgol_4
-_cgol_343:
-	goto _cgol_344
-_cgol_4:
+	goto _cgol_3
+	goto _cgol_3
+_cgol_342:
+	goto _cgol_343
+_cgol_3:
 	func() int {
 		_ = 0
 		return 0
@@ -104923,7 +104938,7 @@ func jsonAppendSeparator(p *struct_JsonString) {
 	}
 }
 func jsonAppendString(p *struct_JsonString, zIn *int8, N uint32) {
-	var aSpecial_cgo4 [32]int8
+	var aSpecial_cgo1 [32]int8
 	var i uint32
 	if uintptr(unsafe.Pointer(zIn)) == uintptr(unsafe.Pointer(nil)) || uint64(N)+p.nUsed+uint64(2) >= p.nAlloc && jsonGrow(p, N+uint32(2)) != 0 {
 		return
@@ -104954,7 +104969,7 @@ func jsonAppendString(p *struct_JsonString, zIn *int8, N uint32) {
 		if !(int32(c) <= 31) {
 			goto _cgol_3
 		}
-		aSpecial_cgo4 = [32]int8{int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8('b'), int8('t'), int8('n'), int8(0), int8('f'), int8('r'), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0)}
+		aSpecial_cgo1 = [32]int8{int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8('b'), int8('t'), int8('n'), int8(0), int8('f'), int8('r'), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0), int8(0)}
 		func() int {
 			_ = 0
 			return 0
@@ -104979,12 +104994,12 @@ func jsonAppendString(p *struct_JsonString, zIn *int8, N uint32) {
 			_ = 0
 			return 0
 		}()
-		if !(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&aSpecial_cgo4)))) + uintptr(c))) != 0) {
-			goto _cgol_5
+		if !(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&aSpecial_cgo1)))) + uintptr(c))) != 0) {
+			goto _cgol_4
 		}
-		c = uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&aSpecial_cgo4)))) + uintptr(c))))
+		c = uint8(*(*int8)(unsafe.Pointer(uintptr(unsafe.Pointer((*int8)(unsafe.Pointer(&aSpecial_cgo1)))) + uintptr(c))))
 		goto json_simple_escape
-	_cgol_5:
+	_cgol_4:
 		if p.nUsed+uint64(N)+uint64(7)+uint64(i) > p.nAlloc && jsonGrow(p, N+uint32(7)-i) != 0 {
 			return
 		}
