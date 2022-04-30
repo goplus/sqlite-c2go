@@ -69,19 +69,19 @@ func __atomic_store_n_u16(*uint16, int32, uint16) {
 func __atomic_store_n_u32(*uint32, int32, uint32) {
 	panic("notimpl")
 }
-func __builtin___memcpy_chk(unsafe.Pointer, unsafe.Pointer, uint, uint) unsafe.Pointer {
+func __builtin___memcpy_chk(unsafe.Pointer, unsafe.Pointer, uint64, uint64) unsafe.Pointer {
 	panic("notimpl")
 }
-func __builtin___memmove_chk(unsafe.Pointer, unsafe.Pointer, uint, uint) unsafe.Pointer {
+func __builtin___memmove_chk(unsafe.Pointer, unsafe.Pointer, uint64, uint64) unsafe.Pointer {
 	panic("notimpl")
 }
-func __builtin___memset_chk(unsafe.Pointer, int32, uint, uint) unsafe.Pointer {
+func __builtin___memset_chk(unsafe.Pointer, int32, uint64, uint64) unsafe.Pointer {
 	panic("notimpl")
 }
-func __builtin___strlcat_chk(*int8, *int8, uint, uint) uint {
+func __builtin___strlcat_chk(*int8, *int8, uint64, uint64) uint64 {
 	panic("notimpl")
 }
-func __builtin___strlcpy_chk(*int8, *int8, uint, uint) uint {
+func __builtin___strlcpy_chk(*int8, *int8, uint64, uint64) uint64 {
 	panic("notimpl")
 }
 func __builtin_bswap32(uint32) uint32 {
@@ -111,7 +111,7 @@ func __builtin_inff() float32 {
 func __builtin_infl() float64 {
 	panic("notimpl")
 }
-func __builtin_object_size(unsafe.Pointer, int32) uint {
+func __builtin_object_size(unsafe.Pointer, int32) uint64 {
 	panic("notimpl")
 }
 func __darwin_check_fd_set_overflow(int32, unsafe.Pointer, int32) int32 {
